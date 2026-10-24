@@ -1,0 +1,20 @@
+# 本地工具与会话状态（不随项目发布）
+.dsh/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 构建、渲染与导出的中间产物（可由 _build 下脚本重新生成）
+_build/**/render*/
+_build/**/pdf/
+_build/**/*.pdf
+_build/**/tmp/
+_build/review/current/
+_build/review/extracted/
+
+# 系统与 Office 临时文件
+~$*
+Thumbs.db
+.DS_Store
+desktop.ini

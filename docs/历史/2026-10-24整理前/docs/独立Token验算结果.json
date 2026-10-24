@@ -1,0 +1,1109 @@
+{
+  "fixtureVersion": "v0.4",
+  "checks": 1025,
+  "scope": "独立个人账户、两场连续战斗、定向防护、支援、下线封存、恢复幂等与单人休息夹具；含DeepSeek预置满层边界和Kimi两回合个人回复片段；固定牌序及洗牌种子42；非可玩游戏，未验证完整地图经济、随机胜率、完整DeepSeek/Kimi专属卡或Boss",
+  "scenarios": [
+    {
+      "id": "route_1",
+      "entered": {
+        "GPT": 12,
+        "Claude": 12
+      },
+      "result": "win",
+      "turns": 3,
+      "settlement": {
+        "before": {
+          "GPT": 9,
+          "Claude": 7
+        },
+        "after": {
+          "GPT": 12,
+          "Claude": 10
+        }
+      },
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "actor": "GPT",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "actualHeal": 0
+            },
+            {
+              "actor": "Claude",
+              "action": "防护指令",
+              "target": "GPT",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "GPT",
+              "raw": 4,
+              "absorbed": 4,
+              "lost": 0,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 20,
+          "balances": {
+            "GPT": 11,
+            "Claude": 12
+          },
+          "online": [
+            "GPT",
+            "Claude"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "actor": "GPT",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 8,
+              "bonus": 2,
+              "actualHeal": 0
+            },
+            {
+              "actor": "Claude",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 10,
+              "bonus": 4,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "Claude",
+              "raw": 4,
+              "absorbed": 0,
+              "lost": 4,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 2,
+          "balances": {
+            "GPT": 10,
+            "Claude": 7
+          },
+          "online": [
+            "GPT",
+            "Claude"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "actor": "GPT",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 10,
+              "bonus": 4,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [],
+          "enemyHp": 0,
+          "balances": {
+            "GPT": 9,
+            "Claude": 7
+          },
+          "online": [
+            "GPT",
+            "Claude"
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "id": "route_2",
+      "entered": {
+        "GPT": 12,
+        "Claude": 10
+      },
+      "result": "win",
+      "turns": 3,
+      "settlement": {
+        "before": {
+          "GPT": 5,
+          "Claude": 9
+        },
+        "after": {
+          "GPT": 8,
+          "Claude": 12
+        }
+      },
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "actor": "GPT",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "actualHeal": 0
+            },
+            {
+              "actor": "Claude",
+              "action": "防护指令",
+              "target": "Claude",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "Claude",
+              "raw": 4,
+              "absorbed": 4,
+              "lost": 0,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 20,
+          "balances": {
+            "GPT": 11,
+            "Claude": 10
+          },
+          "online": [
+            "GPT",
+            "Claude"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "actor": "GPT",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 8,
+              "bonus": 2,
+              "actualHeal": 0
+            },
+            {
+              "actor": "Claude",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 10,
+              "bonus": 4,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "GPT",
+              "raw": 4,
+              "absorbed": 0,
+              "lost": 4,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 2,
+          "balances": {
+            "GPT": 6,
+            "Claude": 9
+          },
+          "online": [
+            "GPT",
+            "Claude"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "actor": "GPT",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 10,
+              "bonus": 4,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [],
+          "enemyHp": 0,
+          "balances": {
+            "GPT": 5,
+            "Claude": 9
+          },
+          "online": [
+            "GPT",
+            "Claude"
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "id": "rush",
+      "entered": {
+        "GPT": 12,
+        "Claude": 12
+      },
+      "result": "win",
+      "turns": 2,
+      "settlement": {
+        "before": {
+          "GPT": 6,
+          "Claude": 10
+        },
+        "after": {
+          "GPT": 9,
+          "Claude": 12
+        }
+      },
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "actor": "GPT",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "actualHeal": 0
+            },
+            {
+              "actor": "Claude",
+              "action": "强力指令",
+              "target": "enemy",
+              "cost": 2,
+              "damage": 10,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "GPT",
+              "raw": 4,
+              "absorbed": 0,
+              "lost": 4,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 10,
+          "balances": {
+            "GPT": 7,
+            "Claude": 10
+          },
+          "online": [
+            "GPT",
+            "Claude"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "actor": "GPT",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 8,
+              "bonus": 2,
+              "actualHeal": 0
+            },
+            {
+              "actor": "Claude",
+              "action": "基础攻击",
+              "target": "enemy",
+              "cost": 0,
+              "damage": 3,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [],
+          "enemyHp": 0,
+          "balances": {
+            "GPT": 6,
+            "Claude": 10
+          },
+          "online": [
+            "GPT",
+            "Claude"
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "id": "solo_1",
+      "entered": {
+        "base": 12
+      },
+      "result": "win",
+      "turns": 4,
+      "settlement": {
+        "before": {
+          "base": 4
+        },
+        "after": {
+          "base": 7
+        }
+      },
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 2,
+              "absorbed": 0,
+              "lost": 2,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 12,
+          "balances": {
+            "base": 9
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "防护指令",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 2,
+              "absorbed": 2,
+              "lost": 0,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 12,
+          "balances": {
+            "base": 9
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "强力指令",
+              "target": "enemy",
+              "cost": 2,
+              "damage": 10,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 2,
+              "absorbed": 0,
+              "lost": 2,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 2,
+          "balances": {
+            "base": 5
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [],
+          "enemyHp": 0,
+          "balances": {
+            "base": 4
+          },
+          "online": [
+            "base"
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "id": "solo_no_rest",
+      "entered": {
+        "base": 7
+      },
+      "result": "loss",
+      "turns": 3,
+      "settlement": null,
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 2,
+              "absorbed": 0,
+              "lost": 2,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 12,
+          "balances": {
+            "base": 4
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "防护指令",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 2,
+              "absorbed": 2,
+              "lost": 0,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 12,
+          "balances": {
+            "base": 4
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "强力指令",
+              "target": "enemy",
+              "cost": 2,
+              "damage": 10,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 2,
+              "absorbed": 0,
+              "lost": 2,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 2,
+          "balances": {
+            "base": 0
+          },
+          "online": [],
+          "result": "loss"
+        }
+      ]
+    },
+    {
+      "id": "solo_2",
+      "entered": {
+        "base": 12
+      },
+      "result": "win",
+      "turns": 4,
+      "settlement": {
+        "before": {
+          "base": 4
+        },
+        "after": {
+          "base": 7
+        }
+      },
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 2,
+              "absorbed": 0,
+              "lost": 2,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 12,
+          "balances": {
+            "base": 9
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "防护指令",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 2,
+              "absorbed": 2,
+              "lost": 0,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 12,
+          "balances": {
+            "base": 9
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "强力指令",
+              "target": "enemy",
+              "cost": 2,
+              "damage": 10,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 2,
+              "absorbed": 0,
+              "lost": 2,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 2,
+          "balances": {
+            "base": 5
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "标准指令",
+              "target": "enemy",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [],
+          "enemyHp": 0,
+          "balances": {
+            "base": 4
+          },
+          "online": [
+            "base"
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "id": "turtle",
+      "entered": {
+        "base": 12
+      },
+      "result": "loss",
+      "turns": 10,
+      "settlement": null,
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "基础防御",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 3,
+              "absorbed": 3,
+              "lost": 0,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 99,
+          "balances": {
+            "base": 12
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "基础防御",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 3,
+              "absorbed": 3,
+              "lost": 0,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 99,
+          "balances": {
+            "base": 12
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "基础防御",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 3,
+              "absorbed": 3,
+              "lost": 0,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 99,
+          "balances": {
+            "base": 12
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "基础防御",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 4,
+              "absorbed": 3,
+              "lost": 1,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 99,
+          "balances": {
+            "base": 11
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 5,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "基础防御",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 4,
+              "absorbed": 3,
+              "lost": 1,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 99,
+          "balances": {
+            "base": 10
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 6,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "基础防御",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 4,
+              "absorbed": 3,
+              "lost": 1,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 99,
+          "balances": {
+            "base": 9
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 7,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "基础防御",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 5,
+              "absorbed": 3,
+              "lost": 2,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 99,
+          "balances": {
+            "base": 7
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 8,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "基础防御",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 5,
+              "absorbed": 3,
+              "lost": 2,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 99,
+          "balances": {
+            "base": 5
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 9,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "基础防御",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 5,
+              "absorbed": 3,
+              "lost": 2,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 99,
+          "balances": {
+            "base": 3
+          },
+          "online": [
+            "base"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 10,
+          "actions": [
+            {
+              "actor": "base",
+              "action": "基础防御",
+              "target": "base",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [
+            {
+              "target": "base",
+              "raw": 6,
+              "absorbed": 3,
+              "lost": 3,
+              "skipped": false
+            }
+          ],
+          "enemyHp": 99,
+          "balances": {
+            "base": 0
+          },
+          "online": [],
+          "result": "loss"
+        }
+      ]
+    },
+    {
+      "id": "one_down",
+      "entered": {
+        "GPT": 2,
+        "Claude": 9,
+        "DeepSeek": 0
+      },
+      "result": "win",
+      "turns": 1,
+      "settlement": {
+        "before": {
+          "GPT": 0,
+          "Claude": 9,
+          "DeepSeek": 0
+        },
+        "after": {
+          "GPT": 0,
+          "Claude": 12,
+          "DeepSeek": 0
+        }
+      },
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "actor": "Claude",
+              "action": "基础攻击",
+              "target": "enemy",
+              "cost": 0,
+              "damage": 3,
+              "bonus": 0,
+              "actualHeal": 0
+            }
+          ],
+          "enemyEvents": [],
+          "enemyHp": 0,
+          "balances": {
+            "GPT": 0,
+            "Claude": 9,
+            "DeepSeek": 0
+          },
+          "online": [
+            "Claude"
+          ],
+          "result": "win"
+        }
+      ]
+    }
+  ],
+  "finalRouteBalances": {
+    "GPT": 8,
+    "Claude": 12
+  },
+  "finalSoloBalances": {
+    "base": 7
+  }
+}

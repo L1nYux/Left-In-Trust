@@ -1,0 +1,135 @@
+[
+  {
+    "file": "总览.docx",
+    "pages": [
+      "_build\\review\\render\\总览\\page-1.png",
+      "_build\\review\\render\\总览\\page-2.png"
+    ]
+  },
+  {
+    "file": "玩法.docx",
+    "pages": [
+      "_build\\review\\render\\玩法\\page-1.png",
+      "_build\\review\\render\\玩法\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\00_索引.docx",
+    "pages": [
+      "_build\\review\\render\\00_索引\\page-1.png",
+      "_build\\review\\render\\00_索引\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\01_GPT.docx",
+    "pages": [
+      "_build\\review\\render\\01_GPT\\page-1.png",
+      "_build\\review\\render\\01_GPT\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\02_Claude.docx",
+    "pages": [
+      "_build\\review\\render\\02_Claude\\page-1.png",
+      "_build\\review\\render\\02_Claude\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\03_Gemini.docx",
+    "pages": [
+      "_build\\review\\render\\03_Gemini\\page-1.png",
+      "_build\\review\\render\\03_Gemini\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\04_Grok.docx",
+    "pages": [
+      "_build\\review\\render\\04_Grok\\page-1.png",
+      "_build\\review\\render\\04_Grok\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\05_DeepSeek.docx",
+    "pages": [
+      "_build\\review\\render\\05_DeepSeek\\page-1.png",
+      "_build\\review\\render\\05_DeepSeek\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\06_Kimi.docx",
+    "pages": [
+      "_build\\review\\render\\06_Kimi\\page-1.png",
+      "_build\\review\\render\\06_Kimi\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\07_GLM.docx",
+    "pages": [
+      "_build\\review\\render\\07_GLM\\page-1.png",
+      "_build\\review\\render\\07_GLM\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\08_Qwen.docx",
+    "pages": [
+      "_build\\review\\render\\08_Qwen\\page-1.png",
+      "_build\\review\\render\\08_Qwen\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\09_Seed.docx",
+    "pages": [
+      "_build\\review\\render\\09_Seed\\page-1.png",
+      "_build\\review\\render\\09_Seed\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\10_MiniMax.docx",
+    "pages": [
+      "_build\\review\\render\\10_MiniMax\\page-1.png",
+      "_build\\review\\render\\10_MiniMax\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\11_Llama.docx",
+    "pages": [
+      "_build\\review\\render\\11_Llama\\page-1.png",
+      "_build\\review\\render\\11_Llama\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\12_Mistral.docx",
+    "pages": [
+      "_build\\review\\render\\12_Mistral\\page-1.png",
+      "_build\\review\\render\\12_Mistral\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\13_Perplexity.docx",
+    "pages": [
+      "_build\\review\\render\\13_Perplexity\\page-1.png",
+      "_build\\review\\render\\13_Perplexity\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\14_文心.docx",
+    "pages": [
+      "_build\\review\\render\\14_文心\\page-1.png",
+      "_build\\review\\render\\14_文心\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\15_Jev.docx",
+    "pages": [
+      "_build\\review\\render\\15_Jev\\page-1.png",
+      "_build\\review\\render\\15_Jev\\page-2.png"
+    ]
+  },
+  {
+    "file": "角色设定\\性格\\16_Muse.docx",
+    "pages": [
+      "_build\\review\\render\\16_Muse\\page-1.png",
+      "_build\\review\\render\\16_Muse\\page-2.png"
+    ]
+  }
+]

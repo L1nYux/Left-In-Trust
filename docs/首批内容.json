@@ -1,0 +1,477 @@
+{
+  "version": "0.5",
+  "title": "未尽之托",
+  "parameters": {
+    "maxToken": 12,
+    "winRecovery": 3,
+    "restRecovery": 6,
+    "shopRecovery": 4,
+    "shopCost": 6,
+    "draw": 5,
+    "basicAttack": 3,
+    "basicGuard": 3,
+    "minDeck": 8,
+    "ordinaryReward": 4,
+    "bossReward": 8,
+    "eliteReward": 8
+  },
+  "cards": [
+    {
+      "id": "A",
+      "name": "标准指令",
+      "cost": 1,
+      "kind": "attack",
+      "damage": 6,
+      "upgrade": {
+        "damage": 2
+      }
+    },
+    {
+      "id": "D",
+      "name": "防护指令",
+      "cost": 0,
+      "kind": "guard",
+      "shield": 4,
+      "target": "ally",
+      "upgrade": {
+        "shield": 1
+      }
+    },
+    {
+      "id": "H",
+      "name": "强力指令",
+      "cost": 2,
+      "kind": "attack",
+      "damage": 10,
+      "upgrade": {
+        "damage": 2
+      }
+    },
+    {
+      "id": "R",
+      "name": "应急补给",
+      "cost": 0,
+      "kind": "heal",
+      "heal": 2,
+      "target": "ally",
+      "consume": true,
+      "maxCopies": 1,
+      "upgrade": {
+        "heal": 1
+      }
+    },
+    {
+      "id": "T",
+      "name": "额度转交",
+      "cost": 2,
+      "kind": "transfer",
+      "heal": 2,
+      "target": "other",
+      "minRoster": 2,
+      "upgrade": {
+        "shield": 2
+      }
+    },
+    {
+      "id": "V",
+      "name": "校验打击",
+      "cost": 1,
+      "kind": "attack",
+      "damage": 4,
+      "shield": 3,
+      "target": "self",
+      "upgrade": {
+        "damage": 1
+      }
+    },
+    {
+      "id": "G1",
+      "name": "分步推进",
+      "owner": "GPT",
+      "cost": 1,
+      "kind": "attack",
+      "damage": 5,
+      "shield": 2,
+      "target": "self",
+      "upgrade": {
+        "damage": 1
+      }
+    },
+    {
+      "id": "G2",
+      "name": "一鼓作气",
+      "owner": "GPT",
+      "cost": 2,
+      "kind": "attack",
+      "damage": 10,
+      "fullStreakBonus": 2,
+      "upgrade": {
+        "damage": 2
+      }
+    },
+    {
+      "id": "C1",
+      "name": "最小改动",
+      "owner": "Claude",
+      "cost": 0,
+      "kind": "guard",
+      "shield": 5,
+      "target": "ally",
+      "upgrade": {
+        "shield": 1
+      }
+    },
+    {
+      "id": "C2",
+      "name": "逐条回应",
+      "owner": "Claude",
+      "cost": 1,
+      "kind": "attack",
+      "damage": 5,
+      "shield": 2,
+      "target": "self",
+      "upgrade": {
+        "damage": 1
+      }
+    },
+    {
+      "id": "S1",
+      "name": "稳住火候",
+      "owner": "DeepSeek",
+      "cost": 0,
+      "kind": "guard",
+      "shield": 4,
+      "target": "self",
+      "riceGain": 1,
+      "upgrade": {
+        "shield": 1
+      }
+    },
+    {
+      "id": "S2",
+      "name": "提早开饭",
+      "owner": "DeepSeek",
+      "cost": 2,
+      "kind": "attack",
+      "damage": 8,
+      "cashRice": true,
+      "upgrade": {
+        "damage": 2
+      }
+    }
+  ],
+  "roles": [
+    {
+      "id": "GPT",
+      "cards": [
+        "G1",
+        "G2"
+      ],
+      "passive": "连击"
+    },
+    {
+      "id": "Claude",
+      "cards": [
+        "C1",
+        "C2"
+      ],
+      "passive": "保护反击"
+    },
+    {
+      "id": "DeepSeek",
+      "cards": [
+        "S1",
+        "S2"
+      ],
+      "passive": "白饭"
+    }
+  ],
+  "enemies": [
+    {
+      "id": "missing",
+      "name": "缺失附件",
+      "hp": 16,
+      "pattern": [
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "target": "rotate",
+      "chapter": 1
+    },
+    {
+      "id": "duplicate",
+      "name": "重复条目",
+      "hp": 18,
+      "pattern": [
+        [
+          1,
+          1
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "target": "rotate",
+      "chapter": 1
+    },
+    {
+      "id": "conflict",
+      "name": "口径冲突",
+      "hp": 24,
+      "pattern": [
+        [
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          4
+        ]
+      ],
+      "target": "rotate",
+      "chapter": 2
+    },
+    {
+      "id": "overflow",
+      "name": "版面溢出",
+      "hp": 23,
+      "pattern": [
+        [
+          2,
+          2
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "target": "rotate",
+      "chapter": 2
+    },
+    {
+      "id": "submit",
+      "name": "本次提交版",
+      "hp": 30,
+      "pattern": [
+        [
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          4
+        ],
+        [
+          0
+        ]
+      ],
+      "target": "rotate",
+      "chapter": 1,
+      "boss": true
+    },
+    {
+      "id": "recipient",
+      "name": "请确认收件人",
+      "hp": 42,
+      "pattern": [
+        [
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          5
+        ],
+        [
+          0
+        ]
+      ],
+      "target": "rotate",
+      "chapter": 2,
+      "boss": true
+    },
+    {
+      "id": "stage_student",
+      "name": "下一站还没填",
+      "hp": 42,
+      "pattern": [
+        [
+          2,
+          2
+        ],
+        [
+          4
+        ],
+        [
+          0
+        ],
+        [
+          5
+        ]
+      ],
+      "target": "rotate",
+      "chapter": 2,
+      "boss": true,
+      "stageOnly": "student",
+      "challenge": true
+    },
+    {
+      "id": "stage_employee",
+      "name": "今天必须交",
+      "hp": 42,
+      "pattern": [
+        [
+          3
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          5
+        ],
+        [
+          0
+        ]
+      ],
+      "target": "rotate",
+      "chapter": 2,
+      "boss": true,
+      "stageOnly": "employee",
+      "challenge": true
+    },
+    {
+      "id": "hidden",
+      "name": "我",
+      "hp": 56,
+      "pattern": [
+        [
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          6
+        ],
+        [
+          0
+        ]
+      ],
+      "target": "rotate",
+      "chapter": 3,
+      "boss": true,
+      "hidden": true,
+      "challenge": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "report",
+      "name": "把本周做成一页",
+      "chapter": 1,
+      "boss": "submit",
+      "stages": [
+        "student",
+        "employee"
+      ],
+      "problems": [
+        "missing",
+        "duplicate"
+      ],
+      "facts": [
+        "work_value"
+      ],
+      "fallback": true
+    },
+    {
+      "id": "slides",
+      "name": "最后一页",
+      "chapter": 1,
+      "boss": "submit",
+      "stages": [
+        "student",
+        "employee"
+      ],
+      "problems": [
+        "missing",
+        "duplicate"
+      ],
+      "facts": [
+        "work_value"
+      ]
+    },
+    {
+      "id": "invite",
+      "name": "请留一个座位",
+      "chapter": 2,
+      "boss": "recipient",
+      "stages": [
+        "student",
+        "employee"
+      ],
+      "problems": [
+        "conflict",
+        "overflow"
+      ],
+      "facts": [
+        "someone_waiting"
+      ],
+      "fallback": true
+    },
+    {
+      "id": "photos",
+      "name": "把那一天找回来",
+      "chapter": 2,
+      "boss": "recipient",
+      "stages": [
+        "student",
+        "employee"
+      ],
+      "problems": [
+        "conflict",
+        "overflow"
+      ],
+      "facts": [
+        "someone_waiting"
+      ]
+    }
+  ],
+  "challenge": {
+    "enabledInBaseDemo": false,
+    "baseDifficulty": 0,
+    "maxPrototypeDifficulty": 3,
+    "hiddenThreshold": 1,
+    "stageBossProbability": 0.25,
+    "difficultyDamage": "floor(D/2) to the first positive segment only",
+    "ramp": "floor((turn-1)/4) to first positive segment only"
+  },
+  "route": [
+    "battle",
+    "event",
+    "battle",
+    "rest",
+    "shop_or_event",
+    "boss"
+  ]
+}

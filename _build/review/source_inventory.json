@@ -1,0 +1,400 @@
+[
+  {
+    "path": "docs/AI任务视角与高难隐藏Boss方案.md",
+    "bytes": 12221,
+    "sha256": "c9fc876a9eb4db9478eac8ddaa79ed175e70e2e97e30b6b14d7e3f246bd6a06f"
+  },
+  {
+    "path": "docs/Demo范围.md",
+    "bytes": 26623,
+    "sha256": "b0b3b43ccaa4698fffd68392428ff4066d76a23baa45f48b837e5aae9e74fa1f"
+  },
+  {
+    "path": "docs/人生阶段与随机Boss叙事方案.md",
+    "bytes": 16006,
+    "sha256": "23c3ec0a7a5685b00b7a370a4af89872e9af99fb3ffef08a6b5c3b4f68fc366b"
+  },
+  {
+    "path": "docs/决策记录.md",
+    "bytes": 44170,
+    "sha256": "bee77b395d376cd9d599f1d86534e5daf3b1e7705252f36524f50ce2173c4ef3"
+  },
+  {
+    "path": "docs/独立Token与跨战斗玩法方案.md",
+    "bytes": 18198,
+    "sha256": "a1598fc3b108670e803d2a781e8f40cd44330f0a1e043365230f81aed8d5355e"
+  },
+  {
+    "path": "docs/独立Token玩法推演.md",
+    "bytes": 7938,
+    "sha256": "77f5875fdfd3bc40b8745ddaed16bf830d6bdc199d601841ff5501f874eaeee7"
+  },
+  {
+    "path": "docs/独立Token验算结果.json",
+    "bytes": 24391,
+    "sha256": "28e4e0a12da6bae300c59c1fdc9cc67128c3c24da497fd60a6ba72d76c653b3a"
+  },
+  {
+    "path": "docs/玩法完善方案.md",
+    "bytes": 21215,
+    "sha256": "d291d646f8391d0f1e06e87dc7de9c1b52d2bd80a531f3745c3a88edca5c8c9d"
+  },
+  {
+    "path": "docs/玩法推演.md",
+    "bytes": 7435,
+    "sha256": "4b326d2efab944ae578996ecc6d1497ad0706305130f9b3d7e141ff4a22bc1e2"
+  },
+  {
+    "path": "docs/玩法验算结果.json",
+    "bytes": 16094,
+    "sha256": "02e451ba5cb568666bc0cef72d9d8f7b16789e7dd539aa846100c12d908a69d0"
+  },
+  {
+    "path": "docs/规则基准.md",
+    "bytes": 54787,
+    "sha256": "28fa284d21417b7f61d1fdea53d23985adbb21d2fa4fd7d43d657b7be5c480b0"
+  },
+  {
+    "path": "docs/角色玩法推演.md",
+    "bytes": 6362,
+    "sha256": "c773a8128fb3617925782991603299f563e0e3e8858e6164d176c41d0ff0247a"
+  },
+  {
+    "path": "docs/角色玩法验算结果.json",
+    "bytes": 27970,
+    "sha256": "c01af1e33b1c5e872810cc81cffafd7c733cbd719fcf08194c950dad6e60ee8c"
+  },
+  {
+    "path": "docs/角色设定同步记录.md",
+    "bytes": 5513,
+    "sha256": "9556b475e9093996f931e3c93c949243e6c8c08e074113b17c9969ad4099b35c"
+  },
+  {
+    "path": "docs/角色驱动玩法方案.md",
+    "bytes": 17319,
+    "sha256": "109d16ec8f3b820354acf9215ad9ed745a6549dd331f05f8242b4d39b57cd290"
+  },
+  {
+    "path": "docs/阶段交接.md",
+    "bytes": 18562,
+    "sha256": "8f847b10d3635f62472d0d45f5b3edc7d253c2f94c5a28d86286ca60a6de4de8"
+  },
+  {
+    "path": "剧情大纲_v1.md",
+    "bytes": 18008,
+    "sha256": "c20bc91f5b50266c3400623f5edab65d4536f3087c2455e335b120bbfbb5feba"
+  },
+  {
+    "path": "剧情大纲_v2.md",
+    "bytes": 30919,
+    "sha256": "8bcffc8a2bfe92f58ec0122c8ee7cbd78997e58e5cb2921509accfb1736db8e0"
+  },
+  {
+    "path": "剧情大纲_v3.md",
+    "bytes": 23438,
+    "sha256": "b687d1f670c2d8f9c2cd57bd0398e54a59ccd22f3994c7816e80ae5cf670dfe3"
+  },
+  {
+    "path": "总览.docx",
+    "bytes": 33104,
+    "sha256": "23b7dd44ba21c8ff0b98b0d48960322b67a3533a83ae8b9513e64a2f46666d1f",
+    "extracted": "_build/review/extracted/总览.txt",
+    "paragraphs": 217
+  },
+  {
+    "path": "玩法.docx",
+    "bytes": 27474,
+    "sha256": "3c51e294d6ef45248ea3579f79c4df0db23378d888a7a7bc7f2c0dd1b1598440",
+    "extracted": "_build/review/extracted/玩法.txt",
+    "paragraphs": 254
+  },
+  {
+    "path": "角色设定/性格/00_索引.docx",
+    "bytes": 45660,
+    "sha256": "fee08b36e7866383a497887472a669b0b44af046d3a85e093ab8dc8822f22a31",
+    "extracted": "_build/review/extracted/00_索引.txt",
+    "paragraphs": 44
+  },
+  {
+    "path": "角色设定/性格/01_GPT.docx",
+    "bytes": 45026,
+    "sha256": "ea057ecbd2b630001d176ee835935ee67bf1f8f31d9a6268dc13405150cae2cc",
+    "extracted": "_build/review/extracted/01_GPT.txt",
+    "paragraphs": 99
+  },
+  {
+    "path": "角色设定/性格/02_Claude.docx",
+    "bytes": 45128,
+    "sha256": "6e71fe576045698ef6f172c03de141b4130aa5c44105f509806fd1d9791b187f",
+    "extracted": "_build/review/extracted/02_Claude.txt",
+    "paragraphs": 99
+  },
+  {
+    "path": "角色设定/性格/03_Gemini.docx",
+    "bytes": 44300,
+    "sha256": "3071c632aa8f4fd3d0b51a9888ba1577f2c7b2954b6c0dba79e4406153f34670",
+    "extracted": "_build/review/extracted/03_Gemini.txt",
+    "paragraphs": 96
+  },
+  {
+    "path": "角色设定/性格/04_Grok.docx",
+    "bytes": 44913,
+    "sha256": "12f7a0e678aa202d35dbfd1dce9b10bea75f21ab98bbb03be6df97b8eefad96b",
+    "extracted": "_build/review/extracted/04_Grok.txt",
+    "paragraphs": 103
+  },
+  {
+    "path": "角色设定/性格/05_DeepSeek.docx",
+    "bytes": 45960,
+    "sha256": "9e516df7011598aa7f6172dc42b365cc48f282212783d64b88f551c88d26868c",
+    "extracted": "_build/review/extracted/05_DeepSeek.txt",
+    "paragraphs": 106
+  },
+  {
+    "path": "角色设定/性格/06_Kimi.docx",
+    "bytes": 45776,
+    "sha256": "b711a7da913f148849dfc6c163783530e88ed302d2bd73f70aac0d174b57b7c2",
+    "extracted": "_build/review/extracted/06_Kimi.txt",
+    "paragraphs": 106
+  },
+  {
+    "path": "角色设定/性格/07_GLM.docx",
+    "bytes": 43995,
+    "sha256": "73b6f3eb3c0ecb08affd7fc5e85a5961ac5f40a615529045048fd95c4e4e1217",
+    "extracted": "_build/review/extracted/07_GLM.txt",
+    "paragraphs": 92
+  },
+  {
+    "path": "角色设定/性格/08_Qwen.docx",
+    "bytes": 44167,
+    "sha256": "da89705e21bd1ddecde8a1cd7ac4fa1fcc441d944c3746da98781753f9aed4e3",
+    "extracted": "_build/review/extracted/08_Qwen.txt",
+    "paragraphs": 92
+  },
+  {
+    "path": "角色设定/性格/09_Seed.docx",
+    "bytes": 44256,
+    "sha256": "2dec8fec4d7849254321639bd50c94e81638f53e8c22b6a99febd80e9716ec51",
+    "extracted": "_build/review/extracted/09_Seed.txt",
+    "paragraphs": 93
+  },
+  {
+    "path": "角色设定/性格/10_MiniMax.docx",
+    "bytes": 44124,
+    "sha256": "1801e1eb268ba9ab630e1541e17910e2dab8f83d5cb901b05a3c1e3f56c14e10",
+    "extracted": "_build/review/extracted/10_MiniMax.txt",
+    "paragraphs": 94
+  },
+  {
+    "path": "角色设定/性格/11_Llama.docx",
+    "bytes": 44518,
+    "sha256": "ea69007c7c7c75a729019bb992d8f55bded0d161381cbc0387d75821272f4c1e",
+    "extracted": "_build/review/extracted/11_Llama.txt",
+    "paragraphs": 93
+  },
+  {
+    "path": "角色设定/性格/12_Mistral.docx",
+    "bytes": 44360,
+    "sha256": "3de033e3a431ec0c4cf7189653b55e6aaf114f8fbcf0c3dea13e74658e1053c2",
+    "extracted": "_build/review/extracted/12_Mistral.txt",
+    "paragraphs": 93
+  },
+  {
+    "path": "角色设定/性格/13_Perplexity.docx",
+    "bytes": 44466,
+    "sha256": "b5b051b2804a8b5fb06a91411029b0255d29fa37d91109e34236136aa29fcd77",
+    "extracted": "_build/review/extracted/13_Perplexity.txt",
+    "paragraphs": 97
+  },
+  {
+    "path": "角色设定/性格/14_文心.docx",
+    "bytes": 43985,
+    "sha256": "89c210175d28058f1008130393c1d30a13136561d23b3f915e26d7d96722c277",
+    "extracted": "_build/review/extracted/14_文心.txt",
+    "paragraphs": 93
+  },
+  {
+    "path": "角色设定/性格/15_Jev.docx",
+    "bytes": 44729,
+    "sha256": "e66fbfc99fbba3d8696ea01bdf16b7b205956323e897f8ce52e9b1fd6d157566",
+    "extracted": "_build/review/extracted/15_Jev.txt",
+    "paragraphs": 90
+  },
+  {
+    "path": "角色设定/性格/16_Muse.docx",
+    "bytes": 43827,
+    "sha256": "41dc4d9aeee9262b20a33f102db5b9005d808a6ba565f1e60011564f5284181d",
+    "extracted": "_build/review/extracted/16_Muse.txt",
+    "paragraphs": 77
+  },
+  {
+    "path": "角色设定/性格/改.txt",
+    "bytes": 1246,
+    "sha256": "16a92a3bf953ca0ef33b9b30a5794b0d3c59545b75b415c5d5600e49f6d008ac"
+  },
+  {
+    "path": "角色设定/性格/改2.txt",
+    "bytes": 537,
+    "sha256": "aa40b549a26b8389543a75a24dfcecad72171bb1d60ffc026c10951ebf227e7d"
+  },
+  {
+    "path": "角色设定/性格审阅与轻喜剧调整建议.md",
+    "bytes": 20254,
+    "sha256": "6a3badbc8fa0e7919b9fea40b4f5e8834c7bcb169dd6f53ed2609e0f4d4f5b8e"
+  },
+  {
+    "path": "角色设定/美术/Claude/claude.webp",
+    "bytes": 88230,
+    "sha256": "6d87faf0637574c76e817c5e800e03863a5049b63837aab492bdf0f801ebd7be"
+  },
+  {
+    "path": "角色设定/美术/DeepSeek/deepseek-harness.webp",
+    "bytes": 44722,
+    "sha256": "4cb639b2b54779a220dc38af95447ac0e51b21cfd2dea75631bb331cf6d77d67"
+  },
+  {
+    "path": "角色设定/美术/DeepSeek/deepseek-maid-reference-1.webp",
+    "bytes": 48448,
+    "sha256": "2b372edc337b7c8a4343b0d2910c5b972316d0f8dea696820ea9c5e45ef7b103"
+  },
+  {
+    "path": "角色设定/美术/DeepSeek/deepseek.webp",
+    "bytes": 56738,
+    "sha256": "00ab12104f9bbc09cba89415c65853b181d8ca99efc7f9d60e99021c159df76c"
+  },
+  {
+    "path": "角色设定/美术/DeepSeek/miniseek-sheet.png",
+    "bytes": 2166343,
+    "sha256": "75e75202aa88f2c6a8589b9f2fc244773f18487d7472bfc51d84f96b2ee06425"
+  },
+  {
+    "path": "角色设定/美术/DeepSeek/miniseek.jpg",
+    "bytes": 137305,
+    "sha256": "4de5137eae4ae6912aae1c516beb43e9be5b7eefc7a71d410b6bc963803442c3"
+  },
+  {
+    "path": "角色设定/美术/DeepSeek/miniseek1.jpg",
+    "bytes": 88974,
+    "sha256": "31fc3ffa98596c04a1e24bb71f8ba9436c9004a669508dbefd23a111239a9c09"
+  },
+  {
+    "path": "角色设定/美术/Gemini/gemini.webp",
+    "bytes": 67634,
+    "sha256": "2908e038fa676e266b75555c70770bda8a2db271e519e87a76a6c2cc3bfedfba"
+  },
+  {
+    "path": "角色设定/美术/GLM/glm-reference.webp",
+    "bytes": 60404,
+    "sha256": "7aa1e6e292bf600b4bb0241e80ee0b2b6be77b7c55cf4c37c3058046f102d1fe"
+  },
+  {
+    "path": "角色设定/美术/GLM/glm.webp",
+    "bytes": 59284,
+    "sha256": "f4c0c7fee49318d213e419369bcafa86911c9f0f56736b4c823938967b5dba69"
+  },
+  {
+    "path": "角色设定/美术/GPT/gpt-astra.webp",
+    "bytes": 82370,
+    "sha256": "e743005e13c7b225c4c2080bf2b340eb8c794c8b8df6d3af66497530920761df"
+  },
+  {
+    "path": "角色设定/美术/GPT/gpt-codex-reference.webp",
+    "bytes": 26812,
+    "sha256": "b0e53cb30d408b71ca0fbf922b912e3dd00c38bbdf2ae843f395f251bf789370"
+  },
+  {
+    "path": "角色设定/美术/GPT/gpt-image2-reference.webp",
+    "bytes": 65408,
+    "sha256": "04c31f5ceec5e4fafc838a0f08be7f23f28ddf51093c5f61869a5d925a4f8a29"
+  },
+  {
+    "path": "角色设定/美术/GPT/gpt-image2.webp",
+    "bytes": 70248,
+    "sha256": "b26ea2b6228f6d25802ffe93cf66bb5f538bf6bacf357c74336025ad26583560"
+  },
+  {
+    "path": "角色设定/美术/GPT/gpt-reference.webp",
+    "bytes": 68344,
+    "sha256": "b83e49bbac19acbcc196b214eb47d2bdf56149377516c7b8eefeaf15f8d17ea5"
+  },
+  {
+    "path": "角色设定/美术/GPT/gpt.webp",
+    "bytes": 132648,
+    "sha256": "5304f749915f1c0a17099e952aad188ce4988beca482da656a19f38dd892149d"
+  },
+  {
+    "path": "角色设定/美术/Grok/grok.webp",
+    "bytes": 71930,
+    "sha256": "b4ffb679e394a267e4c1339718022ed7252bcf8bd45d620975d7acfd072f7a39"
+  },
+  {
+    "path": "角色设定/美术/Jev/jev.webp",
+    "bytes": 89998,
+    "sha256": "0b93b12e05708a73678e3acb378dc5cf44252d6cdbfb0e24b81ec088ed6b81d7"
+  },
+  {
+    "path": "角色设定/美术/Kimi/kimi-reference.webp",
+    "bytes": 53102,
+    "sha256": "c05247a45aa5422b1954d4b94081c1849529ea21c32802da8c0431ca4224efcc"
+  },
+  {
+    "path": "角色设定/美术/Kimi/kimi.webp",
+    "bytes": 61606,
+    "sha256": "40cf586363f5b39c0c2f5f5b72224ddfef7119a7263b09ccc48427f04b9f93e1"
+  },
+  {
+    "path": "角色设定/美术/Llama/llama.webp",
+    "bytes": 33566,
+    "sha256": "eb4906368e951afcad3f4eb1084e7c5091b61c38779b52f2302a0e87824bc9f3"
+  },
+  {
+    "path": "角色设定/美术/MiniMax/minimax.webp",
+    "bytes": 53672,
+    "sha256": "21dc9a67d7116de895b5c11f3bf65c1161f21e048cfbc5f819d6c3fcfb9ee5df"
+  },
+  {
+    "path": "角色设定/美术/Mistral/mistral.webp",
+    "bytes": 159272,
+    "sha256": "408de95afbacd5df1c0c1d87b0e2aa58dc53035f1fffc86ee070846123af550f"
+  },
+  {
+    "path": "角色设定/美术/Muse/Muse.png",
+    "bytes": 1801005,
+    "sha256": "fa9750b2f654312b37831fbcc8fd7190ec48f193085da9baa33270232705ad46"
+  },
+  {
+    "path": "角色设定/美术/Perplexity/perplexity.webp",
+    "bytes": 85286,
+    "sha256": "28caf48aeaf348d91c5d62a39d20d800bdb441ed960fa127061cd9b1e928fa68"
+  },
+  {
+    "path": "角色设定/美术/Qwen/qwen-reference.webp",
+    "bytes": 82058,
+    "sha256": "0a083aa4441a13e6d97603a6c7c2f7eadfd5aefccff887f0be40b573cc0ffe08"
+  },
+  {
+    "path": "角色设定/美术/Qwen/qwen.webp",
+    "bytes": 66976,
+    "sha256": "246910269f9d3cebe3b2a4ac7a0103ae4c8a0504d2073f4066e6e3441ac90702"
+  },
+  {
+    "path": "角色设定/美术/Seed/seed.webp",
+    "bytes": 51162,
+    "sha256": "de46d65e98b74f2b2b2f752d18be447a09183ccaf459425ad031816967501208"
+  },
+  {
+    "path": "角色设定/美术/形象来源.txt",
+    "bytes": 41,
+    "sha256": "309016d921f9e80122082b8b0641c6b2206bfef75b08d65797153edc7dc5756e"
+  },
+  {
+    "path": "角色设定/美术/文心/wenxin.webp",
+    "bytes": 91062,
+    "sha256": "3020f881f30aa506b2c3ac2abdec7193818c5ce3e259fd8a52cd5e1b8fbaf916"
+  },
+  {
+    "path": "项目推进流程与AI提示词.md",
+    "bytes": 26072,
+    "sha256": "e8ac6dc8e77efdcf8f44ba328f9b3e896b810599f450577ccc28dc54fc304147"
+  }
+]

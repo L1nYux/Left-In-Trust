@@ -1,0 +1,762 @@
+{
+  "version": "0.5",
+  "deterministicTests": 34,
+  "tests": [
+    "十二卡种与升级定义有效",
+    "四任务两阶段无空池且随机可变",
+    "个人支付不足不借队友且非法操作原子拒绝",
+    "满血补给不消耗牌或行动",
+    "专属归属与每人一次行动",
+    "定向防护逐段消耗且不保护施加者",
+    "锁定目标下线不转火且专属牌封存",
+    "群攻展开后独立扣各目标",
+    "全上场失败时替补不救场不获胜后回复",
+    "胜利立即停手且不受敌方后续攻击",
+    "转交守恒与目标限制",
+    "补给消耗且奖励池不能增加第二份",
+    "GPT基础攻击断连击",
+    "Claude实际挡伤得到反击，基本攻击可兑现",
+    "Claude施盾后下线仍保留队友防护，自己无新反击",
+    "DeepSeek主动蓄力与满层时点",
+    "DeepSeek提前兑现不双算满层，普通强牌仍满层加六",
+    "自然恢复含替补、不复起、下一战不回满",
+    "重载结算去重与同节点冲突拒绝",
+    "休息复起限次、商店失败不扣钱",
+    "招募未解锁角色可达且旧钱包不重置",
+    "升级仅一次与最少八张删卡边界",
+    "收藏不同尝试不重复、不同阶段分别收藏",
+    "主要结局纯成功可达且不能混拼阶段",
+    "隐藏阈值严格大于且阶段关底不影响触发",
+    "隐藏失败保留普通成果与下一档解锁",
+    "隐藏阶段与队伍会改变脚本但出牌不改预告",
+    "同种子牌序及战中JSON往返确定",
+    "持续基础防御不能无限拖延",
+    "难度只能开局选已开放档",
+    "白饭提前一层兑现有独立收益",
+    "Claude没有实际挡伤不生成新反击",
+    "下线普通回复不能复活",
+    "商店满额与已用服务不扣钱"
+  ],
+  "scope": "离线数据规则模型；600个单人首章策略样本、120个受损双人第二章样本、120个全程D2两章加隐藏样本。启发式策略不代表真人或最优策略。JSON往返非真实落盘。",
+  "soloSamples": [
+    {
+      "role": "GPT",
+      "policy": "rush",
+      "seeds": 100,
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 6.47,
+      "meanTurnsPerAttempt": 7.18,
+      "firstFailure": null
+    },
+    {
+      "role": "GPT",
+      "policy": "budget",
+      "seeds": 100,
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 6.47,
+      "meanTurnsPerAttempt": 7.18,
+      "firstFailure": null
+    },
+    {
+      "role": "Claude",
+      "policy": "rush",
+      "seeds": 100,
+      "wins": 99,
+      "winRate": 0.99,
+      "meanFinalTokenOnWins": 4.78,
+      "meanTurnsPerAttempt": 8.49,
+      "firstFailure": {
+        "seed": 50,
+        "node": 2,
+        "enemy": "submit",
+        "result": "loss",
+        "log": [
+          {
+            "turn": 1,
+            "hp": 20,
+            "balances": {
+              "Claude": 8
+            },
+            "events": [
+              {
+                "target": "Claude",
+                "absorbed": 0,
+                "lost": 2,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 2,
+            "hp": 17,
+            "balances": {
+              "Claude": 6
+            },
+            "events": [
+              {
+                "target": "Claude",
+                "absorbed": 0,
+                "lost": 1,
+                "skipped": false
+              },
+              {
+                "target": "Claude",
+                "absorbed": 0,
+                "lost": 1,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 3,
+            "hp": 11,
+            "balances": {
+              "Claude": 1
+            },
+            "events": [
+              {
+                "target": "Claude",
+                "absorbed": 0,
+                "lost": 4,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 4,
+            "hp": 8,
+            "balances": {
+              "Claude": 1
+            },
+            "events": [],
+            "result": "ongoing"
+          },
+          {
+            "turn": 5,
+            "hp": 8,
+            "balances": {
+              "Claude": 1
+            },
+            "events": [
+              {
+                "target": "Claude",
+                "absorbed": 3,
+                "lost": 0,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 6,
+            "hp": 8,
+            "balances": {
+              "Claude": 1
+            },
+            "events": [
+              {
+                "target": "Claude",
+                "absorbed": 2,
+                "lost": 0,
+                "skipped": false
+              },
+              {
+                "target": "Claude",
+                "absorbed": 1,
+                "lost": 0,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 7,
+            "hp": 1,
+            "balances": {
+              "Claude": 0
+            },
+            "events": [
+              {
+                "target": "Claude",
+                "absorbed": 0,
+                "lost": 1,
+                "skipped": false
+              }
+            ],
+            "result": "loss"
+          }
+        ]
+      }
+    },
+    {
+      "role": "Claude",
+      "policy": "budget",
+      "seeds": 100,
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 7.02,
+      "meanTurnsPerAttempt": 8.92,
+      "firstFailure": null
+    },
+    {
+      "role": "DeepSeek",
+      "policy": "rush",
+      "seeds": 100,
+      "wins": 68,
+      "winRate": 0.68,
+      "meanFinalTokenOnWins": 4.76,
+      "meanTurnsPerAttempt": 8.84,
+      "firstFailure": {
+        "seed": 2,
+        "node": 2,
+        "enemy": "submit",
+        "result": "loss",
+        "log": [
+          {
+            "turn": 1,
+            "hp": 24,
+            "balances": {
+              "DeepSeek": 9
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 0,
+                "lost": 2,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 2,
+            "hp": 14,
+            "balances": {
+              "DeepSeek": 5
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 0,
+                "lost": 1,
+                "skipped": false
+              },
+              {
+                "target": "DeepSeek",
+                "absorbed": 0,
+                "lost": 1,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 3,
+            "hp": 11,
+            "balances": {
+              "DeepSeek": 1
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 0,
+                "lost": 4,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 4,
+            "hp": 8,
+            "balances": {
+              "DeepSeek": 1
+            },
+            "events": [],
+            "result": "ongoing"
+          },
+          {
+            "turn": 5,
+            "hp": 8,
+            "balances": {
+              "DeepSeek": 1
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 3,
+                "lost": 0,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 6,
+            "hp": 8,
+            "balances": {
+              "DeepSeek": 1
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 2,
+                "lost": 0,
+                "skipped": false
+              },
+              {
+                "target": "DeepSeek",
+                "absorbed": 1,
+                "lost": 0,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 7,
+            "hp": 5,
+            "balances": {
+              "DeepSeek": 0
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 0,
+                "lost": 1,
+                "skipped": false
+              }
+            ],
+            "result": "loss"
+          }
+        ]
+      }
+    },
+    {
+      "role": "DeepSeek",
+      "policy": "budget",
+      "seeds": 100,
+      "wins": 99,
+      "winRate": 0.99,
+      "meanFinalTokenOnWins": 5.02,
+      "meanTurnsPerAttempt": 8.05,
+      "firstFailure": {
+        "seed": 22,
+        "node": 2,
+        "enemy": "submit",
+        "result": "loss",
+        "log": [
+          {
+            "turn": 1,
+            "hp": 20,
+            "balances": {
+              "DeepSeek": 6
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 0,
+                "lost": 2,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 2,
+            "hp": 10,
+            "balances": {
+              "DeepSeek": 2
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 0,
+                "lost": 1,
+                "skipped": false
+              },
+              {
+                "target": "DeepSeek",
+                "absorbed": 0,
+                "lost": 1,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 3,
+            "hp": 10,
+            "balances": {
+              "DeepSeek": 2
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 4,
+                "lost": 0,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 4,
+            "hp": 4,
+            "balances": {
+              "DeepSeek": 1
+            },
+            "events": [],
+            "result": "ongoing"
+          },
+          {
+            "turn": 5,
+            "hp": 4,
+            "balances": {
+              "DeepSeek": 1
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 3,
+                "lost": 0,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 6,
+            "hp": 4,
+            "balances": {
+              "DeepSeek": 1
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 2,
+                "lost": 0,
+                "skipped": false
+              },
+              {
+                "target": "DeepSeek",
+                "absorbed": 1,
+                "lost": 0,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 7,
+            "hp": 1,
+            "balances": {
+              "DeepSeek": 0
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 0,
+                "lost": 1,
+                "skipped": false
+              }
+            ],
+            "result": "loss"
+          }
+        ]
+      }
+    }
+  ],
+  "pairSamples": [
+    {
+      "pair": [
+        "GPT",
+        "Claude"
+      ],
+      "seeds": 40,
+      "chapterTwoWins": 40,
+      "hiddenWins": 40,
+      "hiddenAttempts": 40,
+      "example": {
+        "seed": 1,
+        "entry": {
+          "GPT": 11,
+          "Claude": 9
+        },
+        "hiddenResult": "win",
+        "log": [
+          {
+            "turn": 1,
+            "hp": 26,
+            "balances": {
+              "GPT": 10,
+              "Claude": 9
+            },
+            "events": [
+              {
+                "target": "GPT",
+                "absorbed": 4,
+                "lost": 0,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 2,
+            "hp": 7,
+            "balances": {
+              "GPT": 8,
+              "Claude": 6
+            },
+            "events": [
+              {
+                "target": "Claude",
+                "absorbed": 2,
+                "lost": 2,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 3,
+            "hp": 0,
+            "balances": {
+              "GPT": 10,
+              "Claude": 6
+            },
+            "events": [],
+            "result": "win"
+          }
+        ]
+      }
+    },
+    {
+      "pair": [
+        "GPT",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "chapterTwoWins": 40,
+      "hiddenWins": 40,
+      "hiddenAttempts": 40,
+      "example": {
+        "seed": 1,
+        "entry": {
+          "GPT": 11,
+          "DeepSeek": 6
+        },
+        "hiddenResult": "win",
+        "log": [
+          {
+            "turn": 1,
+            "hp": 26,
+            "balances": {
+              "GPT": 10,
+              "DeepSeek": 6
+            },
+            "events": [
+              {
+                "target": "GPT",
+                "absorbed": 4,
+                "lost": 0,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 2,
+            "hp": 16,
+            "balances": {
+              "GPT": 8,
+              "DeepSeek": 5
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 3,
+                "lost": 1,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 3,
+            "hp": 0,
+            "balances": {
+              "GPT": 6,
+              "DeepSeek": 5
+            },
+            "events": [],
+            "result": "win"
+          }
+        ]
+      }
+    },
+    {
+      "pair": [
+        "Claude",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "chapterTwoWins": 40,
+      "hiddenWins": 40,
+      "hiddenAttempts": 40,
+      "example": {
+        "seed": 1,
+        "entry": {
+          "Claude": 12,
+          "DeepSeek": 5
+        },
+        "hiddenResult": "win",
+        "log": [
+          {
+            "turn": 1,
+            "hp": 26,
+            "balances": {
+              "Claude": 12,
+              "DeepSeek": 4
+            },
+            "events": [
+              {
+                "target": "Claude",
+                "absorbed": 4,
+                "lost": 0,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 2,
+            "hp": 16,
+            "balances": {
+              "Claude": 12,
+              "DeepSeek": 2
+            },
+            "events": [
+              {
+                "target": "DeepSeek",
+                "absorbed": 4,
+                "lost": 0,
+                "skipped": false
+              },
+              {
+                "target": "DeepSeek",
+                "absorbed": 1,
+                "lost": 0,
+                "skipped": false
+              }
+            ],
+            "result": "ongoing"
+          },
+          {
+            "turn": 3,
+            "hp": 0,
+            "balances": {
+              "Claude": 10,
+              "DeepSeek": 2
+            },
+            "events": [],
+            "result": "win"
+          }
+        ]
+      }
+    }
+  ],
+  "fullChallenge": [
+    {
+      "pair": [
+        "GPT",
+        "Claude"
+      ],
+      "seeds": 40,
+      "difficulty": 2,
+      "reachedSecond": 33,
+      "regularWins": 33,
+      "hiddenWins": 33,
+      "failures": {
+        "submit": 7
+      },
+      "example": {
+        "seed": 1,
+        "stage": "student",
+        "finalBoss": "recipient",
+        "hiddenEntry": {
+          "GPT": {
+            "token": 9,
+            "max": 12
+          },
+          "Claude": {
+            "token": 10,
+            "max": 12
+          }
+        }
+      }
+    },
+    {
+      "pair": [
+        "GPT",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "difficulty": 2,
+      "reachedSecond": 33,
+      "regularWins": 33,
+      "hiddenWins": 33,
+      "failures": {
+        "submit": 7
+      },
+      "example": {
+        "seed": 1,
+        "stage": "student",
+        "finalBoss": "recipient",
+        "hiddenEntry": {
+          "GPT": {
+            "token": 7,
+            "max": 12
+          },
+          "DeepSeek": {
+            "token": 12,
+            "max": 12
+          }
+        }
+      }
+    },
+    {
+      "pair": [
+        "Claude",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "difficulty": 2,
+      "reachedSecond": 40,
+      "regularWins": 40,
+      "hiddenWins": 40,
+      "failures": {},
+      "example": {
+        "seed": 1,
+        "stage": "student",
+        "finalBoss": "recipient",
+        "hiddenEntry": {
+          "Claude": {
+            "token": 12,
+            "max": 12
+          },
+          "DeepSeek": {
+            "token": 7,
+            "max": 12
+          }
+        }
+      }
+    }
+  ]
+}

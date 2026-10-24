@@ -1,0 +1,98 @@
+[
+  {
+    "character": "GPT",
+    "source": "角色设定/性格/01_GPT.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "Claude",
+    "source": "角色设定/性格/02_Claude.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "Gemini",
+    "source": "角色设定/性格/03_Gemini.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "Grok",
+    "source": "角色设定/性格/04_Grok.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "DeepSeek",
+    "source": "角色设定/性格/05_DeepSeek.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "Kimi",
+    "source": "角色设定/性格/06_Kimi.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "GLM",
+    "source": "角色设定/性格/07_GLM.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "Qwen",
+    "source": "角色设定/性格/08_Qwen.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "Seed",
+    "source": "角色设定/性格/09_Seed.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "MiniMax",
+    "source": "角色设定/性格/10_MiniMax.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "Llama",
+    "source": "角色设定/性格/11_Llama.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "Mistral",
+    "source": "角色设定/性格/12_Mistral.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "Perplexity",
+    "source": "角色设定/性格/13_Perplexity.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "文心",
+    "source": "角色设定/性格/14_文心.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "Jev",
+    "source": "角色设定/性格/15_Jev.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  },
+  {
+    "character": "Muse",
+    "source": "角色设定/性格/16_Muse.md",
+    "preserved": "形象依据、独有机制、长期形态方向",
+    "revised": "性格弱点、任务对白、关系表达、未核实事实隔离"
+  }
+]

@@ -1,0 +1,1252 @@
+{
+  "fixtureVersion": "v0.3",
+  "checks": 811,
+  "scope": "四种公共卡，单人序列与Kimi双人隔离片段；固定初始牌序和洗牌种子42；不含完整角色专属牌、插件、身份、Boss、招募或整局平衡；非可玩游戏",
+  "cases": [
+    {
+      "name": "无角色被动的公共攻防",
+      "role": "base",
+      "result": "win",
+      "turns": 4,
+      "token": 2,
+      "enemyHp": 0,
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "role": "base",
+              "action": "标准指令",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 8,
+          "enemyHp": 16,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "role": "base",
+              "action": "防护指令",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 3,
+          "incoming": 0,
+          "token": 8,
+          "enemyHp": 16,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "role": "base",
+              "action": "强力指令",
+              "cost": 2,
+              "damage": 10,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 3,
+          "enemyHp": 6,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "actions": [
+            {
+              "role": "base",
+              "action": "标准指令",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 0,
+          "absorbed": 0,
+          "incoming": 0,
+          "token": 2,
+          "enemyHp": 0,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "name": "GPT连续进攻",
+      "role": "GPT",
+      "result": "win",
+      "turns": 3,
+      "token": 2,
+      "enemyHp": 0,
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "role": "GPT",
+              "action": "标准指令",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 8,
+          "enemyHp": 16,
+          "states": [
+            {
+              "role": "GPT",
+              "streak": 1,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "role": "GPT",
+              "action": "标准指令",
+              "cost": 1,
+              "damage": 8,
+              "bonus": 2,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 4,
+          "enemyHp": 8,
+          "states": [
+            {
+              "role": "GPT",
+              "streak": 2,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "role": "GPT",
+              "action": "强力指令",
+              "cost": 2,
+              "damage": 14,
+              "bonus": 4,
+              "record": null
+            }
+          ],
+          "raw": 0,
+          "absorbed": 0,
+          "incoming": 0,
+          "token": 2,
+          "enemyHp": 0,
+          "states": [
+            {
+              "role": "GPT",
+              "streak": 2,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "name": "Claude防守反击",
+      "role": "Claude",
+      "result": "win",
+      "turns": 4,
+      "token": 6,
+      "enemyHp": 0,
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "role": "Claude",
+              "action": "防护指令",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 3,
+          "incoming": 0,
+          "token": 12,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "Claude",
+              "streak": 0,
+              "counter": true,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "role": "Claude",
+              "action": "标准指令",
+              "cost": 1,
+              "damage": 10,
+              "bonus": 4,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 8,
+          "enemyHp": 12,
+          "states": [
+            {
+              "role": "Claude",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "role": "Claude",
+              "action": "防护指令",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 3,
+          "incoming": 0,
+          "token": 8,
+          "enemyHp": 12,
+          "states": [
+            {
+              "role": "Claude",
+              "streak": 0,
+              "counter": true,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "actions": [
+            {
+              "role": "Claude",
+              "action": "强力指令",
+              "cost": 2,
+              "damage": 14,
+              "bonus": 4,
+              "record": null
+            }
+          ],
+          "raw": 0,
+          "absorbed": 0,
+          "incoming": 0,
+          "token": 6,
+          "enemyHp": 0,
+          "states": [
+            {
+              "role": "Claude",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "name": "DeepSeek运营后爆发",
+      "role": "DeepSeek",
+      "result": "win",
+      "turns": 4,
+      "token": 6,
+      "enemyHp": 0,
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "role": "DeepSeek",
+              "action": "标准指令",
+              "cost": 1,
+              "damage": 6,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 8,
+          "enemyHp": 16,
+          "states": [
+            {
+              "role": "DeepSeek",
+              "streak": 0,
+              "counter": false,
+              "rice": 1,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "role": "DeepSeek",
+              "action": "防护指令",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 3,
+          "incoming": 0,
+          "token": 8,
+          "enemyHp": 16,
+          "states": [
+            {
+              "role": "DeepSeek",
+              "streak": 0,
+              "counter": false,
+              "rice": 2,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "role": "DeepSeek",
+              "action": "额度回收",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 8,
+          "enemyHp": 16,
+          "states": [
+            {
+              "role": "DeepSeek",
+              "streak": 0,
+              "counter": false,
+              "rice": 3,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "actions": [
+            {
+              "role": "DeepSeek",
+              "action": "强力指令",
+              "cost": 2,
+              "damage": 16,
+              "bonus": 6,
+              "record": null
+            }
+          ],
+          "raw": 0,
+          "absorbed": 0,
+          "incoming": 0,
+          "token": 6,
+          "enemyHp": 0,
+          "states": [
+            {
+              "role": "DeepSeek",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "name": "单靠基础攻击",
+      "role": "base",
+      "result": "loss",
+      "turns": 4,
+      "token": 0,
+      "enemyHp": 10,
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础攻击",
+              "cost": 0,
+              "damage": 3,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 9,
+          "enemyHp": 19,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础攻击",
+              "cost": 0,
+              "damage": 3,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 6,
+          "enemyHp": 16,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础攻击",
+              "cost": 0,
+              "damage": 3,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 3,
+          "enemyHp": 13,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础攻击",
+              "cost": 0,
+              "damage": 3,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 4,
+          "absorbed": 0,
+          "incoming": 4,
+          "token": 0,
+          "enemyHp": 10,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "loss"
+        }
+      ]
+    },
+    {
+      "name": "单靠基础防御",
+      "role": "base",
+      "result": "loss",
+      "turns": 10,
+      "token": 0,
+      "enemyHp": 22,
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 3,
+          "incoming": 0,
+          "token": 12,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 3,
+          "incoming": 0,
+          "token": 12,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 3,
+          "incoming": 0,
+          "token": 12,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 4,
+          "absorbed": 3,
+          "incoming": 1,
+          "token": 11,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 5,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 4,
+          "absorbed": 3,
+          "incoming": 1,
+          "token": 10,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 6,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 4,
+          "absorbed": 3,
+          "incoming": 1,
+          "token": 9,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 7,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 5,
+          "absorbed": 3,
+          "incoming": 2,
+          "token": 7,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 8,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 5,
+          "absorbed": 3,
+          "incoming": 2,
+          "token": 5,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 9,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 5,
+          "absorbed": 3,
+          "incoming": 2,
+          "token": 3,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 10,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 6,
+          "absorbed": 3,
+          "incoming": 3,
+          "token": 0,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "loss"
+        }
+      ]
+    },
+    {
+      "name": "反复回收或防御",
+      "role": "base",
+      "result": "loss",
+      "turns": 9,
+      "token": 0,
+      "enemyHp": 22,
+      "log": [
+        {
+          "turn": 1,
+          "actions": [
+            {
+              "role": "base",
+              "action": "额度回收",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 9,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "actions": [
+            {
+              "role": "base",
+              "action": "额度回收",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 9,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "actions": [
+            {
+              "role": "base",
+              "action": "额度回收",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 3,
+          "absorbed": 0,
+          "incoming": 3,
+          "token": 9,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "actions": [
+            {
+              "role": "base",
+              "action": "额度回收",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 4,
+          "absorbed": 0,
+          "incoming": 4,
+          "token": 8,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 5,
+          "actions": [
+            {
+              "role": "base",
+              "action": "额度回收",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 4,
+          "absorbed": 0,
+          "incoming": 4,
+          "token": 7,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 6,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 4,
+          "absorbed": 3,
+          "incoming": 1,
+          "token": 6,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 7,
+          "actions": [
+            {
+              "role": "base",
+              "action": "额度回收",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 5,
+          "absorbed": 0,
+          "incoming": 5,
+          "token": 4,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 8,
+          "actions": [
+            {
+              "role": "base",
+              "action": "额度回收",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 5,
+          "absorbed": 0,
+          "incoming": 5,
+          "token": 2,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 9,
+          "actions": [
+            {
+              "role": "base",
+              "action": "基础防御",
+              "cost": 0,
+              "damage": 0,
+              "bonus": 0,
+              "record": null
+            }
+          ],
+          "raw": 5,
+          "absorbed": 3,
+          "incoming": 2,
+          "token": 0,
+          "enemyHp": 22,
+          "states": [
+            {
+              "role": "base",
+              "streak": 0,
+              "counter": false,
+              "rice": 0,
+              "records": []
+            }
+          ],
+          "result": "loss"
+        }
+      ]
+    }
+  ],
+  "kimiIsolation": {
+    "name": "Kimi私有记录与队友隔离",
+    "roles": [
+      "Kimi",
+      "GPT"
+    ],
+    "result": "ongoing",
+    "turns": 2,
+    "token": 10,
+    "enemyHp": 3,
+    "log": [
+      {
+        "turn": 1,
+        "actions": [
+          {
+            "role": "Kimi",
+            "action": "通读",
+            "cost": 1,
+            "damage": 4,
+            "bonus": 0,
+            "record": null
+          },
+          {
+            "role": "GPT",
+            "action": "标准指令",
+            "cost": 1,
+            "damage": 6,
+            "bonus": 0,
+            "record": null
+          }
+        ],
+        "raw": 3,
+        "absorbed": 0,
+        "incoming": 3,
+        "token": 11,
+        "enemyHp": 12,
+        "states": [
+          {
+            "role": "Kimi",
+            "streak": 0,
+            "counter": false,
+            "rice": 0,
+            "records": [
+              {
+                "id": "c1",
+                "tag": "分析",
+                "born": 1
+              }
+            ]
+          },
+          {
+            "role": "GPT",
+            "streak": 1,
+            "counter": false,
+            "rice": 0,
+            "records": []
+          }
+        ],
+        "result": "ongoing"
+      },
+      {
+        "turn": 2,
+        "actions": [
+          {
+            "role": "Kimi",
+            "action": "落笔",
+            "cost": 1,
+            "damage": 9,
+            "bonus": 3,
+            "record": "c1"
+          },
+          {
+            "role": "GPT",
+            "action": "防护指令",
+            "cost": 0,
+            "damage": 0,
+            "bonus": 0,
+            "record": null
+          }
+        ],
+        "raw": 3,
+        "absorbed": 3,
+        "incoming": 0,
+        "token": 10,
+        "enemyHp": 3,
+        "states": [
+          {
+            "role": "Kimi",
+            "streak": 0,
+            "counter": false,
+            "rice": 0,
+            "records": [
+              {
+                "id": "c6",
+                "tag": "生成",
+                "born": 2
+              }
+            ]
+          },
+          {
+            "role": "GPT",
+            "streak": 0,
+            "counter": false,
+            "rice": 0,
+            "records": []
+          }
+        ],
+        "result": "ongoing"
+      }
+    ]
+  }
+}

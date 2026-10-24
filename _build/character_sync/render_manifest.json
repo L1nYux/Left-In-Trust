@@ -1,0 +1,87 @@
+[
+  {
+    "file": "00_索引.docx",
+    "pages": 5,
+    "spreads": 3
+  },
+  {
+    "file": "01_GPT.docx",
+    "pages": 6,
+    "spreads": 3
+  },
+  {
+    "file": "02_Claude.docx",
+    "pages": 6,
+    "spreads": 3
+  },
+  {
+    "file": "03_Gemini.docx",
+    "pages": 5,
+    "spreads": 3
+  },
+  {
+    "file": "04_Grok.docx",
+    "pages": 6,
+    "spreads": 3
+  },
+  {
+    "file": "05_DeepSeek.docx",
+    "pages": 6,
+    "spreads": 3
+  },
+  {
+    "file": "06_Kimi.docx",
+    "pages": 6,
+    "spreads": 3
+  },
+  {
+    "file": "07_GLM.docx",
+    "pages": 5,
+    "spreads": 3
+  },
+  {
+    "file": "08_Qwen.docx",
+    "pages": 5,
+    "spreads": 3
+  },
+  {
+    "file": "09_Seed.docx",
+    "pages": 5,
+    "spreads": 3
+  },
+  {
+    "file": "10_MiniMax.docx",
+    "pages": 5,
+    "spreads": 3
+  },
+  {
+    "file": "11_Llama.docx",
+    "pages": 5,
+    "spreads": 3
+  },
+  {
+    "file": "12_Mistral.docx",
+    "pages": 5,
+    "spreads": 3
+  },
+  {
+    "file": "13_Perplexity.docx",
+    "pages": 5,
+    "spreads": 3
+  },
+  {
+    "file": "14_文心.docx",
+    "pages": 5,
+    "spreads": 3
+  },
+  {
+    "file": "15_Jev.docx",
+    "pages": 5,
+    "spreads": 3
+  },
+  {
+    "file": "16_Muse.docx",
+    "pages": 5,
+    "spreads": 3
+  }
+]

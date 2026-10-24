@@ -1,0 +1,155 @@
+[
+  {
+    "file": "00_索引.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "fee08b36e7866383a497887472a669b0b44af046d3a85e093ab8dc8822f22a31"
+  },
+  {
+    "file": "01_GPT.docx",
+    "pages": 6,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "ea057ecbd2b630001d176ee835935ee67bf1f8f31d9a6268dc13405150cae2cc"
+  },
+  {
+    "file": "02_Claude.docx",
+    "pages": 6,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "6e71fe576045698ef6f172c03de141b4130aa5c44105f509806fd1d9791b187f"
+  },
+  {
+    "file": "03_Gemini.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "3071c632aa8f4fd3d0b51a9888ba1577f2c7b2954b6c0dba79e4406153f34670"
+  },
+  {
+    "file": "04_Grok.docx",
+    "pages": 6,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "12f7a0e678aa202d35dbfd1dce9b10bea75f21ab98bbb03be6df97b8eefad96b"
+  },
+  {
+    "file": "05_DeepSeek.docx",
+    "pages": 6,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "9e516df7011598aa7f6172dc42b365cc48f282212783d64b88f551c88d26868c"
+  },
+  {
+    "file": "06_Kimi.docx",
+    "pages": 6,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "b711a7da913f148849dfc6c163783530e88ed302d2bd73f70aac0d174b57b7c2"
+  },
+  {
+    "file": "07_GLM.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "73b6f3eb3c0ecb08affd7fc5e85a5961ac5f40a615529045048fd95c4e4e1217"
+  },
+  {
+    "file": "08_Qwen.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "da89705e21bd1ddecde8a1cd7ac4fa1fcc441d944c3746da98781753f9aed4e3"
+  },
+  {
+    "file": "09_Seed.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "2dec8fec4d7849254321639bd50c94e81638f53e8c22b6a99febd80e9716ec51"
+  },
+  {
+    "file": "10_MiniMax.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "1801e1eb268ba9ab630e1541e17910e2dab8f83d5cb901b05a3c1e3f56c14e10"
+  },
+  {
+    "file": "11_Llama.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "ea69007c7c7c75a729019bb992d8f55bded0d161381cbc0387d75821272f4c1e"
+  },
+  {
+    "file": "12_Mistral.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "3de033e3a431ec0c4cf7189653b55e6aaf114f8fbcf0c3dea13e74658e1053c2"
+  },
+  {
+    "file": "13_Perplexity.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "b5b051b2804a8b5fb06a91411029b0255d29fa37d91109e34236136aa29fcd77"
+  },
+  {
+    "file": "14_文心.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "89c210175d28058f1008130393c1d30a13136561d23b3f915e26d7d96722c277"
+  },
+  {
+    "file": "15_Jev.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "e66fbfc99fbba3d8696ea01bdf16b7b205956323e897f8ce52e9b1fd6d157566"
+  },
+  {
+    "file": "16_Muse.docx",
+    "pages": 5,
+    "sections": 9,
+    "content": "passed",
+    "source_sync": "passed",
+    "current_pdf": "passed",
+    "sha256": "41dc4d9aeee9262b20a33f102db5b9005d808a6ba565f1e60011564f5284181d"
+  }
+]

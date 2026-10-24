@@ -1,0 +1,707 @@
+{
+  "fixtureVersion": "v0.2",
+  "assertions": 268,
+  "scope": "单角色，无身份技能、插件、随机洗牌、测试条件或Boss；12实体卡，窗口5；只验证文中指定序列，非策略穷举或平衡完成",
+  "cases": [
+    {
+      "name": "低温接力对22生命",
+      "initialHp": 22,
+      "result": "win",
+      "turns": 5,
+      "token": 1,
+      "enemyHp": 0,
+      "forgotten": 4,
+      "log": [
+        {
+          "turn": 1,
+          "action": "检索脉冲",
+          "temp": "低温",
+          "source": null,
+          "cost": 1,
+          "damage": 3,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 19,
+          "token": 4,
+          "cache": [
+            "card_1:分析"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "action": "定稿输出",
+          "temp": "低温",
+          "source": "card_1",
+          "cost": 1,
+          "damage": 8,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 11,
+          "token": 2,
+          "cache": [
+            "card_8:生成"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "action": "一致性校验",
+          "temp": "低温",
+          "source": "card_8",
+          "cost": 0,
+          "damage": 0,
+          "heal": 1,
+          "rawEnemyDamage": 1,
+          "incoming": 0,
+          "enemyHp": 11,
+          "token": 3,
+          "cache": [
+            "card_12:校验"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "action": "检索脉冲",
+          "temp": "低温",
+          "source": "card_12",
+          "cost": 0,
+          "damage": 3,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 8,
+          "token": 2,
+          "cache": [
+            "card_7:分析"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 5,
+          "action": "定稿输出",
+          "temp": "低温",
+          "source": "card_7",
+          "cost": 1,
+          "damage": 8,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 0,
+          "enemyHp": 0,
+          "token": 1,
+          "cache": [
+            "card_11:生成"
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "name": "全程基础攻击对22生命",
+      "initialHp": 22,
+      "result": "loss",
+      "turns": 6,
+      "token": 0,
+      "enemyHp": 10,
+      "forgotten": 0,
+      "log": [
+        {
+          "turn": 1,
+          "action": "basic",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 2,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 20,
+          "token": 5,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "action": "basic",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 2,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 18,
+          "token": 4,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "action": "basic",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 2,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 16,
+          "token": 3,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "action": "basic",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 2,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 14,
+          "token": 2,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 5,
+          "action": "basic",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 2,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 12,
+          "token": 1,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 6,
+          "action": "basic",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 2,
+          "heal": 0,
+          "rawEnemyDamage": 2,
+          "incoming": 2,
+          "enemyHp": 10,
+          "token": 0,
+          "cache": [],
+          "result": "loss"
+        }
+      ]
+    },
+    {
+      "name": "连续生成强攻对22生命",
+      "initialHp": 22,
+      "result": "loss",
+      "turns": 3,
+      "token": 0,
+      "enemyHp": 7,
+      "forgotten": 0,
+      "log": [
+        {
+          "turn": 1,
+          "action": "定稿输出",
+          "temp": "低温",
+          "source": null,
+          "cost": 1,
+          "damage": 5,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 17,
+          "token": 4,
+          "cache": [
+            "card_2:生成"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "action": "定稿输出",
+          "temp": "低温",
+          "source": null,
+          "cost": 1,
+          "damage": 5,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 12,
+          "token": 2,
+          "cache": [
+            "card_2:生成",
+            "card_8:生成"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "action": "定稿输出",
+          "temp": "低温",
+          "source": null,
+          "cost": 1,
+          "damage": 5,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 7,
+          "token": 0,
+          "cache": [
+            "card_2:生成",
+            "card_8:生成",
+            "card_11:生成"
+          ],
+          "result": "loss"
+        }
+      ]
+    },
+    {
+      "name": "相同序列关闭接力对22生命",
+      "initialHp": 22,
+      "result": "loss",
+      "turns": 4,
+      "token": 0,
+      "enemyHp": 11,
+      "forgotten": 0,
+      "log": [
+        {
+          "turn": 1,
+          "action": "检索脉冲",
+          "temp": "低温",
+          "source": null,
+          "cost": 1,
+          "damage": 3,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 19,
+          "token": 4,
+          "cache": [
+            "card_1:分析"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "action": "定稿输出",
+          "temp": "低温",
+          "source": null,
+          "cost": 1,
+          "damage": 5,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 14,
+          "token": 2,
+          "cache": [
+            "card_1:分析",
+            "card_8:生成"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "action": "一致性校验",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 0,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 0,
+          "enemyHp": 14,
+          "token": 2,
+          "cache": [
+            "card_1:分析",
+            "card_8:生成",
+            "card_12:校验"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "action": "检索脉冲",
+          "temp": "低温",
+          "source": null,
+          "cost": 1,
+          "damage": 3,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 11,
+          "token": 0,
+          "cache": [
+            "card_1:分析",
+            "card_8:生成",
+            "card_12:校验",
+            "card_7:分析"
+          ],
+          "result": "loss"
+        }
+      ]
+    },
+    {
+      "name": "高温提前击杀13生命",
+      "initialHp": 13,
+      "result": "win",
+      "turns": 2,
+      "token": 3,
+      "enemyHp": 0,
+      "forgotten": 1,
+      "log": [
+        {
+          "turn": 1,
+          "action": "检索脉冲",
+          "temp": "低温",
+          "source": null,
+          "cost": 1,
+          "damage": 3,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 10,
+          "token": 4,
+          "cache": [
+            "card_1:分析"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "action": "定稿输出",
+          "temp": "高温",
+          "source": "card_1",
+          "cost": 1,
+          "damage": 10,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 0,
+          "enemyHp": 0,
+          "token": 3,
+          "cache": [
+            "card_8:生成"
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "name": "低温击杀13生命",
+      "initialHp": 13,
+      "result": "win",
+      "turns": 3,
+      "token": 2,
+      "enemyHp": 0,
+      "forgotten": 1,
+      "log": [
+        {
+          "turn": 1,
+          "action": "检索脉冲",
+          "temp": "低温",
+          "source": null,
+          "cost": 1,
+          "damage": 3,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 10,
+          "token": 4,
+          "cache": [
+            "card_1:分析"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "action": "定稿输出",
+          "temp": "低温",
+          "source": "card_1",
+          "cost": 1,
+          "damage": 8,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 2,
+          "token": 2,
+          "cache": [
+            "card_8:生成"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "action": "basic",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 2,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 0,
+          "enemyHp": 0,
+          "token": 2,
+          "cache": [
+            "card_8:生成"
+          ],
+          "result": "win"
+        }
+      ]
+    },
+    {
+      "name": "过早高温对22生命",
+      "initialHp": 22,
+      "result": "illegal_payment",
+      "turns": 5,
+      "token": 1,
+      "enemyHp": 6,
+      "forgotten": 3,
+      "log": [
+        {
+          "turn": 1,
+          "action": "检索脉冲",
+          "temp": "低温",
+          "source": null,
+          "cost": 1,
+          "damage": 3,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 19,
+          "token": 4,
+          "cache": [
+            "card_1:分析"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "action": "定稿输出",
+          "temp": "高温",
+          "source": "card_1",
+          "cost": 1,
+          "damage": 10,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 2,
+          "enemyHp": 9,
+          "token": 1,
+          "cache": [
+            "card_8:生成"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "action": "一致性校验",
+          "temp": "低温",
+          "source": "card_8",
+          "cost": 0,
+          "damage": 0,
+          "heal": 1,
+          "rawEnemyDamage": 1,
+          "incoming": 0,
+          "enemyHp": 9,
+          "token": 2,
+          "cache": [
+            "card_12:校验"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "action": "检索脉冲",
+          "temp": "低温",
+          "source": "card_12",
+          "cost": 0,
+          "damage": 3,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 1,
+          "enemyHp": 6,
+          "token": 1,
+          "cache": [
+            "card_7:分析"
+          ],
+          "result": "ongoing"
+        },
+        {
+          "turn": 5,
+          "action": "定稿输出",
+          "result": "illegal_payment",
+          "token": 1
+        }
+      ]
+    },
+    {
+      "name": "全程基础防御不能无限等待",
+      "initialHp": 22,
+      "result": "loss",
+      "turns": 10,
+      "token": 0,
+      "enemyHp": 22,
+      "forgotten": 0,
+      "log": [
+        {
+          "turn": 1,
+          "action": "defend",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 0,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 0,
+          "enemyHp": 22,
+          "token": 6,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 2,
+          "action": "defend",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 0,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 0,
+          "enemyHp": 22,
+          "token": 6,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 3,
+          "action": "defend",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 0,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 0,
+          "enemyHp": 22,
+          "token": 6,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 4,
+          "action": "defend",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 0,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 0,
+          "enemyHp": 22,
+          "token": 6,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 5,
+          "action": "defend",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 0,
+          "heal": 0,
+          "rawEnemyDamage": 1,
+          "incoming": 0,
+          "enemyHp": 22,
+          "token": 6,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 6,
+          "action": "defend",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 0,
+          "heal": 0,
+          "rawEnemyDamage": 2,
+          "incoming": 1,
+          "enemyHp": 22,
+          "token": 5,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 7,
+          "action": "defend",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 0,
+          "heal": 0,
+          "rawEnemyDamage": 2,
+          "incoming": 1,
+          "enemyHp": 22,
+          "token": 4,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 8,
+          "action": "defend",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 0,
+          "heal": 0,
+          "rawEnemyDamage": 2,
+          "incoming": 1,
+          "enemyHp": 22,
+          "token": 3,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 9,
+          "action": "defend",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 0,
+          "heal": 0,
+          "rawEnemyDamage": 3,
+          "incoming": 2,
+          "enemyHp": 22,
+          "token": 1,
+          "cache": [],
+          "result": "ongoing"
+        },
+        {
+          "turn": 10,
+          "action": "defend",
+          "temp": "低温",
+          "source": null,
+          "cost": 0,
+          "damage": 0,
+          "heal": 0,
+          "rawEnemyDamage": 3,
+          "incoming": 2,
+          "enemyHp": 22,
+          "token": 0,
+          "cache": [],
+          "result": "loss"
+        }
+      ]
+    }
+  ]
+}
