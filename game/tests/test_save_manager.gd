@@ -22,7 +22,8 @@ func _init() -> void:
 		["corrupt primary JSON restores previous valid snapshot", _test_corrupt_primary],
 		["checksum mismatch restores previous valid snapshot", _test_checksum_recovery],
 		["settlement interrupted before save remains idempotent", _test_settlement_reload],
-		["unsupported schema is explicit and preserves file", _test_unsupported_schema]
+		["unsupported schema is explicit and preserves file", _test_unsupported_schema],
+		["mode and flow contradictions are rejected", _test_mode_flow_validation]
 	]
 	for test_case in cases:
 		if not _run(test_case[0], test_case[1]):
@@ -167,6 +168,18 @@ func _test_unsupported_schema():
 	if not FileAccess.file_exists(manager.paths()["primary"]):
 		return "unsupported save was deleted"
 	return _read_text(manager.paths()["primary"]) == unsupported_text
+
+func _test_mode_flow_validation():
+	var manager = _manager("mode_flow")
+	var snapshot := _snapshot(261, 5)
+	snapshot["mode"] = "test_arena"
+	snapshot["currentBattleKind"] = "test_arena"
+	snapshot["flow"] = "rest"
+	var before_exists := FileAccess.file_exists(manager.paths()["primary"])
+	var result: Dictionary = manager.save_snapshot(snapshot)
+	if result["ok"] or result.get("error") != "invalid_snapshot_mode_flow":
+		return "contradictory test-arena rest snapshot was accepted: %s" % result
+	return FileAccess.file_exists(manager.paths()["primary"]) == before_exists
 
 func _write_text(path: String, text: String) -> void:
 	var file := FileAccess.open(path, FileAccess.WRITE)

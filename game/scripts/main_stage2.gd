@@ -27,7 +27,9 @@ var screen_root: VBoxContainer
 var preview_label: Label
 var confirm_button: Button
 var rest_button: Button
+var rest_buttons: Array[Button] = []
 var rest_action_pending := false
+var legal_target_cache: Dictionary = {}
 var battle_log: Array[String] = []
 var last_load_result: Dictionary = {"ok": false, "error": "not_found"}
 var save_notice := ""
@@ -234,6 +236,7 @@ func _available_lineup() -> Array:
 func _start_battle(enemy_id: String, kind: String, battle_seed: int) -> void:
 	current_battle_kind = kind
 	selected_action = ""
+	legal_target_cache.clear()
 	var active_lineup := _available_lineup()
 	battle_state = rules.start_battle(run_state, kind, active_lineup, enemy_id, battle_seed)
 	if battle_state.has("error"):
@@ -324,11 +327,12 @@ func _render_battle() -> void:
 	actions.add_theme_constant_override("h_separation", 8)
 	actions.add_theme_constant_override("v_separation", 8)
 	screen_root.add_child(actions)
-	_add_action_button(actions, GameRules.BASIC_ATTACK, "基础攻击\n费用 0 · 伤害 %d" % content["parameters"]["basicAttack"])
-	_add_action_button(actions, GameRules.BASIC_GUARD, "基础防御\n费用 0 · 防护 %d" % content["parameters"]["basicGuard"])
+	_add_action_button(actions, GameRules.BASIC_ATTACK, "基础攻击\n费用 0 · 伤害 %d" % content["parameters"]["basicAttack"], _cached_legal_targets(GameRules.BASIC_ATTACK))
+	_add_action_button(actions, GameRules.BASIC_GUARD, "基础防御\n费用 0 · 防护 %d" % content["parameters"]["basicGuard"], _cached_legal_targets(GameRules.BASIC_GUARD))
 	for card_value in battle_state["hand"]:
 		var card: Dictionary = card_value
-		_add_action_button(actions, str(card["uid"]), _card_button_text(card))
+		var action_id := str(card["uid"])
+		_add_action_button(actions, action_id, _card_button_text(card), _cached_legal_targets(action_id))
 	var preview_panel := PanelContainer.new()
 	preview_panel.add_theme_stylebox_override("panel", _panel_style(Color("11172a"), Color("303a58"), 12))
 	screen_root.add_child(preview_panel)
@@ -352,12 +356,18 @@ func _battle_label() -> String:
 		return "三人测试场"
 	return "BOSS"
 
-func _add_action_button(parent: Control, action_id: String, text: String) -> void:
+func _cached_legal_targets(action_id: String) -> Array:
+	var key := "%s|%s|%s|%s" % [battle_state.get("instance_id", ""), battle_state.get("turn", 0), selected_actor, action_id]
+	if not legal_target_cache.has(key):
+		legal_target_cache[key] = rules.legal_targets(battle_state, selected_actor, action_id)
+	return legal_target_cache[key]
+
+func _add_action_button(parent: Control, action_id: String, text: String, legal_targets: Array) -> void:
 	var captured_action := action_id
 	var action_button := _button(text, func(): _select_action(captured_action), Color("293451"))
 	action_button.custom_minimum_size = Vector2(168, 56)
 	var actor := rules.actor_status(battle_state, selected_actor)
-	action_button.disabled = actor.is_empty() or bool(actor.get("acted", true)) or not bool(actor.get("online", false)) or rules.legal_targets(battle_state, selected_actor, action_id).is_empty()
+	action_button.disabled = actor.is_empty() or bool(actor.get("acted", true)) or not bool(actor.get("online", false)) or legal_targets.is_empty()
 	parent.add_child(action_button)
 
 func _select_actor(actor_id: String) -> void:
@@ -368,6 +378,7 @@ func _select_actor(actor_id: String) -> void:
 	selected_role = actor_id
 	selected_target = actor_id
 	selected_action = ""
+	legal_target_cache.clear()
 	_render_battle()
 
 func _select_target(target_id: String) -> void:
@@ -469,11 +480,19 @@ func _show_rest() -> void:
 	flow = "rest"
 	rest_action_pending = false
 	rest_button = null
+	rest_buttons.clear()
 	_new_screen()
 	_add_spacer(25)
 	var title := _label("休息节点", 42, Color("f7f4ff"))
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	screen_root.add_child(title)
+	if run_state.get("services", {}).has("rest"):
+		screen_root.add_child(_label("本休息节点已经结算，不会再次提供恢复。", 18, Color("ffcc66")))
+		var continue_button := _button("继续迎战 Boss", Callable(self, "_start_boss"), Color("22a06b"))
+		continue_button.custom_minimum_size = Vector2(430, 58)
+		continue_button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		screen_root.add_child(continue_button)
+		return
 	var any_recoverable := false
 	for role_id_value in lineup:
 		var role_id := str(role_id_value)
@@ -487,6 +506,9 @@ func _show_rest() -> void:
 			any_recoverable = true
 			var captured_role := role_id
 			var recover := _button("选择此人恢复 +%d" % content["parameters"]["restRecovery"], func(): _take_rest(captured_role), Color("22a06b"))
+			if rest_button == null:
+				rest_button = recover
+			rest_buttons.append(recover)
 			row.add_child(recover)
 	screen_root.add_child(_label("本节点只能选择一人；战外恢复允许 0 token 成员重新上线。", 16, Color("aab2c8")))
 	if not any_recoverable:
@@ -501,8 +523,9 @@ func _take_rest(target_id: String = "") -> void:
 	if target_id.is_empty():
 		target_id = selected_actor if run_state.get("accounts", {}).has(selected_actor) else str(lineup[0])
 	rest_action_pending = true
-	if is_instance_valid(rest_button):
-		rest_button.disabled = true
+	for button in rest_buttons:
+		if is_instance_valid(button):
+			button.disabled = true
 	var result := rules.rest_recover(run_state, "rest", target_id)
 	if not result["ok"]:
 		_show_fatal("休息失败：%s" % _error_text(str(result["error"])))

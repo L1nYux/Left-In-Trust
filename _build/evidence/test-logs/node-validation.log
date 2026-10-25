@@ -1,0 +1,180 @@
+{
+  "tests": 34,
+  "solo": [
+    {
+      "role": "GPT",
+      "policy": "rush",
+      "seeds": 100,
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 6.47,
+      "meanTurnsPerAttempt": 7.18
+    },
+    {
+      "role": "GPT",
+      "policy": "budget",
+      "seeds": 100,
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 6.47,
+      "meanTurnsPerAttempt": 7.18
+    },
+    {
+      "role": "Claude",
+      "policy": "rush",
+      "seeds": 100,
+      "wins": 99,
+      "winRate": 0.99,
+      "meanFinalTokenOnWins": 4.78,
+      "meanTurnsPerAttempt": 8.49
+    },
+    {
+      "role": "Claude",
+      "policy": "budget",
+      "seeds": 100,
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 7.02,
+      "meanTurnsPerAttempt": 8.92
+    },
+    {
+      "role": "DeepSeek",
+      "policy": "rush",
+      "seeds": 100,
+      "wins": 68,
+      "winRate": 0.68,
+      "meanFinalTokenOnWins": 4.76,
+      "meanTurnsPerAttempt": 8.84
+    },
+    {
+      "role": "DeepSeek",
+      "policy": "budget",
+      "seeds": 100,
+      "wins": 99,
+      "winRate": 0.99,
+      "meanFinalTokenOnWins": 5.02,
+      "meanTurnsPerAttempt": 8.05
+    }
+  ],
+  "pairs": [
+    {
+      "pair": [
+        "GPT",
+        "Claude"
+      ],
+      "seeds": 40,
+      "chapterTwoWins": 40,
+      "hiddenWins": 40,
+      "hiddenAttempts": 40
+    },
+    {
+      "pair": [
+        "GPT",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "chapterTwoWins": 40,
+      "hiddenWins": 38,
+      "hiddenAttempts": 40
+    },
+    {
+      "pair": [
+        "Claude",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "chapterTwoWins": 40,
+      "hiddenWins": 40,
+      "hiddenAttempts": 40
+    }
+  ],
+  "fullChallenge": [
+    {
+      "pair": [
+        "GPT",
+        "Claude"
+      ],
+      "seeds": 40,
+      "difficulty": 2,
+      "reachedSecond": 33,
+      "regularWins": 33,
+      "hiddenWins": 32,
+      "failures": {
+        "submit": 7,
+        "hidden": 1
+      },
+      "example": {
+        "seed": 1,
+        "stage": "student",
+        "finalBoss": "recipient",
+        "hiddenEntry": {
+          "GPT": {
+            "token": 9,
+            "max": 12
+          },
+          "Claude": {
+            "token": 10,
+            "max": 12
+          }
+        }
+      }
+    },
+    {
+      "pair": [
+        "GPT",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "difficulty": 2,
+      "reachedSecond": 33,
+      "regularWins": 33,
+      "hiddenWins": 23,
+      "failures": {
+        "hidden": 10,
+        "submit": 7
+      },
+      "example": {
+        "seed": 1,
+        "stage": "student",
+        "finalBoss": "recipient",
+        "hiddenEntry": {
+          "GPT": {
+            "token": 7,
+            "max": 12
+          },
+          "DeepSeek": {
+            "token": 12,
+            "max": 12
+          }
+        }
+      }
+    },
+    {
+      "pair": [
+        "Claude",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "difficulty": 2,
+      "reachedSecond": 40,
+      "regularWins": 40,
+      "hiddenWins": 40,
+      "failures": {},
+      "example": {
+        "seed": 1,
+        "stage": "student",
+        "finalBoss": "recipient",
+        "hiddenEntry": {
+          "Claude": {
+            "token": 12,
+            "max": 12
+          },
+          "DeepSeek": {
+            "token": 7,
+            "max": 12
+          }
+        }
+      }
+    }
+  ]
+}

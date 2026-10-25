@@ -181,6 +181,15 @@ func _validate_payload(snapshot: Dictionary) -> Dictionary:
 		return {"ok": false, "error": "invalid_snapshot_battle_kind"}
 	if str(snapshot["flow"]) not in ["battle", "rest", "result"]:
 		return {"ok": false, "error": "invalid_snapshot_flow"}
+	var mode := str(snapshot["mode"])
+	var battle_kind := str(snapshot["currentBattleKind"])
+	var flow := str(snapshot["flow"])
+	if mode == "test_arena" and (battle_kind != "test_arena" or flow == "rest"):
+		return {"ok": false, "error": "invalid_snapshot_mode_flow"}
+	if mode == "standard" and battle_kind == "test_arena":
+		return {"ok": false, "error": "invalid_snapshot_mode_flow"}
+	if flow == "rest" and battle_kind != "ordinary":
+		return {"ok": false, "error": "invalid_snapshot_mode_flow"}
 	if (typeof(snapshot["runSeed"]) != TYPE_INT and typeof(snapshot["runSeed"]) != TYPE_FLOAT) or typeof(snapshot["battleLog"]) != TYPE_ARRAY:
 		return {"ok": false, "error": "invalid_snapshot_metadata"}
 	return {"ok": true}

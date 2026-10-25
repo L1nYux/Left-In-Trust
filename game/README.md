@@ -26,6 +26,14 @@ godot --path .\game -- --seed=20261025
 
 ## 测试
 
+推荐在仓库根目录运行一键阶段门禁；命令会按退出码判断成功，并把完整输出同时写入 `_build/evidence/test-logs/` 和 `game/.godot/*-tests.log`：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\_build\run_stage2_tests.ps1
+```
+
+也可以逐项运行：
+
 ```powershell
 node .\_build\validate_gameplay_v05.cjs
 godot --headless --path .\game --script res://tests/test_rules.gd
@@ -36,7 +44,7 @@ godot --headless --path .\game --script res://tests/test_multiplayer.gd
 godot --headless --path .\game --script res://tests/test_save_manager.gd
 ```
 
-`test_multiplayer.gd` 覆盖三种双人组合、三人行动顺序、替补牌过滤、下线封存、锁定目标、定向保护、额度转交与胜后恢复。`test_save_manager.gd` 使用真实文件覆盖临时文件截断、主档损坏、校验错误、上一有效档恢复、结算重载幂等和不支持 schema。
+`test_multiplayer.gd` 覆盖三种双人组合、三人行动顺序、替补牌过滤、下线封存、锁定目标、定向保护、额度转交与胜后恢复。`test_save_manager.gd` 使用真实文件覆盖临时文件截断、主档损坏、校验错误、上一有效档恢复、结算重载幂等、不支持 schema，以及 mode/flow 语义矛盾。
 
 ## 存档
 

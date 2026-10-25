@@ -1,0 +1,33 @@
+Godot_v4.7.2-stable_win64_console.exe : ERROR: Could not create directory: 'user://logs'.
+At D:\MyPros\AI游戏\_build\run_stage2_tests.ps1:55 char:19
++         $output = & $Executable @Arguments 2>&1
++                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ERROR: Could no... 'user://logs'.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+   at: make_dir_recursive (core/io/dir_access.cpp:179)
+ERROR: Failed to open log file for writing: user://logs/godot.log
+   at: rotate_file (core/io/logger.cpp:169)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192728 lineup=GPT
+[未尽之托] battle=boss seed=20409889 lineup=GPT
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192731 lineup=Claude
+[未尽之托] battle=boss seed=20409890 lineup=Claude
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192730 lineup=DeepSeek
+[未尽之托] battle=boss seed=20409891 lineup=DeepSeek
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192661 lineup=GPT,Claude
+[未尽之托] battle=boss seed=20409964 lineup=GPT,Claude
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192660 lineup=GPT,DeepSeek
+[未尽之托] battle=boss seed=20409965 lineup=GPT,DeepSeek
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192663 lineup=Claude,DeepSeek
+[未尽之托] battle=boss seed=20409966 lineup=Claude,DeepSeek
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=test_arena seed=20348609 lineup=GPT,Claude,DeepSeek
+[UI FLOWS] [{"boss_turns":3,"completed":true,"final_token":6,"ordinary_turns":2,"rest":[10,12],"role":"GPT","seed":20261025,"wallet":12},{"boss_turns":4,"completed":true,"final_token":7,"ordinary_turns":2,"rest":[10,12],"role":"Claude","seed":20261026,"wallet":12},{"boss_turns":3,"completed":true,"final_token":5,"ordinary_turns":2,"rest":[9,12],"role":"DeepSeek","seed":20261027,"wallet":12},{"boss_turns":2,"completed":true,"ordinary_turns":2,"pair":["GPT","Claude"],"wallet":12},{"boss_turns":2,"completed":true,"ordinary_turns":1,"pair":["GPT","DeepSeek"],"wallet":12},{"boss_turns":2,"completed":true,"ordinary_turns":2,"pair":["Claude","DeepSeek"],"wallet":12},{"completed":true,"lineup":["GPT","Claude","DeepSeek"],"mode":"test_arena","turns":2}]
