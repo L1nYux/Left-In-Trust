@@ -1,0 +1,8 @@
+=== 统计 ===
+文件：docs\Demo剧情脚本.md
+模式：完整（格式+覆盖）
+事件总数：117
+节点分布：{"prologue":1,"open":8,"N1":8,"B1":4,"N2":8,"B2":4,"N3":8,"boss":4,"success":8,"prepFail":4,"acceptFail":8,"close":4,"rest":4,"shop":4,"event":4,"recruit":2,"ending":4,"stageBoss":2,"hidden":2,"appendix":6,"recap":20}
+错误：0，警告：0
+
+结果：PASS
