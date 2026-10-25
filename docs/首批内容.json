@@ -1,6 +1,7 @@
 {
   "version": "0.5",
   "title": "未尽之托",
+  "titleEn": "Left in Trust",
   "parameters": {
     "maxToken": 12,
     "winRecovery": 3,
@@ -188,7 +189,7 @@
   ],
   "enemies": [
     {
-      "id": "missing",
+      "id": "missing_attachment",
       "name": "缺失附件",
       "hp": 16,
       "pattern": [
@@ -396,7 +397,7 @@
         "employee"
       ],
       "problems": [
-        "missing",
+        "missing_attachment",
         "duplicate"
       ],
       "facts": [
@@ -414,7 +415,7 @@
         "employee"
       ],
       "problems": [
-        "missing",
+        "missing_attachment",
         "duplicate"
       ],
       "facts": [

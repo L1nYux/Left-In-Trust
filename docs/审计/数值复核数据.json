@@ -1,0 +1,2138 @@
+{
+  "basicOnly": {
+    "rows": [
+      {
+        "battleSeed": 4258,
+        "enemy": "missing_attachment",
+        "enemyHpLeft": 1,
+        "hp": 16,
+        "result": "loss",
+        "tokenAtEnd": 0,
+        "turns": 5
+      },
+      {
+        "battleSeed": 4260,
+        "enemy": "duplicate",
+        "enemyHpLeft": 3,
+        "hp": 18,
+        "result": "loss",
+        "tokenAtEnd": 0,
+        "turns": 5
+      },
+      {
+        "battleSeed": 4266,
+        "enemy": "conflict",
+        "enemyHpLeft": 12,
+        "hp": 24,
+        "result": "loss",
+        "tokenAtEnd": 0,
+        "turns": 4
+      },
+      {
+        "battleSeed": 4265,
+        "enemy": "overflow",
+        "enemyHpLeft": 11,
+        "hp": 23,
+        "result": "loss",
+        "tokenAtEnd": 0,
+        "turns": 4
+      },
+      {
+        "battleSeed": 4272,
+        "enemy": "submit",
+        "enemyHpLeft": 12,
+        "hp": 30,
+        "result": "loss",
+        "tokenAtEnd": 0,
+        "turns": 6
+      },
+      {
+        "battleSeed": 4284,
+        "enemy": "recipient",
+        "enemyHpLeft": 33,
+        "hp": 42,
+        "result": "loss",
+        "tokenAtEnd": 0,
+        "turns": 3
+      }
+    ],
+    "scenario": "GPT 每回合只打基础攻击(3)，无卡牌、无防护/回复；用于给出理论最低输出下的生存/耗时边界"
+  },
+  "dataVersion": "0.5",
+  "derived": {
+    "cards": [
+      {
+        "base": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 1,
+          "damage": 6,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 0
+        },
+        "cost": 1,
+        "formula": "damage 基础 6，升级 +2 -> 8",
+        "id": "A",
+        "kind": "attack",
+        "name": "标准指令",
+        "owner": "通用",
+        "target": "",
+        "upgradeDelta": {
+          "damage": 2.0
+        },
+        "upgraded": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 1,
+          "damage": 8,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 0
+        }
+      },
+      {
+        "base": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 0,
+          "damage": 0,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 4
+        },
+        "cost": 0,
+        "formula": "shield 基础 4，升级 +1 -> 5",
+        "id": "D",
+        "kind": "guard",
+        "name": "防护指令",
+        "owner": "通用",
+        "target": "ally",
+        "upgradeDelta": {
+          "shield": 1.0
+        },
+        "upgraded": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 0,
+          "damage": 0,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 5
+        }
+      },
+      {
+        "base": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 2,
+          "damage": 10,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 0
+        },
+        "cost": 2,
+        "formula": "damage 基础 10，升级 +2 -> 12",
+        "id": "H",
+        "kind": "attack",
+        "name": "强力指令",
+        "owner": "通用",
+        "target": "",
+        "upgradeDelta": {
+          "damage": 2.0
+        },
+        "upgraded": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 2,
+          "damage": 12,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 0
+        }
+      },
+      {
+        "base": {
+          "cashRice": false,
+          "consume": true,
+          "cost": 0,
+          "damage": 0,
+          "fullStreakBonus": 0,
+          "heal": 2,
+          "riceGain": 0,
+          "shield": 0
+        },
+        "cost": 0,
+        "formula": "heal 基础 2，升级 +1 -> 3；本战消耗",
+        "id": "R",
+        "kind": "heal",
+        "name": "应急补给",
+        "owner": "通用",
+        "target": "ally",
+        "upgradeDelta": {
+          "heal": 1.0
+        },
+        "upgraded": {
+          "cashRice": false,
+          "consume": true,
+          "cost": 0,
+          "damage": 0,
+          "fullStreakBonus": 0,
+          "heal": 3,
+          "riceGain": 0,
+          "shield": 0
+        }
+      },
+      {
+        "base": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 2,
+          "damage": 0,
+          "fullStreakBonus": 0,
+          "heal": 2,
+          "riceGain": 0,
+          "shield": 0
+        },
+        "cost": 2,
+        "formula": "shield 基础 0，升级 +2 -> 2；heal 基础 2",
+        "id": "T",
+        "kind": "transfer",
+        "name": "额度转交",
+        "owner": "通用",
+        "target": "other",
+        "upgradeDelta": {
+          "shield": 2.0
+        },
+        "upgraded": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 2,
+          "damage": 0,
+          "fullStreakBonus": 0,
+          "heal": 2,
+          "riceGain": 0,
+          "shield": 2
+        }
+      },
+      {
+        "base": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 1,
+          "damage": 4,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 3
+        },
+        "cost": 1,
+        "formula": "damage 基础 4，升级 +1 -> 5；shield 基础 3",
+        "id": "V",
+        "kind": "attack",
+        "name": "校验打击",
+        "owner": "通用",
+        "target": "self",
+        "upgradeDelta": {
+          "damage": 1.0
+        },
+        "upgraded": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 1,
+          "damage": 5,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 3
+        }
+      },
+      {
+        "base": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 1,
+          "damage": 5,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 2
+        },
+        "cost": 1,
+        "formula": "damage 基础 5，升级 +1 -> 6；shield 基础 2",
+        "id": "G1",
+        "kind": "attack",
+        "name": "分步推进",
+        "owner": "GPT",
+        "target": "self",
+        "upgradeDelta": {
+          "damage": 1.0
+        },
+        "upgraded": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 1,
+          "damage": 6,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 2
+        }
+      },
+      {
+        "base": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 2,
+          "damage": 10,
+          "fullStreakBonus": 2,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 0
+        },
+        "cost": 2,
+        "formula": "damage 基础 10，升级 +2 -> 12；满连击额外 +2",
+        "id": "G2",
+        "kind": "attack",
+        "name": "一鼓作气",
+        "owner": "GPT",
+        "target": "",
+        "upgradeDelta": {
+          "damage": 2.0
+        },
+        "upgraded": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 2,
+          "damage": 12,
+          "fullStreakBonus": 2,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 0
+        }
+      },
+      {
+        "base": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 0,
+          "damage": 0,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 5
+        },
+        "cost": 0,
+        "formula": "shield 基础 5，升级 +1 -> 6",
+        "id": "C1",
+        "kind": "guard",
+        "name": "最小改动",
+        "owner": "Claude",
+        "target": "ally",
+        "upgradeDelta": {
+          "shield": 1.0
+        },
+        "upgraded": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 0,
+          "damage": 0,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 6
+        }
+      },
+      {
+        "base": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 1,
+          "damage": 5,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 2
+        },
+        "cost": 1,
+        "formula": "damage 基础 5，升级 +1 -> 6；shield 基础 2",
+        "id": "C2",
+        "kind": "attack",
+        "name": "逐条回应",
+        "owner": "Claude",
+        "target": "self",
+        "upgradeDelta": {
+          "damage": 1.0
+        },
+        "upgraded": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 1,
+          "damage": 6,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 2
+        }
+      },
+      {
+        "base": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 0,
+          "damage": 0,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 1,
+          "shield": 4
+        },
+        "cost": 0,
+        "formula": "shield 基础 4，升级 +1 -> 5；riceGain 基础 1",
+        "id": "S1",
+        "kind": "guard",
+        "name": "稳住火候",
+        "owner": "DeepSeek",
+        "target": "self",
+        "upgradeDelta": {
+          "shield": 1.0
+        },
+        "upgraded": {
+          "cashRice": false,
+          "consume": false,
+          "cost": 0,
+          "damage": 0,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 1,
+          "shield": 5
+        }
+      },
+      {
+        "base": {
+          "cashRice": true,
+          "consume": false,
+          "cost": 2,
+          "damage": 8,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 0
+        },
+        "cost": 2,
+        "formula": "damage 基础 8，升级 +2 -> 10；cashRice: 伤害 += 当前白饭 x2 后清零",
+        "id": "S2",
+        "kind": "attack",
+        "name": "提早开饭",
+        "owner": "DeepSeek",
+        "target": "",
+        "upgradeDelta": {
+          "damage": 2.0
+        },
+        "upgraded": {
+          "cashRice": true,
+          "consume": false,
+          "cost": 2,
+          "damage": 10,
+          "fullStreakBonus": 0,
+          "heal": 0,
+          "riceGain": 0,
+          "shield": 0
+        }
+      }
+    ],
+    "claudeCounter": {
+      "A": {
+        "base": {
+          "counter": {
+            "damage": 10,
+            "ok": true,
+            "shield": 0
+          },
+          "no_counter": {
+            "damage": 6,
+            "ok": true,
+            "shield": 0
+          }
+        },
+        "upgraded": {
+          "counter": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          },
+          "no_counter": {
+            "damage": 8,
+            "ok": true,
+            "shield": 0
+          }
+        }
+      },
+      "C2": {
+        "base": {
+          "counter": {
+            "damage": 9,
+            "ok": true,
+            "shield": 2
+          },
+          "no_counter": {
+            "damage": 5,
+            "ok": true,
+            "shield": 2
+          }
+        },
+        "upgraded": {
+          "counter": {
+            "damage": 10,
+            "ok": true,
+            "shield": 2
+          },
+          "no_counter": {
+            "damage": 6,
+            "ok": true,
+            "shield": 2
+          }
+        }
+      },
+      "H": {
+        "base": {
+          "counter": {
+            "damage": 14,
+            "ok": true,
+            "shield": 0
+          },
+          "no_counter": {
+            "damage": 10,
+            "ok": true,
+            "shield": 0
+          }
+        },
+        "upgraded": {
+          "counter": {
+            "damage": 16,
+            "ok": true,
+            "shield": 0
+          },
+          "no_counter": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          }
+        }
+      },
+      "V": {
+        "base": {
+          "counter": {
+            "damage": 8,
+            "ok": true,
+            "shield": 3
+          },
+          "no_counter": {
+            "damage": 4,
+            "ok": true,
+            "shield": 3
+          }
+        },
+        "upgraded": {
+          "counter": {
+            "damage": 9,
+            "ok": true,
+            "shield": 3
+          },
+          "no_counter": {
+            "damage": 5,
+            "ok": true,
+            "shield": 3
+          }
+        }
+      },
+      "basic_attack": {
+        "base": {
+          "counter": {
+            "damage": 7,
+            "ok": true,
+            "shield": 0
+          },
+          "no_counter": {
+            "damage": 3,
+            "ok": true,
+            "shield": 0
+          }
+        }
+      }
+    },
+    "deepseekRice": {
+      "A": {
+        "base": {
+          "0": {
+            "damage": 6,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 6,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 6,
+            "ok": true,
+            "shield": 0
+          },
+          "3": {
+            "damage": 6,
+            "ok": true,
+            "shield": 0
+          }
+        },
+        "upgraded": {
+          "0": {
+            "damage": 8,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 8,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 8,
+            "ok": true,
+            "shield": 0
+          },
+          "3": {
+            "damage": 8,
+            "ok": true,
+            "shield": 0
+          }
+        }
+      },
+      "H": {
+        "base": {
+          "0": {
+            "damage": 10,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 10,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 10,
+            "ok": true,
+            "shield": 0
+          },
+          "3": {
+            "damage": 16,
+            "ok": true,
+            "shield": 0
+          }
+        },
+        "upgraded": {
+          "0": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          },
+          "3": {
+            "damage": 18,
+            "ok": true,
+            "shield": 0
+          }
+        }
+      },
+      "S2": {
+        "base": {
+          "0": {
+            "damage": 8,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 10,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          },
+          "3": {
+            "damage": 14,
+            "ok": true,
+            "shield": 0
+          }
+        },
+        "upgraded": {
+          "0": {
+            "damage": 10,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 14,
+            "ok": true,
+            "shield": 0
+          },
+          "3": {
+            "damage": 16,
+            "ok": true,
+            "shield": 0
+          }
+        }
+      },
+      "V": {
+        "base": {
+          "0": {
+            "damage": 4,
+            "ok": true,
+            "shield": 3
+          },
+          "1": {
+            "damage": 4,
+            "ok": true,
+            "shield": 3
+          },
+          "2": {
+            "damage": 4,
+            "ok": true,
+            "shield": 3
+          },
+          "3": {
+            "damage": 4,
+            "ok": true,
+            "shield": 3
+          }
+        },
+        "upgraded": {
+          "0": {
+            "damage": 5,
+            "ok": true,
+            "shield": 3
+          },
+          "1": {
+            "damage": 5,
+            "ok": true,
+            "shield": 3
+          },
+          "2": {
+            "damage": 5,
+            "ok": true,
+            "shield": 3
+          },
+          "3": {
+            "damage": 5,
+            "ok": true,
+            "shield": 3
+          }
+        }
+      },
+      "basic_attack": {
+        "base": {
+          "0": {
+            "damage": 3,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 3,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 3,
+            "ok": true,
+            "shield": 0
+          },
+          "3": {
+            "damage": 3,
+            "ok": true,
+            "shield": 0
+          }
+        }
+      }
+    },
+    "gptStreak": {
+      "A": {
+        "base": {
+          "0": {
+            "damage": 6,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 8,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 10,
+            "ok": true,
+            "shield": 0
+          }
+        },
+        "upgraded": {
+          "0": {
+            "damage": 8,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 10,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          }
+        }
+      },
+      "G1": {
+        "base": {
+          "0": {
+            "damage": 5,
+            "ok": true,
+            "shield": 2
+          },
+          "1": {
+            "damage": 7,
+            "ok": true,
+            "shield": 2
+          },
+          "2": {
+            "damage": 9,
+            "ok": true,
+            "shield": 2
+          }
+        },
+        "upgraded": {
+          "0": {
+            "damage": 6,
+            "ok": true,
+            "shield": 2
+          },
+          "1": {
+            "damage": 8,
+            "ok": true,
+            "shield": 2
+          },
+          "2": {
+            "damage": 10,
+            "ok": true,
+            "shield": 2
+          }
+        }
+      },
+      "G2": {
+        "base": {
+          "0": {
+            "damage": 10,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 16,
+            "ok": true,
+            "shield": 0
+          }
+        },
+        "upgraded": {
+          "0": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 14,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 18,
+            "ok": true,
+            "shield": 0
+          }
+        }
+      },
+      "H": {
+        "base": {
+          "0": {
+            "damage": 10,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 14,
+            "ok": true,
+            "shield": 0
+          }
+        },
+        "upgraded": {
+          "0": {
+            "damage": 12,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 14,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 16,
+            "ok": true,
+            "shield": 0
+          }
+        }
+      },
+      "V": {
+        "base": {
+          "0": {
+            "damage": 4,
+            "ok": true,
+            "shield": 3
+          },
+          "1": {
+            "damage": 6,
+            "ok": true,
+            "shield": 3
+          },
+          "2": {
+            "damage": 8,
+            "ok": true,
+            "shield": 3
+          }
+        },
+        "upgraded": {
+          "0": {
+            "damage": 5,
+            "ok": true,
+            "shield": 3
+          },
+          "1": {
+            "damage": 7,
+            "ok": true,
+            "shield": 3
+          },
+          "2": {
+            "damage": 9,
+            "ok": true,
+            "shield": 3
+          }
+        }
+      },
+      "basic_attack": {
+        "base": {
+          "0": {
+            "damage": 3,
+            "ok": true,
+            "shield": 0
+          },
+          "1": {
+            "damage": 3,
+            "ok": true,
+            "shield": 0
+          },
+          "2": {
+            "damage": 3,
+            "ok": true,
+            "shield": 0
+          }
+        }
+      }
+    },
+    "maxHeal": {
+      "cards": {
+        "R": {
+          "base": 2,
+          "target": "ally",
+          "upgraded": 3
+        },
+        "T": {
+          "base": 2,
+          "target": "other",
+          "upgraded": 2
+        }
+      },
+      "perActionMaxHeal": 3,
+      "source": "R 应急补给升级后 heal=2+1=3（本战消耗、每套牌最多 1 份）；T 额度转交 heal=2"
+    },
+    "maxSingleActionDamage": {
+      "Claude": {
+        "baseDeckMax": 14,
+        "maxStateSource": "H counter=true：base 14，升级 16",
+        "note": "单次行动=一回合内一名角色的一次出牌；切片内每回合只有一次行动",
+        "upgradedMax": 16
+      },
+      "DeepSeek": {
+        "baseDeckMax": 16,
+        "maxStateSource": "H rice=3：base 16，升级 18",
+        "note": "单次行动=一回合内一名角色的一次出牌；切片内每回合只有一次行动",
+        "upgradedMax": 18
+      },
+      "GPT": {
+        "baseDeckMax": 16,
+        "maxStateSource": "G2 streak=2：base 16，升级 18",
+        "note": "单次行动=一回合内一名角色的一次出牌；切片内每回合只有一次行动",
+        "upgradedMax": 18
+      }
+    },
+    "observedMaxDamage": {
+      "Claude_H_upgraded_counter": {
+        "damageObserved": 16,
+        "enemyHpAfter": 40,
+        "enemyHpBefore": 56,
+        "ok": true,
+        "tokenAfter": 10
+      },
+      "Claude_basic_counter": {
+        "damageObserved": 7,
+        "enemyHpAfter": 49,
+        "enemyHpBefore": 56,
+        "ok": true,
+        "tokenAfter": 12
+      },
+      "DeepSeek_H_upgraded_rice3": {
+        "damageObserved": 18,
+        "enemyHpAfter": 38,
+        "enemyHpBefore": 56,
+        "ok": true,
+        "tokenAfter": 10
+      },
+      "DeepSeek_S2_upgraded_rice3": {
+        "damageObserved": 16,
+        "enemyHpAfter": 40,
+        "enemyHpBefore": 56,
+        "ok": true,
+        "tokenAfter": 10
+      },
+      "GPT_G2_upgraded_streak2": {
+        "damageObserved": 18,
+        "enemyHpAfter": 38,
+        "enemyHpBefore": 56,
+        "ok": true,
+        "tokenAfter": 10
+      },
+      "note": "对 hidden(HP56) 假人执行真实 try_action，用 HP 差实测伤害，排除预览层误差"
+    },
+    "passiveValueSummary": {
+      "claudeCounter": "本回合正数防护对象实际挡伤且本人在线 -> 下一次攻击的一段 +4，最多存一次",
+      "deepseekRice": "S2 每次行动按当前 rice x2 换伤害并清零(cashRice)；cost>=2 的普通攻击在 rice=3 时 +6 并清零；S1 行动时 rice+1",
+      "gptStreak": "攻击卡按出牌前 streak 每层 +2；streak=2 时 G2 另 +fullStreakBonus(2)；streak 上限 2"
+    },
+    "tokenThresholds": {
+      "A": {
+        "cost": 1,
+        "formula": "R02：支付后至少剩 1 -> token >= cost + 1",
+        "minTokenToPlay": 2,
+        "tokenEqualsCost": {
+          "error": "personal_payment",
+          "ok": false
+        },
+        "tokenEqualsCostPlusOne": {
+          "balanceAfter": 1,
+          "ok": true
+        }
+      },
+      "D": {
+        "cost": 0,
+        "formula": "R02：支付后至少剩 1 -> token >= cost + 1",
+        "minTokenToPlay": 1,
+        "tokenEqualsCost": {
+          "error": "personal_payment",
+          "ok": false
+        },
+        "tokenEqualsCostPlusOne": {
+          "balanceAfter": 1,
+          "ok": true
+        }
+      },
+      "H": {
+        "cost": 2,
+        "formula": "R02：支付后至少剩 1 -> token >= cost + 1",
+        "minTokenToPlay": 3,
+        "tokenEqualsCost": {
+          "error": "personal_payment",
+          "ok": false
+        },
+        "tokenEqualsCostPlusOne": {
+          "balanceAfter": 1,
+          "ok": true
+        }
+      }
+    }
+  },
+  "engine": "4.7.2-stable (official)",
+  "generatedBy": "game/tests/audit_numeric.gd",
+  "hpBounds": {
+    "formula": {
+      "maxEstimate": "ceil(HP / 3)，假设每回合只打一次基础攻击（理论最低持续输出）",
+      "min": "ceil(HP / 单次行动最大伤害)，假设每回合满状态打一次该上限动作"
+    },
+    "rows": [
+      {
+        "boss": false,
+        "chapter": 1,
+        "hp": 16,
+        "id": "missing_attachment",
+        "maxTurnsBasicAttackOnly": 6,
+        "minTurnsByRoleBaseDeck": {
+          "Claude": 2,
+          "DeepSeek": 1,
+          "GPT": 1
+        },
+        "minTurnsByRoleUpgraded": {
+          "Claude": 1,
+          "DeepSeek": 1,
+          "GPT": 1
+        },
+        "name": "缺失附件"
+      },
+      {
+        "boss": false,
+        "chapter": 1,
+        "hp": 18,
+        "id": "duplicate",
+        "maxTurnsBasicAttackOnly": 6,
+        "minTurnsByRoleBaseDeck": {
+          "Claude": 2,
+          "DeepSeek": 2,
+          "GPT": 2
+        },
+        "minTurnsByRoleUpgraded": {
+          "Claude": 2,
+          "DeepSeek": 1,
+          "GPT": 1
+        },
+        "name": "重复条目"
+      },
+      {
+        "boss": false,
+        "chapter": 2,
+        "hp": 24,
+        "id": "conflict",
+        "maxTurnsBasicAttackOnly": 8,
+        "minTurnsByRoleBaseDeck": {
+          "Claude": 2,
+          "DeepSeek": 2,
+          "GPT": 2
+        },
+        "minTurnsByRoleUpgraded": {
+          "Claude": 2,
+          "DeepSeek": 2,
+          "GPT": 2
+        },
+        "name": "口径冲突"
+      },
+      {
+        "boss": false,
+        "chapter": 2,
+        "hp": 23,
+        "id": "overflow",
+        "maxTurnsBasicAttackOnly": 8,
+        "minTurnsByRoleBaseDeck": {
+          "Claude": 2,
+          "DeepSeek": 2,
+          "GPT": 2
+        },
+        "minTurnsByRoleUpgraded": {
+          "Claude": 2,
+          "DeepSeek": 2,
+          "GPT": 2
+        },
+        "name": "版面溢出"
+      },
+      {
+        "boss": true,
+        "chapter": 1,
+        "hp": 30,
+        "id": "submit",
+        "maxTurnsBasicAttackOnly": 10,
+        "minTurnsByRoleBaseDeck": {
+          "Claude": 3,
+          "DeepSeek": 2,
+          "GPT": 2
+        },
+        "minTurnsByRoleUpgraded": {
+          "Claude": 2,
+          "DeepSeek": 2,
+          "GPT": 2
+        },
+        "name": "本次提交版"
+      },
+      {
+        "boss": true,
+        "chapter": 2,
+        "hp": 42,
+        "id": "recipient",
+        "maxTurnsBasicAttackOnly": 14,
+        "minTurnsByRoleBaseDeck": {
+          "Claude": 3,
+          "DeepSeek": 3,
+          "GPT": 3
+        },
+        "minTurnsByRoleUpgraded": {
+          "Claude": 3,
+          "DeepSeek": 3,
+          "GPT": 3
+        },
+        "name": "请确认收件人"
+      },
+      {
+        "boss": true,
+        "chapter": 2,
+        "hp": 42,
+        "id": "stage_student",
+        "maxTurnsBasicAttackOnly": 14,
+        "minTurnsByRoleBaseDeck": {
+          "Claude": 3,
+          "DeepSeek": 3,
+          "GPT": 3
+        },
+        "minTurnsByRoleUpgraded": {
+          "Claude": 3,
+          "DeepSeek": 3,
+          "GPT": 3
+        },
+        "name": "下一站还没填"
+      },
+      {
+        "boss": true,
+        "chapter": 2,
+        "hp": 42,
+        "id": "stage_employee",
+        "maxTurnsBasicAttackOnly": 14,
+        "minTurnsByRoleBaseDeck": {
+          "Claude": 3,
+          "DeepSeek": 3,
+          "GPT": 3
+        },
+        "minTurnsByRoleUpgraded": {
+          "Claude": 3,
+          "DeepSeek": 3,
+          "GPT": 3
+        },
+        "name": "今天必须交"
+      },
+      {
+        "boss": true,
+        "chapter": 3,
+        "hp": 56,
+        "id": "hidden",
+        "maxTurnsBasicAttackOnly": 19,
+        "minTurnsByRoleBaseDeck": {
+          "Claude": 4,
+          "DeepSeek": 4,
+          "GPT": 4
+        },
+        "minTurnsByRoleUpgraded": {
+          "Claude": 4,
+          "DeepSeek": 4,
+          "GPT": 4
+        },
+        "name": "我"
+      }
+    ]
+  },
+  "method": {
+    "bootstrapping": "白饭/连击/反击最早回合用真实 begin_turn/try_action/finish_turn 时序脚本化实测",
+    "dataSource": "docs/首批内容.json（经 game/data/content.json 载入，两者 SHA-256 一致性见 sourceSHA256）",
+    "derivedValues": "所有伤害/防护/回复/白饭数字由 game_rules.gd 的 resolved_card + preview_action 实际算出",
+    "hpBounds": "最少回合=ceil(HP/单次行动最大伤害)；最多回合估计=ceil(HP/3)（假设每回合只打一次基础攻击）",
+    "simulation": "完整切片=普通战 missing_attachment(HP16)->settle->休息(若未满)->Boss submit(HP30)->settle；自动出牌统一调用 game/tests/test_policy.gd；种子 1..50，战斗种子沿用 run_seed ^ 0x13579 / ^ 0x24680"
+  },
+  "parameters": {
+    "basicAttack": 3.0,
+    "basicGuard": 3.0,
+    "bossReward": 8.0,
+    "draw": 5.0,
+    "eliteReward": 8.0,
+    "maxToken": 12.0,
+    "minDeck": 8.0,
+    "ordinaryReward": 4.0,
+    "restRecovery": 6.0,
+    "shopCost": 6.0,
+    "shopRecovery": 4.0,
+    "winRecovery": 3.0
+  },
+  "reachability": {
+    "claudeCounter": {
+      "firstCounterReadyEndOfTurn": 1,
+      "firstCounterUsableTurn": 2,
+      "note": "第 1 回合 C1 给自身防护 5；敌方第 1 段 2 被实际吸收且 Claude 在线 -> 回合末 counter=true；第 2 回合攻击即 +4。单人阵容目标恒为本人，故每次防住即可续反击。",
+      "turns": [
+        {
+          "ADamage": 6,
+          "C2Damage": 5,
+          "HDamage": 10,
+          "VDamage": 4,
+          "actionOk": true,
+          "basicDamage": 3,
+          "counterBeforeAction": false,
+          "played": "C1(shield5 self)",
+          "protectedBeforeAction": [],
+          "turn": 1
+        },
+        {
+          "ADamage": 10,
+          "C2Damage": 9,
+          "HDamage": 14,
+          "VDamage": 8,
+          "actionOk": true,
+          "basicDamage": 7,
+          "counterBeforeAction": true,
+          "played": "C2(consume counter)",
+          "protectedBeforeAction": [],
+          "turn": 2
+        },
+        {
+          "ADamage": 10,
+          "C2Damage": 9,
+          "HDamage": 14,
+          "VDamage": 8,
+          "basicDamage": 7,
+          "counterBeforeAction": true,
+          "played": "",
+          "protectedBeforeAction": [],
+          "turn": 3
+        }
+      ]
+    },
+    "deepseekFullRiceS2vsH": {
+      "fullRiceComparison": {
+        "H_base": 16,
+        "H_upgraded": 18,
+        "S2_base": 14,
+        "S2_upgraded": 16
+      },
+      "note": "满层时 H 比 S2 高 2；S2 的收益在 rice=2 时（12 > H 的 10）体现为提前兑现，符合规则基准「S2 覆盖该牌满层 +6、不叠通用满层加成」。",
+      "rows": [
+        {
+          "H_base": 10,
+          "H_upgraded": 12,
+          "S2_base": 8,
+          "S2_upgraded": 10,
+          "note": "同 cost=2；H 在 rice<3 时不清空白饭，S2 每次兑现都清零",
+          "rice": 0
+        },
+        {
+          "H_base": 10,
+          "H_upgraded": 12,
+          "S2_base": 10,
+          "S2_upgraded": 12,
+          "note": "同 cost=2；H 在 rice<3 时不清空白饭，S2 每次兑现都清零",
+          "rice": 1
+        },
+        {
+          "H_base": 10,
+          "H_upgraded": 12,
+          "S2_base": 12,
+          "S2_upgraded": 14,
+          "note": "同 cost=2；H 在 rice<3 时不清空白饭，S2 每次兑现都清零",
+          "rice": 2
+        },
+        {
+          "H_base": 16,
+          "H_upgraded": 18,
+          "S2_base": 14,
+          "S2_upgraded": 16,
+          "note": "同 cost=2；H 在 rice<3 时不清空白饭，S2 每次兑现都清零",
+          "rice": 3
+        }
+      ]
+    },
+    "deepseekRice": {
+      "ruleNote": "begin_turn 不加白饭；S1 行动 rice+1；finish_turn 末尾在线且 ongoing 再 +1（上限 3）。故 S1 路线第 3 回合行动时 rice=3，非 S1 路线第 4 回合；与规则基准「不再采用最快第四回合的旧绝对时点」一致。",
+      "withS1OnTurn1": {
+        "firstHFullRiceTurn": 3,
+        "firstS2FullRiceTurn": 3,
+        "turns": [
+          {
+            "actionOk": true,
+            "hDamage": 10,
+            "played": "S1",
+            "riceAtAction": 0,
+            "s2Damage": 8,
+            "turn": 1
+          },
+          {
+            "hDamage": 10,
+            "played": "",
+            "riceAtAction": 2,
+            "s2Damage": 12,
+            "turn": 2
+          },
+          {
+            "actionOk": true,
+            "enemyHpDrop": 14,
+            "hDamage": 16,
+            "played": "S2",
+            "riceAtAction": 3,
+            "s2Damage": 14,
+            "turn": 3
+          },
+          {
+            "hDamage": 10,
+            "played": "",
+            "riceAtAction": 1,
+            "s2Damage": 10,
+            "turn": 4
+          },
+          {
+            "hDamage": 10,
+            "played": "",
+            "riceAtAction": 2,
+            "s2Damage": 12,
+            "turn": 5
+          }
+        ],
+        "withS1": true
+      },
+      "withoutS1": {
+        "firstHFullRiceTurn": 4,
+        "firstS2FullRiceTurn": 4,
+        "turns": [
+          {
+            "hDamage": 10,
+            "played": "",
+            "riceAtAction": 0,
+            "s2Damage": 8,
+            "turn": 1
+          },
+          {
+            "hDamage": 10,
+            "played": "",
+            "riceAtAction": 1,
+            "s2Damage": 10,
+            "turn": 2
+          },
+          {
+            "hDamage": 10,
+            "played": "",
+            "riceAtAction": 2,
+            "s2Damage": 12,
+            "turn": 3
+          },
+          {
+            "actionOk": true,
+            "enemyHpDrop": 14,
+            "hDamage": 16,
+            "played": "S2",
+            "riceAtAction": 3,
+            "s2Damage": 14,
+            "turn": 4
+          },
+          {
+            "hDamage": 10,
+            "played": "",
+            "riceAtAction": 1,
+            "s2Damage": 10,
+            "turn": 5
+          }
+        ],
+        "withS1": false
+      }
+    },
+    "gptStreak": {
+      "firstFullStreakTurn": 3,
+      "note": "GPT 每回合一次行动；每打出一张攻击卡 streak+1（上限 2），非攻击/基础动作/跳过断连击。连续两回合攻击后，第 3 回合行动前 streak=2。",
+      "turns": [
+        {
+          "g1Damage": 5,
+          "g2Damage": 10,
+          "playedG1Ok": true,
+          "streakAtAction": 0,
+          "turn": 1
+        },
+        {
+          "g1Damage": 7,
+          "g2Damage": 12,
+          "playedG1Ok": true,
+          "streakAtAction": 1,
+          "turn": 2
+        },
+        {
+          "g1Damage": 9,
+          "g2Damage": 16,
+          "playedG1Ok": true,
+          "streakAtAction": 2,
+          "turn": 3
+        },
+        {
+          "g1Damage": 9,
+          "g2Damage": 16,
+          "playedG1Ok": true,
+          "streakAtAction": 2,
+          "turn": 4
+        }
+      ]
+    }
+  },
+  "reproduction": {
+    "command": "& 'D:\\MyPros\\AI游戏\\.tools\\godot-4.7.2\\Godot_v4.7.2-stable_win64_console.exe' --headless --path 'D:\\MyPros\\AI游戏\\game' --script res://tests/audit_numeric.gd",
+    "expectedStdoutPrefix": "[AUDIT_NUMERIC]",
+    "writes": "docs/审计/数值复核数据.json"
+  },
+  "simulation": {
+    "determinism": {
+      "identical": true,
+      "test": "同一 seed=1 GPT 完整切片跑两次，JSON 完全一致"
+    },
+    "documentedSeeds": {
+      "Claude": {
+        "boss": {
+          "enemy": "submit",
+          "enemyHp": 0,
+          "rampTriggerCount": 0,
+          "rampTurns": [],
+          "reachedTurn5": false,
+          "restRowTriggerCount": 1,
+          "restRowTurns": [
+            4
+          ],
+          "result": "win",
+          "tokenAfterSettle": 7,
+          "tokenAtEnd": 4,
+          "tokenAtEntry": 12,
+          "tokenBeforeSettle": 4,
+          "turns": 4,
+          "winRecoveryWaste": 0
+        },
+        "completed": true,
+        "docExpected": {
+          "bossTurns": 4,
+          "finalToken": 7,
+          "ordinaryTurns": 2,
+          "rest": [
+            10,
+            12
+          ],
+          "wallet": 12
+        },
+        "finalToken": 7,
+        "matchesDocTable": {
+          "all": true,
+          "bossTurns": true,
+          "finalToken": true,
+          "ordinaryTurns": true,
+          "rest": true,
+          "wallet": true
+        },
+        "ordinary": {
+          "enemy": "missing_attachment",
+          "enemyHp": 0,
+          "rampTriggerCount": 0,
+          "rampTurns": [],
+          "reachedTurn5": false,
+          "restRowTriggerCount": 0,
+          "restRowTurns": [],
+          "result": "win",
+          "tokenAfterSettle": 10,
+          "tokenAtEnd": 7,
+          "tokenBeforeSettle": 7,
+          "turns": 2,
+          "winRecoveryWaste": 0
+        },
+        "rest": {
+          "after": 12,
+          "before": 10,
+          "performed": true,
+          "waste": 4
+        },
+        "role": "Claude",
+        "seed": 20261026,
+        "wallet": 12,
+        "walletAfterOrdinary": 4
+      },
+      "DeepSeek": {
+        "boss": {
+          "enemy": "submit",
+          "enemyHp": 0,
+          "rampTriggerCount": 0,
+          "rampTurns": [],
+          "reachedTurn5": false,
+          "restRowTriggerCount": 0,
+          "restRowTurns": [],
+          "result": "win",
+          "tokenAfterSettle": 5,
+          "tokenAtEnd": 2,
+          "tokenAtEntry": 12,
+          "tokenBeforeSettle": 2,
+          "turns": 3,
+          "winRecoveryWaste": 0
+        },
+        "completed": true,
+        "docExpected": {
+          "bossTurns": 3,
+          "finalToken": 5,
+          "ordinaryTurns": 2,
+          "rest": [
+            9,
+            12
+          ],
+          "wallet": 12
+        },
+        "finalToken": 5,
+        "matchesDocTable": {
+          "all": true,
+          "bossTurns": true,
+          "finalToken": true,
+          "ordinaryTurns": true,
+          "rest": true,
+          "wallet": true
+        },
+        "ordinary": {
+          "enemy": "missing_attachment",
+          "enemyHp": 0,
+          "rampTriggerCount": 0,
+          "rampTurns": [],
+          "reachedTurn5": false,
+          "restRowTriggerCount": 0,
+          "restRowTurns": [],
+          "result": "win",
+          "tokenAfterSettle": 9,
+          "tokenAtEnd": 6,
+          "tokenBeforeSettle": 6,
+          "turns": 2,
+          "winRecoveryWaste": 0
+        },
+        "rest": {
+          "after": 12,
+          "before": 9,
+          "performed": true,
+          "waste": 3
+        },
+        "role": "DeepSeek",
+        "seed": 20261027,
+        "wallet": 12,
+        "walletAfterOrdinary": 4
+      },
+      "GPT": {
+        "boss": {
+          "enemy": "submit",
+          "enemyHp": 0,
+          "rampTriggerCount": 0,
+          "rampTurns": [],
+          "reachedTurn5": false,
+          "restRowTriggerCount": 0,
+          "restRowTurns": [],
+          "result": "win",
+          "tokenAfterSettle": 6,
+          "tokenAtEnd": 3,
+          "tokenAtEntry": 12,
+          "tokenBeforeSettle": 3,
+          "turns": 3,
+          "winRecoveryWaste": 0
+        },
+        "completed": true,
+        "docExpected": {
+          "bossTurns": 3,
+          "finalToken": 6,
+          "ordinaryTurns": 2,
+          "rest": [
+            10,
+            12
+          ],
+          "wallet": 12
+        },
+        "finalToken": 6,
+        "matchesDocTable": {
+          "all": true,
+          "bossTurns": true,
+          "finalToken": true,
+          "ordinaryTurns": true,
+          "rest": true,
+          "wallet": true
+        },
+        "ordinary": {
+          "enemy": "missing_attachment",
+          "enemyHp": 0,
+          "rampTriggerCount": 0,
+          "rampTurns": [],
+          "reachedTurn5": false,
+          "restRowTriggerCount": 0,
+          "restRowTurns": [],
+          "result": "win",
+          "tokenAfterSettle": 10,
+          "tokenAtEnd": 7,
+          "tokenBeforeSettle": 7,
+          "turns": 2,
+          "winRecoveryWaste": 0
+        },
+        "rest": {
+          "after": 12,
+          "before": 10,
+          "performed": true,
+          "waste": 4
+        },
+        "role": "GPT",
+        "seed": 20261025,
+        "wallet": 12,
+        "walletAfterOrdinary": 4
+      }
+    },
+    "policy": "统一调用 game/tests/test_policy.gd：对每个合法动作 duplicate 状态 -> try_action -> finish_turn -> 评分 damage*1.25 + 自身token*2 + streak*1.2 + rice*1.5 + counter?3；胜 10000+token，负 -10000；严格大于才替换（同分取先出现者）。",
+    "roles": {
+      "Claude": {
+        "bossEntryToken": {
+          "histogram": {
+            "12": 50
+          },
+          "max": 12,
+          "mean": 12.0,
+          "min": 12,
+          "n": 50
+        },
+        "bossTurns": {
+          "histogram": {
+            "3": 2,
+            "4": 32,
+            "5": 16
+          },
+          "max": 5,
+          "mean": 4.28,
+          "min": 3,
+          "n": 50
+        },
+        "bossWinRate": 1.0,
+        "bossWins": 50,
+        "completed": 50,
+        "completionRate": 1.0,
+        "failedAt": {
+          "boss": [],
+          "ordinary": []
+        },
+        "finalToken": {
+          "histogram": {
+            "4": 6,
+            "5": 2,
+            "6": 3,
+            "7": 15,
+            "8": 11,
+            "9": 13
+          },
+          "max": 9,
+          "mean": 7.24,
+          "min": 4,
+          "n": 50
+        },
+        "n": 50,
+        "ordinaryTurns": {
+          "histogram": {
+            "2": 40,
+            "3": 10
+          },
+          "max": 3,
+          "mean": 2.2,
+          "min": 2,
+          "n": 50
+        },
+        "ordinaryWinRate": 1.0,
+        "ordinaryWins": 50,
+        "ramp": {
+          "battlesReachedTurn5": 16,
+          "note": "turn>=5 且该回合 pattern 第一段为正时才算触发（floor((turn-1)/4) 加到第一段正伤害）",
+          "perBattleMean": 0.16,
+          "triggerTurnCount": 16
+        },
+        "rest": {
+          "before": {
+            "histogram": {
+              "10": 38,
+              "11": 10,
+              "9": 2
+            },
+            "max": 11,
+            "mean": 10.16,
+            "min": 9,
+            "n": 50
+          },
+          "performedCount": 50,
+          "waste": {
+            "histogram": {
+              "3": 2,
+              "4": 38,
+              "5": 10
+            },
+            "max": 5,
+            "mean": 4.16,
+            "min": 3,
+            "n": 50
+          },
+          "wasteSum": 208
+        },
+        "restRow": {
+          "battlesReachedRestRow": 48,
+          "note": "missing_attachment(HP16) 无第 4 行；submit 第 4 行 pattern=[0] 即休整行，只有战斗活到 turn 4 才会触发",
+          "triggerTurnCount": 48
+        },
+        "winRecoveryWaste": {
+          "boss": {
+            "histogram": {
+              "0": 50
+            },
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 50
+          },
+          "bossEndToken": {
+            "histogram": {
+              "1": 6,
+              "2": 2,
+              "3": 3,
+              "4": 15,
+              "5": 11,
+              "6": 13
+            },
+            "max": 6,
+            "mean": 4.24,
+            "min": 1,
+            "n": 50
+          },
+          "bossTruncationPotentialBattles": 0,
+          "note": "浪费 = 应发 +3 与实际到手之差；0 token 成员本就 +0（不复起），不计入浪费；EndToken>=10 时 +3 必然被 12 上限截断",
+          "ordinary": {
+            "histogram": {
+              "0": 50
+            },
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 50
+          },
+          "ordinaryEndToken": {
+            "histogram": {
+              "6": 2,
+              "7": 38,
+              "8": 10
+            },
+            "max": 8,
+            "mean": 7.16,
+            "min": 6,
+            "n": 50
+          },
+          "ordinaryTruncationPotentialBattles": 0,
+          "totalSum": 0
+        }
+      },
+      "DeepSeek": {
+        "bossEntryToken": {
+          "histogram": {
+            "12": 50
+          },
+          "max": 12,
+          "mean": 12.0,
+          "min": 12,
+          "n": 50
+        },
+        "bossTurns": {
+          "histogram": {
+            "3": 27,
+            "4": 19,
+            "5": 4
+          },
+          "max": 5,
+          "mean": 3.54,
+          "min": 3,
+          "n": 50
+        },
+        "bossWinRate": 1.0,
+        "bossWins": 50,
+        "completed": 50,
+        "completionRate": 1.0,
+        "failedAt": {
+          "boss": [],
+          "ordinary": []
+        },
+        "finalToken": {
+          "histogram": {
+            "4": 2,
+            "5": 40,
+            "6": 7,
+            "8": 1
+          },
+          "max": 8,
+          "mean": 5.16,
+          "min": 4,
+          "n": 50
+        },
+        "n": 50,
+        "ordinaryTurns": {
+          "histogram": {
+            "2": 47,
+            "3": 3
+          },
+          "max": 3,
+          "mean": 2.06,
+          "min": 2,
+          "n": 50
+        },
+        "ordinaryWinRate": 1.0,
+        "ordinaryWins": 50,
+        "ramp": {
+          "battlesReachedTurn5": 4,
+          "note": "turn>=5 且该回合 pattern 第一段为正时才算触发（floor((turn-1)/4) 加到第一段正伤害）",
+          "perBattleMean": 0.04,
+          "triggerTurnCount": 4
+        },
+        "rest": {
+          "before": {
+            "histogram": {
+              "10": 48,
+              "9": 2
+            },
+            "max": 10,
+            "mean": 9.96,
+            "min": 9,
+            "n": 50
+          },
+          "performedCount": 50,
+          "waste": {
+            "histogram": {
+              "3": 2,
+              "4": 48
+            },
+            "max": 4,
+            "mean": 3.96,
+            "min": 3,
+            "n": 50
+          },
+          "wasteSum": 198
+        },
+        "restRow": {
+          "battlesReachedRestRow": 23,
+          "note": "missing_attachment(HP16) 无第 4 行；submit 第 4 行 pattern=[0] 即休整行，只有战斗活到 turn 4 才会触发",
+          "triggerTurnCount": 23
+        },
+        "winRecoveryWaste": {
+          "boss": {
+            "histogram": {
+              "0": 50
+            },
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 50
+          },
+          "bossEndToken": {
+            "histogram": {
+              "1": 2,
+              "2": 40,
+              "3": 7,
+              "5": 1
+            },
+            "max": 5,
+            "mean": 2.16,
+            "min": 1,
+            "n": 50
+          },
+          "bossTruncationPotentialBattles": 0,
+          "note": "浪费 = 应发 +3 与实际到手之差；0 token 成员本就 +0（不复起），不计入浪费；EndToken>=10 时 +3 必然被 12 上限截断",
+          "ordinary": {
+            "histogram": {
+              "0": 50
+            },
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 50
+          },
+          "ordinaryEndToken": {
+            "histogram": {
+              "6": 2,
+              "7": 48
+            },
+            "max": 7,
+            "mean": 6.96,
+            "min": 6,
+            "n": 50
+          },
+          "ordinaryTruncationPotentialBattles": 0,
+          "totalSum": 0
+        }
+      },
+      "GPT": {
+        "bossEntryToken": {
+          "histogram": {
+            "12": 50
+          },
+          "max": 12,
+          "mean": 12.0,
+          "min": 12,
+          "n": 50
+        },
+        "bossTurns": {
+          "histogram": {
+            "3": 49,
+            "4": 1
+          },
+          "max": 4,
+          "mean": 3.02,
+          "min": 3,
+          "n": 50
+        },
+        "bossWinRate": 1.0,
+        "bossWins": 50,
+        "completed": 50,
+        "completionRate": 1.0,
+        "failedAt": {
+          "boss": [],
+          "ordinary": []
+        },
+        "finalToken": {
+          "histogram": {
+            "5": 1,
+            "6": 37,
+            "8": 12
+          },
+          "max": 8,
+          "mean": 6.46,
+          "min": 5,
+          "n": 50
+        },
+        "n": 50,
+        "ordinaryTurns": {
+          "histogram": {
+            "2": 50
+          },
+          "max": 2,
+          "mean": 2.0,
+          "min": 2,
+          "n": 50
+        },
+        "ordinaryWinRate": 1.0,
+        "ordinaryWins": 50,
+        "ramp": {
+          "battlesReachedTurn5": 0,
+          "note": "turn>=5 且该回合 pattern 第一段为正时才算触发（floor((turn-1)/4) 加到第一段正伤害）",
+          "perBattleMean": 0.0,
+          "triggerTurnCount": 0
+        },
+        "rest": {
+          "before": {
+            "histogram": {
+              "10": 43,
+              "12": 7
+            },
+            "max": 12,
+            "mean": 10.28,
+            "min": 10,
+            "n": 50
+          },
+          "performedCount": 43,
+          "waste": {
+            "histogram": {
+              "0": 7,
+              "4": 43
+            },
+            "max": 4,
+            "mean": 3.44,
+            "min": 0,
+            "n": 50
+          },
+          "wasteSum": 172
+        },
+        "restRow": {
+          "battlesReachedRestRow": 1,
+          "note": "missing_attachment(HP16) 无第 4 行；submit 第 4 行 pattern=[0] 即休整行，只有战斗活到 turn 4 才会触发",
+          "triggerTurnCount": 1
+        },
+        "winRecoveryWaste": {
+          "boss": {
+            "histogram": {
+              "0": 50
+            },
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 50
+          },
+          "bossEndToken": {
+            "histogram": {
+              "2": 1,
+              "3": 37,
+              "5": 12
+            },
+            "max": 5,
+            "mean": 3.46,
+            "min": 2,
+            "n": 50
+          },
+          "bossTruncationPotentialBattles": 0,
+          "note": "浪费 = 应发 +3 与实际到手之差；0 token 成员本就 +0（不复起），不计入浪费；EndToken>=10 时 +3 必然被 12 上限截断",
+          "ordinary": {
+            "histogram": {
+              "0": 50
+            },
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 50
+          },
+          "ordinaryEndToken": {
+            "histogram": {
+              "7": 43,
+              "9": 7
+            },
+            "max": 9,
+            "mean": 7.28,
+            "min": 7,
+            "n": 50
+          },
+          "ordinaryTruncationPotentialBattles": 0,
+          "totalSum": 0
+        }
+      }
+    },
+    "seedRange": [
+      1,
+      50
+    ]
+  },
+  "sourceSHA256": {
+    "docsEqualsGameData": true,
+    "docsJson": "D:/MyPros/AI游戏/docs/首批内容.json",
+    "docsJsonSha256": "18a3f160d32c50dedf33dad868e55e7a3d45e97b0bacbbe84c45cafa900df232",
+    "gameJson": "D:/MyPros/AI游戏/game/data/content.json",
+    "gameJsonSha256": "18a3f160d32c50dedf33dad868e55e7a3d45e97b0bacbbe84c45cafa900df232",
+    "recordedMatches": true,
+    "recordedSha256": "18a3f160d32c50dedf33dad868e55e7a3d45e97b0bacbbe84c45cafa900df232"
+  }
+}

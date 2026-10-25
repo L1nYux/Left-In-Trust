@@ -1,0 +1,116 @@
+ERROR: Could not create directory: 'user://logs'.
+   at: make_dir_recursive (core/io/dir_access.cpp:179)
+ERROR: Failed to open log file for writing: user://logs/godot.log
+   at: rotate_file (core/io/logger.cpp:169)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[AUDIT] A01|PASS|单人 GPT，本回合已行动|再次执行基础防御|err=action_unavailable state_same=true|err=action_unavailable state_same=true
+[AUDIT] A02|PASS|双人战，GPT 专属牌 G1 在 Claude 手牌|Claude 打出 G1|err=wrong_owner state_same=true|err=wrong_owner state_same=true
+[AUDIT] A03|PASS|抽牌堆中的牌 uid 不在手牌|用抽牌堆 uid 出牌|err=not_in_hand state_same=true|err=not_in_hand state_same=true
+[AUDIT] A04|PASS|Claude 已下线（token=0）|GPT 用 D 指定 Claude 为目标|err=offline_target state_same=true|err=offline_target state_same=true
+[AUDIT] A05|PASS|双人在线|GPT 用攻击卡 A 指定 Claude 为目标|err=self_only state_same=true|err=self_only state_same=true
+[AUDIT] A06|PASS|GPT token 满 12 上限|对自己使用 R（回复 2）|err=no_heal state_same=true|err=no_heal state_same=true
+[AUDIT] A07|PASS|Claude token=11（缺口 1）|GPT 用 T 转交给 Claude|err=bad_transfer state_same=true|err=bad_transfer state_same=true
+[AUDIT] A08|PASS|GPT token=1|打出 A（费用 1，支付后不足 1）|err=personal_payment state_same=true|err=personal_payment state_same=true
+[AUDIT] A09|PASS|start_battle 之后、begin_turn 之前（phase=between）|执行基础攻击|err=action_unavailable state_same=true|err=action_unavailable state_same=true
+[AUDIT] A10|PASS|phase 手工置为 enemy|执行基础攻击|err=action_unavailable state_same=true|err=action_unavailable state_same=true
+[AUDIT] A11|PASS|result 手工置为 win|执行基础攻击|err=action_unavailable state_same=true|err=action_unavailable state_same=true
+[AUDIT] A12|PASS|result 手工置为 loss|执行基础攻击|err=action_unavailable state_same=true|err=action_unavailable state_same=true
+[AUDIT] A13|PASS|已 finish_turn，phase=between|再次 finish_turn|err=invalid_finish state_same=true|err=invalid_finish state_same=true
+[AUDIT] B01|PASS|GPT token=1，A 在手|打出 A（费用 1）|err=personal_payment state_same=true|err=personal_payment state_same=true
+[AUDIT] B02|PASS|GPT token=2，A 在手|打出 A（费用 1）|ok=true token=1 damage=6 discard=1|ok=true token=1 damage=6 discard=1
+[AUDIT] B03|PASS|GPT token=2，H 在手|打出 H（费用 2）|err=personal_payment state_same=true|err=personal_payment state_same=true
+[AUDIT] B04|PASS|GPT token=3，H 在手|打出 H（费用 2）|ok=true token=1 damage=10 discard=1|ok=true token=1 damage=10 discard=1
+[AUDIT] B05|PASS|GPT token=1，D 在手|打出 D（费用 0）|ok=true token=1 shield=4 discard=1|ok=true token=1 shield=4 discard=1
+[AUDIT] B06|PASS|GPT 上回合打出 G1 已积 1 层连击，本回合 token=1|打出 A（被拒）|err=personal_payment state_same=true streak=1 acted=false|err=personal_payment state_same=true streak=1 acted=false
+[AUDIT] B07|PASS|GPT token=2，Claude 缺口 3（目标合法）|打出 T（费用 2）|err=personal_payment state_same=true|err=personal_payment state_same=true
+[AUDIT] C01|PASS|Claude 用 C1 给 GPT 防护 5|依次对 GPT 结算 3、3 两段|absorbed1=3 absorbed2=2 lost2=1 token=11 shield=0|absorbed1=3 absorbed2=2 lost2=1 token=11 shield=0
+[AUDIT] C02|PASS|GPT 被第一段打到 0 下线，Claude 仍在线|对已下线的 GPT 再结算 99|skipped=true absorbed=0 lost=0 claude=12|skipped=true absorbed=0 lost=0 claude=12
+[AUDIT] C03|PASS|重复条目首回合意图 1+1 指向 GPT，GPT token=1|finish_turn 结算敌方两段|events=2 seg2_skipped=true claude=12 result=ongoing|events=2 seg2_skipped=true claude=12 result=ongoing
+[AUDIT] C04|PASS|Claude 给 GPT 防护 5，GPT token=1，三段 3|finish_turn 结算三段|events=3 seg3_skipped=true counter=true|events=3 seg3_skipped=true counter=true
+[AUDIT] D01|PASS|敌方 HP=3，A 在手|打出 A（伤害 6）|hp=0 result=win|hp=0 result=win
+[AUDIT] D02|PASS|同上，击杀动作自身结算|检查 token/弃牌/行动标记|token=11 discard_has=true acted=true hand=4|token=11 discard_has=true acted=true hand=4
+[AUDIT] D03|PASS|击杀当回合敌方意图 99 已预告|finish_turn|token=11 result=win|token=11 result=win
+[AUDIT] D04|PASS|DeepSeek 白饭 1 层、敌方 HP=3|S2 击杀后 finish_turn|damage=10 result=win rice=0 token=10|damage=10 result=win rice=0 token=10
+[AUDIT] D05|PASS|Claude 用 C2（自带防护 2）击杀，敌方意图 2 已预告|finish_turn|result=win counter=false token=11|result=win counter=false token=11
+[AUDIT] D06|PASS|已击杀（result=win）|再尝试行动与 begin_turn|err=action_unavailable begin=invalid_begin|err=action_unavailable begin=invalid_begin
+[AUDIT] D07|PASS|敌方 HP=3|基础攻击（伤害 3）|result=win hp=0 token=12 discard=0 acted=true|result=win hp=0 token=12 discard=0 acted=true
+[AUDIT] E01|PASS|单人 GPT，逐回合「有攻击牌则打最高伤害，否则防守」|每步检查五区总数与 uid 唯一性|ok=true result=win sum=12 total=12 unique=12|ok=true result=win sum=12 total=12 unique=12
+[AUDIT] E02|PASS|GPT token=11，R 在手|使用 R（回复后 token 截断到 12）|ok=true token=12 consumed=1 consumed_has=true discard_has=false sum=12 total=12 unique=12|ok=true token=12 consumed=1 consumed_has=true discard_has=false sum=12 total=12 unique=12
+[AUDIT] E03|PASS|单人 GPT，前三回合只防守（不打伤害）|第三回合验证抽牌堆空后洗回弃牌堆|refill=true discard=0 hand=5 sum=12 total=12 unique=12|refill=true discard=0 hand=5 sum=12 total=12 unique=12
+[AUDIT] E04|PASS|R 已在上一回合被消耗（consumed）|再走两回合检查 R 不再出现|r_absent=true turns=2 sum=12 total=12 unique=12|r_absent=true turns=2 sum=12 total=12 unique=12
+[AUDIT] E05|PASS|开局完成后|检查 draw/hand/discard 与总牌数|draw=7 hand=5 sum=12 total=12 unique=12|draw=7 hand=5 sum=12 total=12 unique=12
+[AUDIT] F01|PASS|双人战，GPT 的 G1 在手牌、G2 在弃牌堆、另一张 G1 在抽牌堆；GPT token=1|结算 1 点伤害使 GPT 下线|sealed=3 sealed_codes=G1-G1-G2 zones_has_owned=false|sealed=3 sealed_codes=G1-G1-G2 zones_has_owned=false
+[AUDIT] F02|PASS|同上封存完成|统计通用牌与 Claude 专属牌的所在区域|generic=18 claude_cards=3 sealed_generic=0|generic=18 claude_cards=3 sealed_generic=0
+[AUDIT] F03|PASS|GPT 已下线且专属牌全部封存|开始第 1 个新回合检查手牌|begin_ok=true hand_owned=0 sum=24 total=24 unique=24|begin_ok=true hand_owned=0 sum=24 total=24 unique=24
+[AUDIT] F04|PASS|GPT 已下线且专属牌全部封存|开始第 2 个新回合检查手牌|begin_ok=true hand_owned=0 sum=24 total=24 unique=24|begin_ok=true hand_owned=0 sum=24 total=24 unique=24
+[AUDIT] F05|PASS|GPT 下线后仍处 player 阶段|Claude 打出 C1，随后 finish/begin|claude_ok=true finish_ok=true begin_ok=true result=ongoing|claude_ok=true finish_ok=true begin_ok=true result=ongoing
+[AUDIT] G01|PASS|战斗胜利时 GPT token=0（上限 12）|settle_battle|token=0|token=0
+[AUDIT] G02|PASS|战斗胜利时 GPT token=1（上限 12）|settle_battle|token=4|token=4
+[AUDIT] G03|PASS|战斗胜利时 GPT token=10（上限 12）|settle_battle|token=12|token=12
+[AUDIT] G04|PASS|战斗胜利时 GPT token=11（上限 12）|settle_battle|token=12|token=12
+[AUDIT] G05|PASS|战斗胜利时 GPT token=12（上限 12）|settle_battle|token=12|token=12
+[AUDIT] G06|PASS|双人 run，仅 GPT 上场；GPT 与替补 Claude token 均为 5|settle_battle 胜利|gpt=8 claude=8|gpt=8 claude=8
+[AUDIT] G07|PASS|同一战斗已结算胜利|再次 settle_battle|duplicate=true token=8 wallet=4|duplicate=true token=8 wallet=4
+[AUDIT] G08|PASS|同一 node 已结算 win|再对同一 node 结算 loss|err=conflicting_result node=win token=8|err=conflicting_result node=win token=8
+[AUDIT] G09|PASS|战斗结果 loss 并已结算|尝试开启新战斗|ended=true restart_err=run_or_node_finished|ended=true restart_err=run_or_node_finished
+[AUDIT] G10|PASS|普通战「缺失附件」与 Boss 战「本次提交版」各胜利结算一次|比较 wallet|ordinary=4 boss=8|ordinary=4 boss=8
+[AUDIT] G11|PASS|战斗 result 仍为 ongoing|settle_battle|err=unfinished nodes=0|err=unfinished nodes=0
+[AUDIT] H01|PASS|GPT 首回合，streak=0|打出 G1|damage=5 streak=1|damage=5 streak=1
+[AUDIT] H02|PASS|GPT 本回合已行动（攻击）|finish_turn 后检查连击|streak_after_finish=1|streak_after_finish=1
+[AUDIT] H03|PASS|第二回合开始，streak 跨回合仍为 1|打出 G1|damage=7 streak=2|damage=7 streak=2
+[AUDIT] H04|PASS|第三回合开始，streak=2|打出 G2（满层）|damage=16 streak=2|damage=16 streak=2
+[AUDIT] H05|PASS|G2 已升级，streak=2|打出升级 G2|damage=18 streak=2|damage=18 streak=2
+[AUDIT] H06|PASS|GPT streak=0|打出 G2（验证读取加层前状态）|damage=10 streak=1|damage=10 streak=1
+[AUDIT] H07|PASS|GPT streak=1|打出 G2（满层加成本段不应生效）|damage=12 streak=2|damage=12 streak=2
+[AUDIT] H08|PASS|GPT streak=1|基础攻击|damage=3 streak=0|damage=3 streak=0
+[AUDIT] H09|PASS|GPT streak=1|基础防御|shield=3 streak=0|shield=3 streak=0
+[AUDIT] H10|PASS|GPT streak=1|打出非攻击牌 D|shield=4 streak=0|shield=4 streak=0
+[AUDIT] H11|PASS|GPT streak=1|本回合跳过（不行动）直接 finish_turn|streak=0|streak=0
+[AUDIT] H12|PASS|GPT streak 已到上限 2|再打 G1（从上回合弃牌堆取回）|damage=9 streak=2|damage=9 streak=2
+[AUDIT] H13|PASS|GPT streak=2|打出通用攻击 A|damage=10 streak=2|damage=10 streak=2
+[AUDIT] I01|PASS|Claude 用 C1 给自己防护 5，敌方 2 点攻击实际挡伤|finish_turn|counter=true absorbed=2|counter=true absorbed=2
+[AUDIT] I02|PASS|Claude 给 GPT 防护 5，但敌方打的是 Claude（未挡伤）|finish_turn|counter=false|counter=false
+[AUDIT] I03|PASS|Claude 本回合未提供任何防护|finish_turn|counter=false|counter=false
+[AUDIT] I04|PASS|Claude 反击就绪|基础攻击（基础 3 + 4）|damage=7 counter_after=false|damage=7 counter_after=false
+[AUDIT] I05|PASS|Claude 反击就绪|打出 C2（5 + 4）|damage=9 counter_after=false|damage=9 counter_after=false
+[AUDIT] I06|PASS|Claude 反击就绪|打出 V（4 + 4）|damage=8 counter_after=false|damage=8 counter_after=false
+[AUDIT] I07|PASS|反击已获得，已用于第一次攻击|连续两回合基础攻击|first=7 second=3|first=7 second=3
+[AUDIT] I08|PASS|反击就绪后当回合只用非攻击牌 C1|检查反击是否保留并在下回合兑现|after_guard=true after_finish=true damage=7|after_guard=true after_finish=true damage=7
+[AUDIT] I09|PASS|反击已就绪时再次满足就绪条件|下一次基础攻击只应 +4 一次|counter=true damage=7 counter_after=false|counter=true damage=7 counter_after=false
+[AUDIT] I10|PASS|Claude 反击就绪后 token=1|结算 1 点伤害使其下线|counter=false online=false|counter=false online=false
+[AUDIT] J01|PASS|DeepSeek 在线、白饭 0 层|finish_turn|rice=1|rice=1
+[AUDIT] J02|PASS|白饭已 3 层|finish_turn|rice=3|rice=3
+[AUDIT] J03|PASS|白饭 0 层|打出 S1（riceGain=1）|rice=1 shield=4|rice=1 shield=4
+[AUDIT] J04|PASS|DeepSeek 白饭 0 层，S2 在手|打出 S2|damage=8 rice=0|damage=8 rice=0
+[AUDIT] J05|PASS|DeepSeek 白饭 1 层，S2 在手|打出 S2|damage=10 rice=0|damage=10 rice=0
+[AUDIT] J06|PASS|DeepSeek 白饭 2 层，S2 在手|打出 S2|damage=12 rice=0|damage=12 rice=0
+[AUDIT] J07|PASS|DeepSeek 白饭 3 层，S2 在手|打出 S2|damage=14 rice=0|damage=14 rice=0
+[AUDIT] J08a|PASS|升级 S2，白饭 0 层|打出升级 S2|damage=10 rice=0|damage=10 rice=0
+[AUDIT] J08b|PASS|升级 S2，白饭 1 层|打出升级 S2|damage=12 rice=0|damage=12 rice=0
+[AUDIT] J08c|PASS|升级 S2，白饭 2 层|打出升级 S2|damage=14 rice=0|damage=14 rice=0
+[AUDIT] J08d|PASS|升级 S2，白饭 3 层|打出升级 S2|damage=16 rice=0|damage=16 rice=0
+[AUDIT] J09|PASS|白饭 3 层，H 在手|打出 H（费用 2，满层 +6）|damage=16 rice=0|damage=16 rice=0
+[AUDIT] J10|PASS|白饭 3 层，A（费用 1）在手|打出 A|damage=6 rice=3|damage=6 rice=3
+[AUDIT] J11|PASS|白饭 1 层，S2 击杀（result=win）|finish_turn 检查回合末白饭|damage=10 result=win rice=0|damage=10 result=win rice=0
+[AUDIT] J12|PASS|DeepSeek 本回合被打到 0 下线（GPT 在线）|finish_turn|rice=0 result=ongoing|rice=0 result=ongoing
+[AUDIT] J13|PASS|白饭 3 层|打出 S1（riceGain=1，应截断）|rice=3 shield=4|rice=3 shield=4
+[AUDIT] J14|PASS|DeepSeek token=1，敌方 5 点攻击导致全队下线|finish_turn|rice=0 result=loss|rice=0 result=loss
+[AUDIT] K01|PASS|敌方 HP=3，H 伤害 10|打出 H|hp=0 result=win damage=10|hp=0 result=win damage=10
+[AUDIT] K02|PASS|敌方 HP=2，A 伤害 6|打出 A|hp=0 result=win|hp=0 result=win
+[AUDIT] K03|PASS|缺失附件（pattern 2/2/3），连续 9 回合只结算意图不打伤害|第 5 回合意图|turn5_raw=3|turn5_raw=3
+[AUDIT] K04|PASS|同上|第 9 回合意图|turn9_raw=5|turn9_raw=5
+[AUDIT] K05|PASS|本次提交版（pattern 2/1+1/4/0）|第 6 回合意图段（1+1 只加第一段）|segments=2-1|segments=2-1
+[AUDIT] K06|PASS|同上|第 8 回合意图（全零休整）|intents=0|intents=0
+[AUDIT] K07|PASS|同上|第 4 回合意图（休整）|intents=0|intents=0
+[AUDIT] K08|PASS|双人上场 GPT/Claude|连续两回合检查敌方意图目标|turn1=GPT turn2=Claude|turn1=GPT turn2=Claude
+[AUDIT] L01|PASS|start_battle 后未 begin_turn|try_action|err=action_unavailable state_same=true|err=action_unavailable state_same=true
+[AUDIT] L02|PASS|已在 player 阶段|再次 begin_turn|err=invalid_begin state_same=true|err=invalid_begin state_same=true
+[AUDIT] L03|PASS|本回合已行动|再次 try_action|err=action_unavailable state_same=true|err=action_unavailable state_same=true
+[AUDIT] L04|PASS|已在 between 阶段|再次 finish_turn|err=invalid_finish state_same=true|err=invalid_finish state_same=true
+[AUDIT] L05|PASS|同一 seed=192，同一确定性操作集各跑一遍|比较整份战斗状态|equal=true hp_equal=true turn_equal=true accounts_equal=true log_equal=true|equal=true hp_equal=true turn_equal=true accounts_equal=true log_equal=true
+[AUDIT] L06|PASS|start_battle 后未 begin_turn（phase=between）|finish_turn|err=invalid_finish state_same=true|err=invalid_finish state_same=true
+[AUDIT] KEYVALS|{"A":{"atomicity_violations":0,"rows":13},"B":{"token_1_cost_1":"rejected","token_2_cost_1":"1","token_2_cost_2":"rejected","token_3_cost_2":"1"},"C":{"offline_redirect":false,"shield5_vs_3_3":"absorbed 3+2, lost 1"},"D":{"counter_on_kill_turn":false,"intents_skipped":true,"kill_immediate_win":true,"rice_on_kill_turn":0},"E":{"E01_steps":6,"conservation":"12/12/12","consumed_R":1,"refill_turn":3},"F":{"generic_remaining":18,"sealed_gpt_cards":3,"sealed_never_drawn":true},"G":{"bench_plus3":true,"settle_tokens":"0->0,1->4,10->12,11->12,12->12","wallet_boss":8,"wallet_ordinary":4},"H":{"basic_break":true,"cap":2,"g1_5_7":true,"g2_at_streak1":12,"g2_full":16,"g2_full_upgraded":18},"I":{"counter_C2":9,"counter_V":8,"counter_basic":7,"offline_clear":true,"once_only":true,"persist":true},"J":{"A_full":6,"H_full":16,"cap":3,"s2_layers":"8/10/12/14","s2_upgraded":"10/12/14/16"},"K":{"missing_ramp":[2,2,3,2,3,4,3,3,5],"overflow_clamped":true,"submit_ramp":"2 / 2-1 / 5 / 0"},"L":{"replay_equal":true,"replay_hp":0,"replay_result":"win","replay_turn":2}}
+[AUDIT] PASS 106/106
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)

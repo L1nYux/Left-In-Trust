@@ -1,0 +1,5 @@
+UI 稳健性修复与英文名更新后发布态验证：2026-10-25 14:33:37 +08:00
+命令：dist\windows\LeftInTrust.exe --headless --quit-after 3 -- --seed=20261025
+进程退出码：0
+文件大小：109202856 bytes
+SHA-256：6E553A038825090F9D03DFB36295A76F5CF4951456A8C9E518D9CF9367A3BC80

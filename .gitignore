@@ -1,5 +1,9 @@
 # 本地工具与会话状态（不随项目发布）
 .dsh/
+.tools/
+game/.godot/
+dist/
+_build/test_saves/
 
 # Python 缓存
 __pycache__/
