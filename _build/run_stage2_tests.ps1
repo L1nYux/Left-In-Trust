@@ -83,6 +83,7 @@ try {
         "audit-probe" = "res://tests/audit_probe.gd"
         "smoke-runs" = "res://tests/smoke_runs.gd"
         "ui-flows" = "res://tests/test_ui_flows.gd"
+        "ui-click-tests" = "res://tests/test_ui_clicks.gd"
         "multiplayer-tests" = "res://tests/test_multiplayer.gd"
         "save-tests" = "res://tests/test_save_manager.gd"
     }

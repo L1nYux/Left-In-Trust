@@ -43,7 +43,8 @@ func _read_seed() -> int:
 func _new_screen() -> VBoxContainer:
 	for child in get_children():
 		remove_child(child)
-		child.free()
+		# Avoid freeing the button tree while one of its signals is dispatching.
+		child.queue_free()
 	var background := ColorRect.new()
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	background.color = Color("080b17")

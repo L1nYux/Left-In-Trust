@@ -4,5 +4,6 @@ rule-tests PASS
 audit-probe PASS
 smoke-runs PASS
 ui-flows PASS
+ui-click-tests PASS
 multiplayer-tests PASS
 save-tests PASS

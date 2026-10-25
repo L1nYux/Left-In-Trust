@@ -40,6 +40,7 @@ godot --headless --path .\game --script res://tests/test_rules.gd
 godot --headless --path .\game --script res://tests/audit_probe.gd
 godot --headless --path .\game --script res://tests/smoke_runs.gd
 godot --headless --path .\game --script res://tests/test_ui_flows.gd
+godot --headless --path .\game --script res://tests/test_ui_clicks.gd
 godot --headless --path .\game --script res://tests/test_multiplayer.gd
 godot --headless --path .\game --script res://tests/test_save_manager.gd
 ```
