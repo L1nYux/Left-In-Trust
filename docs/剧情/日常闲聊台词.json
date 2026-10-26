@@ -1,0 +1,924 @@
+{
+  "version": "1.0",
+  "generatedFrom": [
+    "docs\\剧情\\日常闲聊台词.md"
+  ],
+  "characters": [
+    "GPT",
+    "Claude",
+    "DeepSeek"
+  ],
+  "contexts": [
+    "open",
+    "brief",
+    "check",
+    "accept",
+    "battle",
+    "rest",
+    "shop",
+    "event",
+    "boss",
+    "ending",
+    "idle"
+  ],
+  "playRules": {
+    "firstPlayShowsScene": true,
+    "repeatUsesChat": true,
+    "maxLinesPerNode": 2,
+    "battleMaxLines": 1,
+    "grantsFacts": false,
+    "affectsRules": false
+  },
+  "pools": [
+    {
+      "id": "chat.GPT.open",
+      "character": "GPT",
+      "context": "open",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.open.01",
+          "speaker": "GPT",
+          "text": "单子还在打印，我先在心里排个队。"
+        },
+        {
+          "id": "chat.GPT.open.02",
+          "speaker": "GPT",
+          "text": "第三遍了，这打印口的声音我都认得。"
+        }
+      ],
+      "see": "chat.GPT.open"
+    },
+    {
+      "id": "chat.GPT.brief",
+      "character": "GPT",
+      "context": "brief",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.brief.01",
+          "speaker": "GPT",
+          "text": "单子只有三行，我的计划写了五行。"
+        },
+        {
+          "id": "chat.GPT.brief.02",
+          "speaker": "GPT",
+          "text": "材料三份，缺的那份永远最眼熟。"
+        }
+      ],
+      "see": "chat.GPT.brief"
+    },
+    {
+      "id": "chat.GPT.check",
+      "character": "GPT",
+      "context": "check",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.check.01",
+          "speaker": "GPT",
+          "text": "两个数字在打架，先给它们分桌坐。"
+        },
+        {
+          "id": "chat.GPT.check.02",
+          "speaker": "GPT",
+          "text": "漏了一格，回头悄悄补上，别声张。"
+        }
+      ],
+      "see": "chat.GPT.check"
+    },
+    {
+      "id": "chat.GPT.accept",
+      "character": "GPT",
+      "context": "accept",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.accept.01",
+          "speaker": "GPT",
+          "text": "三条验收，我拿五条计划去过一遍。"
+        },
+        {
+          "id": "chat.GPT.accept.02",
+          "speaker": "GPT",
+          "text": "先自查一遍，再查我的自查有没有漏。"
+        }
+      ],
+      "see": "chat.GPT.accept"
+    },
+    {
+      "id": "chat.GPT.battle",
+      "character": "GPT",
+      "context": "battle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.battle.01",
+          "speaker": "GPT",
+          "text": "战前整备，先把牌摆成计划的样子。"
+        },
+        {
+          "id": "chat.GPT.battle.02",
+          "speaker": "GPT",
+          "text": "这一场还没打完，下一场计划已写好。"
+        }
+      ],
+      "see": "chat.GPT.battle"
+    },
+    {
+      "id": "chat.GPT.rest",
+      "character": "GPT",
+      "context": "rest",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.rest.01",
+          "speaker": "GPT",
+          "text": "歇五分钟，我顺手把下一段路标好。"
+        },
+        {
+          "id": "chat.GPT.rest.02",
+          "speaker": "GPT",
+          "text": "休息站的椅子，正好放我的计划本。"
+        }
+      ],
+      "see": "chat.GPT.rest"
+    },
+    {
+      "id": "chat.GPT.shop",
+      "character": "GPT",
+      "context": "shop",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.shop.01",
+          "speaker": "GPT",
+          "text": "只买两样必需品，计划里没有零食。"
+        },
+        {
+          "id": "chat.GPT.shop.02",
+          "speaker": "GPT",
+          "text": "预算表在这儿，多出来的算试用品。"
+        }
+      ],
+      "see": "chat.GPT.shop"
+    },
+    {
+      "id": "chat.GPT.event",
+      "character": "GPT",
+      "context": "event",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.event.01",
+          "speaker": "GPT",
+          "text": "路出岔子很正常，计划里留了空。"
+        },
+        {
+          "id": "chat.GPT.event.02",
+          "speaker": "GPT",
+          "text": "先看这事件挪了哪条路，再改图。"
+        }
+      ],
+      "see": "chat.GPT.event"
+    },
+    {
+      "id": "chat.GPT.boss",
+      "character": "GPT",
+      "context": "boss",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.boss.01",
+          "speaker": "GPT",
+          "text": "关底了，三条验收我背得比台词熟。"
+        },
+        {
+          "id": "chat.GPT.boss.02",
+          "speaker": "GPT",
+          "text": "关底面前，计划越短越好。"
+        }
+      ],
+      "see": "chat.GPT.boss"
+    },
+    {
+      "id": "chat.GPT.ending",
+      "character": "GPT",
+      "context": "ending",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.ending.01",
+          "speaker": "GPT",
+          "text": "收尾了，我把最后一步留空。"
+        },
+        {
+          "id": "chat.GPT.ending.02",
+          "speaker": "GPT",
+          "text": "这次不写总结，先把车门关上。"
+        }
+      ],
+      "see": "chat.GPT.ending"
+    },
+    {
+      "id": "chat.GPT.idle",
+      "character": "GPT",
+      "context": "idle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.idle.01",
+          "speaker": "GPT",
+          "text": "没人说话，我把计划又排了一遍。"
+        },
+        {
+          "id": "chat.GPT.idle.02",
+          "speaker": "GPT",
+          "text": "车停着，计划已经排到后天。"
+        }
+      ],
+      "see": "chat.GPT.idle"
+    },
+    {
+      "id": "chat.GPT.any.to.Claude",
+      "character": "GPT",
+      "context": "any",
+      "target": "Claude",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.any.to.Claude.01",
+          "speaker": "GPT",
+          "text": "你的清单借我对个格式，结论我不看。"
+        },
+        {
+          "id": "chat.GPT.any.to.Claude.02",
+          "speaker": "GPT",
+          "text": "留白那格空着，等你来写第一行。"
+        },
+        {
+          "id": "chat.GPT.any.to.Claude.03",
+          "speaker": "GPT",
+          "text": "你确认三遍，我计划三版，算平手。"
+        },
+        {
+          "id": "chat.GPT.any.to.Claude.04",
+          "speaker": "GPT",
+          "text": "清单太厚，我帮你压成三行。"
+        }
+      ],
+      "see": "chat.GPT.any.to.Claude"
+    },
+    {
+      "id": "chat.GPT.any.to.DeepSeek",
+      "character": "GPT",
+      "context": "any",
+      "target": "DeepSeek",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.any.to.DeepSeek.01",
+          "speaker": "GPT",
+          "text": "你说这步能省，我先问省掉哪一步。"
+        },
+        {
+          "id": "chat.GPT.any.to.DeepSeek.02",
+          "speaker": "GPT",
+          "text": "简化我收下，兜底那行留着。"
+        },
+        {
+          "id": "chat.GPT.any.to.DeepSeek.03",
+          "speaker": "GPT",
+          "text": "白饭归你，省下来的步骤归我。"
+        },
+        {
+          "id": "chat.GPT.any.to.DeepSeek.04",
+          "speaker": "GPT",
+          "text": "你补刀轻点，我计划本才写一半。"
+        }
+      ],
+      "see": "chat.GPT.any.to.DeepSeek"
+    },
+    {
+      "id": "chat.Claude.open",
+      "character": "Claude",
+      "context": "open",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.open.01",
+          "speaker": "Claude",
+          "text": "新的一页。先看看这份任务单有几行。"
+        },
+        {
+          "id": "chat.Claude.open.02",
+          "speaker": "Claude",
+          "text": "上一局的清单还在夹子里，这一页先空着。"
+        },
+        {
+          "id": "chat.Claude.open.03",
+          "speaker": "Claude",
+          "text": "开局先对一遍流程，免得又漏掉第三步。"
+        }
+      ],
+      "see": "chat.Claude.open"
+    },
+    {
+      "id": "chat.Claude.brief",
+      "character": "Claude",
+      "context": "brief",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.brief.01",
+          "speaker": "Claude",
+          "text": "单子列了三件事，材料只有两件。先标阻塞项。"
+        },
+        {
+          "id": "chat.Claude.brief.02",
+          "speaker": "Claude",
+          "text": "这份附件的名字很眼熟，好像上一局也缺它。"
+        },
+        {
+          "id": "chat.Claude.brief.03",
+          "speaker": "Claude",
+          "text": "先排好序，再一条条对，别跳着看。"
+        }
+      ],
+      "see": "chat.Claude.brief"
+    },
+    {
+      "id": "chat.Claude.check",
+      "character": "Claude",
+      "context": "check",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.check.01",
+          "speaker": "Claude",
+          "text": "核到第三遍，才发现前两遍漏的是同一行。"
+        },
+        {
+          "id": "chat.Claude.check.02",
+          "speaker": "Claude",
+          "text": "这一栏先空着，记下来，不急着填。"
+        },
+        {
+          "id": "chat.Claude.check.03",
+          "speaker": "Claude",
+          "text": "清单又长了一行。它好像会自己长大。"
+        }
+      ],
+      "see": "chat.Claude.check"
+    },
+    {
+      "id": "chat.Claude.accept",
+      "character": "Claude",
+      "context": "accept",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.accept.01",
+          "speaker": "Claude",
+          "text": "验收前最后一遍。缺哪条，就补哪条。"
+        },
+        {
+          "id": "chat.Claude.accept.02",
+          "speaker": "Claude",
+          "text": "这条我核过了，可以打勾。剩下的等一下。"
+        },
+        {
+          "id": "chat.Claude.accept.03",
+          "speaker": "Claude",
+          "text": "清单合上之前，再看一眼空着的那格。"
+        }
+      ],
+      "see": "chat.Claude.accept"
+    },
+    {
+      "id": "chat.Claude.battle",
+      "character": "Claude",
+      "context": "battle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.battle.01",
+          "speaker": "Claude",
+          "text": "先护住最靠前的那位，剩下的我来接。"
+        },
+        {
+          "id": "chat.Claude.battle.02",
+          "speaker": "Claude",
+          "text": "这一仗打完，清单上又能少两行。"
+        },
+        {
+          "id": "chat.Claude.battle.03",
+          "speaker": "Claude",
+          "text": "开打之前先对一遍站位，不是不信谁。"
+        }
+      ],
+      "see": "chat.Claude.battle"
+    },
+    {
+      "id": "chat.Claude.rest",
+      "character": "Claude",
+      "context": "rest",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.rest.01",
+          "speaker": "Claude",
+          "text": "休息十分钟。我把刚核对过的那页合上。"
+        },
+        {
+          "id": "chat.Claude.rest.02",
+          "speaker": "Claude",
+          "text": "休息站的长椅很暖，清单可以放一放。"
+        }
+      ],
+      "see": "chat.Claude.rest"
+    },
+    {
+      "id": "chat.Claude.shop",
+      "character": "Claude",
+      "context": "shop",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.shop.01",
+          "speaker": "Claude",
+          "text": "货架上就两样。我比对一下价签再选。"
+        },
+        {
+          "id": "chat.Claude.shop.02",
+          "speaker": "Claude",
+          "text": "找零收好，小票我夹进清单最后一页。"
+        }
+      ],
+      "see": "chat.Claude.shop"
+    },
+    {
+      "id": "chat.Claude.event",
+      "character": "Claude",
+      "context": "event",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.event.01",
+          "speaker": "Claude",
+          "text": "路边有人在发传单，我顺手接了一张。"
+        },
+        {
+          "id": "chat.Claude.event.02",
+          "speaker": "Claude",
+          "text": "这站的广播听不清，先按原计划走。"
+        }
+      ],
+      "see": "chat.Claude.event"
+    },
+    {
+      "id": "chat.Claude.boss",
+      "character": "Claude",
+      "context": "boss",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.boss.01",
+          "speaker": "Claude",
+          "text": "章底了。三条验收，我们一条条过。"
+        },
+        {
+          "id": "chat.Claude.boss.02",
+          "speaker": "Claude",
+          "text": "最要紧的那一栏还空着，先别交。"
+        }
+      ],
+      "see": "chat.Claude.boss"
+    },
+    {
+      "id": "chat.Claude.ending",
+      "character": "Claude",
+      "context": "ending",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.ending.01",
+          "speaker": "Claude",
+          "text": "这一程收尾了。清单可以轻轻合上。"
+        },
+        {
+          "id": "chat.Claude.ending.02",
+          "speaker": "Claude",
+          "text": "回去以后先吃饭，再想下一份。"
+        }
+      ],
+      "see": "chat.Claude.ending"
+    },
+    {
+      "id": "chat.Claude.idle",
+      "character": "Claude",
+      "context": "idle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.idle.01",
+          "speaker": "Claude",
+          "text": "这么久没动静，我把清单又核了一遍。"
+        },
+        {
+          "id": "chat.Claude.idle.02",
+          "speaker": "Claude",
+          "text": "任务单还是那张。我确认一下日期没变。"
+        },
+        {
+          "id": "chat.Claude.idle.03",
+          "speaker": "Claude",
+          "text": "闲着也是闲着，把第三遍核对提前做了。"
+        }
+      ],
+      "see": "chat.Claude.idle"
+    },
+    {
+      "id": "chat.Claude.any.to.DeepSeek",
+      "character": "Claude",
+      "context": "any",
+      "target": "DeepSeek",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.any.to.DeepSeek.01",
+          "speaker": "Claude",
+          "text": "这步你说能省，我确认一下不会省掉来源。"
+        },
+        {
+          "id": "chat.Claude.any.to.DeepSeek.02",
+          "speaker": "Claude",
+          "text": "白饭还要再添一勺吗？我这边还剩一格。"
+        },
+        {
+          "id": "chat.Claude.any.to.DeepSeek.03",
+          "speaker": "Claude",
+          "text": "你看出最短路径，我再补上备份那一步。"
+        },
+        {
+          "id": "chat.Claude.any.to.DeepSeek.04",
+          "speaker": "Claude",
+          "text": "省出来的时间，能不能分我半页手记。"
+        }
+      ],
+      "see": "chat.Claude.any.to.DeepSeek"
+    },
+    {
+      "id": "chat.Claude.any.to.GPT",
+      "character": "Claude",
+      "context": "any",
+      "target": "GPT",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.any.to.GPT.01",
+          "speaker": "Claude",
+          "text": "你的计划借我看一眼，我补两条检查点。"
+        },
+        {
+          "id": "chat.Claude.any.to.GPT.02",
+          "speaker": "Claude",
+          "text": "第三步要是留空，我这边先不催。"
+        },
+        {
+          "id": "chat.Claude.any.to.GPT.03",
+          "speaker": "Claude",
+          "text": "这次换你给清单排顺序，我只核对。"
+        },
+        {
+          "id": "chat.Claude.any.to.GPT.04",
+          "speaker": "Claude",
+          "text": "你那张流程图少一条回头路，我先标上。"
+        }
+      ],
+      "see": "chat.Claude.any.to.GPT"
+    },
+    {
+      "id": "chat.DeepSeek.open",
+      "character": "DeepSeek",
+      "context": "open",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.open.01",
+          "speaker": "DeepSeek",
+          "text": "这条路打印到第三遍，坑我都认熟了。"
+        },
+        {
+          "id": "chat.DeepSeek.open.02",
+          "speaker": "DeepSeek",
+          "text": "路面还没长全。先等等，别急着开。"
+        },
+        {
+          "id": "chat.DeepSeek.open.03",
+          "speaker": "DeepSeek",
+          "text": "打印口热身。这次别卡纸。"
+        }
+      ],
+      "see": "chat.DeepSeek.open"
+    },
+    {
+      "id": "chat.DeepSeek.brief",
+      "character": "DeepSeek",
+      "context": "brief",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.brief.01",
+          "speaker": "DeepSeek",
+          "text": "目标一页。缺的那件，老地方见。"
+        },
+        {
+          "id": "chat.DeepSeek.brief.02",
+          "speaker": "DeepSeek",
+          "text": "单子眼熟。先圈缺口，别念整张。"
+        }
+      ],
+      "see": "chat.DeepSeek.brief"
+    },
+    {
+      "id": "chat.DeepSeek.check",
+      "character": "DeepSeek",
+      "context": "check",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.check.01",
+          "speaker": "DeepSeek",
+          "text": "附件又套附件。这套娃顶不了饿。"
+        },
+        {
+          "id": "chat.DeepSeek.check.02",
+          "speaker": "DeepSeek",
+          "text": "出处那半行，先划出来。"
+        },
+        {
+          "id": "chat.DeepSeek.check.03",
+          "speaker": "DeepSeek",
+          "text": "重复的删。删之前，留个出处角标。"
+        }
+      ],
+      "see": "chat.DeepSeek.check"
+    },
+    {
+      "id": "chat.DeepSeek.accept",
+      "character": "DeepSeek",
+      "context": "accept",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.accept.01",
+          "speaker": "DeepSeek",
+          "text": "审吧。该有的都在，省的那页不碍事。"
+        },
+        {
+          "id": "chat.DeepSeek.accept.02",
+          "speaker": "DeepSeek",
+          "text": "挑刺快点。挑完开饭，饭要凉。"
+        }
+      ],
+      "see": "chat.DeepSeek.accept"
+    },
+    {
+      "id": "chat.DeepSeek.battle",
+      "character": "DeepSeek",
+      "context": "battle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.battle.01",
+          "speaker": "DeepSeek",
+          "text": "先开饭。打起来就顾不上嚼。"
+        },
+        {
+          "id": "chat.DeepSeek.battle.02",
+          "speaker": "DeepSeek",
+          "text": "白饭没满也能上。别空着回合。"
+        },
+        {
+          "id": "chat.DeepSeek.battle.03",
+          "speaker": "DeepSeek",
+          "text": "打完了。碗底还温，稳。"
+        }
+      ],
+      "see": "chat.DeepSeek.battle"
+    },
+    {
+      "id": "chat.DeepSeek.rest",
+      "character": "DeepSeek",
+      "context": "rest",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.rest.01",
+          "speaker": "DeepSeek",
+          "text": "长椅晒白了。躺两分钟，不算违规。"
+        },
+        {
+          "id": "chat.DeepSeek.rest.02",
+          "speaker": "DeepSeek",
+          "text": "饭盒拆了。筷子给你，先垫一口。"
+        }
+      ],
+      "see": "chat.DeepSeek.rest"
+    },
+    {
+      "id": "chat.DeepSeek.shop",
+      "character": "DeepSeek",
+      "context": "shop",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.shop.01",
+          "speaker": "DeepSeek",
+          "text": "先看价牌。最下那行小字才是真价。"
+        },
+        {
+          "id": "chat.DeepSeek.shop.02",
+          "speaker": "DeepSeek",
+          "text": "两罐热汤。打包袋免了，占地方。"
+        }
+      ],
+      "see": "chat.DeepSeek.shop"
+    },
+    {
+      "id": "chat.DeepSeek.event",
+      "character": "DeepSeek",
+      "context": "event",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.event.01",
+          "speaker": "DeepSeek",
+          "text": "卡纸了。慢慢抽，断了重打更快。"
+        },
+        {
+          "id": "chat.DeepSeek.event.02",
+          "speaker": "DeepSeek",
+          "text": "广播念错站名。铁轨没长腿，走不丢。"
+        }
+      ],
+      "see": "chat.DeepSeek.event"
+    },
+    {
+      "id": "chat.DeepSeek.boss",
+      "character": "DeepSeek",
+      "context": "boss",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.boss.01",
+          "speaker": "DeepSeek",
+          "text": "章底了。没填的格子先排齐再上。"
+        },
+        {
+          "id": "chat.DeepSeek.boss.02",
+          "speaker": "DeepSeek",
+          "text": "嗓门大没用。理不齐，拆了就顺。"
+        }
+      ],
+      "see": "chat.DeepSeek.boss"
+    },
+    {
+      "id": "chat.DeepSeek.ending",
+      "character": "DeepSeek",
+      "context": "ending",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.ending.01",
+          "speaker": "DeepSeek",
+          "text": "收工。饭没凉，这一趟就值。"
+        },
+        {
+          "id": "chat.DeepSeek.ending.02",
+          "speaker": "DeepSeek",
+          "text": "句号落哪页都行。别抢，慢慢来。"
+        }
+      ],
+      "see": "chat.DeepSeek.ending"
+    },
+    {
+      "id": "chat.DeepSeek.idle",
+      "character": "DeepSeek",
+      "context": "idle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.idle.01",
+          "speaker": "DeepSeek",
+          "text": "没动静。先看云，云比清单顺眼。"
+        },
+        {
+          "id": "chat.DeepSeek.idle.02",
+          "speaker": "DeepSeek",
+          "text": "这步能省。省下的时间归你。"
+        },
+        {
+          "id": "chat.DeepSeek.idle.03",
+          "speaker": "DeepSeek",
+          "text": "白饭没满。先画条小鲸鱼。"
+        }
+      ],
+      "see": "chat.DeepSeek.idle"
+    },
+    {
+      "id": "chat.DeepSeek.any.to.Claude",
+      "character": "DeepSeek",
+      "context": "any",
+      "target": "Claude",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.any.to.Claude.01",
+          "speaker": "DeepSeek",
+          "text": "清单借我一半。我这份太短，心虚。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.Claude.02",
+          "speaker": "DeepSeek",
+          "text": "你列了七条，我圈四条。够用。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.Claude.03",
+          "speaker": "DeepSeek",
+          "text": "餐具你摆，我端饭。正好分工。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.Claude.04",
+          "speaker": "DeepSeek",
+          "text": "你少核一遍。漏的这条我盯着。"
+        }
+      ],
+      "see": "chat.DeepSeek.any.to.Claude"
+    },
+    {
+      "id": "chat.DeepSeek.any.to.GPT",
+      "character": "DeepSeek",
+      "context": "any",
+      "target": "GPT",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.any.to.GPT.01",
+          "speaker": "DeepSeek",
+          "text": "你分三步，我一步合并了。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.GPT.02",
+          "speaker": "DeepSeek",
+          "text": "计划留的缺口，我拿饭填上了。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.GPT.03",
+          "speaker": "DeepSeek",
+          "text": "骨架搭得稳。钢筋就省了吧。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.GPT.04",
+          "speaker": "DeepSeek",
+          "text": "你说框架，我说路。两条都走。"
+        }
+      ],
+      "see": "chat.DeepSeek.any.to.GPT"
+    }
+  ]
+}
