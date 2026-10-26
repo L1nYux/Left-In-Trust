@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/layered_enemy_2d.gd" id="1_enemy"]
+
+[node name="MissingAttachmentActor" type="Control"]
+custom_minimum_size = Vector2(405, 350)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_enemy")

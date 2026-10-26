@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="480" viewBox="0 0 420 480">
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="210" cy="438" rx="132" ry="22" fill="#080b17" opacity="0.52" stroke="none"/>
+    <path d="M84 167L41 116M336 167l43-51M88 316l-50 58M332 316l50 58" stroke="#ef6a62" stroke-width="9"/>
+    <path d="M43 116l38-3-17 34M379 116l-38-3 17 34M38 374l37-11-8 35M382 374l-37-11 8 35" stroke="#f3a39d" stroke-width="6"/>
+    <path d="M92 88h238l28 54v234H62V142z" fill="#e9e4da" stroke="#2f3a4d" stroke-width="10"/>
+    <path d="M92 88h238l28 54H62z" fill="#c8d4d7" stroke="#2f3a4d" stroke-width="8"/>
+    <path d="M108 152h204M108 184h145M108 338h196" stroke="#8797a0" stroke-width="6"/>
+    <path d="M113 217h57v74h-57zM252 217h57v74h-57z" fill="#f2efe7" stroke="#a7b3b6" stroke-width="5"/>
+    <path d="M213 165c-37 0-67 29-67 66v88c0 35 29 64 64 64s64-29 64-64v-88c0-19-16-35-35-35s-35 16-35 35v79c0 8 6 14 14 14s14-6 14-14v-72" stroke="#0a101b" stroke-width="26"/>
+    <path d="M213 165c-37 0-67 29-67 66v88c0 35 29 64 64 64s64-29 64-64v-88c0-19-16-35-35-35s-35 16-35 35v79c0 8 6 14 14 14s14-6 14-14v-72" stroke="#ef6a62" stroke-width="7"/>
+    <path d="M101 76l24-38 29 38M266 76l24-38 29 38" fill="#ef6a62" stroke="#f7b1aa" stroke-width="5"/>
+  </g>
+  <text x="210" y="466" text-anchor="middle" fill="#f2efe7" font-size="17" font-family="sans-serif">ENEMY PLACEHOLDER</text>
+</svg>

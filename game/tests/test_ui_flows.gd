@@ -78,6 +78,28 @@ func _run_flows() -> void:
 	var trio = await _new_game("trio")
 	trio.run_seed = 20261200
 	trio.call("_begin_run_with_lineup", ["GPT", "Claude", "DeepSeek"], "test_arena")
+	if trio.get_node_or_null("BattleRoot/SharedHand") == null:
+		_fail("three-person battle did not expose one shared hand")
+		return
+	if trio.actor_visuals.size() != 3:
+		_fail("three-person battle did not render three actor units")
+		return
+	var exclusive_probe: Dictionary = {}
+	for card_value in trio.battle_state["hand"]:
+		var definition: Dictionary = trio.rules.resolved_card(card_value)
+		var owner := str(definition.get("owner", ""))
+		if not owner.is_empty() and owner != trio.selected_actor:
+			exclusive_probe = card_value
+			break
+	if not exclusive_probe.is_empty():
+		var exclusive_definition: Dictionary = trio.rules.resolved_card(exclusive_probe)
+		trio.call("_select_action", str(exclusive_probe["uid"]))
+		if trio.selected_actor != str(exclusive_definition["owner"]):
+			_fail("exclusive shared-hand card did not select its owner")
+			return
+		if trio.confirm_button.disabled:
+			_fail("owner-selected exclusive card did not produce a legal preview")
+			return
 	var trio_turns := _finish_visible_battle(trio, ["DeepSeek", "GPT", "Claude"])
 	if trio.run_state["nodes"].get("test_arena") != "win":
 		_fail("three-person UI test arena failed")

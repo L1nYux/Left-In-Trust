@@ -2,6 +2,8 @@
 
 Godot 4.7.2 标准版 / GDScript。常规流程为：标题页 → 选择 1–2 名同行者 → 普通战 → 单人休息恢复 → Boss 战 → 结果页；三名角色可共同进入独立测试场。标题页会识别可继续的真实文件存档。
 
+战斗界面已完成新版舞台化定稿：顶部使用细状态栏与回合轨道，2—3 名角色在左侧前后错落并与右侧放大的敌人对峙，角色状态贴在脚边，全队共享的混合手牌在底部以插画卡轻微扇开。专属牌显示归属并自动切换到所属角色，通用牌由当前行动者使用。GPT、Claude、DeepSeek 均已接入同一套八层 2D 动作骨架与六类动作标签；运行时使用完整透明主立绘保证头颈与身体连续，其余层承担状态与动作特效，独立部件保留为后续人工蒙版源。“缺失附件”已接入六层敌人骨架与待机、攻击、受击动作。卡面已使用按类型和角色配色的程序插画，后续可逐张替换为正式卡图。
+
 ## 数据同步
 
 `docs/首批内容.json` 是唯一人工编辑的数值源。`game/data/content.json` 与 `content.sha256` 都由脚本生成，不应手工修改。
@@ -39,6 +41,7 @@ node .\_build\validate_gameplay_v05.cjs
 godot --headless --path .\game --script res://tests/test_rules.gd
 godot --headless --path .\game --script res://tests/audit_probe.gd
 godot --headless --path .\game --script res://tests/smoke_runs.gd
+godot --headless --path .\game --script res://tests/test_layered_actors.gd
 godot --headless --path .\game --script res://tests/test_ui_flows.gd
 godot --headless --path .\game --script res://tests/test_ui_clicks.gd
 godot --headless --path .\game --script res://tests/test_multiplayer.gd
@@ -46,6 +49,8 @@ godot --headless --path .\game --script res://tests/test_save_manager.gd
 ```
 
 `test_multiplayer.gd` 覆盖三种双人组合、三人行动顺序、替补牌过滤、下线封存、锁定目标、定向保护、额度转交与胜后恢复。`test_save_manager.gd` 使用真实文件覆盖临时文件截断、主档损坏、校验错误、上一有效档恢复、结算重载幂等、不支持 schema，以及 mode/flow 语义矛盾。
+
+`test_layered_actors.gd` 校验三名正式角色都遵守同一套八层结构和六类动作协议、每套六件分层资源完整，并校验“缺失附件”的六层结构及三类动作。带渲染环境下可运行 `tests/capture_layered_actors.gd` 生成待机与动作中间帧验收图。
 
 ## 存档
 
@@ -71,4 +76,4 @@ godot --headless --path .\game --export-release "Windows Desktop x86_64" ..\dist
 
 ## 当前边界
 
-本切片实现 1–2 人常规战斗、三人独立测试场与本地存档；仍不含随机地图、完整第一章、剧情事件、商店、正式招募、收藏、挑战难度、隐藏 Boss、进化或后续角色。角色图使用明确标注为 PLACEHOLDER 的内置占位 SVG，未改动现有美术原图。
+本切片实现 1–2 人常规战斗、三人独立测试场、共享混合手牌、本地存档、三名正式分层角色与一名正式分层怪物；仍不含随机地图、完整第一章、剧情事件、商店、正式招募、收藏、挑战难度、隐藏 Boss、进化或后续角色。“本次提交版”Boss 仍沿用占位美术；卡图当前为可运行的类型化程序插画，尚未逐张制作正式绘图。

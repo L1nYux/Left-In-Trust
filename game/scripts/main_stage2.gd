@@ -2,6 +2,15 @@ extends Control
 
 const DEFAULT_SEED := 20261025
 const SaveManagerScript = preload("res://scripts/save_manager.gd")
+const CardArtScript = preload("res://scripts/card_art.gd")
+const BattleUIDecorScript = preload("res://scripts/battle_ui_decor.gd")
+const BATTLE_BACKGROUND = preload("res://assets/battle/paper_arena_placeholder.svg")
+const MISSING_ATTACHMENT_SCENE = preload("res://scenes/enemies/MissingAttachmentActor.tscn")
+const ACTOR_SCENES := {
+	"GPT": preload("res://scenes/actors/GPTActor.tscn"),
+	"Claude": preload("res://scenes/actors/ClaudeActor.tscn"),
+	"DeepSeek": preload("res://scenes/actors/DeepSeekActor.tscn")
+}
 const ROLE_IDS := ["GPT", "Claude", "DeepSeek"]
 const ROLE_COPY := {
 	"GPT": {"tag": "连击", "color": Color("6ea8fe"), "portrait": "res://assets/portraits/gpt_placeholder.svg", "copy": "连续使用攻击牌，伤害逐步提高。"},
@@ -24,6 +33,7 @@ var current_mode := "standard"
 var flow := "title"
 var run_seed := DEFAULT_SEED
 var screen_root: VBoxContainer
+var battle_root: Control
 var preview_label: Label
 var confirm_button: Button
 var rest_button: Button
@@ -33,6 +43,11 @@ var legal_target_cache: Dictionary = {}
 var battle_log: Array[String] = []
 var last_load_result: Dictionary = {"ok": false, "error": "not_found"}
 var save_notice := ""
+var actor_visuals: Dictionary = {}
+var last_motion_actor := ""
+var last_motion_tag := ""
+var enemy_visual: Control
+var last_enemy_motion_tag := ""
 
 func _ready() -> void:
 	content = ContentDB.load_content()
@@ -106,6 +121,36 @@ func _new_screen() -> VBoxContainer:
 	screen_root.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(screen_root)
 	return screen_root
+
+func _new_battle_screen() -> Control:
+	for child in get_children():
+		remove_child(child)
+		child.queue_free()
+	battle_root = Control.new()
+	battle_root.name = "BattleRoot"
+	battle_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	add_child(battle_root)
+	var background := TextureRect.new()
+	background.name = "PaperArenaPlaceholder"
+	background.texture = BATTLE_BACKGROUND
+	background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	background.stretch_mode = TextureRect.STRETCH_SCALE
+	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	battle_root.add_child(background)
+	var wash := ColorRect.new()
+	wash.color = Color("07101f", 0.08)
+	wash.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	wash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	battle_root.add_child(wash)
+	var decor = BattleUIDecorScript.new()
+	decor.name = "BattleUIDecor"
+	decor.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	decor.configure(int(battle_state.get("turn", 1)))
+	battle_root.add_child(decor)
+	actor_visuals.clear()
+	enemy_visual = null
+	return battle_root
 
 func _show_title() -> void:
 	flow = "title"
@@ -223,7 +268,7 @@ func _begin_run_with_lineup(role_ids_value: Array, mode: String) -> void:
 		return
 	battle_log = ["RUN seed=%d" % run_seed, "编队：%s" % " + ".join(lineup)]
 	if mode == "test_arena":
-		_start_battle("submit", "test_arena", run_seed ^ 0x35791)
+		_start_battle("missing_attachment", "test_arena", run_seed ^ 0x35791)
 	else:
 		_start_battle("missing_attachment", "ordinary", run_seed ^ 0x13579)
 
@@ -270,86 +315,362 @@ func _ensure_selected_actor() -> void:
 
 func _render_battle() -> void:
 	_ensure_selected_actor()
-	_new_screen()
+	_new_battle_screen()
+	_add_battle_header()
+	var actors: Array = battle_state.get("actors", [])
+	for index in actors.size():
+		_add_actor_unit(actors[index], index, actors.size())
+	_add_enemy_unit()
+	_add_shared_hand()
+	if not selected_action.is_empty():
+		_refresh_action_preview()
+	if not last_motion_actor.is_empty():
+		call_deferred("_play_last_action_motion")
+	if not last_enemy_motion_tag.is_empty():
+		call_deferred("_play_last_enemy_motion")
+
+func _add_battle_header() -> void:
+	var header_panel := PanelContainer.new()
+	header_panel.position = Vector2(72, 5)
+	header_panel.size = Vector2(1130, 44)
+	header_panel.add_theme_stylebox_override("panel", _panel_style(Color("0a101b", 0.0), Color("44506a", 0.0), 0))
+	battle_root.add_child(header_panel)
 	var header := HBoxContainer.new()
-	header.add_theme_constant_override("separation", 16)
-	screen_root.add_child(header)
-	header.add_child(_pill(_battle_label(), Color("6366f1") if current_battle_kind == "ordinary" else Color("ef476f")))
-	header.add_child(_label("回合 %d" % battle_state["turn"], 20, Color("e8eaf2")))
-	var seed_label := _label("seed %d" % battle_state["initial_seed"], 15, Color("7f8aa8"))
-	seed_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	seed_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	header.add_child(seed_label)
-	var arena := HBoxContainer.new()
-	arena.add_theme_constant_override("separation", 10)
-	screen_root.add_child(arena)
-	for actor_value in battle_state["actors"]:
-		var actor: Dictionary = actor_value
-		var role_id := str(actor["id"])
-		var account: Dictionary = battle_state["accounts"][role_id]
-		var hero_panel := _status_panel()
-		hero_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		arena.add_child(hero_panel)
-		var hero_box: VBoxContainer = hero_panel.get_child(0)
-		hero_box.add_child(_label(role_id, 24, ROLE_COPY[role_id]["color"] if bool(actor["online"]) else Color("667085")))
-		hero_box.add_child(_label("TOKEN %d / %d" % [account["token"], account["max"]], 19, Color("f7f4ff")))
-		var action_state := "已下线" if not bool(actor["online"]) else ("已行动" if bool(actor["acted"]) else "可行动")
-		hero_box.add_child(_label("防护 %d · %s" % [actor["shield"], action_state], 15, Color("aab2c8")))
-		hero_box.add_child(_label(_passive_status(role_id, actor), 15, ROLE_COPY[role_id]["color"]))
-	var enemy_panel := _status_panel()
-	screen_root.add_child(enemy_panel)
-	var enemy_box: VBoxContainer = enemy_panel.get_child(0)
-	enemy_box.add_child(_label(str(battle_state["enemy"]["name"]), 29, Color("ff6b8a")))
-	enemy_box.add_child(_label("完整度（HP） %d / %d · 锁定意图：%s" % [battle_state["hp"], battle_state["enemy"]["hp"], _intent_text()], 19, Color("ffcc66")))
-	enemy_box.add_child(_label("意图在回合开始锁定；目标中途下线后，剩余段不会转火。", 14, Color("7f8aa8")))
-	var actor_row := HBoxContainer.new()
-	actor_row.add_theme_constant_override("separation", 8)
-	screen_root.add_child(actor_row)
-	actor_row.add_child(_label("行动角色", 17, Color("f7f4ff")))
-	for actor_value in battle_state["actors"]:
-		var actor: Dictionary = actor_value
-		var actor_id := str(actor["id"])
-		var captured_actor := actor_id
-		var actor_button := _button(actor_id, func(): _select_actor(captured_actor), ROLE_COPY[actor_id]["color"] if actor_id == selected_actor else Color("30384f"))
-		actor_button.disabled = not bool(actor["online"]) or bool(actor["acted"])
-		actor_row.add_child(actor_button)
-	var target_row := HBoxContainer.new()
-	target_row.add_theme_constant_override("separation", 8)
-	screen_root.add_child(target_row)
-	target_row.add_child(_label("角色目标", 17, Color("f7f4ff")))
-	for actor_value in battle_state["actors"]:
-		var target_id := str(actor_value["id"])
-		var captured_target := target_id
-		var target_button := _button(target_id, func(): _select_target(captured_target), Color("47516b") if target_id == selected_target else Color("293451"))
-		target_button.disabled = not bool(actor_value["online"])
-		target_row.add_child(target_button)
-	target_row.add_child(_label("攻击牌自动指向敌人；防护、补给与转交使用这里的角色目标。", 14, Color("7f8aa8")))
-	screen_root.add_child(_label("本回合行动（每名在线角色至多一次，顺序由你决定）", 18, Color("f7f4ff")))
-	var actions := HFlowContainer.new()
-	actions.add_theme_constant_override("h_separation", 8)
-	actions.add_theme_constant_override("v_separation", 8)
-	screen_root.add_child(actions)
-	_add_action_button(actions, GameRules.BASIC_ATTACK, "基础攻击\n费用 0 · 伤害 %d" % content["parameters"]["basicAttack"], _cached_legal_targets(GameRules.BASIC_ATTACK))
-	_add_action_button(actions, GameRules.BASIC_GUARD, "基础防御\n费用 0 · 防护 %d" % content["parameters"]["basicGuard"], _cached_legal_targets(GameRules.BASIC_GUARD))
-	for card_value in battle_state["hand"]:
-		var card: Dictionary = card_value
-		var action_id := str(card["uid"])
-		_add_action_button(actions, action_id, _card_button_text(card), _cached_legal_targets(action_id))
+	header.add_theme_constant_override("separation", 12)
+	header_panel.add_child(header)
+	header.add_child(_label("回合 %d" % battle_state["turn"], 20, Color("f2efe7")))
+	header.add_child(_pill(_battle_label(), Color("526da6") if current_battle_kind == "ordinary" else Color("a33c5f")))
+	var task_label := _label(str(battle_state["enemy"]["name"]), 14, Color("9eabc3"))
+	header.add_child(task_label)
+	var spacer := Control.new()
+	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	header.add_child(spacer)
+	header.add_child(_label("当前行动  %s" % selected_actor, 14, ROLE_COPY[selected_actor]["color"]))
+
+func _actor_unit_position(index: int, total: int) -> Vector2:
+	if total <= 1:
+		return Vector2(222, 86)
+	if total == 2:
+		return [Vector2(112, 112), Vector2(332, 82)][index]
+	return [Vector2(42, 118), Vector2(222, 100), Vector2(404, 108)][index]
+
+func _add_actor_unit(actor_value: Dictionary, index: int, total: int) -> void:
+	var role_id := str(actor_value["id"])
+	var actor: Dictionary = actor_value
+	var account: Dictionary = battle_state["accounts"][role_id]
+	var role_color: Color = ROLE_COPY[role_id]["color"]
+	var unit := Button.new()
+	unit.name = "Actor_%s" % role_id
+	unit.text = role_id
+	unit.position = _actor_unit_position(index, total)
+	if role_id == selected_actor and not selected_action.is_empty():
+		unit.position += Vector2(12, -5)
+	unit.size = Vector2(178, 326)
+	unit.pivot_offset = unit.size * 0.5
+	unit.tooltip_text = "%s｜点击选择行动者；选中友方牌后点击可指定目标" % role_id
+	var selected_border := role_color if role_id == selected_actor else Color(0, 0, 0, 0)
+	if not selected_action.is_empty() and role_id == selected_target:
+		selected_border = Color("f2b85b")
+	unit.add_theme_stylebox_override("normal", _panel_style(Color(role_color, 0.055) if role_id == selected_actor else Color(0, 0, 0, 0), selected_border, 22))
+	unit.add_theme_stylebox_override("hover", _panel_style(Color(role_color, 0.10), Color(role_color, 0.64), 22))
+	unit.add_theme_stylebox_override("pressed", _panel_style(Color(role_color, 0.16), Color("f2efe7", 0.7), 22))
+	unit.add_theme_stylebox_override("disabled", _panel_style(Color(0, 0, 0, 0), Color(0, 0, 0, 0), 22))
+	for color_key in ["font_color", "font_hover_color", "font_pressed_color", "font_disabled_color", "font_focus_color"]:
+		unit.add_theme_color_override(color_key, Color(1, 1, 1, 0))
+	var captured_role := role_id
+	unit.pressed.connect(func(): _on_actor_unit_pressed(captured_role))
+	battle_root.add_child(unit)
+	var stack := VBoxContainer.new()
+	stack.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	stack.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stack.add_theme_constant_override("separation", 2)
+	unit.add_child(stack)
+	var portrait: Control = ACTOR_SCENES[role_id].instantiate()
+	portrait.name = "LayeredActor"
+	portrait.custom_minimum_size = Vector2(170, 250)
+	portrait.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stack.add_child(portrait)
+	portrait.call("set_visual_state", role_id == selected_actor, bool(actor["online"]), bool(actor["acted"]))
+	var status := PanelContainer.new()
+	status.custom_minimum_size = Vector2(174, 68)
+	status.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	status.add_theme_stylebox_override("panel", _panel_style(Color("07101f", 0.94), role_color if role_id == selected_actor else Color("52607a", 0.82), 8))
+	stack.add_child(status)
+	var status_box := VBoxContainer.new()
+	status_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	status_box.add_theme_constant_override("separation", 0)
+	status.add_child(status_box)
+	var name_label := _label(role_id, 13, role_color if bool(actor["online"]) else Color("697386"))
+	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	name_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	status_box.add_child(name_label)
+	var token_label := _label("TOKEN %d/%d　 ◇ %d" % [account["token"], account["max"], actor["shield"]], 12, Color("f2efe7"))
+	token_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	token_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	status_box.add_child(token_label)
+	var action_state := "下线" if not bool(actor["online"]) else ("已行动" if bool(actor["acted"]) else _passive_status(role_id, actor))
+	var state_label := _label(action_state, 10, role_color if bool(actor["online"]) else Color("697386"))
+	state_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	state_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	status_box.add_child(state_label)
+	if not bool(actor["online"]):
+		unit.modulate = Color(0.55, 0.58, 0.65, 0.62)
+	elif bool(actor["acted"]):
+		unit.modulate = Color(0.76, 0.78, 0.84, 0.78)
+	actor_visuals[role_id] = portrait
+
+func _on_actor_unit_pressed(role_id: String) -> void:
+	if not selected_action.is_empty():
+		var targets := rules.legal_targets(battle_state, selected_actor, selected_action)
+		if targets.has(role_id):
+			_select_target(role_id)
+			return
+	_select_actor(role_id)
+
+func _add_enemy_unit() -> void:
+	var enemy_id := str(battle_state["enemy"].get("id", "missing_attachment"))
+	if enemy_id == "missing_attachment":
+		enemy_visual = MISSING_ATTACHMENT_SCENE.instantiate()
+		enemy_visual.name = "EnemyArt"
+		enemy_visual.position = Vector2(788, 64)
+		enemy_visual.size = Vector2(405, 350)
+		enemy_visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		battle_root.add_child(enemy_visual)
+	else:
+		var enemy_art := TextureRect.new()
+		enemy_art.name = "EnemyArt"
+		enemy_art.texture = load("res://assets/enemies/submit_placeholder.svg")
+		enemy_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		enemy_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		enemy_art.position = Vector2(788, 64)
+		enemy_art.size = Vector2(405, 350)
+		enemy_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		battle_root.add_child(enemy_art)
+	var intent_panel := PanelContainer.new()
+	intent_panel.position = Vector2(1006, 60)
+	intent_panel.size = Vector2(160, 68)
+	intent_panel.add_theme_stylebox_override("panel", _panel_style(Color("4a0c19", 0.96), Color("ff5572"), 30))
+	battle_root.add_child(intent_panel)
+	var intent_label := _label(_intent_stage_text(), 15, Color("fff4f5"))
+	intent_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	intent_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	intent_panel.add_child(intent_label)
+	var enemy_panel := PanelContainer.new()
+	enemy_panel.position = Vector2(805, 365)
+	enemy_panel.size = Vector2(380, 64)
+	enemy_panel.add_theme_stylebox_override("panel", _panel_style(Color("120a14", 0.96), Color("ff5572"), 7))
+	battle_root.add_child(enemy_panel)
+	var enemy_box := VBoxContainer.new()
+	enemy_box.add_theme_constant_override("separation", 1)
+	enemy_panel.add_child(enemy_box)
+	var enemy_row := HBoxContainer.new()
+	enemy_box.add_child(enemy_row)
+	var enemy_name := _label(str(battle_state["enemy"]["name"]), 17, Color("f2efe7"))
+	enemy_name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	enemy_row.add_child(enemy_name)
+	var enemy_hp_text := _label("%d / %d" % [battle_state["hp"], battle_state["enemy"]["hp"]], 15, Color("ffb0ae"))
+	enemy_row.add_child(enemy_hp_text)
+	var hp_bar := ProgressBar.new()
+	hp_bar.name = "EnemyHP"
+	hp_bar.max_value = float(battle_state["enemy"]["hp"])
+	hp_bar.value = float(battle_state["hp"])
+	hp_bar.show_percentage = false
+	hp_bar.custom_minimum_size = Vector2(342, 10)
+	hp_bar.add_theme_stylebox_override("background", _panel_style(Color("260b13"), Color("612034"), 3))
+	hp_bar.add_theme_stylebox_override("fill", _panel_style(Color("e4495e"), Color("ff7a86"), 3))
+	enemy_box.add_child(hp_bar)
+
+func _intent_stage_text() -> String:
+	if battle_state["intents"].is_empty():
+		return "休整\n○"
+	var parts: Array[String] = []
+	var target := ""
+	for intent_value in battle_state["intents"]:
+		parts.append(str(intent_value["raw"]))
+		target = str(intent_value["target"])
+	return "攻击 %s\n→ %s" % ["+".join(parts), target]
+
+func _add_shared_hand() -> void:
 	var preview_panel := PanelContainer.new()
-	preview_panel.add_theme_stylebox_override("panel", _panel_style(Color("11172a"), Color("303a58"), 12))
-	screen_root.add_child(preview_panel)
-	var preview_box := HBoxContainer.new()
-	preview_box.add_theme_constant_override("separation", 18)
-	preview_panel.add_child(preview_box)
-	preview_label = _label("选择行动角色、角色目标和行动；预览不会改变状态。", 16, Color("b9c1d9"))
-	preview_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	preview_panel.position = Vector2(248, 438)
+	preview_panel.size = Vector2(772, 40)
+	preview_panel.add_theme_stylebox_override("panel", _panel_style(Color("07101f", 0.88), Color("55708f", 0.62), 8))
+	battle_root.add_child(preview_panel)
+	preview_label = _label("选择场中角色，再从共享手牌选择行动。专属牌会自动切换到所属角色。", 14, Color("cbd3e3"))
 	preview_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	preview_box.add_child(preview_label)
-	confirm_button = _button("确认执行", Callable(self, "_confirm_action"), Color("22a06b"))
+	preview_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	preview_panel.add_child(preview_label)
+	var hand_plate := PanelContainer.new()
+	hand_plate.position = Vector2(18, 446)
+	hand_plate.size = Vector2(214, 48)
+	hand_plate.add_theme_stylebox_override("panel", _panel_style(Color("10182a", 0.96), Color("8ca1c8", 0.75), 7))
+	battle_root.add_child(hand_plate)
+	var hand_title := _label("▰  共享手牌", 17, Color("f2efe7"))
+	hand_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hand_title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hand_plate.add_child(hand_title)
+	var basic_row := HBoxContainer.new()
+	basic_row.position = Vector2(18, 512)
+	basic_row.size = Vector2(184, 202)
+	basic_row.add_theme_constant_override("separation", 6)
+	battle_root.add_child(basic_row)
+	_add_battle_card(basic_row, GameRules.BASIC_ATTACK, {
+		"name": "基础攻击", "kind": "attack", "cost": 0,
+		"damage": int(content["parameters"]["basicAttack"])
+	}, true)
+	_add_battle_card(basic_row, GameRules.BASIC_GUARD, {
+		"name": "基础防御", "kind": "guard", "cost": 0,
+		"shield": int(content["parameters"]["basicGuard"]), "target": "self"
+	}, true)
+	var hand_scroll := ScrollContainer.new()
+	hand_scroll.name = "SharedHand"
+	hand_scroll.position = Vector2(210, 482)
+	hand_scroll.size = Vector2(830, 238)
+	hand_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	hand_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	battle_root.add_child(hand_scroll)
+	var cards := Control.new()
+	var hand_count: int = battle_state["hand"].size()
+	cards.custom_minimum_size = Vector2(maxf(820.0, 132.0 * float(hand_count) + 20.0), 236)
+	hand_scroll.add_child(cards)
+	for card_index in hand_count:
+		var card_value = battle_state["hand"][card_index]
+		var card: Dictionary = card_value
+		var card_button := _add_battle_card(cards, str(card["uid"]), rules.resolved_card(card), false)
+		var center_offset := float(card_index) - float(hand_count - 1) * 0.5
+		card_button.position = Vector2(10.0 + float(card_index) * 132.0, 8.0 + absf(center_offset) * 2.0)
+		card_button.rotation = deg_to_rad(center_offset * 1.25)
+		card_button.pivot_offset = Vector2(card_button.size.x * 0.5, card_button.size.y)
+		card_button.z_index = 20 if selected_action == str(card["uid"]) else card_index
+	var controls := VBoxContainer.new()
+	controls.position = Vector2(1050, 470)
+	controls.size = Vector2(212, 242)
+	controls.add_theme_constant_override("separation", 8)
+	battle_root.add_child(controls)
+	confirm_button = _button("确认执行", Callable(self, "_confirm_action"), Color("197552"))
+	confirm_button.custom_minimum_size = Vector2(212, 46)
 	confirm_button.disabled = true
-	preview_box.add_child(confirm_button)
-	var end_turn := _button("结束回合 / 敌方执行意图", Callable(self, "_finish_turn"), Color("a33c5f"))
-	screen_root.add_child(end_turn)
+	controls.add_child(confirm_button)
+	var deck_label := _label("▣ %d　弃 %d" % [battle_state["draw"].size(), battle_state["discard"].size()], 14, Color("b9c1d9"))
+	deck_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	controls.add_child(deck_label)
+	var end_turn := _button("结束回合", Callable(self, "_finish_turn"), Color("a7274c"))
+	end_turn.custom_minimum_size = Vector2(212, 78)
+	end_turn.add_theme_font_size_override("font_size", 20)
+	controls.add_child(end_turn)
+	var action_note := _label("每名在线角色每回合行动一次", 11, Color("8491aa"))
+	action_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	controls.add_child(action_note)
+
+func _add_battle_card(parent: Control, action_id: String, definition: Dictionary, compact: bool) -> Button:
+	var captured_action := action_id
+	var owner := str(definition.get("owner", ""))
+	var owner_color := Color("9aa7bd") if owner.is_empty() else Color(ROLE_COPY[owner]["color"])
+	var actor_id := owner if not owner.is_empty() else selected_actor
+	var actor := rules.actor_status(battle_state, actor_id)
+	var legal_targets: Array = rules.legal_targets(battle_state, actor_id, action_id)
+	var usable := not actor.is_empty() and bool(actor.get("online", false)) and not bool(actor.get("acted", true)) and not legal_targets.is_empty()
+	var button := Button.new()
+	button.name = "Card_%s" % action_id
+	button.text = str(definition["name"])
+	button.custom_minimum_size = Vector2(88, 194) if compact else Vector2(142, 222)
+	button.size = button.custom_minimum_size
+	button.tooltip_text = "%s｜费用 %d｜%s" % [definition["name"], definition.get("cost", 0), _compact_effect(definition)]
+	button.disabled = not usable
+	button.clip_contents = true
+	for color_key in ["font_color", "font_hover_color", "font_pressed_color", "font_disabled_color", "font_focus_color"]:
+		button.add_theme_color_override(color_key, Color(1, 1, 1, 0))
+	var border := Color("69d7e7") if selected_action == action_id else owner_color
+	button.add_theme_stylebox_override("normal", _panel_style(Color("f2efe7"), border, 10))
+	button.add_theme_stylebox_override("hover", _panel_style(Color("fffaf0"), border.lightened(0.18), 10))
+	button.add_theme_stylebox_override("pressed", _panel_style(Color("e6e4df"), Color("69d7e7"), 10))
+	button.add_theme_stylebox_override("disabled", _panel_style(Color("8d929d"), Color("555d70"), 10))
+	button.pressed.connect(func(): _select_action(captured_action))
+	parent.add_child(button)
+	var margin := MarginContainer.new()
+	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	margin.add_theme_constant_override("margin_left", 7)
+	margin.add_theme_constant_override("margin_right", 7)
+	margin.add_theme_constant_override("margin_top", 6)
+	margin.add_theme_constant_override("margin_bottom", 7)
+	button.add_child(margin)
+	var stack := VBoxContainer.new()
+	stack.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stack.add_theme_constant_override("separation", 2)
+	margin.add_child(stack)
+	var top := HBoxContainer.new()
+	top.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stack.add_child(top)
+	var cost := _label(str(int(definition.get("cost", 0))), 16, Color("0a101b"))
+	cost.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	top.add_child(cost)
+	var top_spacer := Control.new()
+	top_spacer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	top_spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	top.add_child(top_spacer)
+	var owner_label := _label("通用" if owner.is_empty() else owner, 10 if owner.is_empty() else 9, owner_color.darkened(0.25))
+	owner_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	top.add_child(owner_label)
+	var art = CardArtScript.new()
+	art.custom_minimum_size = Vector2(72, 94) if compact else Vector2(126, 112)
+	art.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	art.configure(str(definition.get("kind", "attack")), owner, owner_color)
+	stack.add_child(art)
+	var title := _label(str(definition["name"]), 12 if compact else 14, Color("111827"))
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stack.add_child(title)
+	var effect := _label(_compact_effect(definition), 10 if compact else 12, Color("374151"))
+	effect.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	effect.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	effect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stack.add_child(effect)
+	return button
+
+func _refresh_action_preview() -> void:
+	if selected_action.is_empty() or not is_instance_valid(preview_label) or not is_instance_valid(confirm_button):
+		return
+	var preview := rules.preview_action(battle_state, selected_actor, selected_action, selected_target)
+	if not preview["ok"]:
+		preview_label.text = "不可执行：%s。状态未改变。" % _error_text(str(preview["error"]))
+		preview_label.modulate = Color("ff8fa3")
+		confirm_button.disabled = true
+		return
+	var effects: Array[String] = []
+	if int(preview["damage"]) > 0:
+		effects.append("伤害 %d" % preview["damage"])
+	if int(preview["shield"]) > 0:
+		effects.append("防护 %d" % preview["shield"])
+	if int(preview["heal"]) > 0:
+		effects.append("恢复 %d" % preview["heal"])
+	if int(preview["rice_gain"]) > 0:
+		effects.append("白饭 +%d" % preview["rice_gain"])
+	preview_label.modulate = Color.WHITE
+	preview_label.text = "%s 使用「%s」→ %s｜费用 %d｜余 %d token｜%s" % [selected_actor, preview["name"], preview["target"], preview["cost"], preview["balance_after"], " · ".join(effects)]
+	confirm_button.disabled = false
+
+func _play_last_action_motion() -> void:
+	var actor_id := last_motion_actor
+	var motion := last_motion_tag
+	last_motion_actor = ""
+	last_motion_tag = ""
+	if actor_id.is_empty() or not actor_visuals.has(actor_id):
+		return
+	var actor_visual: Control = actor_visuals[actor_id]
+	if not is_instance_valid(actor_visual):
+		return
+	actor_visual.call("play_motion", motion)
+
+
+func _play_last_enemy_motion() -> void:
+	var motion := last_enemy_motion_tag
+	last_enemy_motion_tag = ""
+	if motion.is_empty() or not is_instance_valid(enemy_visual):
+		return
+	enemy_visual.call("play_motion", motion)
 
 func _battle_label() -> String:
 	if current_battle_kind == "ordinary":
@@ -388,31 +709,51 @@ func _select_target(target_id: String) -> void:
 	if target.is_empty() or not bool(target.get("online", false)):
 		return
 	selected_target = target_id
-	if selected_action.is_empty():
-		_render_battle()
-	else:
-		_select_action(selected_action)
+	_render_battle()
 
 func _select_action(action_id: String) -> void:
+	var owner := _action_owner(action_id)
+	if not owner.is_empty() and owner != selected_actor:
+		var owner_actor := rules.actor_status(battle_state, owner)
+		if owner_actor.is_empty() or not bool(owner_actor.get("online", false)) or bool(owner_actor.get("acted", false)):
+			return
+		selected_actor = owner
+		selected_role = owner
+		selected_target = owner
+		legal_target_cache.clear()
 	selected_action = action_id
-	var preview := rules.preview_action(battle_state, selected_actor, action_id, selected_target)
-	if not preview["ok"]:
-		preview_label.text = "不可执行：%s。状态未改变。" % _error_text(str(preview["error"]))
-		preview_label.modulate = Color("ff8fa3")
-		confirm_button.disabled = true
-		return
-	var effects: Array[String] = []
-	if int(preview["damage"]) > 0:
-		effects.append("预计造成 %d 伤害" % preview["damage"])
-	if int(preview["shield"]) > 0:
-		effects.append("获得 %d 防护" % preview["shield"])
-	if int(preview["heal"]) > 0:
-		effects.append("恢复 %d token（不超过上限）" % preview["heal"])
-	if int(preview["rice_gain"]) > 0:
-		effects.append("白饭 +%d" % preview["rice_gain"])
-	preview_label.modulate = Color.WHITE
-	preview_label.text = "%s 使用 %s → 目标：%s ｜ 费用：%d ｜ 扣费后：%d token ｜ %s" % [selected_actor, preview["name"], preview["target"], preview["cost"], preview["balance_after"], "，".join(effects)]
-	confirm_button.disabled = false
+	_render_battle()
+
+func _action_owner(action_id: String) -> String:
+	for card_value in battle_state.get("hand", []):
+		var card: Dictionary = card_value
+		if str(card.get("uid", "")) == action_id:
+			return str(rules.resolved_card(card).get("owner", ""))
+	return ""
+
+func _action_definition(action_id: String) -> Dictionary:
+	if action_id == GameRules.BASIC_ATTACK:
+		return {"kind": "attack", "damage": int(content["parameters"]["basicAttack"]), "cost": 0}
+	if action_id == GameRules.BASIC_GUARD:
+		return {"kind": "guard", "shield": int(content["parameters"]["basicGuard"]), "cost": 0}
+	for card_value in battle_state.get("hand", []):
+		var card: Dictionary = card_value
+		if str(card.get("uid", "")) == action_id:
+			return rules.resolved_card(card)
+	return {}
+
+func _motion_tag_for_action(action_id: String) -> String:
+	var definition := _action_definition(action_id)
+	var kind := str(definition.get("kind", ""))
+	if kind == "transfer":
+		return "transfer"
+	if int(definition.get("heal", 0)) > 0:
+		return "support"
+	if int(definition.get("damage", 0)) > 0:
+		return "heavy_attack" if int(definition.get("damage", 0)) >= 8 else "light_attack"
+	if int(definition.get("shield", 0)) > 0:
+		return "guard"
+	return "basic"
 
 func _confirm_action() -> void:
 	if not is_instance_valid(confirm_button) or confirm_button.disabled:
@@ -420,6 +761,8 @@ func _confirm_action() -> void:
 	confirm_button.disabled = true
 	if selected_action.is_empty():
 		return
+	var motion_actor := selected_actor
+	var motion_tag := _motion_tag_for_action(selected_action)
 	var result := rules.try_action(battle_state, selected_actor, selected_action, selected_target)
 	if not result["ok"]:
 		preview_label.text = "不可执行：%s。状态未改变。" % _error_text(str(result["error"]))
@@ -427,7 +770,10 @@ func _confirm_action() -> void:
 	var note := "回合 %d：%s 使用 %s" % [battle_state["turn"], selected_actor, result["name"]]
 	if int(result["damage"]) > 0:
 		note += "，造成 %d 伤害" % result["damage"]
+		last_enemy_motion_tag = "hit"
 	battle_log.append(note)
+	last_motion_actor = motion_actor
+	last_motion_tag = motion_tag
 	if battle_state["result"] == "win":
 		_complete_battle()
 	else:
@@ -447,6 +793,8 @@ func _finish_turn() -> void:
 			battle_log.append("%s 已下线，锁定的本段攻击空过。" % event["target"])
 		else:
 			battle_log.append("敌方攻击 %s：防护吸收 %d，token 损失 %d。" % [event["target"], event["absorbed"], event["lost"]])
+	if not result["events"].is_empty():
+		last_enemy_motion_tag = "attack"
 	if battle_state["result"] == "loss":
 		rules.settle_battle(run_state, battle_state)
 		_save_progress("result")

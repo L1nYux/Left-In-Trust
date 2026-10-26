@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="480" viewBox="0 0 420 480">
+  <ellipse cx="210" cy="438" rx="138" ry="22" fill="#080b17" opacity="0.52"/>
+  <g stroke-linejoin="round">
+    <path d="M94 101h232v285H94z" fill="#eee9df" stroke="#30394b" stroke-width="10"/>
+    <path d="M94 101l57-50h232l-57 50z" fill="#d1dcde" stroke="#30394b" stroke-width="9"/>
+    <path d="M326 101l57-50v278l-57 57z" fill="#9eafb5" stroke="#30394b" stroke-width="9"/>
+    <g fill="none" stroke="#82939b" stroke-width="5">
+      <path d="M132 145h156M132 178h156M132 211h111M132 321h156M132 352h99"/>
+      <path d="M132 241h66v55h-66zM222 241h66v55h-66z"/>
+    </g>
+    <circle cx="210" cy="220" r="83" fill="#0a101b" opacity="0.86" stroke="#ef6a62" stroke-width="8"/>
+    <path d="M159 220l32 32 70-76" fill="none" stroke="#f2b85b" stroke-width="18" stroke-linecap="round"/>
+    <path d="M69 133l-38-42M351 125l42-31M76 353l-41 43M350 350l39 43" fill="none" stroke="#ef6a62" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <text x="210" y="466" text-anchor="middle" fill="#f2efe7" font-size="17" font-family="sans-serif">BOSS PLACEHOLDER</text>
+</svg>
