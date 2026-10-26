@@ -82,13 +82,15 @@ try {
         "rule-tests" = "res://tests/test_rules.gd"
         "audit-probe" = "res://tests/audit_probe.gd"
         "smoke-runs" = "res://tests/smoke_runs.gd"
+        "layered-actor-tests" = "res://tests/test_layered_actors.gd"
         "ui-flows" = "res://tests/test_ui_flows.gd"
         "ui-click-tests" = "res://tests/test_ui_clicks.gd"
         "multiplayer-tests" = "res://tests/test_multiplayer.gd"
         "save-tests" = "res://tests/test_save_manager.gd"
     }
     foreach ($entry in $godotTests.GetEnumerator()) {
-        Invoke-LoggedCommand $entry.Key $GodotPath @("--headless", "--path", ".\game", "--script", $entry.Value) -MirrorToGodot
+        $engineLogPath = Join-Path $godotLogRoot "$($entry.Key)-engine.log"
+        Invoke-LoggedCommand $entry.Key $GodotPath @("--headless", "--path", ".\game", "--log-file", $engineLogPath, "--script", $entry.Value) -MirrorToGodot
     }
 } finally {
     Pop-Location
