@@ -1,18 +1,22 @@
-# 《未尽之托 / Left in Trust》Windows 阶段二切片
+# 《未尽之托 / Left in Trust》Windows Demo 垂直切片
 
-Godot 4.7.2 标准版 / GDScript。常规流程为：标题页 → 选择 1–2 名同行者 → 普通战 → 单人休息恢复 → Boss 战 → 结果页；三名角色可共同进入独立测试场。标题页会识别可继续的真实文件存档。
+Godot 4.7.2 标准版 / GDScript。常规流程为：标题页 → 选择 1–2 名同行者 → 序章/任务开场 → 第一章路线图 → 普通战 → 核对/可选休息 → Boss 前验收与战斗 → 胜负片段/结果页；三名角色可共同进入独立测试场。剧情覆盖层支持继续、跳过、最近剧情回看与旅途闲聊，已看标记随真实文件存档恢复。
 
-战斗界面已完成新版舞台化定稿：顶部使用细状态栏与回合轨道，2—3 名角色在左侧前后错落并与右侧放大的敌人对峙，角色状态贴在脚边，全队共享的混合手牌在底部以插画卡轻微扇开。专属牌显示归属并自动切换到所属角色，通用牌由当前行动者使用。GPT、Claude、DeepSeek 均已接入同一套八层 2D 动作骨架与六类动作标签；运行时使用完整透明主立绘保证头颈与身体连续，其余层承担状态与动作特效，独立部件保留为后续人工蒙版源。“缺失附件”已接入六层敌人骨架与待机、攻击、受击动作。卡面已使用按类型和角色配色的程序插画，后续可逐张替换为正式卡图。
+战斗界面采用仿《杀戮尖塔》的舞台布局：左上只留“第 N 回合”，右上用暂停图标打开设置，2—3 名角色在左侧前后错落并与右侧放大的敌人对峙，角色状态贴在脚边。出牌为鼠标拖拽：把牌拖到敌人/友方/自己身上释放，非法落点回弹并提示。卡面缩为低占比操作带，只保留较小插画、卡名和左上角单个费用数字；悬停详情只显示“归属 + 数值效果”。每名在线角色每回合可不限次数行动，基础攻击与基础防御免费且每回合各限一次；右下圆形发送箭头用于结束回合，左下显示抽/弃数量。战斗与地图右上均可打开暂停/设置层并“返回标题界面”。战斗结束（失败或全部胜利）只显示“本次交付未完成/委托完成”与队内角色名。GPT、Claude、DeepSeek 均使用正式透明主立绘；“缺失附件”使用六层正式怪物资源，“本次提交版”使用正式透明 Boss 主立绘。卡牌插画本轮保持现有资源不变。
+
+地图当前使用低饱和灰纸底、细虚线分支与单色任务符号；普通战后可经过休息或直接前往验收。编队页右上可选择玩家人生身份，大学生、研究员等六种身份轻微改变纸色与课表、实验记录等页边纹样；AI 队友构成不影响地图外观。身份保存在 `runState.stage`，旧存档没有此字段时默认为大学生。大学生/公司员工使用现有阶段专属剧情；研究生、研究员、行业大佬、富翁仅预览地图外观，不播放阶段剧情，专属文本、任务池与遭遇仍属后续范围。当前加载 `assets/map_icons/route_v2/` 的 SVG；旧风景地图和 v1 彩色图标保留为参考。
 
 ## 数据同步
 
-`docs/首批内容.json` 是唯一人工编辑的数值源。`game/data/content.json` 与 `content.sha256` 都由脚本生成，不应手工修改。
+`docs/首批内容.json` 是唯一人工编辑的数值源。`docs/Demo剧情脚本.md` 与 `docs/剧情/日常闲聊台词.json` 是运行时剧情源。`game/data/content.json`、`content.sha256`、`story.json` 均由脚本生成，不应手工修改。
 
 在仓库根目录运行：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\_build\sync_game_data.ps1
 powershell -ExecutionPolicy Bypass -File .\_build\sync_game_data.ps1 -Check
+node .\_build\export_story_runtime.cjs
+node .\_build\export_story_runtime.cjs --check
 ```
 
 ## 启动
@@ -38,19 +42,22 @@ powershell -ExecutionPolicy Bypass -File .\_build\run_stage2_tests.ps1
 
 ```powershell
 node .\_build\validate_gameplay_v05.cjs
+node .\_build\validate_story.cjs
+node .\_build\export_story_runtime.cjs --check
 godot --headless --path .\game --script res://tests/test_rules.gd
 godot --headless --path .\game --script res://tests/audit_probe.gd
 godot --headless --path .\game --script res://tests/smoke_runs.gd
 godot --headless --path .\game --script res://tests/test_layered_actors.gd
 godot --headless --path .\game --script res://tests/test_ui_flows.gd
 godot --headless --path .\game --script res://tests/test_ui_clicks.gd
+godot --headless --path .\game --script res://tests/test_story_flow.gd
 godot --headless --path .\game --script res://tests/test_multiplayer.gd
 godot --headless --path .\game --script res://tests/test_save_manager.gd
 ```
 
-`test_multiplayer.gd` 覆盖三种双人组合、三人行动顺序、替补牌过滤、下线封存、锁定目标、定向保护、额度转交与胜后恢复。`test_save_manager.gd` 使用真实文件覆盖临时文件截断、主档损坏、校验错误、上一有效档恢复、结算重载幂等、不支持 schema，以及 mode/flow 语义矛盾。
+`test_story_flow.gd` 覆盖 117 事件运行数据、单/双人在队过滤、跳过与已看存档、战斗覆盖层和扩展身份边界。`test_multiplayer.gd` 覆盖三种双人组合、三人行动顺序、替补牌过滤、下线封存、锁定目标、定向保护、额度转交与胜后恢复。`test_save_manager.gd` 使用真实文件覆盖临时文件截断、主档损坏、校验错误、上一有效档恢复、结算重载幂等、不支持 schema、剧情状态校验，以及 mode/flow 语义矛盾。
 
-`test_layered_actors.gd` 校验三名正式角色都遵守同一套八层结构和六类动作协议、每套六件分层资源完整，并校验“缺失附件”的六层结构及三类动作。带渲染环境下可运行 `tests/capture_layered_actors.gd` 生成待机与动作中间帧验收图。
+`test_layered_actors.gd` 校验三名正式角色都遵守同一套八层结构和六类动作协议、每套六件分层资源完整，并校验“缺失附件”和“本次提交版”的正式资源可加载。带渲染环境下可运行 `tests/capture_layered_actors.gd` 生成验收图。
 
 ## 存档
 
@@ -69,11 +76,11 @@ powershell -ExecutionPolicy Bypass -File .\_build\fetch_godot_windows_templates.
 ```powershell
 New-Item -ItemType Directory -Force .\dist\windows | Out-Null
 godot --headless --path .\game --export-release "Windows Desktop x86_64" ..\dist\windows\LeftInTrust.exe
-.\dist\windows\LeftInTrust.exe --seed=20261025
+.\dist\windows\LeftInTrust.exe -- --seed=20261025
 ```
 
 导出物为 `dist/windows/LeftInTrust.exe`，PCK 嵌入可执行文件。请从 PowerShell 或资源管理器直接启动一次，以验证非编辑器环境。
 
 ## 当前边界
 
-本切片实现 1–2 人常规战斗、三人独立测试场、共享混合手牌、本地存档、三名正式分层角色与一名正式分层怪物；仍不含随机地图、完整第一章、剧情事件、商店、正式招募、收藏、挑战难度、隐藏 Boss、进化或后续角色。“本次提交版”Boss 仍沿用占位美术；卡图当前为可运行的类型化程序插画，尚未逐张制作正式绘图。
+本切片实现第一章固定路线图、1–2 人普通战/休息/Boss 流程、首章关键剧情演出与旅途闲聊、三人独立测试场、共享混合手牌、本地存档、三名正式角色与两名正式敌人。仍不含随机地图、第二章可达路线、商店、正式招募、收藏、挑战难度、隐藏 Boss、战斗结算专属台词、进化或后续角色；动效与音效仍属后续范围。卡图当前为可运行的类型化程序插画，尚未逐张制作正式绘图。

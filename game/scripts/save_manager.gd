@@ -2,6 +2,7 @@ class_name SaveManager
 extends RefCounted
 
 const SCHEMA_VERSION := 1
+const LifeStagesScript = preload("res://scripts/life_stages.gd")
 
 var save_path: String
 var temp_path: String
@@ -155,21 +156,23 @@ func _validate_payload(snapshot: Dictionary) -> Dictionary:
 		return {"ok": false, "error": "invalid_snapshot_state"}
 	var run_state: Dictionary = snapshot["runState"]
 	var battle_state: Dictionary = snapshot["battleState"]
+	# Stage is optional in old saves; new saves must use an explicit known identity.
+	if run_state.has("stage") and (typeof(run_state["stage"]) != TYPE_STRING or not LifeStagesScript.THEMES.has(run_state["stage"])):
+		return {"ok": false, "error": "invalid_life_stage"}
 	for key in ["accounts", "deck", "nodes", "battles", "wallet"]:
 		if not run_state.has(key):
 			return {"ok": false, "error": "invalid_run_state", "field": key}
 	if typeof(run_state["accounts"]) != TYPE_DICTIONARY or typeof(run_state["deck"]) != TYPE_ARRAY or typeof(run_state["nodes"]) != TYPE_DICTIONARY or typeof(run_state["battles"]) != TYPE_DICTIONARY:
 		return {"ok": false, "error": "invalid_run_state"}
-	for key in ["id", "result", "phase", "accounts", "actors", "draw", "hand", "discard", "consumed", "sealed"]:
-		if not battle_state.has(key):
-			return {"ok": false, "error": "invalid_battle_state", "field": key}
-	if typeof(battle_state["accounts"]) != TYPE_DICTIONARY or typeof(battle_state["actors"]) != TYPE_ARRAY:
-		return {"ok": false, "error": "invalid_battle_state"}
-	for zone_name in ["draw", "hand", "discard", "consumed", "sealed"]:
-		if typeof(battle_state[zone_name]) != TYPE_ARRAY:
-			return {"ok": false, "error": "invalid_battle_state", "field": zone_name}
-	if str(battle_state["result"]) not in ["ongoing", "win", "loss"] or str(battle_state["phase"]) not in ["between", "player", "enemy"]:
-		return {"ok": false, "error": "invalid_battle_state"}
+	if run_state.has("story"):
+		if typeof(run_state["story"]) != TYPE_DICTIONARY:
+			return {"ok": false, "error": "invalid_story_state"}
+		var story: Dictionary = run_state["story"]
+		if typeof(story.get("seen", null)) != TYPE_DICTIONARY or typeof(story.get("lastEvent", null)) != TYPE_STRING:
+			return {"ok": false, "error": "invalid_story_state"}
+		for seen_key in story["seen"].keys():
+			if typeof(seen_key) != TYPE_STRING or typeof(story["seen"][seen_key]) != TYPE_BOOL:
+				return {"ok": false, "error": "invalid_story_state"}
 	if typeof(snapshot["lineup"]) != TYPE_ARRAY or snapshot["lineup"].is_empty() or snapshot["lineup"].size() > 3:
 		return {"ok": false, "error": "invalid_snapshot_lineup"}
 	for role_id_value in snapshot["lineup"]:
@@ -177,16 +180,34 @@ func _validate_payload(snapshot: Dictionary) -> Dictionary:
 			return {"ok": false, "error": "invalid_snapshot_lineup"}
 	if str(snapshot["mode"]) not in ["standard", "test_arena"]:
 		return {"ok": false, "error": "invalid_snapshot_mode"}
-	if str(snapshot["currentBattleKind"]) not in ["ordinary", "boss", "test_arena"]:
+	if str(snapshot["currentBattleKind"]) not in ["", "ordinary", "boss", "test_arena"]:
 		return {"ok": false, "error": "invalid_snapshot_battle_kind"}
-	if str(snapshot["flow"]) not in ["battle", "rest", "result"]:
+	if str(snapshot["flow"]) not in ["map", "battle", "rest", "result"]:
 		return {"ok": false, "error": "invalid_snapshot_flow"}
 	var mode := str(snapshot["mode"])
 	var battle_kind := str(snapshot["currentBattleKind"])
 	var flow := str(snapshot["flow"])
-	if mode == "test_arena" and (battle_kind != "test_arena" or flow == "rest"):
+	var has_battle := not battle_state.is_empty()
+	if has_battle:
+		for key in ["id", "result", "phase", "accounts", "actors", "draw", "hand", "discard", "consumed", "sealed"]:
+			if not battle_state.has(key):
+				return {"ok": false, "error": "invalid_battle_state", "field": key}
+		if typeof(battle_state["accounts"]) != TYPE_DICTIONARY or typeof(battle_state["actors"]) != TYPE_ARRAY:
+			return {"ok": false, "error": "invalid_battle_state"}
+		for zone_name in ["draw", "hand", "discard", "consumed", "sealed"]:
+			if typeof(battle_state[zone_name]) != TYPE_ARRAY:
+				return {"ok": false, "error": "invalid_battle_state", "field": zone_name}
+		if str(battle_state["result"]) not in ["ongoing", "win", "loss"] or str(battle_state["phase"]) not in ["between", "player", "enemy"]:
+			return {"ok": false, "error": "invalid_battle_state"}
+	elif flow != "map" or battle_kind != "":
+		return {"ok": false, "error": "invalid_battle_state"}
+	if mode == "test_arena" and (battle_kind != "test_arena" or flow in ["map", "rest"]):
 		return {"ok": false, "error": "invalid_snapshot_mode_flow"}
 	if mode == "standard" and battle_kind == "test_arena":
+		return {"ok": false, "error": "invalid_snapshot_mode_flow"}
+	if flow == "map" and mode != "standard":
+		return {"ok": false, "error": "invalid_snapshot_mode_flow"}
+	if flow == "battle" and not has_battle:
 		return {"ok": false, "error": "invalid_snapshot_mode_flow"}
 	if flow == "rest" and battle_kind != "ordinary":
 		return {"ok": false, "error": "invalid_snapshot_mode_flow"}

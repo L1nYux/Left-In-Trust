@@ -22,3 +22,6 @@ _build/review/extracted/
 Thumbs.db
 .DS_Store
 desktop.ini
+
+# 本地保留的未采用 PSD2Live 语义拆层归档（超过 GitHub 100 MB 单文件限制）
+docs/归档/2026-10-26-GPT-PSD2Live语义拆层未采用/gpt_white_dragon_v2_semantic.p2l

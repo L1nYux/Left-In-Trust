@@ -75,6 +75,7 @@ func start_battle(run_state: Dictionary, battle_id: String, lineup: Array, enemy
 	for role_id_value in lineup:
 		actors.append({
 			"id": str(role_id_value), "online": true, "acted": false,
+			"basic_attack_used": false, "basic_guard_used": false,
 			"shield": 0, "streak": 0, "counter": false, "rice": 0,
 			"protected": []
 		})
@@ -126,6 +127,8 @@ func begin_turn(state: Dictionary) -> Dictionary:
 	for actor_value in state["actors"]:
 		var actor: Dictionary = actor_value
 		actor["acted"] = false
+		actor["basic_attack_used"] = false
+		actor["basic_guard_used"] = false
 		actor["shield"] = 0
 		actor["protected"] = []
 	var pattern: Array = state["enemy"]["pattern"]
@@ -223,6 +226,11 @@ func try_action(state: Dictionary, actor_id: String, action_id: String, target_i
 		state["hp"] = maxi(0, int(state["hp"]) - int(preview["damage"]))
 	if not preview["basic"]:
 		_move_hand_card(state, action_id, "consumed" if preview["consume"] else "discard")
+	if preview["basic"]:
+		if action_id == BASIC_ATTACK:
+			actor["basic_attack_used"] = true
+		else:
+			actor["basic_guard_used"] = true
 	actor["acted"] = true
 	if int(state["hp"]) == 0:
 		state["result"] = "win"
@@ -349,9 +357,34 @@ func legal_targets(state: Dictionary, actor_id: String, action_id: String) -> Ar
 			targets.append(target_id)
 	return targets
 
+func basic_used(state: Dictionary, actor_id: String, action_id: String) -> bool:
+	var actor := _find_actor(state, actor_id)
+	if actor.is_empty():
+		return false
+	if action_id == BASIC_ATTACK:
+		return bool(actor.get("basic_attack_used", false))
+	if action_id == BASIC_GUARD:
+		return bool(actor.get("basic_guard_used", false))
+	return false
+
+func has_legal_action(state: Dictionary, actor_id: String) -> bool:
+	var actor := _find_actor(state, actor_id)
+	if actor.is_empty() or not bool(actor.get("online", false)):
+		return false
+	if state.get("phase") != "player" or state.get("result") != "ongoing":
+		return false
+	if not basic_used(state, actor_id, BASIC_ATTACK) and not legal_targets(state, actor_id, BASIC_ATTACK).is_empty():
+		return true
+	if not basic_used(state, actor_id, BASIC_GUARD) and not legal_targets(state, actor_id, BASIC_GUARD).is_empty():
+		return true
+	for instance_value in state.get("hand", []):
+		if not legal_targets(state, actor_id, str(instance_value["uid"])).is_empty():
+			return true
+	return false
+
 func _validate_action(state: Dictionary, actor_id: String, action_id: String, target_id: String) -> Dictionary:
 	var actor := _find_actor(state, actor_id)
-	if state.get("phase") != "player" or state.get("result") != "ongoing" or actor.is_empty() or not bool(actor.get("online", false)) or bool(actor.get("acted", false)):
+	if state.get("phase") != "player" or state.get("result") != "ongoing" or actor.is_empty() or not bool(actor.get("online", false)):
 		return _failure("action_unavailable")
 	var basic := action_id == BASIC_ATTACK or action_id == BASIC_GUARD
 	var card: Dictionary = {}
@@ -359,9 +392,13 @@ func _validate_action(state: Dictionary, actor_id: String, action_id: String, ta
 	var action_name: String
 	if basic:
 		if action_id == BASIC_ATTACK:
+			if bool(actor.get("basic_attack_used", false)):
+				return _failure("basic_used")
 			definition = {"kind": "attack", "cost": 0, "damage": int(data["parameters"]["basicAttack"])}
 			action_name = "基础攻击"
 		else:
+			if bool(actor.get("basic_guard_used", false)):
+				return _failure("basic_used")
 			definition = {"kind": "guard", "cost": 0, "shield": int(data["parameters"]["basicGuard"]), "target": "self"}
 			action_name = "基础防御"
 	else:

@@ -6,6 +6,7 @@ const LAYER_IDS := ["shadow", "back", "legs", "body", "core", "effect"]
 const MOTION_TAGS := ["idle", "attack", "hit"]
 
 var layers: Dictionary = {}
+var enemy_id := "missing_attachment"
 var _motion_tween: Tween
 var _motion_playing := false
 var _elapsed := 0.0
@@ -19,6 +20,14 @@ func _ready() -> void:
 	_build_layers()
 	resized.connect(_update_geometry)
 	_update_geometry()
+
+
+func configure(next_enemy_id: String) -> void:
+	enemy_id = next_enemy_id if next_enemy_id in ["missing_attachment", "submit"] else "missing_attachment"
+	for layer_id_value in LAYER_IDS:
+		var layer_id := str(layer_id_value)
+		if layers.has(layer_id):
+			layers[layer_id].configure(layer_id, enemy_id)
 
 
 func _process(delta: float) -> void:
@@ -83,7 +92,7 @@ func _build_layers() -> void:
 		layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(layer)
-		layer.configure(layer_id)
+		layer.configure(layer_id, enemy_id)
 		layers[layer_id] = layer
 	layers["effect"].modulate.a = 0.0
 

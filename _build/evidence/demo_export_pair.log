@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192728 lineup=GPT,Claude
+[未尽之托] battle=boss seed=20409889 lineup=GPT,Claude
+[EXE FLOW] {"accounts":{"Claude":{"max":12,"token":12},"GPT":{"max":12,"token":9}},"completed":true,"lineup":["GPT","Claude"],"mode":"standard","records":[{"actions":{"1":{"Claude":1,"GPT":1}},"battle":"ordinary","result":"win","turns":1},{"actions":{"1":{"Claude":1,"GPT":1},"2":{"Claude":1,"GPT":1}},"battle":"boss","result":"win","turns":2}],"save":"D:\\MyPros\\AI游戏\\_build\\evidence\\demo_export_pair.save.json","wallet":12}

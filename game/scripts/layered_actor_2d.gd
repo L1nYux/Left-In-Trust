@@ -8,6 +8,7 @@ class_name LayeredActor2D
 const LayerScript = preload("res://scripts/layered_actor_layer.gd")
 const LAYER_IDS := ["shadow", "aura", "back", "body", "head", "prop", "front", "effect"]
 const MOTION_TAGS := ["basic", "light_attack", "heavy_attack", "guard", "support", "transfer"]
+const MOTION_TIME_SCALE := 1.35
 
 const BASE_PROFILE := {
 	"accent": "6ea8fe",
@@ -122,43 +123,44 @@ func play_motion(requested_tag: String) -> void:
 	effect.scale = Vector2(0.78, 0.78)
 
 	_motion_tween = create_tween()
-	_motion_tween.set_trans(Tween.TRANS_QUAD)
+	_motion_tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+	_motion_tween.set_trans(Tween.TRANS_CUBIC)
 	_motion_tween.set_ease(Tween.EASE_OUT)
 	match motion_tag:
 		"heavy_attack":
-			_motion_tween.tween_property(body, "position", Vector2(-advance * 0.16, 2), 0.12)
-			_motion_tween.parallel().tween_property(prop, "rotation", -prop_swing * 0.45, 0.12)
-			_motion_tween.tween_property(body, "position", Vector2(advance, -3), 0.2)
-			_motion_tween.parallel().tween_property(body, "rotation", 0.022, 0.2)
-			_motion_tween.parallel().tween_property(head, "rotation", 0.055, 0.2)
-			_motion_tween.parallel().tween_property(prop, "position", Vector2(advance * 0.82, -lift), 0.2)
-			_motion_tween.parallel().tween_property(prop, "rotation", prop_swing, 0.2)
-			_reveal_effect(_motion_tween, effect, 0.18)
+			_motion_tween.tween_property(body, "position", Vector2(-advance * 0.16, 2), _motion_duration(0.12))
+			_motion_tween.parallel().tween_property(prop, "rotation", -prop_swing * 0.45, _motion_duration(0.12))
+			_motion_tween.tween_property(body, "position", Vector2(advance, -3), _motion_duration(0.2))
+			_motion_tween.parallel().tween_property(body, "rotation", 0.022, _motion_duration(0.2))
+			_motion_tween.parallel().tween_property(head, "rotation", 0.055, _motion_duration(0.2))
+			_motion_tween.parallel().tween_property(prop, "position", Vector2(advance * 0.82, -lift), _motion_duration(0.2))
+			_motion_tween.parallel().tween_property(prop, "rotation", prop_swing, _motion_duration(0.2))
+			_reveal_effect(_motion_tween, effect, _motion_duration(0.18))
 		"light_attack", "basic":
-			_motion_tween.tween_property(body, "position", Vector2(advance * 0.72, -2), 0.12)
-			_motion_tween.parallel().tween_property(body, "rotation", 0.012, 0.12)
-			_motion_tween.parallel().tween_property(head, "rotation", 0.032, 0.12)
-			_motion_tween.parallel().tween_property(prop, "position", Vector2(advance, -lift * 0.55), 0.12)
-			_motion_tween.parallel().tween_property(prop, "rotation", prop_swing, 0.12)
-			_reveal_effect(_motion_tween, effect, 0.13)
+			_motion_tween.tween_property(body, "position", Vector2(advance * 0.72, -2), _motion_duration(0.12))
+			_motion_tween.parallel().tween_property(body, "rotation", 0.012, _motion_duration(0.12))
+			_motion_tween.parallel().tween_property(head, "rotation", 0.032, _motion_duration(0.12))
+			_motion_tween.parallel().tween_property(prop, "position", Vector2(advance, -lift * 0.55), _motion_duration(0.12))
+			_motion_tween.parallel().tween_property(prop, "rotation", prop_swing, _motion_duration(0.12))
+			_reveal_effect(_motion_tween, effect, _motion_duration(0.13))
 		"guard":
-			_motion_tween.tween_property(body, "position", Vector2(0, -lift * 0.34), 0.16)
-			_motion_tween.parallel().tween_property(prop, "position", Vector2(6, -lift), 0.16)
-			_motion_tween.parallel().tween_property(back, "scale", Vector2.ONE * float(motion["guard_scale"]), 0.16)
-			_motion_tween.parallel().tween_property(aura, "scale", Vector2.ONE * float(motion["guard_scale"]), 0.16)
-			_reveal_effect(_motion_tween, effect, 0.2)
+			_motion_tween.tween_property(body, "position", Vector2(0, -lift * 0.34), _motion_duration(0.16))
+			_motion_tween.parallel().tween_property(prop, "position", Vector2(6, -lift), _motion_duration(0.16))
+			_motion_tween.parallel().tween_property(back, "scale", Vector2.ONE * float(motion["guard_scale"]), _motion_duration(0.16))
+			_motion_tween.parallel().tween_property(aura, "scale", Vector2.ONE * float(motion["guard_scale"]), _motion_duration(0.16))
+			_reveal_effect(_motion_tween, effect, _motion_duration(0.2))
 		"support":
-			_motion_tween.tween_property(body, "position", Vector2(0, -lift), 0.16)
-			_motion_tween.parallel().tween_property(head, "position", Vector2(0, -lift * 1.15), 0.16)
-			_motion_tween.parallel().tween_property(prop, "rotation", prop_swing * 0.55, 0.16)
-			_reveal_effect(_motion_tween, effect, 0.22)
+			_motion_tween.tween_property(body, "position", Vector2(0, -lift), _motion_duration(0.16))
+			_motion_tween.parallel().tween_property(head, "position", Vector2(0, -lift * 1.15), _motion_duration(0.16))
+			_motion_tween.parallel().tween_property(prop, "rotation", prop_swing * 0.55, _motion_duration(0.16))
+			_reveal_effect(_motion_tween, effect, _motion_duration(0.22))
 		"transfer":
-			_motion_tween.tween_property(prop, "position", Vector2(advance * 0.92, -lift * 0.45), 0.18)
-			_motion_tween.parallel().tween_property(body, "position", Vector2(advance * 0.24, 0), 0.18)
-			_motion_tween.parallel().tween_property(prop, "rotation", prop_swing * 0.7, 0.18)
-			_reveal_effect(_motion_tween, effect, 0.22)
+			_motion_tween.tween_property(prop, "position", Vector2(advance * 0.92, -lift * 0.45), _motion_duration(0.18))
+			_motion_tween.parallel().tween_property(body, "position", Vector2(advance * 0.24, 0), _motion_duration(0.18))
+			_motion_tween.parallel().tween_property(prop, "rotation", prop_swing * 0.7, _motion_duration(0.18))
+			_reveal_effect(_motion_tween, effect, _motion_duration(0.22))
 
-	_motion_tween.tween_interval(0.1)
+	_motion_tween.tween_interval(_motion_duration(0.1))
 	_motion_tween.tween_callback(Callable(self, "_return_to_idle"))
 
 
@@ -176,6 +178,10 @@ func get_profile() -> Dictionary:
 
 func motion_signature() -> String:
 	return "%s:%s" % [role_id, profile.get("motif", "segments")]
+
+
+func motion_timing_profile() -> Dictionary:
+	return {"update": "render_frame", "duration_scale": MOTION_TIME_SCALE}
 
 
 func current_motion_tag() -> String:
@@ -213,17 +219,22 @@ func _reveal_effect(tween: Tween, effect: Control, duration: float) -> void:
 	tween.parallel().tween_property(effect, "scale", Vector2.ONE, duration)
 
 
+func _motion_duration(base_seconds: float) -> float:
+	return base_seconds * MOTION_TIME_SCALE
+
+
 func _return_to_idle() -> void:
 	var effect: Control = layers["effect"]
 	var tween := create_tween()
-	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	for layer_id_value in ["body", "head", "prop", "back", "aura"]:
 		var layer: Control = layers[str(layer_id_value)]
-		tween.parallel().tween_property(layer, "position", Vector2.ZERO, 0.2)
-		tween.parallel().tween_property(layer, "rotation", 0.0, 0.2)
-		tween.parallel().tween_property(layer, "scale", Vector2.ONE, 0.2)
-	tween.parallel().tween_property(effect, "modulate:a", 0.0, 0.16)
+		tween.parallel().tween_property(layer, "position", Vector2.ZERO, _motion_duration(0.2))
+		tween.parallel().tween_property(layer, "rotation", 0.0, _motion_duration(0.2))
+		tween.parallel().tween_property(layer, "scale", Vector2.ONE, _motion_duration(0.2))
+	tween.parallel().tween_property(effect, "modulate:a", 0.0, _motion_duration(0.16))
 	tween.tween_callback(Callable(self, "_finish_motion"))
 	_motion_tween = tween
 

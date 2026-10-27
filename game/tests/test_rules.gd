@@ -17,7 +17,7 @@ func _init() -> void:
 		["multi-role run composes every starting deck", _test_multi_role_deck],
 		["fixed seed is reproducible", _test_seed_reproducible],
 		["payment rejection is atomic", _test_payment_atomicity],
-		["one action per actor per turn", _test_action_count],
+		["unlimited actions, basics once per turn", _test_action_count],
 		["personal protection absorbs multiple segments", _test_protection],
 		["offline target does not redirect and seals owner cards", _test_offline],
 		["lethal damage stops enemy immediately", _test_kill_stop],
@@ -117,13 +117,33 @@ func _test_payment_atomicity():
 
 func _test_action_count():
 	var state: Dictionary = _battle("GPT")[1]
+	state["intents"] = []
 	if not rules.try_action(state, "GPT", RulesScript.BASIC_ATTACK, "GPT")["ok"]:
-		return "first action failed"
-	var before := JSON.stringify(state)
-	var second: Dictionary = rules.try_action(state, "GPT", RulesScript.BASIC_GUARD, "GPT")
-	if second["ok"] or second["error"] != "action_unavailable":
-		return "second action should reject"
-	return JSON.stringify(state) == before
+		return "first basic attack failed"
+	var before_repeat := JSON.stringify(state)
+	var repeated: Dictionary = rules.try_action(state, "GPT", RulesScript.BASIC_ATTACK, "GPT")
+	if repeated["ok"] or repeated["error"] != "basic_used":
+		return "repeated basic attack should be basic_used"
+	if JSON.stringify(state) != before_repeat:
+		return "basic_used rejection mutated state"
+	if not rules.try_action(state, "GPT", RulesScript.BASIC_GUARD, "GPT")["ok"]:
+		return "basic guard after basic attack failed"
+	var repeated_guard: Dictionary = rules.try_action(state, "GPT", RulesScript.BASIC_GUARD, "GPT")
+	if repeated_guard["ok"] or repeated_guard["error"] != "basic_used":
+		return "repeated basic guard should be basic_used"
+	var first_card := _force_card(state, "A")
+	var second_card := _force_card(state, "G1")
+	if first_card == "" or second_card == "" or first_card == second_card:
+		return "forced hand cards missing"
+	if not rules.try_action(state, "GPT", first_card, "GPT")["ok"]:
+		return "first hand card failed"
+	if not rules.try_action(state, "GPT", second_card, "GPT")["ok"]:
+		return "second hand card failed"
+	if not bool(rules.actor_status(state, "GPT")["acted"]):
+		return "acted flag should remain true"
+	if not rules.basic_used(state, "GPT", RulesScript.BASIC_ATTACK) or not rules.basic_used(state, "GPT", RulesScript.BASIC_GUARD):
+		return "basic_used helper mismatch"
+	return rules.has_legal_action(state, "GPT")
 
 func _test_protection():
 	var run_state: Dictionary = rules.make_run_for_roles(["Claude", "GPT"], 9)

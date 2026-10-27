@@ -6,6 +6,9 @@ extends SceneTree
 #   2. 用实际回合时序测白饭/连击/反击的最早兑现回合
 #   3. 复制 game/tests/smoke_runs.gd 的确定性选牌策略，跑 3 角色 x 种子 1..50 的完整切片
 #   4. 输出 docs/审计/数值复核数据.json
+# 规则口径：现行规则为「每角色每回合不限行动次数，仅基础攻击/基础防御各限 1 次」。
+#   本脚本的自动策略仍保持每回合只执行 1 次行动（保守下界），故回合数与“理论最少回合”口径偏保守；
+#   真人/最优策略在同回合多次行动后会比这里的估计更快结束战斗。
 # 运行：
 #   & 'D:\MyPros\AI游戏\.tools\godot-4.7.2\Godot_v4.7.2-stable_win64_console.exe' --headless ^
 #     --path 'D:\MyPros\AI游戏\game' --script res://tests/audit_numeric.gd
@@ -45,7 +48,7 @@ func _init() -> void:
 		"derivedValues": "所有伤害/防护/回复/白饭数字由 game_rules.gd 的 resolved_card + preview_action 实际算出",
 		"simulation": "完整切片=普通战 missing_attachment(HP16)->settle->休息(若未满)->Boss submit(HP30)->settle；自动出牌统一调用 game/tests/test_policy.gd；种子 1..50，战斗种子沿用 run_seed ^ 0x13579 / ^ 0x24680",
 		"bootstrapping": "白饭/连击/反击最早回合用真实 begin_turn/try_action/finish_turn 时序脚本化实测",
-		"hpBounds": "最少回合=ceil(HP/单次行动最大伤害)；最多回合估计=ceil(HP/3)（假设每回合只打一次基础攻击）",
+		"hpBounds": "最少回合=ceil(HP/单次行动最大伤害)；最多回合估计=ceil(HP/3)（保守假设每回合只打一次基础攻击；现行规则允许同回合多次行动，故该上限只作最慢情形下界）",
 	}
 	report["sourceSHA256"] = _sha_check()
 	report["parameters"] = content["parameters"]
@@ -363,7 +366,7 @@ func _max_single_action(derived: Dictionary) -> Dictionary:
 			"baseDeckMax": base_best,
 			"upgradedMax": upgraded_best,
 			"maxStateSource": source,
-			"note": "单次行动=一回合内一名角色的一次出牌；切片内每回合只有一次行动",
+			"note": "单次行动=一回合内一名角色的一次出牌；切片内每回合只执行一次行动（现行规则允许同回合多次行动，此处取保守下界）",
 		}
 	return result
 
@@ -496,7 +499,7 @@ func _gpt_window() -> Dictionary:
 	return {
 		"turns": rows,
 		"firstFullStreakTurn": first_full,
-		"note": "GPT 每回合一次行动；每打出一张攻击卡 streak+1（上限 2），非攻击/基础动作/跳过断连击。连续两回合攻击后，第 3 回合行动前 streak=2。",
+		"note": "自动策略每回合只执行一次行动（现行规则允许同回合多次行动，此处取保守下界）；每打出一张攻击卡 streak+1（上限 2），非攻击/基础动作/跳过断连击。连续两回合攻击后，第 3 回合行动前 streak=2。",
 	}
 
 
@@ -844,8 +847,8 @@ func _hp_bounds() -> Dictionary:
 		rows.append(row)
 	return {
 		"formula": {
-			"min": "ceil(HP / 单次行动最大伤害)，假设每回合满状态打一次该上限动作",
-			"maxEstimate": "ceil(HP / 3)，假设每回合只打一次基础攻击（理论最低持续输出）",
+			"min": "ceil(HP / 单次行动最大伤害)，保守假设每回合满状态只打一次该上限动作",
+			"maxEstimate": "ceil(HP / 3)，保守假设每回合只打一次基础攻击（理论最低持续输出；现行规则允许同回合多次行动）",
 		},
 		"rows": rows,
 	}
@@ -877,7 +880,7 @@ func _basic_only_runs() -> Dictionary:
 			"battleSeed": battle_seed,
 		})
 	return {
-		"scenario": "GPT 每回合只打基础攻击(3)，无卡牌、无防护/回复；用于给出理论最低输出下的生存/耗时边界",
+		"scenario": "GPT 每回合只打基础攻击(3)，无卡牌、无防护/回复；用于给出理论最低输出下的生存/耗时边界（现行规则允许同回合多次行动，此处取最慢情形）",
 		"rows": rows,
 	}
 

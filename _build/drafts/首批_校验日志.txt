@@ -1,0 +1,205 @@
+# 首批内容 v0.5 基线校验日志
+# 生成时间: 2026-10-26 19:16:35
+# 工作目录: D:\MyPros\AI游戏
+# 宿主 shell: Windows PowerShell 5.1.26100.9711 (pwsh 未在 PATH 中)
+
+===== 1) node _build/validate_gameplay_v05.cjs =====
+命令: node _build/validate_gameplay_v05.cjs
+退出码: 0
+输出:
+{
+  "tests": 34,
+  "solo": [
+    {
+      "role": "GPT",
+      "policy": "rush",
+      "seeds": 100,
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 6.47,
+      "meanTurnsPerAttempt": 7.18
+    },
+    {
+      "role": "GPT",
+      "policy": "budget",
+      "seeds": 100,
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 6.47,
+      "meanTurnsPerAttempt": 7.18
+    },
+    {
+      "role": "Claude",
+      "policy": "rush",
+      "seeds": 100,
+      "wins": 99,
+      "winRate": 0.99,
+      "meanFinalTokenOnWins": 4.78,
+      "meanTurnsPerAttempt": 8.49
+    },
+    {
+      "role": "Claude",
+      "policy": "budget",
+      "seeds": 100,
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 7.02,
+      "meanTurnsPerAttempt": 8.92
+    },
+    {
+      "role": "DeepSeek",
+      "policy": "rush",
+      "seeds": 100,
+      "wins": 68,
+      "winRate": 0.68,
+      "meanFinalTokenOnWins": 4.76,
+      "meanTurnsPerAttempt": 8.84
+    },
+    {
+      "role": "DeepSeek",
+      "policy": "budget",
+      "seeds": 100,
+      "wins": 99,
+      "winRate": 0.99,
+      "meanFinalTokenOnWins": 5.02,
+      "meanTurnsPerAttempt": 8.05
+    }
+  ],
+  "pairs": [
+    {
+      "pair": [
+        "GPT",
+        "Claude"
+      ],
+      "seeds": 40,
+      "chapterTwoWins": 40,
+      "hiddenWins": 40,
+      "hiddenAttempts": 40
+    },
+    {
+      "pair": [
+        "GPT",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "chapterTwoWins": 40,
+      "hiddenWins": 38,
+      "hiddenAttempts": 40
+    },
+    {
+      "pair": [
+        "Claude",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "chapterTwoWins": 40,
+      "hiddenWins": 40,
+      "hiddenAttempts": 40
+    }
+  ],
+  "fullChallenge": [
+    {
+      "pair": [
+        "GPT",
+        "Claude"
+      ],
+      "seeds": 40,
+      "difficulty": 2,
+      "reachedSecond": 33,
+      "regularWins": 33,
+      "hiddenWins": 32,
+      "failures": {
+        "submit": 7,
+        "hidden": 1
+      },
+      "example": {
+        "seed": 1,
+        "stage": "student",
+        "finalBoss": "recipient",
+        "hiddenEntry": {
+          "GPT": {
+            "token": 9,
+            "max": 12
+          },
+          "Claude": {
+            "token": 10,
+            "max": 12
+          }
+        }
+      }
+    },
+    {
+      "pair": [
+        "GPT",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "difficulty": 2,
+      "reachedSecond": 33,
+      "regularWins": 33,
+      "hiddenWins": 23,
+      "failures": {
+        "hidden": 10,
+        "submit": 7
+      },
+      "example": {
+        "seed": 1,
+        "stage": "student",
+        "finalBoss": "recipient",
+        "hiddenEntry": {
+          "GPT": {
+            "token": 7,
+            "max": 12
+          },
+          "DeepSeek": {
+            "token": 12,
+            "max": 12
+          }
+        }
+      }
+    },
+    {
+      "pair": [
+        "Claude",
+        "DeepSeek"
+      ],
+      "seeds": 40,
+      "difficulty": 2,
+      "reachedSecond": 40,
+      "regularWins": 40,
+      "hiddenWins": 40,
+      "failures": {},
+      "example": {
+        "seed": 1,
+        "stage": "student",
+        "finalBoss": "recipient",
+        "hiddenEntry": {
+          "Claude": {
+            "token": 12,
+            "max": 12
+          },
+          "DeepSeek": {
+            "token": 7,
+            "max": 12
+          }
+        }
+      }
+    }
+  ]
+}
+
+关键字段: deterministicTests=34（报告对象 report.deterministicTests；控制台仅打印 tests=34）；无 throw、退出码 0 => PASS
+
+===== 2) SHA-256 比对 =====
+docs/首批内容.json   = 18A3F160D32C50DEDF33DAD868E55E7A3D45E97B0BACBBE84C45CAFA900DF232
+game/data/content.json = 18A3F160D32C50DEDF33DAD868E55E7A3D45E97B0BACBBE84C45CAFA900DF232
+两者一致: True
+game/data/content.sha256 = 18a3f160d32c50dedf33dad868e55e7a3d45e97b0bacbbe84c45cafa900df232
+
+===== 3) _build/sync_game_data.ps1 -Check =====
+命令: powershell -NoProfile -ExecutionPolicy Bypass -File _build\sync_game_data.ps1 -Check
+退出码: 0
+输出: Game data is current (18a3f160d32c50dedf33dad868e55e7a3d45e97b0bacbbe84c45cafa900df232)
+
+===== 结论 =====
+校验器 PASS（退出码 0，34 个确定性测试）；docs 与 game/data 内容 SHA-256 一致，且与 content.sha256 记录值一致；-Check 报告 Game data is current。未执行任何复制/同步写操作。

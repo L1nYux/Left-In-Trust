@@ -1,0 +1,32 @@
+EVENT ch1.report.student.success type=reality order=["staging","narration","closing"]
+  main (0): 
+  partner (0): 
+  closing (4): GPT: 组员已经循着待补栏填补了内容。各自的 | Claude: 清单上的未竟之项划去了一笔。文件夹可 | DeepSeek: 按时交了。饭菜温热正好，没误了胃口。 | [text] ### 准备失败 · 材料没排完
+  branch (0): 
+EVENT ch1.report.student.acceptFail type=reality order=["staging","narration","closing","branch"]
+  main (0): 
+  partner (0): 
+  closing (3): GPT: 来源与数据相互脱节，它便不能被称为最 | Claude: 是我查漏了……问题出在页脚那行未经替 | DeepSeek: 更正说明我来列，把实打实的来源一条条
+  branch (2): [text] 补一封更正说明，写清示例行来源、把缺 | [text] ### 章末 · 学生版
+EVENT ch1.student.B1 type=battle order=["scene","main","partner","fixed"]
+  main (3): GPT: 把缺口当作临时路标。我们可以绕行，但 | Claude: 我用红笔钉住边缘。少的那页，正式归入 | DeepSeek: 挑短路走。空出来的一大截，闭上眼可不
+  partner (3): GPT: 把断桥拆成双段支撑，修补一处是一处。 | Claude: 我核对过了，这处空缺货真价实，绝非幻 | DeepSeek: 缺掉的页留着位置，回头找齐了再填。
+  closing (0): 
+  branch (0): 
+ch1.student.N1 MISSING
+
+-- narration item lengths --
+events with narration=22 ; items total=22
+max len=18 ; >14 count=2
+  OVER14 ch2.student.ending.eligible (ending) 18 :: 两份修改被拖进「明日」。手离开键盘。
+  OVER14 ch2.employee.ending.eligible (ending) 18 :: 两份修改被拖进「明日」。手离开键盘。
+
+-- branch sections --
+events with branch=14 types=["reality","story","ending","battle"]
+ids=ch1.report.student.acceptFail, ch1.slides.student.acceptFail, ch1.student.recruit, ch1.report.employee.acceptFail, ch1.slides.employee.acceptFail, ch1.employee.recruit, ch2.invite.student.acceptFail, ch2.photos.student.acceptFail, ch2.student.ending.eligible, ch2.invite.employee.acceptFail, ch2.photos.employee.acceptFail, ch2.employee.ending.eligible, ch2.student.hidden, ch2.employee.hidden
+
+-- staging --
+items=25 len range=42..127 sent range=2..6 kinds=["text"]
+
+-- duplicate same-speaker lines in main/closing --
+dup groups=0

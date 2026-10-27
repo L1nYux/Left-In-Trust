@@ -1,0 +1,16 @@
+[运行时守卫] game\data\story.json：117 事件，pages 段标题泄漏 0 条
+
+=== 警告（3） ===
+  ! docs\Demo剧情脚本.md ch2.student.ending.eligible: 旁白超过 14 字（18 字）：两份修改被拖进「明日」。手离开键盘。
+  ! docs\Demo剧情脚本.md ch2.employee.ending.eligible: 旁白超过 14 字（18 字）：两份修改被拖进「明日」。手离开键盘。
+  ! docs\Demo剧情脚本.md <源码结构>: 源码有 80 条 Markdown 标题行落在 pages 段（{"repeat":28,"fixed":15,"branch":9,"scene":28}），根因：拼装器把下一个事件标题粘在上一个事件末尾；导出层已过滤，修拼装器后此警告消失
+
+=== 统计 ===
+文件：docs\Demo剧情脚本.md
+模式：完整（格式+覆盖）
+事件总数：117
+节点分布：{"prologue":1,"open":8,"N1":8,"B1":4,"N2":8,"B2":4,"N3":8,"boss":4,"success":8,"prepFail":4,"acceptFail":8,"close":4,"rest":4,"shop":4,"event":4,"recruit":2,"ending":4,"stageBoss":2,"hidden":2,"appendix":6,"recap":20}
+标题泄漏：源码 80 条（聚合 warning，根因在拼装器），运行时 0 条（error）
+错误：0，警告：3
+
+结果：PASS

@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192728 lineup=GPT
+[未尽之托] battle=boss seed=20409889 lineup=GPT
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192731 lineup=Claude
+[未尽之托] battle=boss seed=20409890 lineup=Claude
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192730 lineup=DeepSeek
+[未尽之托] battle=boss seed=20409891 lineup=DeepSeek
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192661 lineup=GPT,Claude
+[未尽之托] battle=boss seed=20409964 lineup=GPT,Claude
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192660 lineup=GPT,DeepSeek
+[未尽之托] battle=boss seed=20409965 lineup=GPT,DeepSeek
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=ordinary seed=20192663 lineup=Claude,DeepSeek
+[未尽之托] battle=boss seed=20409966 lineup=Claude,DeepSeek
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=test_arena seed=20348609 lineup=GPT,Claude,DeepSeek
+[未尽之托] fixed seed=20261025
+[UI FLOWS] [{"boss_turns":1,"completed":true,"final_token":10,"ordinary_turns":2,"rest":[12,12],"role":"GPT","seed":20261025,"wallet":12},{"boss_turns":2,"completed":true,"final_token":9,"ordinary_turns":1,"rest":[12,12],"role":"Claude","seed":20261026,"wallet":12},{"boss_turns":2,"completed":true,"final_token":9,"ordinary_turns":1,"rest":[12,12],"role":"DeepSeek","seed":20261027,"wallet":12},{"boss_turns":1,"completed":true,"ordinary_turns":1,"pair":["GPT","Claude"],"wallet":12},{"boss_turns":1,"completed":true,"ordinary_turns":1,"pair":["GPT","DeepSeek"],"wallet":12},{"boss_turns":2,"completed":true,"ordinary_turns":1,"pair":["Claude","DeepSeek"],"wallet":12},{"completed":true,"lineup":["GPT","Claude","DeepSeek"],"mode":"test_arena","turns":1},{"completed":true,"settings":"map->title"}]

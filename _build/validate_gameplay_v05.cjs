@@ -19,7 +19,7 @@ function start(r,id,ids,enemyId,seed=1) {
   reject(r.ended || r.nodes[id], 'run_or_node_finished');
   reject(!ids.length || ids.length>3 || new Set(ids).size!==ids.length || ids.some(id=>!r.accounts[id] || r.accounts[id].token<=0),'invalid_lineup');
   const e=clone(enemyDefs[enemyId]); reject(!e,'unknown_enemy');
-  const s={id,seed,turn:0,phase:'between',result:'ongoing',accounts:clone(r.accounts),difficulty:r.difficulty,stage:r.stage,enemy:e,hp:e.hp,enemyGuard:0,pending:0,feedbackIndex:0,feedback:[],actors:ids.map(id=>({id,online:true,acted:false,shield:0,streak:0,counter:false,rice:0,protected:[]})),draw:clone(r.deck.filter(c=>!defs[c.code].owner || ids.includes(defs[c.code].owner))),hand:[],discard:[],consumed:[],sealed:[],intents:[],log:[]};
+  const s={id,seed,turn:0,phase:'between',result:'ongoing',accounts:clone(r.accounts),difficulty:r.difficulty,stage:r.stage,enemy:e,hp:e.hp,enemyGuard:0,pending:0,feedbackIndex:0,feedback:[],actors:ids.map(id=>({id,online:true,acted:false,basic_attack_used:false,basic_guard_used:false,shield:0,streak:0,counter:false,rice:0,protected:[]})),draw:clone(r.deck.filter(c=>!defs[c.code].owner || ids.includes(defs[c.code].owner))),hand:[],discard:[],consumed:[],sealed:[],intents:[],log:[]};
   s.feedback=[...ids,...Object.keys(r.accounts).filter(x=>!ids.includes(x))];
   s.total=s.draw.length; shuffle(s,s.draw); invariant(s); r.started=true; return s;
 }
@@ -27,7 +27,7 @@ function actor(s,id) { const a=s.actors.find(a=>a.id===id); reject(!a,'not_in_li
 function invariant(s) { const cards=[...s.draw,...s.hand,...s.discard,...s.consumed,...s.sealed]; assert.equal(cards.length,s.total); assert.equal(new Set(cards.map(c=>c.id)).size,s.total); for(const a of Object.values(s.accounts)) assert(a.token>=0 && a.token<=a.max); }
 function begin(s) {
   reject(s.phase!=='between'||s.result!=='ongoing','invalid_begin'); s.turn++;s.phase='player';s.enemyGuard=0;
-  for(const a of s.actors) {a.acted=false;a.shield=0;a.protected=[];}
+  for(const a of s.actors) {a.acted=false;a.basic_attack_used=false;a.basic_guard_used=false;a.shield=0;a.protected=[];}
   let amounts=[...s.enemy.pattern[(s.turn-1)%s.enemy.pattern.length]];
   const k=amounts.findIndex(x=>x>0); let notice=null;
   if(k>=0) {
@@ -48,8 +48,9 @@ function begin(s) {
   invariant(s);
 }
 function act(s,id,cardId,targetId=id) {
-  const a=actor(s,id);reject(s.phase!=='player'||s.result!=='ongoing'||!a.online||a.acted,'action_unavailable');
+  const a=actor(s,id);reject(s.phase!=='player'||s.result!=='ongoing'||!a.online,'action_unavailable');
   const basic=['basic','guard'].includes(cardId);
+  if(basic)reject(cardId==='basic'?a.basic_attack_used:a.basic_guard_used,'basic_used');
   const c=basic?null:s.hand.find(c=>c.id===cardId);reject(!basic&&!c,'not_in_hand');
   const d=basic?(cardId==='basic'?{kind:'attack',cost:0,damage:3}:{kind:'guard',cost:0,shield:3,target:'self'}):card(c);
   reject(d.owner&&d.owner!==id,'wrong_owner');
@@ -70,6 +71,7 @@ function act(s,id,cardId,targetId=id) {
   if(d.riceGain)a.rice=Math.min(3,a.rice+d.riceGain);
   if(damage>0){const absorbed=Math.min(damage,s.enemyGuard);damage-=absorbed;s.enemyGuard=0;s.hp=Math.max(0,s.hp-damage);}
   if(c){s.hand.splice(s.hand.indexOf(c),1);(d.consume?s.consumed:s.discard).push(c);}
+  if(basic){if(cardId==='basic')a.basic_attack_used=true;else a.basic_guard_used=true;}
   a.acted=true;
   if(s.hp===0)s.result='win';
   invariant(s);return damage;
@@ -102,12 +104,29 @@ function hidden(clear,D,T=1){return clear&&D>T;}
 function setDifficulty(r,D){reject(r.started||r.ended||Object.keys(r.nodes).length>0,'difficulty_started');reject(!Number.isInteger(D)||D<0||D>r.profile.maxDifficulty||D>3,'difficulty_locked');r.difficulty=D;}
 function ending(profile,stage){return ['work_value','someone_waiting'].every(f=>(profile.facts[stage]||[]).includes(f));}
 function legalActions(s,id){const options=[];for(const c of ['basic','guard',...s.hand.map(x=>x.id)])for(const t of s.actors.filter(a=>a.online)){const b=clone(s);try{act(b,id,c,t.id);options.push({c,t:t.id,s:b});}catch{}}return options;}
+function basicUsed(s,id,cardId){const a=actor(s,id);if(cardId==='basic')return !!a.basic_attack_used;if(cardId==='guard')return !!a.basic_guard_used;return false;}
+function hasLegal(s,id){const a=s.actors.find(x=>x.id===id);if(!a||s.phase!=='player'||s.result!=='ongoing'||!a.online)return false;return legalActions(s,id).length>0;}
 function choose(s,mode){let best=null,bestScore=-Infinity;
   function search(b,index,plan){if(index>=b.actors.length||b.result!=='ongoing'){const end=clone(b);finish(end);const tokens=Object.values(end.accounts).reduce((v,a)=>v+a.token,0);const active=end.actors.filter(a=>a.online).length;const damage=s.hp-end.hp;const buffs=end.actors.reduce((v,a)=>v+a.streak*1.2+a.rice*1.5+Number(a.counter)*3,0);
       const score=end.result==='win'?10000+tokens:(end.result==='loss'?-10000:damage*(mode==='rush'?3:1.25)+tokens*2+active*8+buffs);if(score>bestScore){bestScore=score;best=plan;}return;}
     const a=b.actors[index];if(!a.online){search(b,index+1,plan);return;}for(const o of legalActions(b,a.id))search(o.s,index+1,[...plan,[a.id,o.c,o.t]]);
   }search(s,0,[]);return best||[];}
-function play(r,id,ids,enemy,seed,mode='budget'){const s=start(r,id,ids,enemy,seed);while(s.result==='ongoing'&&s.turn<40){begin(s);const plan=choose(s,mode);for(const [a,c,t]of plan){if(s.result!=='ongoing')break;act(s,a,c,t);}finish(s);}return s;}
+const MAX_ACTIONS_PER_TURN=3;
+function play(r,id,ids,enemy,seed,mode='budget'){
+  const s=start(r,id,ids,enemy,seed);
+  while(s.result==='ongoing'&&s.turn<40){
+    begin(s);
+    for(let round=0;round<MAX_ACTIONS_PER_TURN&&s.result==='ongoing';round++){
+      const plan=choose(s,mode);
+      if(!plan.length)break;
+      let applied=0;
+      for(const [a,c,t]of plan){if(s.result!=='ongoing')break;act(s,a,c,t);applied++;}
+      if(!applied)break;
+    }
+    finish(s);
+  }
+  return s;
+}
 
 test('十二卡种与升级定义有效',()=>{assert.equal(data.cards.length,12);assert.equal(new Set(data.cards.map(c=>c.id)).size,12);for(const c of data.cards)assert(c.cost>=0&&c.upgrade);for(const r of data.roles){assert.equal(deck(r.id).length,12);assert.equal(deck(r.id).filter(c=>c.code==='R').length,1);}});
 test('四任务两阶段无空池且随机可变',()=>{for(const stage of ['student','employee'])for(const ch of [1,2]){assert.notEqual(selectTask(stage,ch,0),selectTask(stage,ch,.99));assert(selectTask(stage,ch,.5,()=>false));}});
@@ -115,7 +134,23 @@ function prepared(ids=['GPT'],enemy='submit'){const r=run(ids);const s=start(r,'
 function find(s,code){return s.hand.find(c=>c.code===code).id;}
 test('个人支付不足不借队友且非法操作原子拒绝',()=>{const {s}=prepared(['GPT','Claude']);s.accounts.GPT.token=1;const before=clone(s);assert.throws(()=>act(s,'GPT',find(s,'A')),/payment/);assert.deepEqual(s,before);});
 test('满血补给不消耗牌或行动',()=>{const{s}=prepared();const before=clone(s);assert.throws(()=>act(s,'GPT',find(s,'R')),/no_heal/);assert.deepEqual(s,before);});
-test('专属归属与每人一次行动',()=>{const {s}=prepared(['GPT','Claude']);assert.throws(()=>act(s,'Claude',find(s,'G1')),/owner/);act(s,'GPT',find(s,'A'));assert.throws(()=>act(s,'GPT','basic'),/unavailable/);});
+test('专属归属与不限行动次数（基础动作各一次）',()=>{
+  const {s}=prepared(['GPT','Claude']);
+  assert.throws(()=>act(s,'Claude',find(s,'G1')),/owner/);
+  act(s,'GPT',find(s,'A'));
+  assert(actor(s,'GPT').acted);
+  act(s,'GPT','basic');
+  const beforeRepeat=clone(s);
+  assert.throws(()=>act(s,'GPT','basic'),/basic_used/);
+  assert.deepEqual(s,beforeRepeat);
+  act(s,'GPT','guard');
+  assert.throws(()=>act(s,'GPT','guard'),/basic_used/);
+  s.hand.push({id:'extra-a',code:'A',upgraded:false},{id:'extra-h',code:'H',upgraded:false});s.total+=2;
+  act(s,'GPT','extra-a');
+  act(s,'GPT','extra-h');
+  assert(actor(s,'GPT').acted);
+  assert(basicUsed(s,'GPT','basic')&&basicUsed(s,'GPT','guard')&&!basicUsed(s,'GPT','extra-a'));
+});
 test('定向防护逐段消耗且不保护施加者',()=>{const {s}=prepared(['GPT','Claude']);act(s,'Claude',find(s,'D'),'GPT');assert.equal(actor(s,'Claude').shield,0);assert.equal(hit(s,'GPT',3).absorbed,3);assert.equal(hit(s,'GPT',3).absorbed,1);assert.equal(s.accounts.GPT.token,10);});
 test('锁定目标下线不转火且专属牌封存',()=>{const {s}=prepared(['GPT','Claude']);s.accounts.GPT.token=1;const before=s.accounts.Claude.token;hit(s,'GPT',1);assert.equal(s.sealed.length,3);assert(hit(s,'GPT',9).skipped);assert.equal(s.accounts.Claude.token,before);assert.equal(s.result,'ongoing');});
 test('群攻展开后独立扣各目标',()=>{const {s}=prepared(['GPT','Claude']);s.intents=[{target:'GPT',raw:3},{target:'Claude',raw:3}];act(s,'GPT',find(s,'D'),'GPT');finish(s);assert.equal(s.accounts.GPT.token,12);assert.equal(s.accounts.Claude.token,9);});

@@ -4,7 +4,7 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 [PASS] multi-role run composes every starting deck
 [PASS] fixed seed is reproducible
 [PASS] payment rejection is atomic
-[PASS] one action per actor per turn
+[PASS] unlimited actions, basics once per turn
 [PASS] personal protection absorbs multiple segments
 [PASS] offline target does not redirect and seals owner cards
 [PASS] lethal damage stops enemy immediately

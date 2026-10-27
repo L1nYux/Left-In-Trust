@@ -14,7 +14,7 @@ func _init() -> void:
 	rules = RulesScript.new(content)
 	var cases := [
 		["all three pair combinations complete", _test_pair_combinations],
-		["three actors act exactly once in chosen order", _test_three_actor_order],
+		["three actors act in chosen order with basics once", _test_three_actor_order],
 		["bench exclusive cards stay out of battle deck", _test_bench_cards_filtered],
 		["offline owner cards are sealed and never redrawn", _test_offline_cards_sealed],
 		["locked target going offline does not redirect", _test_locked_target_no_redirect],
@@ -55,10 +55,8 @@ func _test_pair_combinations():
 		var played := _play_to_end(state, pair)
 		if state["result"] != "win":
 			return "%s did not win: %s" % [pair, played]
-		for turn_value in played["actions"].values():
-			for count_value in turn_value.values():
-				if int(count_value) != 1:
-					return "%s actor acted more than once" % pair
+		if played.get("error", "") != "":
+			return "%s play loop error: %s" % [pair, played]
 	return true
 
 func _test_three_actor_order():
@@ -68,20 +66,30 @@ func _test_three_actor_order():
 	state["intents"] = []
 	var order := ["DeepSeek", "GPT", "Claude"]
 	for actor_id in order:
-		var before := JSON.stringify(state)
+		var before_guard := JSON.stringify(state)
 		var first: Dictionary = rules.try_action(state, actor_id, RulesScript.BASIC_GUARD, actor_id)
 		if not first["ok"]:
 			return "%s first action rejected" % actor_id
-		var after := JSON.stringify(state)
-		var second: Dictionary = rules.try_action(state, actor_id, RulesScript.BASIC_ATTACK, actor_id)
-		if second["ok"] or second.get("error") != "action_unavailable":
-			return "%s second action accepted" % actor_id
-		if JSON.stringify(state) != after or before == after:
-			return "%s rejection was not atomic" % actor_id
-	for actor_id in order:
+		var after_guard := JSON.stringify(state)
+		var repeated: Dictionary = rules.try_action(state, actor_id, RulesScript.BASIC_GUARD, actor_id)
+		if repeated["ok"] or repeated.get("error") != "basic_used":
+			return "%s repeated basic guard was not basic_used" % actor_id
+		if JSON.stringify(state) != after_guard or before_guard == after_guard:
+			return "%s basic_used rejection was not atomic" % actor_id
+		var attack: Dictionary = rules.try_action(state, actor_id, RulesScript.BASIC_ATTACK, actor_id)
+		if not attack["ok"]:
+			return "%s basic attack after guard rejected" % actor_id
 		if not bool(rules.actor_status(state, actor_id)["acted"]):
 			return "%s did not act" % actor_id
-	return true
+	var card_one := _force_card(state, "A")
+	var card_two := _force_card(state, "D")
+	if card_one == "" or card_two == "" or card_one == card_two:
+		return "forced hand cards missing"
+	if not rules.try_action(state, "GPT", card_one, "GPT")["ok"]:
+		return "first extra hand action rejected"
+	if not rules.try_action(state, "GPT", card_two, "GPT")["ok"]:
+		return "second extra hand action rejected"
+	return bool(rules.actor_status(state, "GPT")["acted"])
 
 func _test_bench_cards_filtered():
 	var started := _start(["GPT", "Claude", "DeepSeek"], ["GPT", "Claude"], "bench", "submit", 101)
@@ -188,18 +196,24 @@ func _play_to_end(state: Dictionary, actor_order: Array) -> Dictionary:
 	var action_counts := {}
 	while state["result"] == "ongoing" and int(state["turn"]) < 40:
 		var counts := {}
+		var required: Array = []
 		for actor_id_value in actor_order:
-			var actor_id := str(actor_id_value)
-			var actor: Dictionary = rules.actor_status(state, actor_id)
-			if actor.is_empty() or not bool(actor["online"]):
-				continue
-			var choice := _best_action(state, actor_id)
-			var result: Dictionary = rules.try_action(state, actor_id, str(choice["action"]), str(choice["target"]))
-			if not result["ok"]:
-				return {"error": result.get("error"), "turn": state["turn"], "actions": action_counts}
-			counts[actor_id] = int(counts.get(actor_id, 0)) + 1
-			if state["result"] != "ongoing":
-				break
+			var actor: Dictionary = rules.actor_status(state, str(actor_id_value))
+			if not actor.is_empty() and bool(actor["online"]):
+				required.append(str(actor_id_value))
+		for actor_id in required:
+			var actions := 0
+			while actions < 12 and state["result"] == "ongoing":
+				if not rules.has_legal_action(state, actor_id):
+					break
+				var choice := _best_action(state, actor_id)
+				var result: Dictionary = rules.try_action(state, actor_id, str(choice["action"]), str(choice["target"]))
+				if not result["ok"]:
+					return {"error": result.get("error"), "turn": state["turn"], "actions": action_counts}
+				actions += 1
+			if state["result"] == "ongoing" and actions < 1:
+				return {"error": "actor_idle", "actor": actor_id, "turn": state["turn"], "actions": action_counts}
+			counts[actor_id] = actions
 		action_counts[str(state["turn"])] = counts
 		if state["result"] == "ongoing":
 			rules.finish_turn(state)

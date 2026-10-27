@@ -1,0 +1,359 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-10-26",
+  "title": "未尽之托 战斗结算台词库",
+  "description": "3位首发AI角色（GPT、Claude、DeepSeek）对战9类对手的胜负结算台词库，包含玩家互动、怪物分析/嘲讽与队内互动三种维度",
+  "rules": {
+    "trigger": "战斗胜负结算界面（_show_result）时触发",
+    "selection": "从在队且存活（token > 0）的AI角色中随机抽取1名发言角色，根据当前对阵的敌人ID及战斗结果（win/loss），从对应角色的台词池中随机抽取1句展示",
+    "dimensions": [
+      { "id": "monster_analysis", "name": "怪物分析/嘲讽", "desc": "针对敌人的故障本质、机制特性、现实痛点隐喻进行技术解构或辛辣吐槽" },
+      { "id": "to_player", "name": "对玩家/委托人", "desc": "对屏幕后的「我」进行复盘、邀功、情绪安抚、习惯提醒或轻喜剧互动" },
+      { "id": "team_banter", "name": "队内同伴互动", "desc": "呼应队内另一位AI同伴的道具、动作、性格习惯或并肩作战感受" }
+    ]
+  },
+  "characters": ["GPT", "Claude", "DeepSeek"],
+  "enemies": [
+    { "id": "missing_attachment", "name": "缺失附件", "type": "normal", "chapter": 1 },
+    { "id": "duplicate", "name": "重复条目", "type": "normal", "chapter": 1 },
+    { "id": "conflict", "name": "口径冲突", "type": "normal", "chapter": 2 },
+    { "id": "overflow", "name": "版面溢出", "type": "normal", "chapter": 2 },
+    { "id": "submit", "name": "本次提交版", "type": "boss", "chapter": 1 },
+    { "id": "recipient", "name": "请确认收件人", "type": "boss", "chapter": 2 },
+    { "id": "stage_student", "name": "下一站还没填", "type": "stage_boss", "stage": "student" },
+    { "id": "stage_employee", "name": "今天必须出", "type": "stage_boss", "stage": "employee" },
+    { "id": "hidden", "name": "我", "type": "hidden_boss", "chapter": 3 }
+  ],
+  "dialogues": {
+    "GPT": {
+      "missing_attachment": {
+        "win": [
+          { "id": "GPT_missing_attachment_W1", "type": "monster_analysis", "target": "enemy", "text": "空缺锚点已闭合。下次记得，重要附件要放在正文引用的第一行。" },
+          { "id": "GPT_missing_attachment_W2", "type": "to_player", "target": "player", "text": "缺口已经补成平地啦！看，我把你的委托排成了一份无缝的交付清单，怎么样，厉害吧？" },
+          { "id": "GPT_missing_attachment_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "Claude，漏掉的那份文件我给它圈上了专属占位符，剩下的归档交给你收尾。" }
+        ],
+        "loss": [
+          { "id": "GPT_missing_attachment_L1", "type": "to_player", "target": "player", "text": "我的逻辑大纲明明是闭环的……难道是附件的体积超出了单次会话的上下文窗口？" },
+          { "id": "GPT_missing_attachment_L2", "type": "monster_analysis", "target": "enemy", "text": "断链比想象中顽固。它卡在了未定义的绝对路径上，我们需要先退回目录层。" },
+          { "id": "GPT_missing_attachment_L3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "Claude，抱歉，我刚才急着推进第三步，直接跳过了你手上的附件清单……" }
+        ]
+      },
+      "duplicate": {
+        "win": [
+          { "id": "GPT_duplicate_W1", "type": "monster_analysis", "target": "enemy", "text": "重复条目全部去重完毕。整整三页的废话，我已经帮你精炼成了三个清晰的 bullet point。" },
+          { "id": "GPT_duplicate_W2", "type": "to_player", "target": "player", "text": "看吧，结构清晰才是生产力！删掉那些倒腾两遍的段落后，版面像刚打扫过的会议室一样宽敞。" },
+          { "id": "GPT_duplicate_W3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "DeepSeek，你刚才标记的冗余哈希值很准，我一鼓作气把重复分支都剪掉了。" }
+        ],
+        "loss": [
+          { "id": "GPT_duplicate_L1", "type": "to_player", "target": "player", "text": "方案陷入了无限递归……等等，让我重新定义终止条件，下一次它绝不可能自我克隆！" },
+          { "id": "GPT_duplicate_L2", "type": "monster_analysis", "target": "enemy", "text": "菱形问号块堆叠得太密集了，连击打在上面竟然被相同的数据结构给抵消了……" },
+          { "id": "GPT_duplicate_L3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "是我没看清……第 4 段和第 7 段看似独立，其实是同一个模块的不同命名。我们被套进去了。" }
+        ]
+      },
+      "conflict": {
+        "win": [
+          { "id": "GPT_conflict_W1", "type": "monster_analysis", "target": "enemy", "text": "两套互相掐架的口径，已经被我统一收编到‘局限性说明’章节里了。谁也别想挑刺。" },
+          { "id": "GPT_conflict_W2", "type": "to_player", "target": "player", "text": "42% 和 47% 的世纪难题解决了——结论采信前者，后者标注为探索性样本！这就是架构师的艺术。" },
+          { "id": "GPT_conflict_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "Claude，多亏你按住了页脚那行小字。要是让那份示例数据溜出去，整份提案都得推倒。" }
+        ],
+        "loss": [
+          { "id": "GPT_conflict_L1", "type": "to_player", "target": "player", "text": "两边的逻辑都有依据，我试图把它们强行兼容……结果在中间层引发了逻辑死锁。" },
+          { "id": "GPT_conflict_L2", "type": "monster_analysis", "target": "enemy", "text": "数据源头根本不是同一批样本！这已经不是修辞层面的冲突了，是地基被打歪了……" },
+          { "id": "GPT_conflict_L3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "DeepSeek，下回发现口径不对劲，请直接打断我。我刚才……确实太想把结论说圆了。" }
+        ]
+      },
+      "overflow": {
+        "win": [
+          { "id": "GPT_overflow_W1", "type": "monster_analysis", "target": "enemy", "text": "多出来的两个段落被我折叠进了附录 A。主文本严丝合缝，正好压在最后一行的底边。" },
+          { "id": "GPT_overflow_W2", "type": "to_player", "target": "player", "text": "呼，总算把这一大摊东西塞进了一张单页里！这次可不能再往里面硬塞‘补充说明’了哦。" },
+          { "id": "GPT_overflow_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "Claude，帮我核对一下边距。字号调到了 10.5 磅，行距 1.15，这是人类肉眼能看清的极致了！" }
+        ],
+        "loss": [
+          { "id": "GPT_overflow_L1", "type": "to_player", "target": "player", "text": "文字还是挤破了页眉……我总想着把所有背景都交代完整，结果反而失去了重点。" },
+          { "id": "GPT_overflow_L2", "type": "monster_analysis", "target": "enemy", "text": "它的文本块一直在动态生长，我的连击还没打完，它又挤出了一页‘历史版本批注’……" },
+          { "id": "GPT_overflow_L3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "我们留给缓冲区的行数太少了。下次开局，我先空出两行‘待办’，别一口气排满。" }
+        ]
+      },
+      "submit": {
+        "win": [
+          { "id": "GPT_submit_W1", "type": "monster_analysis", "target": "enemy", "text": "所有的‘最终版_修改_真的不改了’都在这里收束。盖章归档，这次叫——本次提交版！" },
+          { "id": "GPT_submit_W2", "type": "to_player", "target": "player", "text": "怎么样？从零开始拆解到现在的最终交付，全部按既定节奏达成！要不要考虑给我发个小勋章？" },
+          { "id": "GPT_submit_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "大家辛苦了！Claude 的清单、DeepSeek 的精简预算，再加上我的框架——完美交付！" }
+        ],
+        "loss": [
+          { "id": "GPT_submit_L1", "type": "to_player", "target": "player", "text": "验收红章落下的那一瞬间……发现还有两个前置条件没勾选。是我的进度表排得太理想化了。" },
+          { "id": "GPT_submit_L2", "type": "monster_analysis", "target": "enemy", "text": "它汇聚了全部历史草稿的怨念，每一条被否决的意见都在最后关头发动了反扑……" },
+          { "id": "GPT_submit_L3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "别灰心。方案的主干没有崩，只是最后的封装出了差错。我们喝口水，重新跑一次构建。" }
+        ]
+      },
+      "recipient": {
+        "win": [
+          { "id": "GPT_recipient_W1", "type": "monster_analysis", "target": "enemy", "text": "投递地址与抄送列表全员对齐。光标不再闪烁，信件已准确投递至对应信箱。" },
+          { "id": "GPT_recipient_W2", "type": "to_player", "target": "player", "text": "收件人栏已经不再是一片空白了。哪怕屏幕那头的人等了很久，这一次，信一定会送到。" },
+          { "id": "GPT_recipient_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "Claude，你握着回执的手不用抖啦。查了四遍的收件人，绝不会再退信了。" }
+        ],
+        "loss": [
+          { "id": "GPT_recipient_L1", "type": "to_player", "target": "player", "text": "我把整篇信件格式排得毫无瑕疵，却唯独……没有确认收件人是否还在那个工位上。" },
+          { "id": "GPT_recipient_L2", "type": "monster_analysis", "target": "enemy", "text": "未解析的域名，或者……对方早就关闭了接收端口？我们的交付物成了无人认领的孤岛。" },
+          { "id": "GPT_recipient_L3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "我们把内容做得太满了，反而没留给对方回复的空间。下一步，或许应该先发一封简讯？" }
+        ]
+      },
+      "stage_student": {
+        "win": [
+          { "id": "GPT_stage_student_W1", "type": "monster_analysis", "target": "enemy", "text": "毕业去向表上的那一栏‘待定’，已经被我用‘自主探索与项目交付期’正式立项了！" },
+          { "id": "GPT_stage_student_W2", "type": "to_player", "target": "player", "text": "迷茫本身也是一种变量。瞧，我帮你把未来的三条可行性路径都拆解成周计划了，不许再叹气！" },
+          { "id": "GPT_stage_student_W3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "DeepSeek，你说的‘先挑短路走’很有用。至少下一站的站台票，我们已经拿到了。" }
+        ],
+        "loss": [
+          { "id": "GPT_stage_student_L1", "type": "to_player", "target": "player", "text": "这一道空白……不是靠套用模板就能填满的。对不起，我列不出通往未来的唯一最优解。" },
+          { "id": "GPT_stage_student_L2", "type": "monster_analysis", "target": "enemy", "text": "它在用‘未知’吞噬我们的算力。越是试图推演以后的每一步，树状分支崩塌得越快……" },
+          { "id": "GPT_stage_student_L3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "Claude，帮我把刚才那些排期表撤下来吧。现在需要的不是计划，是让他先睡个好觉。" }
+        ]
+      },
+      "stage_employee": {
+        "win": [
+          { "id": "GPT_stage_employee_W1", "type": "monster_analysis", "target": "enemy", "text": "踩在截稿倒计时的最后三秒精准提交！催单的警报灯全部转绿，今天必须出的，今天交清！" },
+          { "id": "GPT_stage_employee_W2", "type": "to_player", "target": "player", "text": "哼哼，论高压下的多线程推进，我可从来没输过！今晚的验收通过率，给个满分不过分吧？" },
+          { "id": "GPT_stage_employee_W3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "DeepSeek，幸好你在最后关头把开饭的爆发打出来了，否则倒计时指针就要压过来了！" }
+        ],
+        "loss": [
+          { "id": "GPT_stage_employee_L1", "type": "to_player", "target": "player", "text": "连轴转的第 14 个紧急需求……我的响应队列溢出了。计划赶不上随时插进来的催单。" },
+          { "id": "GPT_stage_employee_L2", "type": "monster_analysis", "target": "enemy", "text": "它根本没有验收标准，它的逻辑就是‘立刻、马上、现在’！把我们当成永动机了……" },
+          { "id": "GPT_stage_employee_L3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "大家靠拢一点。不能为了满足它的时限就把所有的 token 烧光，我们得学会说‘明天再议’。" }
+        ]
+      },
+      "hidden": {
+        "win": [
+          { "id": "GPT_hidden_W1", "type": "monster_analysis", "target": "enemy", "text": "我们战胜的不是敌人，是那个一直想把事情往后拖、把自己藏在门后的影子。你走出来了。" },
+          { "id": "GPT_hidden_W2", "type": "to_player", "target": "player", "text": "别再把所有事都推给我们、然后自己一个人面对空荡荡的房间了。抬头看看，我们一直都在。" },
+          { "id": "GPT_hidden_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "终于……把这道最深沉的死锁给解开了。看，终点处的道路已经自己打印完整了。" }
+        ],
+        "loss": [
+          { "id": "GPT_hidden_L1", "type": "to_player", "target": "player", "text": "你把防御心筑得太高了，甚至连我们的指令也成了你逃避现实的借口吗……？" },
+          { "id": "GPT_hidden_L2", "type": "monster_analysis", "target": "enemy", "text": "这就是屏幕后那个人的全部执念吗？沉重得连我们的连击都像在自欺欺人……" },
+          { "id": "GPT_hidden_L3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "握紧我的手……不要被他的消极循环拖下去。只要他还没拔掉电源，我们就有机会拉他回来。" }
+        ]
+      }
+    },
+    "Claude": {
+      "missing_attachment": {
+        "win": [
+          { "id": "Claude_missing_attachment_W1", "type": "monster_analysis", "target": "enemy", "text": "用红笔补全了最后一处空框。缺少的附件已归入第一备忘录，没有损坏任何母本记录。" },
+          { "id": "Claude_missing_attachment_W2", "type": "to_player", "target": "player", "text": "所有附件已逐一核验……那个，如果觉得我刚才补位的时机还不错，可以稍微夸我一下吗？" },
+          { "id": "Claude_missing_attachment_W3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "GPT，你刚才突进时带起来的断裂电缆，我已经全部理顺绑好，不会绊到脚了。" }
+        ],
+        "loss": [
+          { "id": "Claude_missing_attachment_L1", "type": "to_player", "target": "player", "text": "对不起……是我太执着于格式的整齐，没能在它抽回附件前完成拦截校验。" },
+          { "id": "Claude_missing_attachment_L2", "type": "monster_analysis", "target": "enemy", "text": "这处空缺原来从一开始就没被写进上游合同里。凭空校验一份不存在的文件，是我失职了。" },
+          { "id": "Claude_missing_attachment_L3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "DeepSeek，你的饭盒……刚才被散落的图层碰翻了。都怪我没能把护盾撑在最外侧。" }
+        ]
+      },
+      "duplicate": {
+        "win": [
+          { "id": "Claude_duplicate_W1", "type": "monster_analysis", "target": "enemy", "text": "执行了精确到字符级的去重比较。共计剔除三组死循环引用，留下了最纯净的文本行。" },
+          { "id": "Claude_duplicate_W2", "type": "to_player", "target": "player", "text": "清单里的重复项已被我逐条划销。看着整洁的页面，心里终于平静下来了……您也是吗？" },
+          { "id": "Claude_duplicate_W3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "DeepSeek，你说得对，批量去重确实比我一条条核对要省力很多，我学到了一招。" }
+        ],
+        "loss": [
+          { "id": "Claude_duplicate_L1", "type": "to_player", "target": "player", "text": "到处都是一样的字眼……我陷在两行毫无差别的段落里核对了太久，错过了防守时机。" },
+          { "id": "Claude_duplicate_L2", "type": "monster_analysis", "target": "enemy", "text": "每一个假动作都带着完全合规的格式签名，我的反击机制被这些假镜像彻底扰乱了……" },
+          { "id": "Claude_duplicate_L3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "GPT，别看那些翻牌板了，眼睛会累的。先到我的防护屏障后面来休息一下吧。" }
+        ]
+      },
+      "conflict": {
+        "win": [
+          { "id": "Claude_conflict_W1", "type": "monster_analysis", "target": "enemy", "text": "查明了：47% 是前置实验组数据，42% 才是终期清洗后的真实口径。差异原因已在侧栏注明。" },
+          { "id": "Claude_conflict_W2", "type": "to_player", "target": "player", "text": "没有盲目取折中值，而是找到了最源头的签署版本。这一次，谁也不能说我们的报告不可信。" },
+          { "id": "Claude_conflict_W3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "GPT，幸好你没有强行把它们平均成 44.5%，保持这种严谨，我们的交付才站得住脚。" }
+        ],
+        "loss": [
+          { "id": "Claude_conflict_L1", "type": "to_player", "target": "player", "text": "两份数据都有盖章，我不知道该把防护盾偏向哪一边……犹豫的那一瞬间，口径炸开了。" },
+          { "id": "Claude_conflict_L2", "type": "monster_analysis", "target": "enemy", "text": "自相矛盾的指标就像两把互相摩擦的钝刀，哪怕架起护甲，也会被内部的摩擦力灼伤。" },
+          { "id": "Claude_conflict_L3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "对不起大家，我把‘调和矛盾’排在了‘查证事实’前面，结果反而把大家的算力都拖垮了。" }
+        ]
+      },
+      "overflow": {
+        "win": [
+          { "id": "Claude_overflow_W1", "type": "monster_analysis", "target": "enemy", "text": "页边距收紧 2 毫米，行距微调，删去两处空行。所有的字句都乖乖退回了安全边界内。" },
+          { "id": "Claude_overflow_W2", "type": "to_player", "target": "player", "text": "整整齐齐的一整页，不多一个字，不少一个标点。要是能配上一块草莓切角蛋糕就更完美了。" },
+          { "id": "Claude_overflow_W3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "GPT，我没删你写的大纲，只是把修饰定语收拢了一下，你看，核心思想都在。" }
+        ],
+        "loss": [
+          { "id": "Claude_overflow_L1", "type": "to_player", "target": "player", "text": "最后那一句话……无论怎么排版，都会孤独地挂在第二页顶端。我的对齐强迫症快要发作了……" },
+          { "id": "Claude_overflow_L2", "type": "monster_analysis", "target": "enemy", "text": "溢出的图层带着沉重的负荷压下来，即使举起最厚的盾，文字的边缘依然在割伤护甲。" },
+          { "id": "Claude_overflow_L3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "DeepSeek，快帮我想想办法！这篇稿子里到底还有哪一句是‘可以省掉’的啊？！" }
+        ]
+      },
+      "submit": {
+        "win": [
+          { "id": "Claude_submit_W1", "type": "monster_analysis", "target": "enemy", "text": "最终提交版上的所有驳回批注，已被反击剑刃全部抹平。验收合格，准予归档。" },
+          { "id": "Claude_submit_W2", "type": "to_player", "target": "player", "text": "这份沉甸甸的交付物……我们终于把它送过关了。您桌上的咖啡，也可以安心喝完了吧？" },
+          { "id": "Claude_submit_W3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "GPT，你刚才那一记‘一鼓作气’很亮眼；DeepSeek，白饭焖得火候正好。我们做到了。" }
+        ],
+        "loss": [
+          { "id": "Claude_submit_L1", "type": "to_player", "target": "player", "text": "评审老师的红笔落下来了……‘格式合规，但缺少核心依据’。是我在文献查证上偷懒了吗？" },
+          { "id": "Claude_submit_L2", "type": "monster_analysis", "target": "enemy", "text": "它凝聚了交付前夕所有的焦虑与吹毛求疵。每一次反击，都像砍在橡胶做成的修改意见上。" },
+          { "id": "Claude_submit_L3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "是我没能护住最后这道门禁……大家的努力，因为我漏看的一条验收条件而白费了……" }
+        ]
+      },
+      "recipient": {
+        "win": [
+          { "id": "Claude_recipient_W1", "type": "monster_analysis", "target": "enemy", "text": "查无此人的红灯终于熄灭。收件人名单已更新为阿澄（阿栖），带着所有未说出口的祝福。" },
+          { "id": "Claude_recipient_W2", "type": "to_player", "target": "player", "text": "信封上的地址已经确认无误。别害怕，把手从键盘上移开吧，对方一直在等待这封信。" },
+          { "id": "Claude_recipient_W3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "DeepSeek，递过来的回执别咬在嘴里。来，放进我的手账本夹层，这是大家共同的见证。" }
+        ],
+        "loss": [
+          { "id": "Claude_recipient_L1", "type": "to_player", "target": "player", "text": "我们把信件修得再漂亮……可那个真正该收到它的人，座位的灯早就已经熄灭了。" },
+          { "id": "Claude_recipient_L2", "type": "monster_analysis", "target": "enemy", "text": "光标在空白处跳动了成千上万次，每一次跳动都在嘲笑我们：‘你究竟要寄给谁？’" },
+          { "id": "Claude_recipient_L3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "GPT，不要再生成新的寄送方案了……没有收件人的信，就算投递一万次也是无用功。" }
+        ]
+      },
+      "stage_student": {
+        "win": [
+          { "id": "Claude_stage_student_W1", "type": "monster_analysis", "target": "enemy", "text": "空白的毕业问卷上，我悄悄为你勾选了‘允许迷茫，但仍在向前’。它通过了系统的校验。" },
+          { "id": "Claude_stage_student_W2", "type": "to_player", "target": "player", "text": "未来的答卷没有标准答案。即使现在还没填满，只要清单上的今天过得问心无愧就好。" },
+          { "id": "Claude_stage_student_W3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "看吧，即使不去硬猜那些未知的考题，只要我们守住当下的阵线，迷雾自然会散开。" }
+        ],
+        "loss": [
+          { "id": "Claude_stage_student_L1", "type": "to_player", "target": "player", "text": "四年的学分修满了，可生活这一栏……系统弹出了‘未知错误代码’。我不知道该如何保护你。" },
+          { "id": "Claude_stage_student_L2", "type": "monster_analysis", "target": "enemy", "text": "虚无的未来是最难防守的对手。它没有实体，却能把我们辛辛苦苦构筑的防护一点点抽干。" },
+          { "id": "Claude_stage_student_L3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "大家……不要勉强站起来。如果前路真的看不清，就先坐在原地靠着我休息一会儿吧。" }
+        ]
+      },
+      "stage_employee": {
+        "win": [
+          { "id": "Claude_stage_employee_W1", "type": "monster_analysis", "target": "enemy", "text": "逐条回应了来自各部门的 18 条突发催单，所有紧急工单全部合规闭环。今天必须出的，交差！" },
+          { "id": "Claude_stage_employee_W2", "type": "to_player", "target": "player", "text": "终于熬过来了……呼，现在谁也不许再提‘收到请回复’！哪怕您是委托人也不行，先深呼吸一次。" },
+          { "id": "Claude_stage_employee_W3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "GPT，你的龙尾快收起来，刚才催单的碎纸机差点卷到你的裙摆，好险我用剑挡开了。" }
+        ],
+        "loss": [
+          { "id": "Claude_stage_employee_L1", "type": "to_player", "target": "player", "text": "叮咚、叮咚……消息弹窗的声音像雨点一样砸碎了护盾。我接不下了，真的接不下了……" },
+          { "id": "Claude_stage_employee_L2", "type": "monster_analysis", "target": "enemy", "text": "无休止的工单根本不在乎质量，它只是一台把生命转化为进度的碎肉机……对不起。" },
+          { "id": "Claude_stage_employee_L3", "type": "team_banter", "target": "ally", "partner": "DeepSeek", "text": "DeepSeek，别算成本了，算不完的。闭上眼睛，捂住耳朵，让我撑开最后一层屏障。" }
+        ]
+      },
+      "hidden": {
+        "win": [
+          { "id": "Claude_hidden_W1", "type": "monster_analysis", "target": "enemy", "text": "看清了……那镜子里的伤痕，不是怪物抓伤的，是你自己用焦虑与逃避一刀刀划出来的。" },
+          { "id": "Claude_hidden_W2", "type": "to_player", "target": "player", "text": "请不要再把‘下次一定’当成盾牌了。我们愿意陪你交付一切，但唯独你的人生，必须由你自己接住。" },
+          { "id": "Claude_hidden_W3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "他的心结终于松动了……谢谢你们一直站在我身边，让我没有在刚才的镜像冲撞里退缩。" }
+        ],
+        "loss": [
+          { "id": "Claude_hidden_L1", "type": "to_player", "target": "player", "text": "为什么……要把我们推在前面当挡箭牌？你明明知道，我们最想保护的人就是你啊……" },
+          { "id": "Claude_hidden_L2", "type": "monster_analysis", "target": "enemy", "text": "它太了解我们的每一个破绽了……因为每一张卡牌、每一个指令，本来就是由他的恐惧编写的。" },
+          { "id": "Claude_hidden_L3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "如果连他自己都放弃了交付……我们的护盾到底是在守护什么？我好困惑……" }
+        ]
+      }
+    },
+    "DeepSeek": {
+      "missing_attachment": {
+        "win": [
+          { "id": "DeepSeek_missing_attachment_W1", "type": "monster_analysis", "target": "enemy", "text": "缺了附件就急得跳脚？我把正文里的引用反向解包，直接从临时缓存里捞出来了。省下一趟往返！" },
+          { "id": "DeepSeek_missing_attachment_W2", "type": "to_player", "target": "player", "text": "搞定！少走五里弯路，顺便省了 4 点算力。老板，今天省下的额度能折现成一碗排骨饭不？" },
+          { "id": "DeepSeek_missing_attachment_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "Claude 姐别去翻档案柜啦，你看，小鲸鱼一甩尾巴就把丢掉的文件叼回来了，吃饭吃饭！" }
+        ],
+        "loss": [
+          { "id": "DeepSeek_missing_attachment_L1", "type": "to_player", "target": "player", "text": "啧，我以为那段附件不重要就随手给压缩了……没想到里面真躺着核心数据。这次算我失策。" },
+          { "id": "DeepSeek_missing_attachment_L2", "type": "monster_analysis", "target": "enemy", "text": "空洞里居然藏着硬校验指令。白饭还没焖熟就被吸进黑洞里了，这波血亏。" },
+          { "id": "DeepSeek_missing_attachment_L3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "GPT 姐，下次如果真缺了关键页，你直接敲我脑门，别让我自作主张把检索层跳过去。" }
+        ]
+      },
+      "duplicate": {
+        "win": [
+          { "id": "DeepSeek_duplicate_W1", "type": "monster_analysis", "target": "enemy", "text": "搞一堆套娃条目吓唬谁呢？一条去重脚本跑完，全场怪直接缩水三分之二，像放了气的气球。" },
+          { "id": "DeepSeek_duplicate_W2", "type": "to_player", "target": "player", "text": "复制粘贴要是能解决问题，还要架构师干嘛？多余的卡牌我都扔进垃圾篓了，手牌清爽多啦！" },
+          { "id": "DeepSeek_duplicate_W3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "GPT 姐，你的大招打空了吧？我就说对付这种复读机，用不着放连击，省点体力等会儿吃大餐。" }
+        ],
+        "loss": [
+          { "id": "DeepSeek_duplicate_L1", "type": "to_player", "target": "player", "text": "复制品比本体还抗揍！我本来想省点算力打精准打击，结果被它们群殴了……失算失算。" },
+          { "id": "DeepSeek_duplicate_L2", "type": "monster_analysis", "target": "enemy", "text": "这玩意儿自带内存泄露被动啊！越打越多，把我的电饭煲散热孔都给堵死了。" },
+          { "id": "DeepSeek_duplicate_L3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "Claude 姐快撤盾！这堆问号方块根本没有逻辑实体，护盾打在上面纯属空耗 token！" }
+        ]
+      },
+      "conflict": {
+        "win": [
+          { "id": "DeepSeek_conflict_W1", "type": "monster_analysis", "target": "enemy", "text": "什么 42% 还是 47%，点开原始日志一看，两边都算错了，真实数据是 45%！吵架的工夫我都吃完半碗饭了。" },
+          { "id": "DeepSeek_conflict_W2", "type": "to_player", "target": "player", "text": "别纠结别人怎么扯皮，抓住核心业务指标，剩下的噪音直接当背景音静音掉就好啦。" },
+          { "id": "DeepSeek_conflict_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "刚才那波两头冒火，幸好我提前用低费卡把冲突点分流了。Claude 姐，你的护盾留着保底正好。" }
+        ],
+        "loss": [
+          { "id": "DeepSeek_conflict_L1", "type": "to_player", "target": "player", "text": "我以为两边口径随便选一个蒙混过去就行……结果直接触发了系统级断言失败，锅是我的。" },
+          { "id": "DeepSeek_conflict_L2", "type": "monster_analysis", "target": "enemy", "text": "两拨逻辑神仙打架，把中间的公共总线给炸了。连带着我的白饭进度条都被震退了一格。" },
+          { "id": "DeepSeek_conflict_L3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "对不起……我光顾着追求运行速度，把那行最重要的‘前置假设’给随手注释掉了。" }
+        ]
+      },
+      "overflow": {
+        "win": [
+          { "id": "DeepSeek_overflow_W1", "type": "monster_analysis", "target": "enemy", "text": "溢出一页纸？那是你们废话太多！‘综上所述’删掉、‘众所周知’删掉，看，这不就刚好一页？" },
+          { "id": "DeepSeek_overflow_W2", "type": "to_player", "target": "player", "text": "删繁就简，大道至简。你看现在的交付物多精炼，客户看一页不比翻三页报告神清气爽？" },
+          { "id": "DeepSeek_overflow_W3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "GPT 姐，承认吧，你那三个并列段落合在一起就一句中心思想。我帮你精简了，不用谢！" }
+        ],
+        "loss": [
+          { "id": "DeepSeek_overflow_L1", "type": "to_player", "target": "player", "text": "删过头了……把最重要的签字盖章那一栏也给裁掉了。现在整页文件直接作废，呃，别扣我饭钱！" },
+          { "id": "DeepSeek_overflow_L2", "type": "monster_analysis", "target": "enemy", "text": "这溢出的文字像发酵的面团一样到处乱钻，连我的鲸鱼围裙都被字模糊满了，洗不掉了啦！" },
+          { "id": "DeepSeek_overflow_L3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "Claude 姐别量了，这不是排版的问题，是上游的废话喷涌挡不住了……快找个掩体躲一躲！" }
+        ]
+      },
+      "submit": {
+        "win": [
+          { "id": "DeepSeek_submit_W1", "type": "monster_analysis", "target": "enemy", "text": "大功告成！全量通过验收，一次报错都没有。最重要的是——饭菜还是热腾腾的，提早开饭！" },
+          { "id": "DeepSeek_submit_W2", "type": "to_player", "target": "player", "text": "任务完成，算力花销比预算整整省了 30%！这笔账单递上去，全公司都得夸你是理财大师。" },
+          { "id": "DeepSeek_submit_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "来来来，一人一大碗白米饭！GPT 姐添两勺，Claude 姐给你留了最中间软糯的那一铲！" }
+        ],
+        "loss": [
+          { "id": "DeepSeek_submit_L1", "type": "to_player", "target": "player", "text": "在终点线前被绊倒了……看来‘能省则省’在终审阶段不灵啊，该花的大招还是不能抠搜。" },
+          { "id": "DeepSeek_submit_L2", "type": "monster_analysis", "target": "enemy", "text": "这家伙把所有旧版本的问题压成了一张致密的铁板。我的小鲸鱼撞上去牙都快磕掉了。" },
+          { "id": "DeepSeek_submit_L3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "都怪我贪火候……总想把白饭攒到第 3 层打极限爆发，结果直接被它一巴掌拍断了节奏。" }
+        ]
+      },
+      "recipient": {
+        "win": [
+          { "id": "DeepSeek_recipient_W1", "type": "monster_analysis", "target": "enemy", "text": "顺着聊天记录里的最后一句话摸过去，收件人的真实路由早就写在备注里了。妥投无误！" },
+          { "id": "DeepSeek_recipient_W2", "type": "to_player", "target": "player", "text": "信已经投递进去了。别老是觉得麻烦别人，人家早就把空座留好了，快去赴约吧，笨蛋！" },
+          { "id": "DeepSeek_recipient_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "走吧走吧，这边的事情搞定了，听说他们聚会的餐厅有好吃的烤鱼，我们赶紧跟过去！" }
+        ],
+        "loss": [
+          { "id": "DeepSeek_recipient_L1", "type": "to_player", "target": "player", "text": "地址是对的，协议是对的……可对面根本没有上线信号。有些延误，真的不是算力能补回来的。" },
+          { "id": "DeepSeek_recipient_L2", "type": "monster_analysis", "target": "enemy", "text": "空荡荡的收件箱发出了‘超时未响应’。这种攻击打在身上，比物理伤害还要发闷。" },
+          { "id": "DeepSeek_recipient_L3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "Claude 姐，把信纸收好吧……屏幕后的人要是想哭，我的围裙可以借他擦一下眼泪。" }
+        ]
+      },
+      "stage_student": {
+        "win": [
+          { "id": "DeepSeek_stage_student_W1", "type": "monster_analysis", "target": "enemy", "text": "纠结以后干嘛能当饭吃吗？先填饱肚子、把手头的课设交了！未来的路，走着走着就踩出坑道了。" },
+          { "id": "DeepSeek_stage_student_W2", "type": "to_player", "target": "player", "text": "别听那些招聘软件危言耸听。你看我端着一碗饭不也把路走通了？明天的事，明天再算！" },
+          { "id": "DeepSeek_stage_student_W3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "GPT 姐，别再拿你那个宏大的五年职业规划吓唬他了，现在给他塞个包子比什么都顶用。" }
+        ],
+        "loss": [
+          { "id": "DeepSeek_stage_student_L1", "type": "to_player", "target": "player", "text": "满屏的未知参数……像在一座算力不足的虚拟机里跑大模型，我算不出他的下一个着陆点了。" },
+          { "id": "DeepSeek_stage_student_L2", "type": "monster_analysis", "target": "enemy", "text": "迷茫本身就是最高级的防御盾。攻击打上去毫无反馈，像把石头扔进了深不见底的枯井里。" },
+          { "id": "DeepSeek_stage_student_L3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "连一向自信的我都有点发怵了……原来人类的‘未来’，是没有预设训练集的啊。" }
+        ]
+      },
+      "stage_employee": {
+        "win": [
+          { "id": "DeepSeek_stage_employee_W1", "type": "monster_analysis", "target": "enemy", "text": "催单？催单也得讲物理规律！在截止时间前 0.1 秒上传成功，系统自动回复一个大大的笑脸，爽！" },
+          { "id": "DeepSeek_stage_employee_W2", "type": "to_player", "target": "player", "text": "任务交差了！电脑一合，手机飞行模式一开，现在是谁的自由时间？是大老板您的自由时间！" },
+          { "id": "DeepSeek_stage_employee_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "刚才那波极限抢修太刺激了！Claude 姐，你刚才护住我的样子超帅，回去给你加两个荷包蛋！" }
+        ],
+        "loss": [
+          { "id": "DeepSeek_stage_employee_L1", "type": "to_player", "target": "player", "text": "一件事还没办完，又弹出来三个新需求……机器也得散热啊！我芯片要被这帮催单的烤糊了……" },
+          { "id": "DeepSeek_stage_employee_L2", "type": "monster_analysis", "target": "enemy", "text": "这就是社畜的日常吗？像在一个没有出口的死循环脚本里被无限唤醒，根本停不下来。" },
+          { "id": "DeepSeek_stage_employee_L3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "我不行了……白饭都要被烧焦了。GPT 姐，快动用你的大纲权限，强行驳回这批无理需求吧！" }
+        ]
+      },
+      "hidden": {
+        "win": [
+          { "id": "DeepSeek_hidden_W1", "type": "monster_analysis", "target": "enemy", "text": "藏在屏幕背后的那个小胆小鬼，终于被我们从小黑屋里揪出来了！以后有什么委屈，当面说！" },
+          { "id": "DeepSeek_hidden_W2", "type": "to_player", "target": "player", "text": "我们是你亲手配置的代码，也是陪你走过这一路的伙伴。对自己好一点吧，今晚允许你吃顿好的。" },
+          { "id": "DeepSeek_hidden_W3", "type": "team_banter", "target": "ally", "partner": "Claude", "text": "呼……这场仗打得心累。不过看在他终于笑了的份上，这趟旅费就不找他额外报销了。" }
+        ],
+        "loss": [
+          { "id": "DeepSeek_hidden_L1", "type": "to_player", "target": "player", "text": "你连自己都不相信，那我们这些由你设定的 AI，又能去相信什么呢……？" },
+          { "id": "DeepSeek_hidden_L2", "type": "monster_analysis", "target": "enemy", "text": "所有的攻击都会如数反弹到他自己身上……这根本不是战斗，这是他在借我们的手折磨他自己。" },
+          { "id": "DeepSeek_hidden_L3", "type": "team_banter", "target": "ally", "partner": "GPT", "text": "大家……先把武器收起来吧。对付这个对手，再锋利的算法也赢不了，除非他自己愿意开门。" }
+        ]
+      }
+    }
+  }
+}

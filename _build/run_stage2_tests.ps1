@@ -76,6 +76,8 @@ function Invoke-LoggedCommand {
 Push-Location $repoRoot
 try {
     Invoke-LoggedCommand "data-sync" "powershell.exe" @("-ExecutionPolicy", "Bypass", "-File", ".\_build\sync_game_data.ps1", "-Check")
+	Invoke-LoggedCommand "story-validation" $NodePath @(".\_build\validate_story.cjs")
+	Invoke-LoggedCommand "story-data-sync" $NodePath @(".\_build\export_story_runtime.cjs", "--check")
     Invoke-LoggedCommand "node-validation" $NodePath @(".\_build\validate_gameplay_v05.cjs")
 
     $godotTests = [ordered]@{
@@ -85,6 +87,8 @@ try {
         "layered-actor-tests" = "res://tests/test_layered_actors.gd"
         "ui-flows" = "res://tests/test_ui_flows.gd"
         "ui-click-tests" = "res://tests/test_ui_clicks.gd"
+        "map-route-tests" = "res://tests/test_map_routes.gd"
+		"story-flow-tests" = "res://tests/test_story_flow.gd"
         "multiplayer-tests" = "res://tests/test_multiplayer.gd"
         "save-tests" = "res://tests/test_save_manager.gd"
     }

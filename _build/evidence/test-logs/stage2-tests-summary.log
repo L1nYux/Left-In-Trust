@@ -1,4 +1,6 @@
 data-sync PASS
+story-validation PASS
+story-data-sync PASS
 node-validation PASS
 rule-tests PASS
 audit-probe PASS
@@ -6,5 +8,7 @@ smoke-runs PASS
 layered-actor-tests PASS
 ui-flows PASS
 ui-click-tests PASS
+map-route-tests PASS
+story-flow-tests PASS
 multiplayer-tests PASS
 save-tests PASS

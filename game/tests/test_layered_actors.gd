@@ -35,6 +35,10 @@ func _run() -> void:
 		if actor.get_supported_motions() != EXPECTED_MOTIONS:
 			_fail("%s does not use the shared motion-tag contract" % role_id)
 			return
+		var timing: Dictionary = actor.motion_timing_profile()
+		if str(timing.get("update", "")) != "render_frame" or float(timing.get("duration_scale", 0.0)) <= 1.0:
+			_fail("%s does not use the smoothed render-frame motion timing" % role_id)
+			return
 		var profile: Dictionary = actor.get_profile()
 		if str(profile.get("motif", "")) != EXPECTED_MOTIFS[role_id]:
 			_fail("%s motif override was not applied" % role_id)
@@ -91,6 +95,19 @@ func _run() -> void:
 			_fail("Missing Attachment did not route motion tag %s" % motion_tag)
 			return
 	records.append({"enemy": "missing_attachment", "layers": enemy.get_layer_names().size(), "motions": enemy.get_supported_motions().size(), "formal_art": true})
+	var submit_path := "res://assets/enemies/submit/submit_master_v1.png"
+	if not ResourceLoader.exists(submit_path):
+		_fail("Submit boss formal master is missing: %s" % submit_path)
+		return
+	var submit_texture := load(submit_path) as Texture2D
+	if submit_texture == null or submit_texture.get_image() == null or not submit_texture.get_image().has_mipmaps():
+		_fail("Submit boss formal master is missing mipmaps: %s" % submit_path)
+		return
+	enemy.configure("submit")
+	if enemy.enemy_id != "submit":
+		_fail("Submit boss profile did not activate")
+		return
+	records.append({"enemy": "submit", "layers": enemy.get_layer_names().size(), "motions": enemy.get_supported_motions().size(), "formal_art": true})
 	root.remove_child(enemy)
 	enemy.free()
 	print("[LAYERED ACTORS] %s" % JSON.stringify(records))

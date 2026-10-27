@@ -7,8 +7,8 @@
       "seeds": 100,
       "wins": 100,
       "winRate": 1,
-      "meanFinalTokenOnWins": 6.47,
-      "meanTurnsPerAttempt": 7.18
+      "meanFinalTokenOnWins": 10.06,
+      "meanTurnsPerAttempt": 3.71
     },
     {
       "role": "GPT",
@@ -16,17 +16,17 @@
       "seeds": 100,
       "wins": 100,
       "winRate": 1,
-      "meanFinalTokenOnWins": 6.47,
-      "meanTurnsPerAttempt": 7.18
+      "meanFinalTokenOnWins": 10.4,
+      "meanTurnsPerAttempt": 3.71
     },
     {
       "role": "Claude",
       "policy": "rush",
       "seeds": 100,
-      "wins": 99,
-      "winRate": 0.99,
-      "meanFinalTokenOnWins": 4.78,
-      "meanTurnsPerAttempt": 8.49
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 9.11,
+      "meanTurnsPerAttempt": 4.71
     },
     {
       "role": "Claude",
@@ -34,26 +34,26 @@
       "seeds": 100,
       "wins": 100,
       "winRate": 1,
-      "meanFinalTokenOnWins": 7.02,
-      "meanTurnsPerAttempt": 8.92
+      "meanFinalTokenOnWins": 10.37,
+      "meanTurnsPerAttempt": 4.92
     },
     {
       "role": "DeepSeek",
       "policy": "rush",
       "seeds": 100,
-      "wins": 68,
-      "winRate": 0.68,
-      "meanFinalTokenOnWins": 4.76,
-      "meanTurnsPerAttempt": 8.84
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 7.83,
+      "meanTurnsPerAttempt": 4.6
     },
     {
       "role": "DeepSeek",
       "policy": "budget",
       "seeds": 100,
-      "wins": 99,
-      "winRate": 0.99,
-      "meanFinalTokenOnWins": 5.02,
-      "meanTurnsPerAttempt": 8.05
+      "wins": 100,
+      "winRate": 1,
+      "meanFinalTokenOnWins": 8.71,
+      "meanTurnsPerAttempt": 4.72
     }
   ],
   "pairs": [
@@ -74,7 +74,7 @@
       ],
       "seeds": 40,
       "chapterTwoWins": 40,
-      "hiddenWins": 38,
+      "hiddenWins": 40,
       "hiddenAttempts": 40
     },
     {
@@ -96,24 +96,21 @@
       ],
       "seeds": 40,
       "difficulty": 2,
-      "reachedSecond": 33,
-      "regularWins": 33,
-      "hiddenWins": 32,
-      "failures": {
-        "submit": 7,
-        "hidden": 1
-      },
+      "reachedSecond": 40,
+      "regularWins": 40,
+      "hiddenWins": 40,
+      "failures": {},
       "example": {
         "seed": 1,
         "stage": "student",
         "finalBoss": "recipient",
         "hiddenEntry": {
           "GPT": {
-            "token": 9,
+            "token": 10,
             "max": 12
           },
           "Claude": {
-            "token": 10,
+            "token": 12,
             "max": 12
           }
         }
@@ -126,20 +123,17 @@
       ],
       "seeds": 40,
       "difficulty": 2,
-      "reachedSecond": 33,
-      "regularWins": 33,
-      "hiddenWins": 23,
-      "failures": {
-        "hidden": 10,
-        "submit": 7
-      },
+      "reachedSecond": 40,
+      "regularWins": 40,
+      "hiddenWins": 40,
+      "failures": {},
       "example": {
         "seed": 1,
         "stage": "student",
         "finalBoss": "recipient",
         "hiddenEntry": {
           "GPT": {
-            "token": 7,
+            "token": 11,
             "max": 12
           },
           "DeepSeek": {
@@ -170,7 +164,7 @@
             "max": 12
           },
           "DeepSeek": {
-            "token": 7,
+            "token": 10,
             "max": 12
           }
         }

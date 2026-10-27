@@ -1,7 +1,7 @@
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 [PASS] all three pair combinations complete
-[PASS] three actors act exactly once in chosen order
+[PASS] three actors act in chosen order with basics once
 [PASS] bench exclusive cards stay out of battle deck
 [PASS] offline owner cards are sealed and never redrawn
 [PASS] locked target going offline does not redirect

@@ -1,18 +1,21 @@
 extends Control
 
-const TEXTURES := {
+const MISSING_ATTACHMENT_TEXTURES := {
 	"back": preload("res://assets/enemies/missing_attachment/layers/missing_attachment_back_v1.png"),
 	"body": preload("res://assets/enemies/missing_attachment/layers/missing_attachment_body_v1.png"),
 	"legs": preload("res://assets/enemies/missing_attachment/layers/missing_attachment_legs_v1.png"),
 	"core": preload("res://assets/enemies/missing_attachment/layers/missing_attachment_core_v1.png")
 }
+const SUBMIT_MASTER = preload("res://assets/enemies/submit/submit_master_v1.png")
 
 var layer_id := "body"
+var enemy_id := "missing_attachment"
 var effect_tag := "idle"
 
 
-func configure(next_layer_id: String) -> void:
+func configure(next_layer_id: String, next_enemy_id: String = "missing_attachment") -> void:
 	layer_id = next_layer_id
+	enemy_id = next_enemy_id
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	queue_redraw()
 
@@ -23,8 +26,12 @@ func set_effect(next_tag: String) -> void:
 
 
 func _draw() -> void:
-	if TEXTURES.has(layer_id):
-		draw_texture_rect(TEXTURES[layer_id], _art_rect(), false)
+	if enemy_id == "submit" and layer_id == "body":
+		draw_texture_rect(SUBMIT_MASTER, _art_rect(SUBMIT_MASTER), false)
+		return
+	if enemy_id == "missing_attachment" and MISSING_ATTACHMENT_TEXTURES.has(layer_id):
+		var texture: Texture2D = MISSING_ATTACHMENT_TEXTURES[layer_id]
+		draw_texture_rect(texture, _art_rect(texture), false)
 		return
 	if layer_id == "shadow":
 		_draw_shadow()
@@ -32,10 +39,14 @@ func _draw() -> void:
 		_draw_effect()
 
 
-func _art_rect() -> Rect2:
+func _art_rect(texture: Texture2D) -> Rect2:
 	var target_width := minf(400.0, size.x)
-	var target_height := target_width * 2.0 / 3.0
-	return Rect2((size.x - target_width) * 0.5, 38.0, target_width, target_height)
+	var texture_size := texture.get_size()
+	var target_height := target_width * texture_size.y / texture_size.x
+	if target_height > size.y - 26.0:
+		target_height = size.y - 26.0
+		target_width = target_height * texture_size.x / texture_size.y
+	return Rect2((size.x - target_width) * 0.5, (size.y - target_height) * 0.42, target_width, target_height)
 
 
 func _draw_shadow() -> void:

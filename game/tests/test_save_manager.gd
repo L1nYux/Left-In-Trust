@@ -23,7 +23,10 @@ func _init() -> void:
 		["checksum mismatch restores previous valid snapshot", _test_checksum_recovery],
 		["settlement interrupted before save remains idempotent", _test_settlement_reload],
 		["unsupported schema is explicit and preserves file", _test_unsupported_schema],
-		["mode and flow contradictions are rejected", _test_mode_flow_validation]
+		["mode and flow contradictions are rejected", _test_mode_flow_validation],
+		["prebattle chapter map round-trip", _test_map_round_trip],
+		["player identity persists and invalid identity is rejected", _test_life_stage],
+		["story progress persists and malformed state is rejected", _test_story_state]
 	]
 	for test_case in cases:
 		if not _run(test_case[0], test_case[1]):
@@ -180,6 +183,57 @@ func _test_mode_flow_validation():
 	if result["ok"] or result.get("error") != "invalid_snapshot_mode_flow":
 		return "contradictory test-arena rest snapshot was accepted: %s" % result
 	return FileAccess.file_exists(manager.paths()["primary"]) == before_exists
+
+func _test_map_round_trip():
+	var manager = _manager("map_round_trip")
+	var snapshot := _snapshot(271, 5)
+	snapshot["battleState"] = {}
+	snapshot["currentBattleKind"] = ""
+	snapshot["flow"] = "map"
+	var saved: Dictionary = manager.save_snapshot(snapshot)
+	if not saved["ok"]:
+		return "map snapshot failed to save: %s" % saved
+	var loaded: Dictionary = manager.load_snapshot()
+	if not loaded["ok"]:
+		return "map snapshot failed to load: %s" % loaded
+	return loaded["snapshot"]["flow"] == "map" \
+		and loaded["snapshot"]["currentBattleKind"] == "" \
+		and loaded["snapshot"]["battleState"].is_empty()
+
+func _test_life_stage():
+	var manager = _manager("life_stage")
+	var snapshot := _snapshot(303)
+	snapshot["runState"]["stage"] = "researcher"
+	if not manager.save_snapshot(snapshot).get("ok", false):
+		return "valid identity could not be saved"
+	var loaded: Dictionary = manager.load_snapshot()
+	if not loaded.get("ok", false) or loaded["snapshot"]["runState"].get("stage") != "researcher":
+		return "identity was lost during reload"
+	for invalid in ["GPT", "unknown", 1, null]:
+		snapshot["runState"]["stage"] = invalid
+		if manager.save_snapshot(snapshot).get("error") != "invalid_life_stage":
+			return "invalid identity was accepted"
+	snapshot["runState"].erase("stage")
+	return manager.save_snapshot(snapshot).get("ok", false)
+
+func _test_story_state():
+	var manager = _manager("story_state")
+	var snapshot := _snapshot(313)
+	snapshot["runState"]["story"] = {"seen": {"global.prologue": true}, "lastEvent": "global.prologue"}
+	if not manager.save_snapshot(snapshot).get("ok", false):
+		return "valid story state could not be saved"
+	var loaded: Dictionary = manager.load_snapshot()
+	if not loaded.get("ok", false) or not loaded["snapshot"]["runState"]["story"]["seen"].get("global.prologue", false):
+		return "story state was lost during reload"
+	for invalid in [
+		{"seen": [], "lastEvent": "global.prologue"},
+		{"seen": {"global.prologue": 1}, "lastEvent": "global.prologue"},
+		{"seen": {}, "lastEvent": 1}
+	]:
+		snapshot["runState"]["story"] = invalid
+		if manager.save_snapshot(snapshot).get("error") != "invalid_story_state":
+			return "invalid story state was accepted"
+	return true
 
 func _write_text(path: String, text: String) -> void:
 	var file := FileAccess.open(path, FileAccess.WRITE)

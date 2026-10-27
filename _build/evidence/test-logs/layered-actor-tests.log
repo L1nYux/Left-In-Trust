@@ -1,3 +1,3 @@
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
-[LAYERED ACTORS] [{"formal_art":true,"layers":8,"motions":6,"role":"GPT","signature":"GPT:segments"},{"formal_art":true,"layers":8,"motions":6,"role":"Claude","signature":"Claude:book"},{"formal_art":true,"layers":8,"motions":6,"role":"DeepSeek","signature":"DeepSeek:ripple"},{"enemy":"missing_attachment","formal_art":true,"layers":6,"motions":3}]
+[LAYERED ACTORS] [{"formal_art":true,"layers":8,"motions":6,"role":"GPT","signature":"GPT:segments"},{"formal_art":true,"layers":8,"motions":6,"role":"Claude","signature":"Claude:book"},{"formal_art":true,"layers":8,"motions":6,"role":"DeepSeek","signature":"DeepSeek:ripple"},{"enemy":"missing_attachment","formal_art":true,"layers":6,"motions":3},{"enemy":"submit","formal_art":true,"layers":6,"motions":3}]

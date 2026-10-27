@@ -7,4 +7,7 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 [PASS] settlement interrupted before save remains idempotent
 [PASS] unsupported schema is explicit and preserves file
 [PASS] mode and flow contradictions are rejected
-[SAVE TESTS] PASS 7/7
+[PASS] prebattle chapter map round-trip
+[PASS] player identity persists and invalid identity is rejected
+[PASS] story progress persists and malformed state is rejected
+[SAVE TESTS] PASS 10/10

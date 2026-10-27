@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 591.86 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+[未尽之托] fixed seed=20261025
+[未尽之托] battle=test_arena seed=20348720 lineup=GPT,Claude,DeepSeek
+[EXE CAPTURE] {"error":0,"lineup":["GPT","Claude","DeepSeek"],"mode":"test_arena","ok":true,"path":"D:\\MyPros\\AI游戏\\_build\\evidence\\ui_compact_battle_v7.png","shot":""}

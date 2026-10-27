@@ -1,6 +1,6 @@
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
-[AUDIT] A01|PASS|单人 GPT，本回合已行动|再次执行基础防御|err=action_unavailable state_same=true|err=action_unavailable state_same=true
+[AUDIT] A01|PASS|单人 GPT，本回合已用基础攻击|再打基础攻击→basic_used；同回合再打两张手牌与基础防御|attack=ok repeat=basic_used state_same=true guard=ok hand1=ok hand2=ok acted=true|attack=ok repeat=basic_used state_same=true guard=ok hand1=ok hand2=ok acted=true
 [AUDIT] A02|PASS|双人战，GPT 专属牌 G1 在 Claude 手牌|Claude 打出 G1|err=wrong_owner state_same=true|err=wrong_owner state_same=true
 [AUDIT] A03|PASS|抽牌堆中的牌 uid 不在手牌|用抽牌堆 uid 出牌|err=not_in_hand state_same=true|err=not_in_hand state_same=true
 [AUDIT] A04|PASS|Claude 已下线（token=0）|GPT 用 D 指定 Claude 为目标|err=offline_target state_same=true|err=offline_target state_same=true
@@ -102,7 +102,7 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 [AUDIT] K08|PASS|双人上场 GPT/Claude|连续两回合检查敌方意图目标|turn1=GPT turn2=Claude|turn1=GPT turn2=Claude
 [AUDIT] L01|PASS|start_battle 后未 begin_turn|try_action|err=action_unavailable state_same=true|err=action_unavailable state_same=true
 [AUDIT] L02|PASS|已在 player 阶段|再次 begin_turn|err=invalid_begin state_same=true|err=invalid_begin state_same=true
-[AUDIT] L03|PASS|本回合已行动|再次 try_action|err=action_unavailable state_same=true|err=action_unavailable state_same=true
+[AUDIT] L03|PASS|本回合已用基础攻击（acted=true）|重复基础攻击→basic_used 且原子；换基础防御仍可执行|first=ok repeat=basic_used state_same=true next=ok acted=true has_legal=true|first=ok repeat=basic_used state_same=true next=ok acted=true has_legal=true
 [AUDIT] L04|PASS|已在 between 阶段|再次 finish_turn|err=invalid_finish state_same=true|err=invalid_finish state_same=true
 [AUDIT] L05|PASS|同一 seed=192，同一确定性操作集各跑一遍|比较整份战斗状态|equal=true hp_equal=true turn_equal=true accounts_equal=true log_equal=true|equal=true hp_equal=true turn_equal=true accounts_equal=true log_equal=true
 [AUDIT] L06|PASS|start_battle 后未 begin_turn（phase=between）|finish_turn|err=invalid_finish state_same=true|err=invalid_finish state_same=true

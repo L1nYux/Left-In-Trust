@@ -10,7 +10,7 @@ const FORMAL_MASTERS := {
 	"Claude": preload("res://assets/actors/claude/claude_master_v1.png"),
 	"DeepSeek": preload("res://assets/actors/deepseek/deepseek_master_v1.png")
 }
-const FORMAL_SCALES := {"GPT": 0.9, "Claude": 0.88, "DeepSeek": 0.88}
+const FORMAL_SCALES := {"GPT": 0.81, "Claude": 0.79, "DeepSeek": 0.79}
 const FORMAL_MASTER_RECTS := {
 	"GPT": Rect2(-19, -40, 208, 325),
 	"Claude": Rect2(-26, -42, 222, 332),

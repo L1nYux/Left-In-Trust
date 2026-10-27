@@ -3,6 +3,8 @@ class_name BattleUIDecor
 
 ## Non-interactive battle-stage chrome. The playable controls stay in
 ## main_stage2.gd; this layer only establishes the duel composition.
+## Turn banners and fake reticles were removed so the stage reads like a
+## clean Slay-the-Spire style encounter; turn info lives in the UI layer.
 
 var turn_index := 1
 
@@ -25,11 +27,11 @@ func _draw() -> void:
 
 	# Stage split: cool team space on the left, hostile fracture space on the right.
 	draw_colored_polygon(PackedVector2Array([
-		Vector2(0, 54), Vector2(width * 0.59, 54),
+		Vector2(0, 0), Vector2(width * 0.59, 0),
 		Vector2(width * 0.53, height * 0.68), Vector2(0, height * 0.78)
 	]), Color("bdebf0", 0.06))
 	draw_colored_polygon(PackedVector2Array([
-		Vector2(width * 0.62, 54), Vector2(width, 54), Vector2(width, height * 0.76),
+		Vector2(width * 0.62, 0), Vector2(width, 0), Vector2(width, height * 0.76),
 		Vector2(width * 0.55, height * 0.67)
 	]), Color("ff365c", 0.075))
 
@@ -44,44 +46,16 @@ func _draw() -> void:
 	]:
 		draw_line(segment[0], segment[1], fracture, 2.0, true)
 
-	# Header glass and bottom vignette keep information readable over the arena.
-	draw_rect(Rect2(0, 0, width, 54), Color("07101f", 0.9), true)
-	draw_line(Vector2(0, 54), Vector2(width, 54), Color("91a7cc", 0.45), 1.0)
+	# Soft top and bottom vignettes keep the HUD labels readable over the arena
+	# without drawing a solid header band.
+	for band in 3:
+		var top_height := 30.0
+		var top_y := top_height * float(band)
+		draw_rect(Rect2(0, top_y, width, top_height + 1), Color("050916", 0.13 - float(band) * 0.04), true)
 	for band in 4:
 		var band_height := 34.0
 		var y := height - band_height * float(band + 1)
 		draw_rect(Rect2(0, y, width, band_height + 1), Color("050916", 0.08 + float(band) * 0.055), true)
-
-	# Round medallion.
-	var round_center := Vector2(47, 27)
-	draw_circle(round_center, 17.0, Color("dce9ff", 0.13))
-	draw_circle(round_center, 11.5, Color("dce9ff", 0.88))
-	draw_colored_polygon(PackedVector2Array([
-		round_center + Vector2(0, -11.5), round_center + Vector2(11.5, 0),
-		round_center + Vector2(0, 0)
-	]), Color("6989c8", 0.82))
-
-	# Compact progress track, deliberately decorative for now.
-	var track_start := Vector2(width * 0.36, 27)
-	var track_end := Vector2(width * 0.67, 27)
-	draw_line(track_start, track_end, Color("b7c7e7", 0.46), 2.0, true)
-	var current_step := mini(6, (turn_index - 1) % 7)
-	for step in 7:
-		var ratio := float(step) / 6.0
-		var center := track_start.lerp(track_end, ratio)
-		var radius := 8.5 if step == current_step else 4.0
-		if step == current_step:
-			draw_circle(center, 13.0, Color("07101f", 0.9))
-			draw_arc(center, 13.0, 0.0, TAU, 24, Color("69a8ff", 0.78), 2.0, true)
-		draw_circle(center, radius, Color("7fb3ff") if step == current_step else Color("d7e1f5", 0.75))
-
-	# Utility glyphs are visual anchors only; no fake clickable buttons.
-	for index in 4:
-		var icon_center := Vector2(width - 164.0 + float(index) * 42.0, 27)
-		draw_rect(Rect2(icon_center - Vector2(7, 8), Vector2(14, 16)), Color("b9c7df", 0.12), true)
-		draw_rect(Rect2(icon_center - Vector2(7, 8), Vector2(14, 16)), Color("b9c7df", 0.72), false, 1.5)
-		if index == 3:
-			draw_circle(icon_center, 3.5, Color("b9c7df", 0.8))
 
 	# The cyan/red contact line keeps the two sides visually opposed.
 	draw_line(Vector2(width * 0.46, height * 0.43), Vector2(width * 0.61, height * 0.38), Color("70e4ff", 0.42), 2.0, true)

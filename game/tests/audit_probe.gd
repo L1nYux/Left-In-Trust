@@ -186,16 +186,27 @@ func _has_attack_card(state: Dictionary, role_id: String) -> bool:
 # ---------------------------------------------------------------- A 非法操作原子性
 
 func _group_a() -> void:
-	# A01 已行动后再次行动
+	# A01 同回合不限行动 + 基础动作各一次 + 重复基础动作原子拒绝
 	var b := _battle(["GPT"], ["GPT"], "missing_attachment", 11)
 	var st: Dictionary = b["state"]
 	rules.begin_turn(st)
 	st["intents"] = []
-	rules.try_action(st, "GPT", BASIC_ATTACK, "GPT")
+	var first_attack: Dictionary = rules.try_action(st, "GPT", BASIC_ATTACK, "GPT")
 	var snap := _snapshot(st)
-	var res: Dictionary = rules.try_action(st, "GPT", BASIC_GUARD, "GPT")
-	_r("A01", "单人 GPT，本回合已行动", "再次执行基础防御", "err=action_unavailable state_same=true",
-		_kv(["err", _err(res), "state_same", _snapshot(st) == snap]))
+	var repeat_attack: Dictionary = rules.try_action(st, "GPT", BASIC_ATTACK, "GPT")
+	var repeat_attack_atomic := _snapshot(st) == snap
+	var first_guard: Dictionary = rules.try_action(st, "GPT", BASIC_GUARD, "GPT")
+	var card_one := _force_card(st, "A")
+	var card_two := _force_card(st, "G1")
+	var extra_one: Dictionary = rules.try_action(st, "GPT", card_one, "GPT")
+	var extra_two: Dictionary = rules.try_action(st, "GPT", card_two, "GPT")
+	_r("A01", "单人 GPT，本回合已用基础攻击", "再打基础攻击→basic_used；同回合再打两张手牌与基础防御",
+		"attack=ok repeat=basic_used state_same=true guard=ok hand1=ok hand2=ok acted=true",
+		_kv(["attack", "ok" if bool(first_attack.get("ok", false)) else "rejected", "repeat", _err(repeat_attack), "state_same", repeat_attack_atomic,
+			"guard", "ok" if bool(first_guard.get("ok", false)) else "rejected",
+			"hand1", "ok" if bool(extra_one.get("ok", false)) else "rejected",
+			"hand2", "ok" if bool(extra_two.get("ok", false)) else "rejected",
+			"acted", bool(rules.actor_status(st, "GPT")["acted"])]))
 
 	# A02 非本人专属牌
 	var b2 := _battle(["GPT", "Claude"], ["GPT", "Claude"], "missing_attachment", 12)
@@ -1347,12 +1358,19 @@ func _group_l() -> void:
 	_r("L02", "已在 player 阶段", "再次 begin_turn", "err=invalid_begin state_same=true",
 		_kv(["err", _err(res2), "state_same", _snapshot(st) == snap2]))
 
-	# L03 重复 try_action
-	rules.try_action(st, "GPT", BASIC_ATTACK, "GPT")
+	# L03 同回合可继续行动；重复基础动作被拒且原子
+	var first_attack_l3: Dictionary = rules.try_action(st, "GPT", BASIC_ATTACK, "GPT")
 	var snap3 := _snapshot(st)
-	var res3: Dictionary = rules.try_action(st, "GPT", BASIC_GUARD, "GPT")
-	_r("L03", "本回合已行动", "再次 try_action", "err=action_unavailable state_same=true",
-		_kv(["err", _err(res3), "state_same", _snapshot(st) == snap3]))
+	var res3: Dictionary = rules.try_action(st, "GPT", BASIC_ATTACK, "GPT")
+	var repeat_atomic := _snapshot(st) == snap3
+	var next_guard: Dictionary = rules.try_action(st, "GPT", BASIC_GUARD, "GPT")
+	_r("L03", "本回合已用基础攻击（acted=true）", "重复基础攻击→basic_used 且原子；换基础防御仍可执行",
+		"first=ok repeat=basic_used state_same=true next=ok acted=true has_legal=true",
+		_kv(["first", "ok" if bool(first_attack_l3.get("ok", false)) else "rejected",
+			"repeat", _err(res3), "state_same", repeat_atomic,
+			"next", "ok" if bool(next_guard.get("ok", false)) else "rejected",
+			"acted", bool(rules.actor_status(st, "GPT")["acted"]),
+			"has_legal", rules.has_legal_action(st, "GPT")]))
 
 	# L04 重复 finish_turn
 	st["intents"] = []
