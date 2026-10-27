@@ -1,0 +1,62 @@
+events=117 chatPools=39
+types={"story":15,"brief":8,"battle":16,"check":8,"accept":8,"reality":20,"rest":4,"shop":4,"event":4,"ending":4,"appendix":6,"recap":20}
+events_with_staging=25
+  reality=20 nonReality=5
+  nonReality ids=global.prologue(story), ch2.student.ending.eligible(ending), ch2.student.ending.not_eligible(ending), ch2.employee.ending.eligible(ending), ch2.employee.ending.not_eligible(ending)
+reality staging items: min=1 max=1 | narration items: min=1 max=1
+reality facts: ["work_value","none","someone_waiting"]
+success facts=["ch1.report.student.success:work_value","ch1.slides.student.success:work_value","ch1.report.employee.success:work_value","ch1.slides.employee.success:work_value","ch2.invite.student.success:someone_waiting","ch2.photos.student.success:someone_waiting","ch2.invite.employee.success:someone_waiting","ch2.photos.employee.success:someone_waiting"]
+acceptFail facts=["ch1.report.student.acceptFail:none","ch1.slides.student.acceptFail:none","ch1.report.employee.acceptFail:none","ch1.slides.employee.acceptFail:none","ch2.invite.student.acceptFail:none","ch2.photos.student.acceptFail:none","ch2.invite.employee.acceptFail:none","ch2.photos.employee.acceptFail:none"]
+heading_leak_items=52 (ch1+prologue=12)
+ch1.student.B1/fixed :: ### N2 核对 · 42 与 47
+  ch1.student.B2/fixed :: ### N3 验收 · 三条
+  ch1.student.boss/fixed :: ### 成功 · 一页
+  ch1.report.student.acceptFail/branch :: ### 章末 · 学生版
+  ch1.slides.student.acceptFail/branch :: ## 第一章 · 章间站点 · 学生版
+  ch1.slides.student.acceptFail/branch :: ### 第一章 · 休息站 · 学生版
+  ch1.employee.B1/fixed :: ### N2 核对 · 42 与 47
+  ch1.employee.B2/fixed :: ### N3 验收 · 三条
+  ch1.employee.boss/fixed :: ### 成功 · 一页
+  ch1.report.employee.acceptFail/branch :: ### 章末 · 员工版
+  ch1.slides.employee.acceptFail/branch :: ## 第一章 · 章间站点 · 员工版
+  ch1.slides.employee.acceptFail/branch :: ### 第一章 · 休息站 · 员工版
+  ch2.student.B1/fixed :: ### B2 战斗 · 版面溢出
+  ch2.student.B2/fixed :: ### Boss · 请确认收件人
+  ch2.student.boss/fixed :: ### 准备失败 · 学生版
+  ch2.employee.B1/fixed :: ### B2 战斗 · 版面溢出
+  ch2.employee.B2/fixed :: ### Boss · 请确认收件人
+  ch2.employee.boss/fixed :: ### 准备失败 · 员工版
+  ch2.student.stageBoss/fixed :: ### 阶段 Boss · 今天必须交 · 员工版
+  ch2.employee.stageBoss/fixed :: ## 附录 · 隐藏 Boss「我」
+  ch2.employee.stageBoss/fixed :: ### 隐藏「我」 · 光点座位 · 学生版
+  ch2.student.hidden/branch :: ### 隐藏「我」 · 光点座位 · 员工版
+  ch2.employee.hidden/branch :: ## 长期附录 · 六个结局方向
+  ch2.employee.hidden/branch :: ### 附录 01 · 长期方向「暂存明天」
+  global.future.01/scene :: ### 附录 02 · 长期方向「全自动人生」
+  global.future.02/scene :: ### 附录 03 · 长期方向「给差评的人开门」
+  global.future.03/scene :: ### 附录 04 · 长期方向「把那一天还给我」
+  global.future.04/scene :: ### 附录 05 · 长期方向「委托人也上车」
+  global.future.05/scene :: ### 附录 06 · 长期方向「收件人 屏幕外」
+  global.future.06/scene :: # 收藏回顾
+  global.future.06/scene :: ## 收藏回顾 · 第一章
+  global.future.06/scene :: ### 回顾 · 一页（学生）
+  global.recap.ch1.report.student.success/scene :: ### 回顾 · 周报（员工）
+  global.recap.ch1.report.employee.success/scene :: ### 回顾 · 最后一页（学生）
+  global.recap.ch1.slides.student.success/scene :: ### 回顾 · 最后一页（员工）
+  global.recap.ch1.slides.employee.success/scene :: ### 回顾 · 示例值退回（学生）
+  global.recap.ch1.report.student.acceptFail/scene :: ### 回顾 · 数字不一致（员工）
+  global.recap.ch1.report.employee.acceptFail/scene :: ### 回顾 · 示意冒充（学生）
+  global.recap.ch1.slides.student.acceptFail/scene :: ### 回顾 · 附录打不开（员工）
+  global.recap.ch1.slides.employee.acceptFail/scene :: ### 回顾 · 材料没排完（学生）
+  global.recap.ch1.student.prepFail/scene :: ### 回顾 · 材料没排完（员工）
+  global.recap.ch1.employee.prepFail/scene :: ## 收藏回顾
+  global.recap.ch1.employee.prepFail/scene :: ### 回顾 · 请留一个座位 · 学生版 · 成功
+  global.recap.ch2.invite.student.success/scene :: ### 回顾 · 请留一个座位 · 员工版 · 成功
+  global.recap.ch2.invite.employee.success/scene :: ### 回顾 · 把那一天找回来 · 学生版 · 成功
+  global.recap.ch2.photos.student.success/scene :: ### 回顾 · 把那一天找回来 · 员工版 · 成功
+  global.recap.ch2.photos.employee.success/scene :: ### 回顾 · 请留一个座位 · 学生版 · 验收失败
+  global.recap.ch2.invite.student.acceptFail/scene :: ### 回顾 · 请留一个座位 · 员工版 · 验收失败
+  global.recap.ch2.invite.employee.acceptFail/scene :: ### 回顾 · 把那一天找回来 · 学生版 · 验收失败
+  global.recap.ch2.photos.student.acceptFail/scene :: ### 回顾 · 把那一天找回来 · 员工版 · 验收失败
+  global.recap.ch2.photos.employee.acceptFail/scene :: ### 回顾 · 学生版 · 准备失败
+  global.recap.ch2.student.prepFail/scene :: ### 回顾 · 员工版 · 准备失败

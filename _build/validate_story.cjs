@@ -9,6 +9,13 @@
  *   node _build/validate_story.cjs --json out.json       # 结果同时写 JSON
  *
  * 契约来源：docs/剧情/00_创作基准.md §8。
+ *
+ * 2026-10-27 补强（T-B 数据文本卫生）：
+ *   - 事件头字段白名单（HEADER_FIELDS），未知键 error（防止 export 透传任意键）。
+ *   - 旁白断言同时看 kind:text 与 kind:line；reality error、ending 先 warning。
+ *   - 演出段 staging 字数/句数硬区间（30–200 字 / 2–8 句）。
+ *   - 标题泄漏：源码侧聚合 warning；默认完整校验额外检查 game/data/story.json，
+ *     会进 pages 的 section 里出现以 `#` 开头的 text 即 error（根因防复发）。
  */
 'use strict';
 
@@ -57,6 +64,28 @@ const SPEAKERS = new Set(['GPT', 'Claude', 'DeepSeek', '旁白', '终端', '我'
 const ROLES = ['GPT', 'Claude', 'DeepSeek'];
 const FACTS = new Set(['work_value', 'someone_waiting']);
 const BOSSES = new Set(['submit', 'recipient', 'stage_student', 'stage_employee', 'hidden', 'none']);
+/**
+ * 事件头字段白名单（契约来源：00_创作基准 §8 + 现有 117 个事件头实测键集合）。
+ * export_story_runtime.cjs 的 parseHeader 会把事件头里任意 `key: value` 原样透传到
+ * runtime JSON，所以未登记的键（例如 `presentation: theater`）必须在这里硬拦。
+ * 新增键时连同导出层/运行时一起改，不要偷偷加。
+ */
+const HEADER_FIELDS = new Set([
+  'id', 'chapter', 'task', 'stage', 'node', 'type', 'facts', 'knowledge',
+  'focus', 'boss', 'branch', 'see',
+]);
+/**
+ * 会进入运行时 pages 的 section（对照 game/scripts/story_db.gd:41-64 compose_event 与
+ * :99-102 compose_repeat）：fixed/narration → 旁白页；scene → 场景页；staging → 画面页
+ * （仅 reality）；branch → 分支页；repeat → 再次路过页。main/partner/closing 靠台词行，
+ * 标题脏数据不会进 pages，但导出层会一并过滤。
+ */
+const PAGE_SECTIONS = new Set(['scene', 'fixed', 'staging', 'narration', 'branch', 'repeat']);
+const RUNTIME_STORY = path.join('game', 'data', 'story.json');
+
+function isHeadingText(value) {
+  return typeof value === 'string' && value.trim().startsWith('#');
+}
 
 const errors = [];
 const warnings = [];
@@ -161,6 +190,13 @@ function checkEvent(ev) {
     err(file, id, 'id 必须为 global.* 或 ch1.*/ch2.*');
   }
 
+  // 事件头字段白名单（防止 export 透传的未知键静默进入 runtime JSON）。
+  for (const key of Object.keys(h)) {
+    if (!HEADER_FIELDS.has(key)) {
+      err(file, id, `事件头出现未知字段 ${key}（只允许 ${[...HEADER_FIELDS].join('/')}）`);
+    }
+  }
+
   const required = ['id', 'chapter', 'task', 'stage', 'node', 'type', 'facts', 'see'];
   for (const k of required) {
     if (h[k] === undefined || h[k] === '') err(file, id, `事件头缺少字段 ${k}`);
@@ -229,7 +265,10 @@ function checkEvent(ev) {
   const partner = speakersOf(ev, 'partner');
   const fixed = speakersOf(ev, 'fixed');
   const closing = speakersOf(ev, 'closing');
-  const narration = lines(ev, 'narration');
+  // 旁白既可能写成 `**旁白**：文本`（导出为 kind:"text"）也可能写成 bullet 行（kind:"line"），
+  // 断言必须两种都覆盖。
+  const narrationItems = (ev.sections.narration || [])
+    .filter((x) => x.kind === 'text' || x.kind === 'line');
 
   // 发言人合法性
   for (const key of ['main', 'partner', 'fixed', 'narration', 'closing']) {
@@ -277,11 +316,38 @@ function checkEvent(ev) {
       if (!closing.includes(r)) err(file, id, `收束缺少角色 ${r}`);
     }
     if (closing.some((s) => !ROLES.includes(s))) err(file, id, '收束只能由 GPT/Claude/DeepSeek 说话');
-    if (narration.length > 2) err(file, id, `旁白最多两句，当前 ${narration.length} 条`);
-    for (const n of narration) {
-      if (charLen(n.text) > 14) warn(file, id, `旁白过长（${charLen(n.text)} 字）：${n.text}`);
+  }
+
+  // 旁白约束（00_创作基准 §8.4：现实片段旁白 ≤2 句、每句 ≤14 字）。
+  // 旧实现只统计 bullet 行，而 `**旁白**：文本` 导出为 kind:"text"，导致该断言长期是死代码。
+  // 分级：reality = error（现状 20 条全部 1 条且 ≤14 字）；ending 先降级 warning
+  // （现状违反 2 条：ch2.*.ending.eligible 的 18 字旁白，待文案润色后再升 error）。
+  const narrationLevel = h.type === 'reality' ? 'error' : h.type === 'ending' ? 'warn' : null;
+  if (narrationLevel && narrationItems.length > 0) {
+    const report = narrationLevel === 'error' ? err : warn;
+    if (narrationItems.length > 2) {
+      report(file, id, `旁白最多两句，当前 ${narrationItems.length} 条`);
+    }
+    for (const item of narrationItems) {
+      if (charLen(item.text) > 14) {
+        report(file, id, `旁白超过 14 字（${charLen(item.text)} 字）：${item.text}`);
+      }
     }
   }
+
+  // 演出段（staging）区间：实测 25 条 42–127 字 / 3–7 句，取 30–200 字、2–8 句为硬区间。
+  // 演出是现实片段唯一的画面承载：过短撑不起镜头，过长则超出 8–18 秒的可演长度。
+  for (const item of (ev.sections.staging || [])) {
+    if (item.kind !== 'text') continue;
+    const len = charLen(item.text);
+    const sentences = sentenceCount(item.text);
+    if (len < 30 || len > 200) {
+      err(file, id, `演出段字数 ${len} 超出 30–200：${item.text.slice(0, 20)}…`);
+    } else if (sentences < 2 || sentences > 8) {
+      err(file, id, `演出段句数 ${sentences} 超出 2–8：${item.text.slice(0, 20)}…`);
+    }
+  }
+
 
   if (h.type === 'ending') {
     if (fixed.length === 0) err(file, id, '结局缺少 **固定台词**（终端/我/旁白）');
@@ -307,6 +373,67 @@ function checkEvent(ev) {
   }
 
   allEvents.push(ev);
+}
+
+/**
+ * 根因防复发守卫（源码侧，warning）：统计 Markdown 源里「被段落吞进去的标题行」。
+ * 现状（2026-10-27 实测）：127 条标题 text，其中 52 条落在会进 pages 的 section
+ * （fixed 15 / scene 28 / branch 9，另有 partner/closing/repeat 不进 pages）。
+ * 根因是拼装器把下一个事件的标题附在上一个事件末尾；docs/ 文案冻结、本任务不能改，
+ * 故先发 1 条聚合 warning（而不是刷 52 条 error）；拼装器修好后计数自然归零再升 error。
+ */
+function warnSourceHeadingLeaks() {
+  let leaks = 0;
+  const bySection = {};
+  for (const ev of allEvents) {
+    for (const key of PAGE_SECTIONS) {
+      for (const item of (ev.sections[key] || [])) {
+        if (item.kind === 'text' && isHeadingText(item.text)) {
+          leaks += 1;
+          bySection[key] = (bySection[key] || 0) + 1;
+        }
+      }
+    }
+  }
+  if (leaks > 0) {
+    warn(files[0] || 'story', '<源码结构>',
+      `源码有 ${leaks} 条 Markdown 标题行落在 pages 段（${JSON.stringify(bySection)}），根因：拼装器把下一个事件标题粘在上一个事件末尾；导出层已过滤，修拼装器后此警告消失`);
+  }
+  return leaks;
+}
+
+/**
+ * 运行时产物守卫（硬 error）：game/data/story.json 里任何会进 pages 的 section
+ * 出现以 `#` 开头的 text，即为标题泄漏复发（导出层过滤器被绕过或回退）。
+ * 只在默认完整校验跑：`--file`/`--draft` 草稿模式与 story.json 无关。
+ */
+function checkRuntimeHeadingLeaks() {
+  if (!fs.existsSync(RUNTIME_STORY)) {
+    console.log(`\n[运行时守卫] 未找到 ${RUNTIME_STORY}，跳过标题泄漏检查`);
+    return 0;
+  }
+  let data;
+  try {
+    data = JSON.parse(fs.readFileSync(RUNTIME_STORY, 'utf8'));
+  } catch (error) {
+    err(RUNTIME_STORY, '<parse>', `无法解析运行时 story.json：${error.message}`);
+    return 0;
+  }
+  let leaks = 0;
+  for (const event of (data.events || [])) {
+    const eventId = String(event.id || '<无 id>');
+    for (const [key, items] of Object.entries(event.sections || {})) {
+      if (!PAGE_SECTIONS.has(key)) continue;
+      for (const item of (items || [])) {
+        if (item && item.kind === 'text' && isHeadingText(item.text)) {
+          leaks += 1;
+          err(RUNTIME_STORY, eventId, `${key} 段把 Markdown 标题当正文：${item.text}`);
+        }
+      }
+    }
+  }
+  console.log(`[运行时守卫] ${RUNTIME_STORY}：${(data.events || []).length} 事件，pages 段标题泄漏 ${leaks} 条`);
+  return leaks;
 }
 
 function checkCoverage() {
@@ -376,6 +503,14 @@ function main() {
   for (const f of files) {
     for (const ev of parseFile(f)) checkEvent(ev);
   }
+  // 标题泄漏：源码侧聚合 warning（docs 文案冻结、拼装器不在本任务范围）；
+  // 运行时产物侧硬 error（导出过滤器回退会立刻红灯）。
+  const sourceHeadingLeaks = warnSourceHeadingLeaks();
+  const isCanonicalRun = !draft && files.length === 1
+    && path.resolve(files[0]) === path.resolve(path.join('docs', 'Demo剧情脚本.md'));
+  let runtimeHeadingLeaks = null;
+  if (isCanonicalRun) runtimeHeadingLeaks = checkRuntimeHeadingLeaks();
+
   let byId = null;
   if (!draft) byId = checkCoverage();
 
@@ -405,6 +540,8 @@ function main() {
   console.log(`模式：${draft ? '草稿（格式）' : '完整（格式+覆盖）'}`);
   console.log(`事件总数：${allEvents.length}`);
   console.log(`节点分布：${JSON.stringify(nodeCounts)}`);
+  console.log(`标题泄漏：源码 ${sourceHeadingLeaks} 条（聚合 warning，根因在拼装器），`
+    + `运行时 ${runtimeHeadingLeaks === null ? '未检查' : `${runtimeHeadingLeaks} 条（error）`}`);
   console.log(`错误：${errors.length}，警告：${warnings.length}`);
 
   if (jsonOut) {

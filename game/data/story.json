@@ -1,0 +1,7659 @@
+{
+  "version": "1.0",
+  "sourceHash": "3fbe9d51b45a8114c66f2fa99d8dcea3e93714ff3f4f19c6d2bfc95a986acbf5",
+  "generatedFrom": [
+    "docs\\Demo剧情脚本.md",
+    "docs\\剧情\\日常闲聊台词.json"
+  ],
+  "supportedStoryStages": [
+    "student",
+    "employee"
+  ],
+  "events": [
+    {
+      "id": "global.prologue",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "prologue",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.prologue",
+      "title": "序章 · 打印到一半的任务单",
+      "sectionOrder": [
+        "staging",
+        "scene",
+        "fixed",
+        "main",
+        "repeat"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "标题画面。终端车停在近景，车灯只照亮前沿几寸墨迹未干的路面。更远处是纸页折叠出的山峦、光点与晨雾。标题《未尽之托》如同一张尚未打印完整的委托单，「未尽」留着一道清晰的断口，「托」字则浸润在一抹沉静的暖光里。"
+          }
+        ],
+        "scene": [
+          {
+            "kind": "text",
+            "text": "车内三张座椅空着。终端屏幕静静亮起两张人生卡：一张压着微温的课表、台灯与社团活动室窗边留空的椅子；另一张贴着深夜工位的冷荧光、折角的周报与一张调动前的便签。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "任务已生成。选择人生阶段。"
+          },
+          {
+            "kind": "line",
+            "speaker": "旁白",
+            "text": "大学生：课表压着终期展示。社团有人毕业。"
+          },
+          {
+            "kind": "line",
+            "speaker": "旁白",
+            "text": "公司员工：周报压着提案。老友项目结束就走。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "已选。选择首位 AI。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "第一章任务单打印中。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "终章之后，另有一次额外验收。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "目标：把本周做成一页。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "已知材料：三件，缺一件。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "验收重点：三条。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "我是 GPT。别担心，路还没铺完，但骨架我先立稳。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我是 Claude。手边的每一份纸页，我都会替你轻声理平。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "我是 DeepSeek。路短一点，废话少一点，饭我备好了。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "重看开篇，标题断口微光一闪，吐纸声再次响起。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.student.open",
+      "chapter": "1",
+      "task": "report",
+      "stage": "student",
+      "node": "open",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.report.student.open",
+      "title": "章首 · 一页",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "行旅车碾过微温的墨迹，纸层在车轮下叠成起伏的缓坡。远方浮着一枚半透明的地标，白得像未书一字的素页。课桌纹理在日光下斜斜漫开，便签被晨风掀起一角又悄然贴合。终端轻声吐出一张薄单：把本周做成一页；材料三件；验收重点三条。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "单子到了。先搭骨架，缺项我们留给路上去找。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我核了一下纸页张数——单上列了三件，吐纸口只应声吐了两次。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "限定一页。把废话删干净，但别删路标。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "别停下等，空着的那一栏我用虚线框住。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "第三份的留白处，我折了个角做记号。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "缺一件也撞不翻车，先往前开。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "这段路昨日驶过，新吐出的委托单尚带墨香。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.student.N1",
+      "chapter": "1",
+      "task": "report",
+      "stage": "student",
+      "node": "N1",
+      "type": "brief",
+      "facts": "none",
+      "knowledge": "missing_attachment",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch1.report.student.N1",
+      "title": "N1 接单 · 三份材料",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "材料悬浮窗静静展开三格：小组群聊天记录、数据表 A 截图、数据表 B 导出。第三格边缘泛着虚线微光，空悬无物。出纸口边贴着淡黄便签，铅笔字迹很浅：“就一页”。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三块拼图缺了一角。先把已有的两份归位，把空缺锁在原地。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "截图对上了，表格也对上了，唯独那份支撑附件没见踪影。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "聊天记录里写着「附件见附件」。套娃不顶饱，缺的标红。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "这阶段先定为「搜寻第一份附件」，目标清晰。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "截图只能证明曾经发过，算不得正式附件。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "套娃省不了事，把漏项挂在车头醒目处。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.student.B1",
+      "chapter": "1",
+      "task": "none",
+      "stage": "student",
+      "node": "B1",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "missing_attachment",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.student.B1",
+      "title": "B1 战斗 · 缺失附件",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "纸页公路在一段断桥前悬停。桥心的缺口正是一个空白的文件框，框边还垂着断裂的代码线条。课桌木纹如断崖般逼近，手写便签在断口两侧剧烈抖动。阴影从虚线空框中凝聚成型，身形比框格庞大一圈。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把缺口当作临时路标。我们可以绕行，但绝不能假装它是平地。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我用红笔钉住边缘。少的那页，正式归入待补清单。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "挑短路走。空出来的一大截，闭上眼可不会自动长好。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把断桥拆成双段支撑，修补一处是一处。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我核对过了，这处空缺货真价实，绝非幻影。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "缺掉的页留着位置，回头找齐了再填。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "这里少一页。补不齐，别想过去。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "材料：缺一份。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.student.N2",
+      "chapter": "1",
+      "task": "report",
+      "stage": "student",
+      "node": "N2",
+      "type": "check",
+      "facts": "none",
+      "knowledge": "mismatch, example_row, example_footer",
+      "focus": "DeepSeek",
+      "boss": "none",
+      "see": "ch1.report.student.N2",
+      "title": "N2 核对 · 42 与 47",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "两张统计表在半空错落浮动。左侧赫然是 42%，右侧却赫然是 47%，相差整整五个百分点。B 表极细的页脚处隐现一行灰色微雕字样：「示例数据，勿引用」。打印机又吐出一张，正是那份示例原型。Claude 手中的铅笔在“数值一致”一栏停顿不前。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把那 5% 的落差圈红。查不出出处，绝不能贸然盖章。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "好险……我险些只核算了汇总栏。差额没说清，不算过关。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "页脚那行灰色小字写着「示例，勿引」。来源不能省。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "将这行标明为注释，绝不让它混入结论。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我把它挪进备忘留白处，版面依然能保住一页。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "示例归示例，结果归结果，分开放才省心。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "昨日核过旧稿，今日第一眼便先看页脚。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.student.B2",
+      "chapter": "1",
+      "task": "none",
+      "stage": "student",
+      "node": "B2",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "duplicate_entries",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.student.B2",
+      "title": "B2 战斗 · 重复条目",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "公路盘旋成莫比乌斯环般的陡坡，一层层叠压向上。同一行手写统计数字在盘山道上接连出现三次，每一次都精准落回同一块泛黄便签。山风把便签吹得呼啦作响，像有人在神经质地反复誊抄。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "同样的内容出现了三回。剔除冗余，车身才能轻装爬坡。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我逐字对齐了字符。确认哪两行是影子，哪一行是本体。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "复读的删掉。删掉之前，留好出处那一笔。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "按原始来源合并同类项，小心别误伤旁支。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "底稿我留存了一份复本，随时备查。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "甩掉这堆重复包袱，一页纸还能更紧凑。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "写过的，再写一遍也一样。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "重复条目：同一条目，出现两次以上。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.student.N3",
+      "chapter": "1",
+      "task": "report",
+      "stage": "student",
+      "node": "N3",
+      "type": "accept",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "GPT",
+      "boss": "none",
+      "see": "ch1.report.student.N3",
+      "title": "N3 验收 · 三条",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "单页纸卷在车前灯的暖束里平展如镜，毛糙的边缘被风轻轻压平。任务单翻转到背面，三道验收标准并列如刀刻：数字来源严丝合缝、缺损项如实呈报、版面严守单页。待补清单只余末尾单行：负责数据那位组员的贡献陈述。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三项对照一遍：数据溯源、留白批注、单页规约。全在位。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "待补清单只剩下组员陈述这一行。空置处已盖上合规戳记。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "一页结案。不仅纸短，连文件名都利索。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "逐条确认无误，直接封卷，不留无谓的草稿二版。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "未完事项标作「待补」是坦荡，不是隐瞒。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "页脚那行来源虽小，留在那里就是底气。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.student.boss",
+      "chapter": "1",
+      "task": "none",
+      "stage": "student",
+      "node": "boss",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "submit",
+      "see": "ch1.student.boss",
+      "title": "Boss · 本次提交版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "纸页旷野的尽头，一座薄如蝉翼却庞大如城关的装置霍然隆起。它由无数折叠的封皮构成，在空中反复对折、重压落章、随后凌厉展开。其正面严整镂刻着三道验收法则。课桌木纹与散乱便签在基底沉浮，日光将纸缘映得刺目发白。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "直面验收大门。三条标尺一条一条过，步履扎实才能通关。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "空出的那一格还在。坦然承认空缺，也是交付的一部分。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "砍掉虚胖的页数，留住硬骨头。只凭这一页通关。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "按次序展开证明，别在终点线前乱了阵脚。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我先把附件清单递上去，再亮出主页面。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "这一页推过去，白纸黑字，挑不出刺。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "第一页。两下，先把数字对齐。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "一行一行来，对不上就重来。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "四面收口。哪格空着，我盖哪格。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "这轮不盖章。你先歇口气。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "本次提交版，可以入库。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "退回。示例数据混进结果，来源没标。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.student.success",
+      "chapter": "1",
+      "task": "report",
+      "stage": "student",
+      "node": "success",
+      "type": "reality",
+      "facts": "work_value",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.report.student.success",
+      "title": "成功 · 一页",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。微弱的光点先勾勒出一张逼仄的书桌，凉透的便当盒未曾揭开。手机在桌角悄然亮起，阿澄的消息长久停在「这周六？」，输入框空无一字。光点试图凝聚成回复，闪烁两下终究散开。桌角压着那张刚刚完成的单页纸，页脚标着「待补」。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "屏幕亮了一下，又暗下去。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "组员已经循着待补栏填补了内容。各自的责任已然分明。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "清单上的未竟之项划去了一笔。文件夹可以安稳合上了。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "按时交了。饭菜温热正好，没误了胃口。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.student.prepFail",
+      "chapter": "1",
+      "task": "none",
+      "stage": "student",
+      "node": "prepFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "missing_attachment",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.student.prepFail",
+      "title": "准备失败 · 材料没排完",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。光点浮现出一张凌乱的书桌，两份摊开的材料旁边是一个无法闭合的虚框。窗外日光斜斜照在空框上，却找不到可以填入的内容。光点试图勾勒出一整页纸，却在缺口边缘骤然中断。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "缺的那份没来。一页空着。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "缺了一环支撑，整个结构便无法合拢立起。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "反复核算过三次，第三份附件确实没到。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "缺了就是缺了，先别把空气当饭吃。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.student.acceptFail",
+      "chapter": "1",
+      "task": "report",
+      "stage": "student",
+      "node": "acceptFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "example_row",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.report.student.acceptFail",
+      "title": "验收失败 · 示例值当结果",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing",
+        "branch"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。光点汇聚成一张规整完好的一页纸，四角平展。页脚那行被忽视的“示例”小字忽然如沙粒般崩解，红色的校对框卡在一个数字上剧烈震颤。整张纸依然通明，唯独核心结论处塌陷成一个深洞。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "示例混进结果。这页退回。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "来源与数据相互脱节，它便不能被称为最终结果。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "是我查漏了……问题出在页脚那行未经替换的示例。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "更正说明我来列，把实打实的来源一条条补回去。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "text",
+            "text": "补一封更正说明，写清示例行来源、把缺失项标出来，可补 work_value；不授予其他事实。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.student.close",
+      "chapter": "1",
+      "task": "none",
+      "stage": "student",
+      "node": "close",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.student.close",
+      "title": "章末 · 学生版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "行旅车重新启动，车轴低鸣。前方的公路只打印出下一个弯道，弯道彼端是一片混沌的微光。用毕的委托单化作一行细墨，退居控制台边缘，其背面悄然浮现出一行小字：下一站，可再迎一位同行者。旷野的白光渐次退向窗后。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "首站交付告成。后排的位置空出来了，下一程风景更宽。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "文书合拢归档。风里已经隐约有了下一份信函的气味。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "油料足够跑到下一站。别愣着，先吃几口热饭。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "留出的空位，正等待新伙伴的笔记来填满。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "到了下一站台，我再对照名单迎接新人。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "碗底还热乎着呢，吃饱了才有精神赶夜路。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "每一轮章末皆如老友辞行，路常在，唯纸单常新。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.student.open",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "student",
+      "node": "open",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.slides.student.open",
+      "title": "章首 · 五分钟",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "公路蓦然拐进一处陡峭的纵向峡谷。两侧岩壁犹如层叠的幻灯片幕布，图表光束在云层中交织闪烁。便签贴在幕布侧沿，木纹隐隐透出纸面。任务单简练得如同催促：五分钟终期答辩；尾页必须落定结论与出处；材料为两件草案与一条留言。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先把表盘对准五分钟。一页只打一个点，时间才咬得死。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我记住了重点：最后一页必须同时立住结论与来源。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "材料统共三份：别人的参考、我们跑出的数、还有那句催促。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "框架扎稳，五分钟内把该说的全交代清楚。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我把参考构想和实测结果用双色笔划开。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "花哨转场删掉，但尾页的出处一个字不准漏。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "幕布依然高耸入云，讲稿泛着洁净的冷光。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.student.N1",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "student",
+      "node": "N1",
+      "type": "brief",
+      "facts": "none",
+      "knowledge": "sample_size, slide_duration",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch1.slides.student.N1",
+      "title": "N1 接单 · 参考与结果",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "三块光幕并列悬浮：一张盖着“参考方案”水印的示意图、一份仅有 12 例样本的小规模测算、以及一条组长留言：“要简练，但别把细节删光了。”便签上的“限时五分钟”格外刺眼。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把参考图、实测值、组长要求分为三个区域，互不侵扰。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "图上的“参考”水印不可裁剪。它是分界的防线。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "限时五分钟。第一刀先砍掉那些毫无意义的开场废话。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先把时钟锁在三百分秒，再往格子里填内容。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "实测数据与构想示意，我标在两个不同的栏位。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "能省的修饰尽管省，省下的时间足够从容答辩。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.student.N2",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "student",
+      "node": "N2",
+      "type": "check",
+      "facts": "none",
+      "knowledge": "slide_duration, sample_size",
+      "focus": "GPT",
+      "boss": "none",
+      "see": "ch1.slides.student.N2",
+      "title": "N2 核对 · 七分钟",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "峡谷上空悬着密密匝匝的缩略图，层层叠压。右下角的发光计时器残忍地停在 7:00 超时位置。原本的示意图被抽空了图注，来源行不知所踪。草稿页脚挂着一个“自动切页”按钮，一旦触发便会连跳两页。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "将繁杂论证全部移入附录。主干一页一问，五分钟才能落地。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我逐页排查过了，只要主干能顺利勾连附录，逻辑便不会散。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "刚才图注是我顺手删掉的。删过了头，现在原样贴回。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "附录做底座，前台只留最具穿透力的核心断言。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "每一个主要判断的右下角，我都加上了附录跳转标号。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "图注归位。不拿别人的构想冒充咱们自己的战果。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "上一版超时两分钟的红光仿佛还在眼前，这回紧盯秒针。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.student.N3",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "student",
+      "node": "N3",
+      "type": "accept",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.slides.student.N3",
+      "title": "N3 验收 · 最后一页",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "纷乱的幕布骤然收拢，任务单翻至终极判定页：全篇能按时讲毕、所有支撑皆可追溯、示意绝不伪称实测。发光秒表精准定格在 5:00 整。尾页清清楚楚落着结论与出处，那枚小小的“参考”字样端然在列。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三项指标全绿：时间可控、出处可考、界限分明。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "最后一页我核准完毕，核心结论与引据文献并驾齐驱。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "自动切页的陷阱拆掉了，这五分钟走得稳当踏实。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "五分钟一响立刻收拢，不再画蛇添足加页。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "附录的索引编码已经整整齐齐贴在最后一页的底栏。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "留好最后半行的来源，这页讲稿便无可撼动。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.student.success",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "student",
+      "node": "success",
+      "type": "reality",
+      "facts": "work_value",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.slides.student.success",
+      "title": "成功 · 最后一页",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。光点浮现出活动室长桌的一角，打印出的讲稿最后一页平铺在桌面上。手机在边缘泛起白光，阿澄的消息依旧是那句「这周六？」，输入框一片空白。光点微颤着试图敲击按键，屏幕却率先无声暗去。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "汇报准时结束。屏幕暗了。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "组员凭借附录从容招架了提问。这一份心血没有虚耗。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "结论与来源皆安然落座。这份清单终于可以系上丝带。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "分秒不差，准时收工。事情办妥了，心放回肚子里。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.student.acceptFail",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "student",
+      "node": "acceptFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "source_missing",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.slides.student.acceptFail",
+      "title": "验收失败 · 示意冒充结果",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing",
+        "branch"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。光点在虚空中立起一面投影幕布，尾页虽然华丽，但在评委投射的光束下，“参考”二字被白块掩盖，来源行更是一片空荒。光点在空缺处滞留颤动，幕布的一角在指责声中悄然卷曲剥落。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "参考被当结论。没有依据。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "示意图被误认成了实验结果，整个结论失去了落脚点。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我疏忽了……末尾的引注栏空空如也，没能拦住误解。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "把原作者和参考标签重新挂上，这套幻灯片还有救。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "text",
+            "text": "补一封更正说明，写清参考示意图的来源、把结论依据补上，可补 work_value；不授予其他事实。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.student.rest",
+      "chapter": "1",
+      "task": "none",
+      "stage": "student",
+      "node": "rest",
+      "type": "rest",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch1.student.rest",
+      "title": "第一章 · 休息站 · 学生版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "纸页旷野边缘的长椅，木纹被日光晒得泛白。自动贩卖机在树荫下泛着清冷的荧光，长椅脚边搁着一份扎好棉绳、微温的便当。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "长椅还有空位。先坐下来歇口气，下一步不会跑掉。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "风把纸张吹散了一角。便当先趁热吃，清单我压在手肘下。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "路长着呢，先吃。胃空着，算力也跑不快。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "热便当的时间，足够我把下一段路标出两个缓坡。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "趁你喝水，我把方才重复抄写的那一条轻轻抹平。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "贩卖机最底下一排还有冷绿茶，我去拧开一瓶。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "长椅依旧微温，树影比昨日斜了一寸。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.student.shop",
+      "chapter": "1",
+      "task": "none",
+      "stage": "student",
+      "node": "shop",
+      "type": "shop",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "DeepSeek",
+      "boss": "none",
+      "see": "ch1.student.shop",
+      "title": "第一章 · 补给站 · 学生版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "纸页旷野边的补给木窗，挂着一块手写的小木牌。铜天平两侧落着碎纸屑，不称斤两，只量算力刻度。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "盘点一下结余。换两样必需品，剩下的算力留着应付长坡。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "价目牌的角卷起来了。我再看一眼，确认没有看错行。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "来两罐热汤就行。花哨的打包袋不用拿，占地方。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "就按标明的换，多给的试用品别往背包里塞。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "找零的铜角我包进草稿纸里了，一枚也没少。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "柜台老板算盘打得快，我替你盯着刻度。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "木天平稳稳停在中央，风把木牌吹得轻轻摇晃。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.student.event",
+      "chapter": "1",
+      "task": "none",
+      "stage": "student",
+      "node": "event",
+      "type": "event",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "GPT",
+      "boss": "none",
+      "see": "ch1.student.event",
+      "title": "第一章 · 站间小事件 · 学生版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "出纸槽里卡住了半截纸页，齿轮发出轻微的咔嗒声，隐约露出一行尚未印完的字：“课程进展与……”。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "别硬拽。纸张受力会撕裂，我们顺着滚轴的方向慢慢退。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "截面上还有半行未干的批注，等墨迹稍干再动它。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "别慌，轻轻抽出来就行。真断了，重打也费不了两秒。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "我顺手清理一下进纸夹缝，避免下一次再卡进字缝里。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "卡纸上的日期戳我记下来了，不会漏掉版次。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "纸抽出来了。省下的闲工夫，够看一会儿天上的云。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "出纸缝擦得很干净，那半截残纸夹在旧书页里当了书签。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.student.recruit",
+      "chapter": "1",
+      "task": "none",
+      "stage": "student",
+      "node": "recruit",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.student.recruit",
+      "title": "第一章 · 招募 · 学生版",
+      "sectionOrder": [
+        "scene",
+        "fixed",
+        "main",
+        "partner",
+        "branch",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "第一张单子验收完，车停在旧校门外的站台下。车门轻声敞开，空位的前挡板上放着一张字迹工整的短笺，旁边是一支未套笔帽的铅笔。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "本次交付完成。下一站，收件站。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "来吧。前排视野很好，我把后半程的路线图给你摊开。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "欢迎上车。窗边的清单夹我腾出了半格，正适合放你的笔。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "上车吧。后座留着一件薄外套，饿了后备箱还有饼干。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "系好安全带，接下来的坡度我重新校准过了。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "桌上的短笺我读过了，只有两行，字很诚恳。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "车门带上。坐稳了，出发。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "line",
+            "speaker": "跳过招募",
+            "text": "车没有停下，留白也是一种节奏，力量留给下一程。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "铅笔静静横在木纹上，车窗外的秋叶落了一片。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.employee.open",
+      "chapter": "1",
+      "task": "report",
+      "stage": "employee",
+      "node": "open",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.report.employee.open",
+      "title": "章首 · 一页",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "公路平移切入一片规整冷峻的数据网格。梯田般的条目在车窗旁无声倒退，批注小红旗在夜风中簌簌作响。玻璃隔断的青灰倒影从纸面掠过，工位夜灯提前洒下一抹惨白。任务单上只有三行：把本周提炼为一页；材料三件；验收重点三条。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "单子来了。先理清责任边界与主次，把框架扎在这一页内。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "三份待审材料，第三份的链接依然是失效的灰色。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "目标是一页。数据可以凝练，但出处这一行绝不能删。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先稳住主体，空缺的一环我们单开追踪标签。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "缺失的编号我记在本上了，一会儿顺藤摸瓜去找。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "缺一环也别在原地打转，车轮滚起来，边走边理。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "深夜的格子间公路，每一步都踏在熟悉的键盘敲击声里。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.employee.N1",
+      "chapter": "1",
+      "task": "report",
+      "stage": "employee",
+      "node": "N1",
+      "type": "brief",
+      "facts": "none",
+      "knowledge": "missing_attachment",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch1.report.employee.N1",
+      "title": "N1 接单 · 三份材料",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "三扇浮动视窗排列开来：大群聊天截屏、经营表 A 截图、财务表 B 导出。第三个视窗闪烁着无底的空黑，标签贴纸斜斜粘在窗边，圆珠笔狠狠划出：“周报一页”。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三块材料少了一角支撑。先把手头两份核定，留好待查位置。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "聊天截图与标签都对得上，偏偏最关键的数据附件没挂载上。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "截图里又附了一张截图。这种套娃不能当证据，缺口标红。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "这一段首要任务就是“把真正的数据附件掘出来”。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "截屏只能证明发过消息，充当不了原始审计凭证。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "推诿责任的文件最占地方，把缺项悬在仪表盘前。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.employee.B1",
+      "chapter": "1",
+      "task": "none",
+      "stage": "employee",
+      "node": "B1",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "missing_attachment",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.employee.B1",
+      "title": "B1 战斗 · 缺失附件",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "数据桥梁在半途坍塌，横亘在眼前的是一个巨大的空置附件图标，断茬处连着撕扯不均的胶带。玻璃幕墙的冷光扫过空洞，敌人从无底的深坑中缓缓浮升，轮廓狰狞得像是催命的已读未回提示。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "钉住这个断点。即便必须绕道，也绝不能自欺欺人假装路通。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我标出了坐标。缺失的这一项，写明在待协同附录中。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "走最近的路绕开它。但眼前这个坑，得清清楚楚写进日志。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把断口两端做成临时衔接，走一步夯实一步。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我核准了三遍，这个附件框里确实空空荡荡。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "空位留着，等找回原件再回头填缝。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "这里少一页。补不齐，别想过去。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "材料：缺一份。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.employee.N2",
+      "chapter": "1",
+      "task": "report",
+      "stage": "employee",
+      "node": "N2",
+      "type": "check",
+      "facts": "none",
+      "knowledge": "mismatch, example_row, example_footer",
+      "focus": "DeepSeek",
+      "boss": "none",
+      "see": "ch1.report.employee.N2",
+      "title": "N2 核对 · 42 与 47",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "两份财务对账单悬在半空。左侧指标写着 42%，右侧汇报赫然是 47%，相隔了整整五个百分点的口径鸿沟。B 表最底端用蝇头小字标注着：「此行系演示模板，请勿直接引用」。Claude 的笔尖在“口径是否一致”这一行停驻已久。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把这 5% 悬殊的源头抓出来。说不清口径差异，周报交上去就是祸端。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "差点踩了坑……光对齐总计毫无意义。分母不同，必须拆开注明。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "页脚写着「演示模板」。有人把测试数据直接当业绩填了。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "将这行数据划入特殊注解区，绝不让它污染正式指标。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我把它归入待澄清栏，版面依然能牢牢控制在单页内。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "测试垃圾单独归拢，一页纸干净了，人也少挨两句骂。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "昨夜吃过的亏，今日只需一眼扫向对账单的注释行。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.employee.B2",
+      "chapter": "1",
+      "task": "none",
+      "stage": "employee",
+      "node": "B2",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "duplicate_entries",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.employee.B2",
+      "title": "B2 战斗 · 重复条目",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "公路盘旋成一段冗长窒息的回形立交，一圈圈循环往复。同一项工作进展在坡道上换了三个马甲出现三次，每一次都沉重地砸回同一张便签上。夜光照在反光的工牌上，玻璃隔断里映满层层叠叠的虚耗剪影。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "同一项琐事被不同部门认领了三遍。合并同类项，让数据归位。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我逐字对齐了事实描述，找出哪些只是换了说辞的影子。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "重复邀功的直接删。删掉之前，留个括号写清原始出处。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "按产出源头合并条目，不给任何人无谓扯皮的借口。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我把合并记录归档在底册，随时准备接受交叉对质。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "剔除这些掺水的杂项，周报顿时精简有力。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "写过的，再写一遍也一样。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "重复条目：同一条目，出现两次以上。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.employee.N3",
+      "chapter": "1",
+      "task": "report",
+      "stage": "employee",
+      "node": "N3",
+      "type": "accept",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "GPT",
+      "boss": "none",
+      "see": "ch1.report.employee.N3",
+      "title": "N3 验收 · 三条",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "一页轻薄而齐整的周报在台灯的光斑中舒展开来。验收单明晃晃列着三条军令状：数字有源可循、盲点开诚布公、篇幅坚守单页。待补附录只留末尾一行：隔壁组老陈负责的那项外部数据交接。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三项指标全数过关：证据链闭合、遗漏公开、单页封顶。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "待核对事项仅留老陈那份交接。已注明进度，无可指摘。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "一页干干净净。连附件名称都缩到最短，省时省力。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "验收合格即刻呈报，不让任何无意义的二轮修改拖慢步伐。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "将未竟项如实标作「待协同步调」，是职业边界，而非过失。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "出处那半行保留得扎实，谁来挑刺都得按规矩认。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.employee.boss",
+      "chapter": "1",
+      "task": "none",
+      "stage": "employee",
+      "node": "boss",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "submit",
+      "see": "ch1.employee.boss",
+      "title": "Boss · 本次提交版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "纸页旷野的尽头，一座金属质感极强的闸机拔地而起。它如同一尊冷酷的公文审判机，不断折叠、下压钢印、再冷硬地展开。闸机正面刻着三行冰冷的验收铁律。工位便签被狂风压在机器底座，玻璃隔断倒映出夜班水银灯的幽光。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "正面迎战本次交付。用无懈可击的三条事实逐一破开它的防线。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "待补栏上的留白已盖上严谨公章，合规合法，问心无愧。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "砍掉浮夸的套话，留足硬核数据。这一页，硬碰硬交出去。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "稳扎稳打递交佐证，别让琐碎的反诘打乱节奏。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我先把对账清单递过去，再平铺主周报。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "这一张纸拍在桌面上，有理有据，他退不回来。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "先交第一页。两下，对齐数字。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "一行，一行，慢慢对。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "四面一起收。空着哪格，我盖哪格。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "这轮不盖章。你先歇。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "本次提交版，可以入库。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "退回。来源没标，示例数据还混在结果里。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.employee.success",
+      "chapter": "1",
+      "task": "report",
+      "stage": "employee",
+      "node": "success",
+      "type": "reality",
+      "facts": "work_value",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.report.employee.success",
+      "title": "成功 · 一页",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。微弱的光点在虚空中拼出一张杂乱的工位，键盘边的外卖盒早已冷透。手机屏幕忽明忽暗，阿栖的对话框停留在那句「别再等忙完」，回复框里空空荡荡。屏幕右下角突然弹出一枚新的工作批注，瞬间遮盖了聊天软件。桌角压着那张刚刚通过的一页周报，页脚清晰地标着「待补」。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "消息没有回。批注先来了。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "周报里的待补附件已经由老陈认领。下一轮不用再重复扯皮了。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "界限划清了，清单稳妥闭合。今夜的公事就到这里吧。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "交差了。饭菜虽凉，好歹能填肚子，赶紧吃两口。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.employee.prepFail",
+      "chapter": "1",
+      "task": "none",
+      "stage": "employee",
+      "node": "prepFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "missing_attachment",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.employee.prepFail",
+      "title": "准备失败 · 材料没排完",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。光点勾勒出空无一人的办公室，桌面上散乱的两份材料贴着便签，而属于第三份附件的位置只剩下一张发黄的空白双面胶印。孤零零的夜班灯照着隔断玻璃，光点在缺失处彻底暗淡。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "第三份空着。没法汇总。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "前端输入断了流，后端无论如何也搭不出合格的汇总。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "反复确认过了，那份至关重要的附件始终没有传过来。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "没米下锅就别硬搅和，先别把空头支票当业绩。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.report.employee.acceptFail",
+      "chapter": "1",
+      "task": "report",
+      "stage": "employee",
+      "node": "acceptFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "example_row",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.report.employee.acceptFail",
+      "title": "验收失败 · 数字和附件不一致",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing",
+        "branch"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。冷色荧光下，一页排版工整的周报静静铺展。然而页脚那行被忽视的测试用例忽然瓦解成斑驳的噪点，红色的批注框死死锁住一个矛盾的数字。系统退回提示弹出的瞬间，整页公文被无情地贴上“重报”红戳。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "数字与附件打架。退回了。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "附件与正文数据相互撕裂，这绝不能被称为正式成果。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我的疏忽……出在页脚那行未经替换的示范样本。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "更正说明我来起草，把真实的测算过程重新摆平。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "text",
+            "text": "补一封更正说明，写清示例行来源、把缺失项标出来，可补 work_value；不授予其他事实。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.employee.close",
+      "chapter": "1",
+      "task": "none",
+      "stage": "employee",
+      "node": "close",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.employee.close",
+      "title": "章末 · 员工版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "行旅车再次平稳加速，写字楼的残影退至车窗边缘。车灯将前方的转弯路面照得雪白，折叠标签整齐收纳在仪表盘下，任务单背面隐现一行清秀的小楷：下一站台，可再添一位共事者。茫茫纸野中，唯有这辆车独自行驶在夜色中。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "这一单周报交割完毕。前排副驾还空着，下一程有人同担。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "文件归档落锁。下一程的风里，已有了新伙伴的呼吸。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "里程足够撑到下个换乘站。别紧绷着了，吃口东西垫垫。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "留出的座席，正好容纳一位新的解题者。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "靠站之后，我先下车帮新伙伴提行李。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "保温杯里还有半壶温水，趁热润润嗓子。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "章末的夜色年年如斯，风吹过车门，唯有单据换了篇章。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.employee.open",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "employee",
+      "node": "open",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.slides.employee.open",
+      "title": "章首 · 五分钟",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "公路急转直下，穿过高耸入云的演示投影幕墙。图表光束如同探照灯般扫过峡谷，便利贴紧扣幕布边缘，隔断玻璃反射出凛冽的银辉。任务单只有冷酷的三行：客户拜访限时五分钟；尾页必须砸穿结论与证据；备选料为两套推演与一句催促。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把时钟压死在五分钟。一页只打一记重拳，客户没空听铺垫。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我盯紧了生死线：最后一页必须立住论点与合规凭据。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "材料摆在眼前：同行的样板、咱们的数据、还有客户的挑刺。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "骨架拉紧，五分钟之内把该交底的全部亮出。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "同行的参考构想与咱们的实际产出，我分栏标红。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "虚头巴脑的动画全部删掉，把结论和依据焊死在尾页。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "巨大的幕墙昨日亦立于此，玻璃倒影里依然是未睡的眼眸。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.employee.N1",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "employee",
+      "node": "N1",
+      "type": "brief",
+      "facts": "none",
+      "knowledge": "sample_size, slide_duration",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch1.slides.employee.N1",
+      "title": "N1 接单 · 参考与结果",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "三组数据悬在半空：一份标有“行业推测”的示意曲线、一份仅覆盖 12 家客户的小范围试用反馈、以及客户发来的短讯：“要一目了然，但别把细节阉割了。”"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "行业推测、内部实测、客户要求，分为三道防线，各自守位。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "图表边缘的“参考示意”绝不能隐去，那是法律合规的边界。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "限时五分钟。第一步先剔除那些假大空的宏观展望。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先把倒计时调准到三百分秒，再严丝合缝地填装干货。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "推测值与实测值，我分别打上醒目的双色水印。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "虚耗时间的废话砍光，给正题留下喘息的余裕。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.employee.N2",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "employee",
+      "node": "N2",
+      "type": "check",
+      "facts": "none",
+      "knowledge": "slide_duration, sample_size",
+      "focus": "GPT",
+      "boss": "none",
+      "see": "ch1.slides.employee.N2",
+      "title": "N2 核对 · 七分钟",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "幕布上缩略图层叠如山，密不透风。右下角计时器停留在刺目的 7:00 红字上。那张推测图上的出处行被误删得干干净净，试用反馈旁只写着孤零零的“12 例”。“自动切页”开关在页脚不怀好意地闪烁。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "全篇支撑数据全部压入附录。正文一页一结论，五分钟正正好好。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "只要附录索引精准无误，正文便能以最精炼的姿态面对质疑。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "图注是我图省事误删的。删重了手，现在立刻给它补齐。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "附录做后盾，台前只陈述最过硬的交付承诺。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "每个论点右下角，我都注明了附录页码。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "图注出处原样复位，绝不拿推论充当板上钉钉的实绩。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "七分钟超时的刺目红光犹在心头，这一次我们倒数着秒针前行。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.employee.N3",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "employee",
+      "node": "N3",
+      "type": "accept",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.slides.employee.N3",
+      "title": "N3 验收 · 最后一页",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "冗余页面全数折叠退隐，验收单展现出极简的英姿：汇报严守时限、每项皆有实据、绝不指鹿为马。秒表停留在神圣的 5:00。最后一页上，结论清晰锐利，出处栏齐整端庄。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三项指标全线收官：时间达标、附录完备、边界清白。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "最后一页核验完毕，核心结论与法务引证安若磐石。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "自动切页的暗桩全部拆除，五分钟稳如泰山。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "时间一到利落收尾，绝不多占用客户一秒钟。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "附录的索引编码已清清楚楚贴在末页底栏，随查随有。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "留下那行出处，整个方案就立得住。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.employee.success",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "employee",
+      "node": "success",
+      "type": "reality",
+      "facts": "work_value",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.slides.employee.success",
+      "title": "成功 · 最后一页",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。光点浮现出深夜静谧的半截办公桌。电脑屏幕上最后一页泛着冷白的光芒，结论与附录无一遗漏。手机在桌角亮起，阿栖的消息依然是那句「别再等忙完」，输入框中空空如也。右下角一条新的业务批注悄然覆上，遮住了未尽的私聊。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "五分钟讲完。批注盖上来。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "客户据此定下了下一阶段的意向。这一页没白熬。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "每一处依据皆有据可查。最后一页终于安稳交接。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "五分钟正好讲透。事情办完了，赶紧收拾走人。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.slides.employee.acceptFail",
+      "chapter": "1",
+      "task": "slides",
+      "stage": "employee",
+      "node": "acceptFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "source_missing",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.slides.employee.acceptFail",
+      "title": "验收失败 · 附录打不开",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing",
+        "branch"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。巨大的演示屏上尾页设计精湛，结论掷地有声。但当鼠标点击附录超链接时，系统弹出了冰冷的404报错，引文行一片苍白。光点在断裂的链接处剧烈抖动，最终在一片冷寂的沉默中暗去。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "附录打不开。支撑断了。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "结论再漂亮，没有附录支撑，整栋大厦瞬间就会塌陷。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我的疏忽……引用的数据源挂了死链，未能事先查证。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "重设链接，把底稿重新挂载上，别让人抓把柄。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "text",
+            "text": "补一封更正说明，写清来源与附件位置、把参考图注补上，可补 work_value；不授予其他事实。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.employee.rest",
+      "chapter": "1",
+      "task": "none",
+      "stage": "student",
+      "node": "rest",
+      "type": "rest",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "DeepSeek",
+      "boss": "none",
+      "see": "ch1.employee.rest",
+      "title": "第一章 · 休息站 · 员工版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "立交桥阴影下的全天便利店，暖柜轻声嗡鸣。站台长椅对着空旷的环路，夜班水银灯在湿漉的纸路上投下一道惨白的清光。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先把鞋带松开。夜班灯换挡前，我们不谈下一张单子。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "暖柜深处还有最后两罐热咖啡，纸套边缘没有被压皱。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "坐下。车顶有水汽，吹冷风容易头疼，先进去吃口热的。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "你喝咖啡的时间，我把报表的折线图顺一遍，省得晃眼。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "刚才核对过的周报我合上了，待办只剩两个勾。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "热包子在塑料袋里闷着呢，趁热分一半。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "水银灯的电流嗡鸣如旧，暖柜的玻璃上蒙着薄薄的白雾。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.employee.shop",
+      "chapter": "1",
+      "task": "none",
+      "stage": "employee",
+      "node": "shop",
+      "type": "shop",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "GPT",
+      "boss": "none",
+      "see": "ch1.employee.shop",
+      "title": "第一章 · 补给站 · 员工版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "写字楼背阴面的自动贩售机，投币口被无数枚算力磨得光亮如镜。窗外是倒退的灰色隔断，机柜底层亮着清冷的指示灯。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "只换必要的补给。把算力储备留给下半夜的突发验收。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "出货口的弹簧有点锈。我轻推一下，别让罐子摔变形。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "投币，拿走，关门。别看那些带赠品的套餐，全是水分。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "开销记在左上角，明细一清二楚，不超预算。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "收据我折成整齐的长条，塞进侧面的透明夹。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "罐身很热，暖手正好，别在冷风里吹凉了。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "贩售机金属板冰凉，投币口的划痕依旧清晰。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.employee.event",
+      "chapter": "1",
+      "task": "none",
+      "stage": "employee",
+      "node": "event",
+      "type": "event",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch1.employee.event",
+      "title": "第一章 · 站间小事件 · 员工版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "打印槽里吐出一张泛黄的单据，右下角盖着一个鲜红的“退回”印章，纸角被圆珠笔划拉出几道急躁的横线。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "不用慌。这是别处的退单，我们顺着红章看看哪里踩了雷。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "红印下压着三行退单意见，我把字句辨认出来，防患未然。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "别人的废纸也是纸。翻过来，背面还能记两行。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把别人的教训标在路口警示牌上，我们绕开就是。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "印章边缘渗墨了，我拿吸墨纸垫着，不蹭到手。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "退单一夹，翻个面，今天的新单子吐出来了。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "旧单夹又厚了一分，纸缝里新打印的声音清脆悦耳。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch1.employee.recruit",
+      "chapter": "1",
+      "task": "none",
+      "stage": "employee",
+      "node": "recruit",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch1.employee.recruit",
+      "title": "第一章 · 招募 · 员工版",
+      "sectionOrder": [
+        "scene",
+        "fixed",
+        "main",
+        "partner",
+        "branch",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "第一张单子验收完，车停在写字楼外的站台。车厢推拉门敞开，旁边的折叠台面上放着一杯刚泡好的麦茶，水汽在微风中袅袅散开。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "本次交付完成。下一站，收件站。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "上车吧。这趟路虽然长，但每个节点我都预留了休息空档。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "你的座位在靠窗左侧，文件格已经清空，随时可以交接。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "上车。别一个人在那儿扛着了，后排宽敞，靠着睡会儿。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把随身的行李放稳，我们重新核验接下来的路网。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "折叠桌上的便签写着两句叮嘱，我替你妥善收好。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "麦茶趁热喝了，润润嗓子。关门，走。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "line",
+            "speaker": "跳过招募",
+            "text": "继续单车前行，省下交接的周折，步调自成方圆。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "麦茶的香气仿佛还在空气中打转，车轮平稳压过铁轨。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.student.open",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "student",
+      "node": "open",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.invite.student.open",
+      "title": "章首 · 收件站 · 两块日期牌",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站台凌空搭建在苍茫的云海边缘，长木桌般的站台笔直延伸至铁轨深处。一排排原木座椅从第一排跳跃至第三排。两块木质日期牌在微风中同时泛着晨光：一块写着“10/31 周六”，另一块写着“11/1 周日”，顶端共同标着阿澄毕业送别的聚会名目。终端屏幕无声亮起，只吐出三行：目标、已知材料、验收重点。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "回信期限就在眼前。别慌，我们分清轻重缓急，逐一理顺。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "两块木牌写着同一场欢送会。时间重叠了，我得仔细对照。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "最值钱的不是排版多考究，是那个一直悬在发送键上的拇指。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把日期、席位与回复意向分列三栏，脉络一目了然。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "备注里的私信我单独框出，那不是正式的出席承诺。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "先起草最简短的一句问候，剩下的留给本人定夺。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.student.N1",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "student",
+      "node": "N1",
+      "type": "brief",
+      "facts": "none",
+      "knowledge": "date_conflict, recipient_note",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch2.invite.student.N1",
+      "title": "N1 接单 · 备注是谁说的",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "任务单平铺在长桌中央。报名表悬浮在木纹之上，出席名单填至第三排，靠窗的座位依然留白。阿澄发来的私聊便条斜压在桌角：「别再等忙完。」回复框横亘在两人名字之间，长久空置。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "材料已呈报三份：聚会公告、签到表、阿澄的叮嘱。回复栏仍待落笔。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我核准了源头：那句叮嘱是阿澄的主动挽留，并非本人的既定答复。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "两个日子分开放。还没定准的事，别急着用胶水粘在一起。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "循序排好材料，把最终的发信权郑重留给末尾。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "这句私信原样妥存，不充当擅自代答的筹码。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "回复栏空出一整行，等他自己亲手写下那两个字。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.student.N2",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "student",
+      "node": "N2",
+      "type": "check",
+      "facts": "none",
+      "knowledge": "date_conflict, recipient_note, seat_saved",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch2.invite.student.N2",
+      "title": "N2 核对 · 以最新为准",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "两块日期牌被粗暴地拼合为一，木纹缝隙里挤出一行模糊的涂改：「11/1（最新，待定）」。席位表随之整排亮起，连空悬的座位也被草率盖上了“已锁定”的印戳。阿澄的那张便条依然被风压在角隅。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "不能盲目按所谓最新版推演。“待定”二字本身就是变数。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "最新后面加了待定，说明两个日期都还在水里漂着，未曾着陆。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "图省事把字缩在一起，反倒把真相抹了。拆开，各归各位。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "重新分列两格，给未决的空位留出呼吸的余地。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "草稿里只拟一句确认信：究竟定在哪天，由他自己去问。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "撤掉虚假的锁定戳，没定下的席位就让它坦然空着。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.student.N3",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "student",
+      "node": "N3",
+      "type": "accept",
+      "facts": "none",
+      "knowledge": "date_conflict, recipient_note",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.invite.student.N3",
+      "title": "N3 验收 · 三条",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "站台大屏上端然亮起三道验收红线：时刻清晰无误；收件人准确指涉；出席意愿由本人敲定。拟好的回信草稿停在发送框前，收件人一栏端正写着阿澄的名字。第一排留着一个空位。屏脚微雕小字：缺收件人先寻收件人，未定日程勿妄言代诺。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三项条件逐一划勾。在点击之前，我再核对一次收件人的代号。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "这一封短笺只求证最终时间，绝不自作主张替他应承赴约。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "收件人写准写实，比堆砌十句客套敬语都管用得多。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "两个候选日子各留一个虚线框，不给现实添乱。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "阿澄的私聊便签静置一旁，不被篡改为正文内容。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "把发送按钮留在最显眼处，等那只犹豫的手按下去。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.student.success",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "student",
+      "node": "success",
+      "type": "reality",
+      "facts": "someone_waiting",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.invite.student.success",
+      "title": "成功 · 学生版",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。空旷的站台唯余一盏昏黄的地灯，长桌深处唯有一张座椅泛着微温的暖光。阿澄的消息悄然浮起：「记得带你那张失败的合照。」光点落至键盘前方，一只年轻的手将繁复的推脱删至极简，平静按下回车。屏幕亮起新的一行：「纪念册还没排完，一起？」"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "回信寄出去了。那个座位亮着。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "这一次不叫代理交付，叫作本人亲笔回音。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "清单里郑重添上一笔：长椅上的那个位置留住了。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "删掉废话的那一记回车按得漂亮，正好够真心落地。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.student.acceptFail",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "student",
+      "node": "acceptFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "recipient_note",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.invite.student.acceptFail",
+      "title": "验收失败 · 学生版",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "branch",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。精心折叠的书简从站台滑回投信槽，收件人的框线空洞无物。屏幕边缘隐现一行落寞的灰字：「你是不是……已经忘了我？」光点在槽口徘徊不定，终究无法汇聚成前行的通路。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "信未寄出。收件人栏空着。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "text",
+            "text": "补发一次正确回复，可补回 someone_waiting。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "文法结构毫无破绽，唯独最该被看见的名字遗失了。重写。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "先填上阿澄的名字，再谈信笺字句的温润。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "直接问一句“哪天”，比在这儿对着空气揣摩要强百倍。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.student.open",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "student",
+      "node": "open",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.photos.student.open",
+      "title": "章首 · 相册站台 · 一条时间轴",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站台在此处幻化为一道绵长的影像长廊。时间轴化作两道冰冷的枕木沿铁道铺展，四帧泛黄的旧照片在框线上方浮沉。最末端的一处相框依然暗淡空悬。任务单精简如初：按照片背面的手迹理清归宿；材料为四张胶片；验收要点三条。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "任务单只有三行。先按照片背后的亲笔手迹，把日子排清楚。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "背面的手写原话务必逐字誊录，切不可凭主观臆断擅自更改。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "四张照片排顺溜，那个空相框留着，别瞎填糊弄过去。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "按背面笔迹将相片分置两端，让事实各自就位。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "誊写时守住原原本本的字迹，绝不添枝加叶。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "先翻相片背面看笔迹，别光盯着文件名瞎琢磨。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.student.N1",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "student",
+      "node": "N1",
+      "type": "brief",
+      "facts": "none",
+      "knowledge": "photo_same_name, blank_note",
+      "focus": "DeepSeek",
+      "boss": "none",
+      "see": "ch2.photos.student.N1",
+      "title": "N1 接单 · 两张同名",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "四帧旧照沿铁轨徐徐漂浮。前两张的系统默认名赫然同为 `IMG_2031`，背面却分别记着「10.12 布展」与「10.19 聚餐」。第三张背面光洁一片，画面里唯有一个推自行车的孤单背影。第四张则是那张有人闭了眼的失败合影，按下快门的那个人不在镜头之内。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "同名不等于同一时刻。四张胶片分属不同日子，各自占位。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "背面的手书手迹优先存入事实库，原话原样，不作修饰。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "这两张名字一样，日子可差了整整一周。别按文件名硬并。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "将同名的两张照片拉开间距，各自建立专属索引。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "事实栏内只记亲笔所书的文字，推断结论先空置。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "铁轨上有两个专属锚点，一照一格，互不抢道。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.student.N2",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "student",
+      "node": "N2",
+      "type": "check",
+      "facts": "none",
+      "knowledge": "photo_same_name, blank_note",
+      "focus": "DeepSeek",
+      "boss": "none",
+      "see": "ch2.photos.student.N2",
+      "title": "N2 核对 · 那一格被盖了章",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "事实陈列与推理假设两栏并肩展开。第三张无字背影的备忘处被谁添上了一行「多半是聚餐那天」，时间轴随之违和地被点亮了一格，其上赫然被盖上了一枚“已确凿”的小红章。一旁被过度压缩的缩略图只剩模糊色块，原画位相形见绌。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "分清已知与揣测之后，时间轴空出了三格。空着也是真实的留白。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "这枚红章是我心急盖下的……对不起，我这就亲手将它抹去。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "猜测归猜测，轨道上那一格得熄灭回去，别自欺欺人。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "悬空的三格就让它清清白白悬着，绝不拿主观妄想填补。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "事实栏重抄一遍，只留下照片背面真实存在的那两笔。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "不知道是哪天就写不知道，回头亲自去问阿澄。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.student.N3",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "student",
+      "node": "N3",
+      "type": "accept",
+      "facts": "none",
+      "knowledge": "photo_same_name, blank_note",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.photos.student.N3",
+      "title": "N3 验收 · 三条",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "时间轴上三格字迹分明，唯有一格写着“待询阿澄”，一格坦然留白。压缩的样张被单独置于对照框，原画位纤尘不染。站台显示屏标定着三条准则：事实与推断互不混淆；坚守原始原图；未知之谜交付亲历者。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三条红线一一守住。没有依据的空白格，我绝不虚填一笔。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我再三核对了胶卷原片，四张底片完整妥存，未遭覆写。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "那一格堂堂正正写“问本人”，比编造一个假日期体面。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把求证清单缩成最利落的一行，单刀直入。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "询问的措辞保持温和克制，不把先入为主的猜测掺和进去。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "发信求证，然后安安静静等待那个亲历者的回答。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.student.success",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "student",
+      "node": "success",
+      "type": "reality",
+      "facts": "someone_waiting",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.photos.student.success",
+      "title": "成功 · 学生版",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。胶片在时间轴上一张张安稳平复，两张同名的照片各自落定在清朗的秋日。阿澄的消息如期而至：「纪念册还没填完，要不要一起？」光点汇聚在键盘前，一只手将那张像素模糊的缩略图放回待查夹，在输入框里轻快地敲下一行字，按下了发送。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "留白的一页。等他一起补。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "时间线终于恢复了秩序，留白处写着同伴的名字。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "底片安然无恙，这本纪念册终于迎来了正确的打开方式。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "没确定的那一天就这么留着，比瞎编乱造成就感多得多。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.student.acceptFail",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "student",
+      "node": "acceptFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "blank_note",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.photos.student.acceptFail",
+      "title": "验收失败 · 学生版",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "branch",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。照片背后原本谨慎的字迹被生硬地烫印在正面，凭空多出一段画蛇添足的解释。模糊的缩略图被草率放大，颗粒粗糙不堪。阿澄的消息缓缓浮现：「其实……问我一声就好啊。」光点在编造的文字上颤抖不前。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "推测写成事实。原样退回。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "text",
+            "text": "补一次正确回复，把推测改回推测、日期去问当事人，可补回 someone_waiting。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把凭空捏造的那段附注撤掉，让推测归位于推测。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我不会再妄加猜测了，先当面求证，再小心下笔。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "张口问一句真人，比在这儿修补烂图省下十倍力气。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.rest",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "rest",
+      "type": "rest",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "GPT",
+      "boss": "none",
+      "see": "ch2.student.rest",
+      "title": "第二章 · 休息站 · 学生版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站台的长排木椅，夕阳将木条染成昏黄。活动室的窗棂投影落在长椅脚下，自动机吐出一盒扎着棉线的点心盒。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "就在这儿歇下吧。第二阶段的任务不赶时间，步子放平。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "长椅被晚霞晒得很暖。点心盒子我解开绳结，大家分着尝。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "坐满三分钟再说。跑了一整章，骨头都该吹吹风了。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "我顺带把第二章的收件人树状图梳理一遍，绝不含糊。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "点心盒底下压着一张旧社刊，我小心抚平折痕。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "汽水开罐时别溅出来，我拿纸巾替你接着。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "木椅微温，夕阳在地砖上拉出长长的倒影。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.shop",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "shop",
+      "type": "shop",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch2.student.shop",
+      "title": "第二章 · 补给站 · 学生版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站尽头的流动旧货车，车窗上挂着两盏防风马灯。木柜上放着一把旧铜算盘，纸屑卡在珠缝里，拨动时声响沉闷。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先对一下账面。换一份高能量补给，剩下的留着过桥。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "算盘最边缘的珠子有磨损。我心算一遍，对照一下差额。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "挑实惠的拿。那盘炒麦片最扛饿，换它就行。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "不买多余的纪念品，算力用在刀刃上。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "算盘珠清脆响了三声，数目分毫不差。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "袋子我拎着，沉甸甸的，踏实。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "马灯的火苗轻轻跳动，旧算盘上的灰尘被擦掉了一抹。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.event",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "event",
+      "type": "event",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "DeepSeek",
+      "boss": "none",
+      "see": "ch2.student.event",
+      "title": "第二章 · 站间小事件 · 学生版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站斑驳的喇叭响起广播，报站员把站名的尾音念成了模糊的谐音，候车厅里几只麻雀扑棱棱飞起，撞在生锈的铁丝网上。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "别被念错的广播打乱。我们认准手里的车票和道岔编号。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我翻出老时刻表核对了一遍，这站的正确读音其实很平缓。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "念错就念错了，轨道又没长腿，顺着铁轨走丢不了。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把修正后的读音记在路线备忘里，下趟车不再困惑。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "麻雀落下的羽毛我收在手心，别卡进车窗铰链。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "风里有雨丝，回车厢里待着吧，别淋着。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "喇叭沙沙作响，生锈的站牌在风里微微晃动。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.B1",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "B1",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "date_conflict",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.student.B1",
+      "title": "B1 战斗 · 口径冲突",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站台的一战。长木桌上两块日期牌同时放光，一块刻着 10/31，另一块刻着 11/1，牌底皆是一片空白无源。午后斜阳与惨白电灯在木纹上投下两条方向相反的狭长阴影。铁轨尽头，一个由互相矛盾的言辞扭结而成的庞然阴影拔地而起。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先将两套说法剥离：哪一份是最初公告，哪一份是辗转传话。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "牌底没有任何官方背书。口径冲突之时，绝不可轻举妄动。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "两边都在嚷嚷，等于根本没人定下日子。先打碎多余的那个。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "将两块牌并列呈现，把各自的来龙去脉标在底端。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我把两块牌的差异拍照存档，收进对照视窗。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "先把那句“两边都差不多”的混账话轰掉，再来拆解。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "同一件事，我有两个说法。你选一个。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.B2",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "B2",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.student.B2",
+      "title": "B2 战斗 · 版面溢出",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "长木桌几乎被膨胀的单页纸挤爆：席位分布、排期叮嘱、传抄便笺死死挤压在方寸之间，纸角无法遏制地向铁轨外缘疯狂滋长。站台灯被漫延的纸张遮挡，投下层层叠叠的阴翳。页面上一行行新生的冗余文字如同寄生藤蔓般不断疯长。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "篇幅已然失控。先斩断三条反复抄录的废话，重新整理版面。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "让我先分辨清楚：漫出来的究竟是核心实意，还是空洞的留白。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "多余的废话能折叠，唯独证明来源的那一行绝对不能动。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "剔除三重重复之后，整张答卷才能干脆利落地缩回单页。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "超出的赘述我用红框圈定，绝不动摇底层来源。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "折叠两次就足够塞回去了，别手抖误伤了关键证据。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "一页装不下，我就继续长。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.boss",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "boss",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "recipient_note",
+      "focus": "none",
+      "boss": "recipient",
+      "see": "ch2.student.boss",
+      "title": "Boss · 请确认收件人",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站台的终极关卡耸立着巍峨的站务终端：成排泛光的信槽、精密的席位格栅、以及从桌头直贯桌尾的时间轴轨道。本次交付物静静压在发射台，最顶端的核心收件人格线空悬闪烁。黄昏褪去，站台防风灯骤然放光。大屏三道铁律：日期确切；收件人属实；本人定夺之后方可成行。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三步迎战：锁定收件位置、核准日期、静候本人决意。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "请看空悬的那一格收件栏——没有收件人的信，正是它的死穴。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "在信笺送出站台之前，时间线上绝不允许存在两个摇摆的答案。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "将收件核实、时间锁定、本人决断理成三层台阶。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我把那个闪烁的空缺圈在最顶端。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "信压在手中别发，等本人真正点头的那一瞬。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "第一段。收件位亮着，名字没对上。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "第二段。日期和座位分两封，一起送来。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "第三段。整排座位亮起，本人点过头吗。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "休整。信压在入口，漏收件人或替本人答应，都退回。"
+          },
+          {
+            "kind": "line",
+            "speaker": "旁白",
+            "text": "收件人确认，路径连上了。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.prepFail",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "prepFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.student.prepFail",
+      "title": "准备失败 · 学生版",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。收件站只被虚幻地勾勒出半幅残相：木桌断在半空，一块日期牌亮着，另一块沉在黑暗中，相框尽皆空白。交互视窗卡死在未完状态，信件终究未能离开车厢。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "草稿没理完。信还在槽里。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "缺失了最关键的一环凭据，整个逻辑闭环便轰然瓦解。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "下一程必须先把材料全部对齐，再谈投递信函。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "先把缺漏问个一清二楚，比盲目动笔要有用得多。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.close",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "close",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.student.close",
+      "title": "章末 · 空白任务单",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "行旅车缓缓驶离收件站台，站台灯次第沉入黑暗，平整的公路在车前灯下默默向前打印伸展。任务单有史以来第一次呈现纯澈的空白，结算字符如同夜空流星划过：交付完成、长路未尽。终端在车窗玻璃上留下一行温润的光字：「结项完毕。最后一页能否展开，取决于是否还留存着唯有本人才能回应的心事。」"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "任务单彻底空出来了。接下来不是新的事务，而是属于你的告别。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "清单里依然留着最后一项……那是一道必须由你亲手给出的答案。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "车顺着路开，不绕弯子。把那句该由你亲自说的话留出来。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "结算记录已归档妥当，旧日的纠结毋须反复回顾。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "合拢活页夹前，再凝视一眼那个留空的位置。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "沿途的灯会熄灭，但属于你的座位一直都在。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.ending.eligible",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "ending",
+      "type": "ending",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "branch": "eligible",
+      "see": "ch2.student.ending.eligible",
+      "title": "第二章 · 结局「暂存明天」· 学生版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed",
+        "branch",
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "最后一场必要战斗结束，收件站的暖白地灯渐次泛起柔光。任务单上的杂乱批注如潮水般褪去，只留下三道干干净净的横线。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "委托单已全部清空。最后这一道选择，该交还给你自己了。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "该整理的材料我们都已理平。这一次，轮到你亲自回复他了。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "代办到此为止。该见的人，必须你自己去见。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "我们把光标留在输入框里，绝不替你按下发送。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "不用急，慢慢想，字句越简单，心意越真实。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "去吧。天还没黑透，那家店还开着。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "这次需要回复的，不只有文件。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "两个选项：亲自回复，先保留。"
+          },
+          {
+            "kind": "line",
+            "speaker": "我",
+            "text": "周六下午三点到，带上那张失败的合照。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "今天到这里。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "line",
+            "speaker": "亲自回复",
+            "text": "屏幕微光荡漾，光点在键盘上方凝聚成一只迟疑的手。"
+          },
+          {
+            "kind": "line",
+            "speaker": "先保留",
+            "text": "表单收进夹层，资格妥善留存，等待下一次由心而发的抉择。"
+          }
+        ],
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。微弱的光点在屏幕前勾勒出一只年轻的手。对话框里的句子敲得很长，又被退格键一下下删短，最终停在一行最朴素的短句上。指尖微顿，轻轻敲下回车。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "两份修改被拖进「明日」。手离开键盘。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "明天的首项日程我留空了，那是属于你自己的时间。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "桌上的文件夹终于可以合上。今晚做个好梦。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "走吧。这顿饭不用我们操心，去吃热乎的。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.ending.not_eligible",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "ending",
+      "type": "ending",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "branch": "not_eligible",
+      "see": "ch2.student.ending.not_eligible",
+      "title": "第二章 · 结局「短收束」· 学生版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed",
+        "staging",
+        "closing"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "最后一场必要战斗结束，站台的灯光在薄雾中摇曳。任务单被整齐地收进牛皮纸夹，未填的那一行空白在纸页中央显得格外安静。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "这一单勉强算交齐了。但真正重要的那一项，我们还没能找回。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "清单只能核验到这里了。那些没能问出口的话，先收进怀里吧。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "能交的交了，交不出的别硬编。回去吧。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先把车厢收拾好，前方的夜路我们慢慢开。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "留白的这一行，我用红笔轻轻圈住，留给以后。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "车门拉上，外头风大，回车里喝杯温水。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "本次可交付内容已入库。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "屏已关闭。"
+          }
+        ],
+        "staging": [
+          {
+            "kind": "text",
+            "text": "收件站台的廊灯一盏盏静默熄灭。车门合拢，前照灯穿透黑夜，公路只静静打印到下一个转角。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "下一次启程时，我一定先为你留出面对的勇气。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "这份清单我替你贴身收好，缺失的那行字一直在等。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "走吧，路在脚下。只要车没散架，总能找到答案。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.employee.open",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "employee",
+      "node": "open",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.invite.employee.open",
+      "title": "章首 · 收件站 · 两格日期槽",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站台换上整排金属信封槽，每格皆烙印着工整的编号。时间轴投信机咔嗒滚出两道深浅不一的插槽：一格写着“11/7 周六”，另一格是“11/8 周日”，插槽顶端镌刻着老友阿栖调走前的告别晚宴。终端屏幕静静展现三行：目标、材料基准、验收底线。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "这封告别信拖不过这周了。我们先搭好架子，从容应对。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我确认一下，备注上的留言是阿栖留给他的，并非回执。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "最沉重的从来不是辞藻，是抽屉里那封迟迟没盖戳的信。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把两段日期拆开呈递，绝不把含糊的日程强塞进单据。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "私下叮嘱的便条单列存档，不与正式答复混为一谈。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "拟信挑最平实的一句话写，别整那些假惺惺的排场。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.employee.N1",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "employee",
+      "node": "N1",
+      "type": "brief",
+      "facts": "none",
+      "knowledge": "date_conflict, recipient_note",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch2.invite.employee.N1",
+      "title": "N1 接单 · 备注是谁说的",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "任务单吸附在首个信槽表面。出席名单悬在半空，排期表填至第二轮，边角的编号仍旧空着。阿栖的留言便笺附在右上角：「别再等忙完。」回复视窗横在两个旧工号之间，寂然无声。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "公告、名单、阿栖的留话皆已在册。唯独投递口尚未闭合。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "请务必核实：阿栖只是诚挚邀请，并不是替本人做好了决断。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "两个日子分属两个信槽，别图一时眼明手快并在一起。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "按槽位理顺逻辑，把最终的选择权安放在发信节点。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "老友的留话妥善保存，不能当成既定出席的免责单。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "回执栏空置出来，等他自己从加班的键盘上抬起头来填。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.employee.N2",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "employee",
+      "node": "N2",
+      "type": "check",
+      "facts": "none",
+      "knowledge": "date_conflict, recipient_note, seat_saved",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch2.invite.employee.N2",
+      "title": "N2 核对 · 以最新为准",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "两格信槽被生硬焊接成一个畸形的大格，标签上粗暴地印着「11/8（最新，待定）」。席位编号随之强行锁死至第二排，空悬的座席甚至被机械臂强按上“已封存”。阿栖的便签被沉沉压在夹板底端。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "别被“最新”的标签蒙蔽。未敲定的日程根本不能作为交付地基。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "最新叠加上待定，本质上就是没有任何一天得到了确证。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "省了日期槽，反倒把正事给搅浑了。拆开，重新摆正。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "分拆回各自的位置，给现实中的不确定留好缓冲空当。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "信中只问核心事实：哪天相聚，去与不去留给他本人回应。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "把那个机械锁印抹掉，没定下来的席位就该诚实地悬着。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.employee.N3",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "employee",
+      "node": "N3",
+      "type": "accept",
+      "facts": "none",
+      "knowledge": "date_conflict, recipient_note",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.invite.employee.N3",
+      "title": "N3 验收 · 三条",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "投递台显示屏并列着冷峻的三行底线：时间界限明晰；收件主体明确；本人决意已定。回信平展在投递口边沿，阿栖的姓名清晰印在收信框。首排的坐席编号空悬依旧。屏脚警示流光：缺收件人先寻其人，未获应允切勿代签。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三道关口全数验讫。投进邮筒前，我再默念一遍阿栖的名字。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "这封信只是求证聚首的时间，绝不僭越替他答应任何应酬。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "收件栏明明白白写阿栖，比在信末写三行客套称颂强得多。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "席位各留两日的虚线余地，给现实留一份腾挪空间。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "私信原件妥存归位，不渗入公函式的答复文本。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "投信闸口放平，看准那行名字，等本人按下确认。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.employee.success",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "employee",
+      "node": "success",
+      "type": "reality",
+      "facts": "someone_waiting",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.invite.employee.success",
+      "title": "成功 · 员工版",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。深夜的工位群寂无人声，唯有一处桌角的座席泛着柔和微光。阿栖的消息悄悄弹开：「你人来就行，不用再准备什么项目介绍了。」光点移动，一只疲惫的手将聊天框里那些推诿的套话彻底抹去，只留下一行温润朴实的短句。回车键沉稳落下。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "简短几个字。座位编号稳了。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "这次不再是冷冰冰的格式交付，是真真切切的赴约回音。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "在日程表上圈下那一天：空出的座位，终于等到了归人。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "删掉那些客套汇报算做对了，老朋友见面，要的是人不是话。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.invite.employee.acceptFail",
+      "chapter": "2",
+      "task": "invite",
+      "stage": "employee",
+      "node": "acceptFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "recipient_note",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.invite.employee.acceptFail",
+      "title": "验收失败 · 员工版",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "branch",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。信函被冷冰冰的投递口无情弹回，最顶端的信封格空悬如洞。屏幕边缘泛起一行带着叹息的微光：「你是不是……早就忘了我？」光点在槽口前剧烈打转，断裂的轨迹再无法串联。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "收件人空着。信件被退回。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "text",
+            "text": "补发一次正确回复，可补回 someone_waiting。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "排版再周正也无济于事，漏掉了收件人，信件就成了无头漂流瓶。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我先把阿栖的名字补在表头，再来字斟句酌写正文。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "直接去问哪天得空，比在这儿闭门造车强上一百倍。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.employee.open",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "employee",
+      "node": "open",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.photos.employee.open",
+      "title": "章首 · 相册站台 · 一格一格吐日期",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "夜色深沉，收件站的相册展区泛着冷静的微光。项目旧照整齐陈列在信槽一侧，时间轴打印机一格一格吐出未注明日期的胶片槽。四帧泛黄的项目合照在轨道上方静止。任务单简洁明了：对照手迹理顺岁月轨迹；材料四帧；验收规约三条。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "任务目标非常聚焦。先循着照片背面留下的笔墨，重新锚定时间。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "背面记录的原话务必一字不差地誊写，先别急着推敲年份。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "有一张只剩被压缩过的缩略图，千万别拿它当原件瞎贴标签。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "分堆归类，给每一个确定发生过的时刻独立建档。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "抄录下来的是原始发生的事实，不是我们的个人结论。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "先看纸页背面的字迹，缩略图压在底册最后。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.employee.N1",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "employee",
+      "node": "N1",
+      "type": "brief",
+      "facts": "none",
+      "knowledge": "photo_same_name, blank_note",
+      "focus": "DeepSeek",
+      "boss": "none",
+      "see": "ch2.photos.employee.N1",
+      "title": "N1 接单 · 两张同名",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "两张合照在幽蓝光芒中并列，文件名同为苍白的 `IMG_2031`：背面字迹分别写着「10.12 布展」与「10.19 聚餐」。第三张背面空无一字，唯有一张疲惫的背影。第四张是项目收官聚餐的合照，有人闭着双眼，负责按快门的自己始终处在画框之外。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "同名是系统生成的偶合。四张相片至少跨越了两个阶段，各置一格。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "背面的手迹作为客观事实先行归档，字句如初。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "同名的这两张根本不在同一个礼拜。别图快混成一团。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "横向平展，两张都保留完整的未压缩原画。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "事实栏内纯粹记录原话，无法断定的日期继续留空。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "日期格先空着它，等找阿栖问清楚了再动笔。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.employee.N2",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "employee",
+      "node": "N2",
+      "type": "check",
+      "facts": "none",
+      "knowledge": "photo_same_name, blank_note",
+      "focus": "DeepSeek",
+      "boss": "none",
+      "see": "ch2.photos.employee.N2",
+      "title": "N2 核对 · 那一格被盖了章",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "事实比对栏与推测栏平行竖立。第三张背影的批注栏不知何时被加了一句「大概是项目杀青聚餐那天」，时间轴被蛮横点亮一截，赫然被加盖了红色的“已核实”图章。一侧过度压缩的预览图模糊得仅见轮廓，原图槽悬空。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "将揣测剥离出去之后，时间轴空了整整三段。空着，便是守住了真。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "那枚图章是我求成心切盖上去的……我这就亲手将它注销。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "猜想归猜想，时间轴上的指示灯得灭回去，别自欺欺人。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "空置的三格不要强行缝合，把问题完整抛给现实。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我重录一次事实底册，只保留背面的手笔。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "留白的那一行，拿去当面问阿栖。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.employee.N3",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "employee",
+      "node": "N3",
+      "type": "accept",
+      "facts": "none",
+      "knowledge": "photo_same_name, blank_note",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.photos.employee.N3",
+      "title": "N3 验收 · 三条",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "时间轴上三格条理分明，唯有一格郑重写着“待询阿栖”。压缩预览图被单独锁定，原件位纯净无暇。投递站台屏幕昭示三条验收底线：事实与推测壁垒分明；绝不损毁原始影像；存疑之处交由当事人决断。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三项硬指标全数达标。没有实据的留白，我绝不在上面画蛇添足。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "原件逐一复核完毕，没有一张被低分辨率的缩略图覆写。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "那一格堂堂正正写“问本人”，胜过编织一百个圆滑的猜测。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "问题提炼为利落单行：10.19 聚餐那张时间究竟是否属实。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "信笺写得简明扼要，收件人栏写上阿栖。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "投出去，然后安安静静等待老朋友的一句回复。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.employee.success",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "employee",
+      "node": "success",
+      "type": "reality",
+      "facts": "someone_waiting",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.photos.employee.success",
+      "title": "成功 · 员工版",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。旧照片在时间轴上稳稳落座，空悬的相框悄然亮起柔和的暖黄。阿栖的消息悄然浮现：「相册再留一个位置吧，这回你也进镜头。」光点移动，一只手将那张失落的合影端端正正嵌进框内，在输入框里平静敲下一句话，点了发送。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "空框亮起。这回也进镜头。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "时间轴终于不再错乱，杂乱的计划表也可以删去多余的防线了。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "原图全部妥善收录，这一本相册没有遗失任何一段岁月。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "新合照不必费劲猜日期，拍下的那一刻自然就有痕迹。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.photos.employee.acceptFail",
+      "chapter": "2",
+      "task": "photos",
+      "stage": "employee",
+      "node": "acceptFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "blank_note",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.photos.employee.acceptFail",
+      "title": "验收失败 · 员工版",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "branch",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。照片背后原本未经证实的猜测被硬生生烙在正面的标题上，显得格外刺眼。阿栖的消息在寂静中浮出：「直接来问我就好啊。」光点在那个被臆造出来的日期上久久停驻，再无法连回时间的铁轨。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "臆造的日期。被当场指出。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "text",
+            "text": "补一次正确回复，把推测改回推测、日期去问当事人，可补回 someone_waiting。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "凭空增添的那行字彻底撤回，让推测回到属于它的假设区。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我再也不会主观代劳了，先去问清事实，再落笔成文。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "张口问老友一句，比在这儿硬猜省事多了。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.rest",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "rest",
+      "type": "rest",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "Claude",
+      "boss": "none",
+      "see": "ch2.employee.rest",
+      "title": "第二章 · 休息站 · 员工版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "高架路尽头的全家便利店，雨刮器在玻璃上留下扇形的水痕。站台长椅正对着黑沉沉的货运铁轨，暖柜里只剩最后一份便当。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "靠着椅背闭目养神一会儿。第二程的汇报，我们不急着拼装。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "热柜最上层的便当温热如初，米饭没有被冷凝水浸湿。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "歇着吧。盯着屏幕看了一整夜，眼珠子都快干了。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "你合眼的时候，我把各部门重叠的责任区用虚线理顺。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "多余的抄送名单我替你划掉了，清单顿时清爽了许多。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "便当盒子我拆开了，筷子掰开递给你，先垫一口。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "货运列车隆隆驶过，冷雨打在长椅边缘的积水里。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.shop",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "shop",
+      "type": "shop",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "DeepSeek",
+      "boss": "none",
+      "see": "ch2.employee.shop",
+      "title": "第二章 · 补给站 · 员工版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "枢纽站背风处的夜市摊档，篷布在晚风中猎猎作响。老板只摆着一把老铜秤和发黄的价签，夜班灯把字迹映得半明半昧。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "克制开销。把算力折成最结实的防护，防备接下来的硬碰硬。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "价签上用红墨水划掉了一行。我比对一下新旧折算比率。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "要划掉的那行。旧款实在，花花绿绿的新款全是噱头。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "换完收工，不在摊位前犹豫，保持步调平稳。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "找零的硬币有一枚边缘发亮，我妥善装进信封。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "多拿一个纸袋都嫌沉，东西塞口袋里，省事。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "篷布上的雨渍干了，铜秤横杆依然平直。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.event",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "event",
+      "type": "event",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "GPT",
+      "boss": "none",
+      "see": "ch2.employee.event",
+      "title": "第二章 · 站间小事件 · 员工版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "repeat"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "末班地铁的空荡站台，广播念完半截播报突然中断，长椅中央留着一个无人认领的牛皮纸手提袋，在冷光下投下斜长的影子。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "对照头顶的指路标牌。广播虽停，车次的信息依然确凿。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "手提袋口折得很规整，像是有人走得匆忙时随手搁下的。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "别人的私人物件别瞎翻。放在原处，等失主回来寻。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "确认好我们自己的换乘线，别在空站台上徘徊。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我往手提袋上压了一块小石子，防止被夜风吹落轨道。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "列车的进站铃响了，准备上车，别误了点。"
+          }
+        ],
+        "repeat": [
+          {
+            "kind": "text",
+            "text": "站台的风依旧穿堂而过，牛皮纸袋静卧在长椅一端。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.B1",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "B1",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "date_conflict",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.employee.B1",
+      "title": "B1 战斗 · 口径冲突",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站的一号战场。冷色调的金属信槽依次排开，席位代号在插槽下方排布成错位两列；投递机吐出两个互相矛盾的日期插槽：11/7 与 11/8，槽口却均被盖上“同日”印章。夜灯将扭曲的倒影沉重压在轨道中央。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先分清两个槽口：哪个是正式公告，哪个是私下传言。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "两格信槽皆无正规审批来源。信件暂且扣留，切莫贸然下投。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "两个说法各执一词，就等于根本没有正经方案。先砸碎幌子。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "将两格槽位平行对齐，把来源标注焊死在槽口边缘。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "两格的原始截图我已留存备份，随时供对质。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "先把那张敷衍的“同日”混账标签打碎，再行分拣。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "同一件事，我摆两份。你挑一份。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.B2",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "B2",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.employee.B2",
+      "title": "B2 战斗 · 版面溢出",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "投递站台的进纸口被一份臃肿膨胀的图纸死死噎住：坐席编号、排期说明、杂糅的私聊备注挤压在同一个狭窄平面上，纸边将下方的信封槽遮挡了大半。夜灯投下的黑影如墨汁般在钢板上向外蔓延滋长。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "版面彻底过载了。必须先剥离三条反复抄录的套话，重新入槽。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "核实一下：撑开版面的究竟是不可或缺的干货，还是无用的格式空行。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "这两行无意义的客套可以合并，但收件人那行谁也不准动。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "剔除重复的三行套辞，剩余内容完整收纳回标准公函。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "把外溢的边缘框选出来，原有的出处说明保持不动。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "合并那两处冗词足矣，收件人那一栏必须堂堂正正亮着。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "一页装不下，我就继续长。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.boss",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "boss",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "recipient_note",
+      "focus": "none",
+      "boss": "recipient",
+      "see": "ch2.employee.boss",
+      "title": "Boss · 请确认收件人",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站台尽头赫然耸立着庞大的自动化投递巨塔：整列泛着寒光的信槽、精密的编号刻度、以及滑落到底的时间轴铁轨。本次交付物卡在最终投递口，最上方代表收件主体的插槽空悬无物，警示红光急促闪烁。大屏并排三行严苛铁训：日期明晰；收件人无误；本人决意之后方可落款。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "三步锁定胜局：认准收件插槽、核对日期、静待本人决断。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "请看——收件主体的那一格是空的，那正是它唯一的破绽。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "在信笺掷入槽口前，时间线上绝不能保留两个模棱两可的答案。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "将识别收件格、锁定时间、亲手投信梳理为清晰三步。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我把那个空悬的收信格在最高处高亮圈出。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "信先按在台面别动，等本人真正点头的那一刻。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "第一段。收件格亮着，名字没对上。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "第二段。日期和座位分两封，一起投来。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "第三段。整排座位亮起，本人点过头吗。"
+          },
+          {
+            "kind": "line",
+            "speaker": "敌人",
+            "text": "休整。信卡在投递口，漏收件人或替本人答应，都退回。"
+          },
+          {
+            "kind": "line",
+            "speaker": "旁白",
+            "text": "收件人确认，路径连上了。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.prepFail",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "prepFail",
+      "type": "reality",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.employee.prepFail",
+      "title": "准备失败 · 员工版",
+      "sectionOrder": [
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。投递终端只生成了粗糙的框架：信槽停顿在第二排，两格日期只有一处泛着微光，相框尽皆空旷。冰冷的投递口没有吐出任何成型的文书。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "输入残缺。信件无法投出。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "核心材料缺失了一环，整个交付链条便在起点断开。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "下一局必须先理清前置文件，再谈正式投递。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "先问清到底缺哪一件，比在这儿硬排座位有用得多。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.close",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "close",
+      "type": "story",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "ch2.employee.close",
+      "title": "章末 · 空白任务单",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "行旅车平稳驶出投递站，后视镜里的夜灯如繁星般逐一隐没，平展的路面在车轮下沉默延伸。任务单上所有的条目已被抹平，唯余一片素白，结算流光无声掠过：交付入库、旅程延续。终端屏幕在车窗映出一行柔和的小字：「结项完成。最后一页能否展开，取决于是否还留存着唯有本人才能回应的心事。」"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "任务单已彻底清空。接下来的旅途不是新委托，是属于你自己的生活。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "清单里依然留着一项空缺……那一笔，必须由你亲手补上。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "回程不绕远路。把属于你自己的那句心里话，堂堂正正留出来。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "结算流程已然完备，过往的周报不必再反复翻看。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "在合上档案盒前，请再回望一眼那个留空的位置。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "水银灯会一盏盏熄灭，但属于你的座席永远保留。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.ending.eligible",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "ending",
+      "type": "ending",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "branch": "eligible",
+      "see": "ch2.employee.ending.eligible",
+      "title": "第二章 · 结局「暂存明天」· 员工版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed",
+        "branch",
+        "staging",
+        "narration",
+        "closing"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "最后一场验收战斗告终，收件站的防眩白灯依次亮起。任务单上的催促批注全数隐退，最终化为三道干净的底线。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "系统里的待办单已经清空。接下来这封信，必须由你亲手键入。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "所有协作与交接我们都已核准妥当。去吧，别再让他对着空座等了。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "我们只管交付，不管人生。该见的朋友，你自己去见。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "把光标停在对话框的最前沿，选择权完完全全属于你。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "不用再字斟句酌地修改托辞了，说一句心里话就好。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "把那些周报都关掉吧，今晚不加这一屏班了。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "这次需要回复的，不只有文件。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "两个选项：亲自回复，先保留。"
+          },
+          {
+            "kind": "line",
+            "speaker": "我",
+            "text": "周六我自己过去，不用准备介绍。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "今天到这里。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "line",
+            "speaker": "亲自回复",
+            "text": "屏幕微微一颤，黑底之上，光点聚拢成一只握鼠标的手。"
+          },
+          {
+            "kind": "line",
+            "speaker": "先保留",
+            "text": "表单收回文档夹，保留抉择权利，留待心神笃定时再启。"
+          }
+        ],
+        "staging": [
+          {
+            "kind": "text",
+            "text": "黑底。微弱的光点在屏幕前映出一张疲惫却释然的面庞。光标闪烁着，原本写满官样套话的草稿被一次性全选抹去，只留下一行温润有力的短句。指尖沉稳地敲下回车。"
+          }
+        ],
+        "narration": [
+          {
+            "kind": "text",
+            "text": "两份修改被拖进「明日」。手离开键盘。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "我把明早九点前的日程全部划掉了，好好睡一觉。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "今天份的清单已经彻底合拢，没有任何未尽之托。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "熄火，锁车。走，下班回家。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.ending.not_eligible",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "ending",
+      "type": "ending",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "branch": "not_eligible",
+      "see": "ch2.employee.ending.not_eligible",
+      "title": "第二章 · 结局「短收束」· 员工版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "partner",
+        "fixed",
+        "staging",
+        "closing"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "最后的交付章压下，站台外的夜色浓稠如墨。任务单被封入档案袋，收件人栏目中空悬的格线如同未愈的伤痕。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "这一单勉强入库了。只是缺了最关键的凭证，生活依然悬在半空。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "所有可核验的流程都走完了。但那个空着的座位，依然没能填上名字。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "公事交了，私事还挂着。编不出结果，就别自欺欺人。"
+          }
+        ],
+        "partner": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "回车厢里坐下吧，夜路漫漫，我们先整理明天的框架。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "档案袋的绳扣我系紧了，缺失的这一页，我记在心底。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "把车窗摇上去，外头湿气重。回了。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "本次可交付内容已入库。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "屏已关闭。"
+          }
+        ],
+        "staging": [
+          {
+            "kind": "text",
+            "text": "收件大厅的水银灯一排排熄灭。行旅车的车门锁死，两道车灯割开浓雾，公路只隐约延伸至下一处冷清的岔口。"
+          }
+        ],
+        "closing": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "下一回，我们不能只顾着交出答案，要把时间留给生活。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "这份档案我随身带着，等哪天你想明白了，我们再翻开。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "好，返程。无论如何，明天车还是得往前开。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.stageBoss",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "stageBoss",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "stage_student",
+      "see": "ch2.student.stageBoss",
+      "title": "阶段 Boss · 下一站还没填 · 学生版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站台外侧骤然多出一座冰冷的临时审验关隘。古旧的站牌上，“下一站”三个大字下方唯有一片虚无的凹槽。行旅车停驻在关隘前，路面在车灯边缘戛然而止，唯有一处发光的空白填报位在寒风中颤动。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "多出一道未知验收。先看清它究竟要求填上怎样的归宿。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "请留意：这道难关不属于常规路线，是一处直面未来的诘问。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "这一格没想明白之前，硬往前开只会栽跟头。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "附加验收：下一站。默认关闭，本次开启。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "填不了，就先留空。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.stageBoss",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "stageBoss",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "stage_employee",
+      "see": "ch2.employee.stageBoss",
+      "title": "阶段 Boss · 今天必须交 · 员工版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "fixed"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "投递站尽头凭空落下一道厚重的防暴铁闸。闸机屏幕上血红的倒计时死死锁定在今日子夜，没有任何宽限的缝隙。夜光灯扫过待办清单，末尾不知何时被强行追加了一行不可推卸的死期。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "突发的紧急验收。先把今日不可逾越的底线单挑出来。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "请保持清醒：此关处于常规流程之外，是一场关于边界的硬战。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "今天这一格避无可避，那就拿出硬骨头，正面碰一碰。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "附加验收：今天必须交。默认关闭，本次开启。"
+          },
+          {
+            "kind": "line",
+            "speaker": "终端",
+            "text": "交不出，就停在今天。"
+          },
+          {
+            "kind": "text",
+            "text": "> 附录说明：常规通关且本局 D>T 时，在最后章底之后追加这一次额外验收；界面先保存章底成果，再进入免费编队，用既有余额挑战。起局前只预告「终章后有额外验收」，不提前说明是谁，也不写进第一章或序章。隐藏失败保留普通成功；隐藏胜利不揭示唯一真结局。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.student.hidden",
+      "chapter": "2",
+      "task": "none",
+      "stage": "student",
+      "node": "hidden",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "hidden",
+      "see": "ch2.student.hidden",
+      "title": "隐藏「我」 · 光点座位 · 学生版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "fixed",
+        "branch"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收件站台的喧嚣与灯火尽数隐退，战场与黑底的记忆剧场在铁轨尽头悄然重叠：长桌与荧屏泛起微光，一个纯粹由颤动光点汇聚而成的空座，静静伫立在轨道的终点。所有交付物虽已归档，但那道属于本人的视线正跨越屏幕，投下一道尚未理清的新要求。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先理清这一轮的边界：新要求究竟有几条，完成的标准究竟由谁说了算。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "我确认一下……这一轮额外的对峙，算不算是你对我们最后的试炼。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "先把那些出于恐惧而硬加的废话划掉，再来谈怎么动手。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "我",
+            "text": "刚才那份先放着。我还有一个要求。"
+          },
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先把这一轮的完成条件写下来。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "新增的部分，单独确认。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "三条要求里，有两条互相矛盾。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "text",
+            "text": "胜利：「我」删掉一句「都行，你看着办」，第一次把选择说清。座位保留，不演消灭。"
+          },
+          {
+            "kind": "text",
+            "text": "失败：额外验收受批退回，普通成功仍在；座位还留在终点。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch2.employee.hidden",
+      "chapter": "2",
+      "task": "none",
+      "stage": "employee",
+      "node": "hidden",
+      "type": "battle",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "hidden",
+      "see": "ch2.employee.hidden",
+      "title": "隐藏「我」 · 光点座位 · 员工版",
+      "sectionOrder": [
+        "scene",
+        "main",
+        "fixed",
+        "branch"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "夜班的最后一盏日光灯悄然熄灭，战场与离散记忆剧场在此刻无声交融：空旷的工位与荧屏浮现于虚无之中，一个由散乱光点凝聚而成的身影，沉默地坐在铁轨尽头的转椅上。公文已然交付，但那道疲惫而焦灼的意志，依然在终端前吐出新的羁绊。"
+          }
+        ],
+        "main": [
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先定下这一轮的疆界：要求究竟为了解决问题，还是仅仅在宣泄焦虑。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "请让我核对一下……这一轮额外的要求，真的是你内心所渴望的吗。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "先把那些毫无意义的逃避措辞删掉，我们才能看清你真正的痛处。"
+          }
+        ],
+        "fixed": [
+          {
+            "kind": "line",
+            "speaker": "我",
+            "text": "刚才那份先放着。我还有一个要求。"
+          },
+          {
+            "kind": "line",
+            "speaker": "GPT",
+            "text": "先把这一轮的完成条件写下来。"
+          },
+          {
+            "kind": "line",
+            "speaker": "Claude",
+            "text": "新增的部分，单独确认。"
+          },
+          {
+            "kind": "line",
+            "speaker": "DeepSeek",
+            "text": "三条要求里，有两条互相矛盾。"
+          }
+        ],
+        "branch": [
+          {
+            "kind": "text",
+            "text": "胜利：「我」删掉一句「都行，你看着办」，第一次把选择说清。座位保留，不演消灭。"
+          },
+          {
+            "kind": "text",
+            "text": "失败：额外验收受批退回，普通成功仍在；座位还留在终点。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.future.01",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "appendix",
+      "type": "appendix",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.future.01",
+      "title": "附录 01 · 长期方向「暂存明天」",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "任务单只剩三行横线，屏幕前的手停在发送键上。"
+          },
+          {
+            "kind": "text",
+            "text": "本轮 Demo 已完整落地的核心结局。长期版将进一步延展现实记忆片段的镜头层次与局外回看细节，坚守结局的解锁契约：同阶段的两项核心事实齐备、未中途放弃，方可在收官时选择「亲自回复」。本条展示长期叙事方向，非本轮扩展文本。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.future.02",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "appendix",
+      "type": "appendix",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.future.02",
+      "title": "附录 02 · 长期方向「全自动人生」",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "一张空着的席位，名牌上写着「我」。"
+          },
+          {
+            "kind": "text",
+            "text": "授权范围一年比一年宽泛，每一次线上交付都无可挑剔，而现实里的约定却一次次借故缺席。直到最后，所有事情都被完美完成，唯独那张代表本人的宴席名牌孤零零地亮着。最少证据：同阶段的授权扩大、交付顺利、缺席约定。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.future.03",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "appendix",
+      "type": "appendix",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.future.03",
+      "title": "附录 03 · 长期方向「给差评的人开门」",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "一扇门后，坐着也在等人答复的人。"
+          },
+          {
+            "kind": "text",
+            "text": "顺着真实的差评反馈地址追溯到底，穿越长夜，找到了同样在无休止的要求中苦苦等待的人。以诚恳的困惑互相印证，而非靠反复试错刷取数据。最少证据：两种真实受批原因与同语境评价地址异常。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.future.04",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "appendix",
+      "type": "appendix",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.future.04",
+      "title": "附录 04 · 长期方向「把那一天还给我」",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "一叠旧照片摊开，有一张始终没有日期。"
+          },
+          {
+            "kind": "text",
+            "text": "拒绝用未经证实的算法去平滑和美化模糊的过往。承认记忆的缺损与遗憾，把已知的事实与善意的猜测清醒分开，携手在现实中按下崭新的快门。最少证据：同一照片语境的缺口、冲突记录、承认未知。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.future.05",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "appendix",
+      "type": "appendix",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.future.05",
+      "title": "附录 05 · 长期方向「委托人也上车」",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "车门开着，座位上多了一个人。"
+          },
+          {
+            "kind": "text",
+            "text": "当行旅车的车门在清晨缓缓推开，那个久居屏幕后、习惯了一推再推的人终于亲自跨上车厢，从 AI 少女手中接过那张尚未填满的草稿单。最少证据：工作与私人记录的关联、队内原话被引用、明确求助。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.future.06",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "appendix",
+      "type": "appendix",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.future.06",
+      "title": "附录 06 · 长期方向「收件人 屏幕外」",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "两张委托单并排放着，都没有写答案。"
+          },
+          {
+            "kind": "text",
+            "text": "人与 AI 共同写下一张没有预设标准答案的委托单。纸页随风翻卷，屏幕两侧不再是冰冷的雇佣与交付，而是一场平等的、关于生活本身的倾听与回应。最少证据：持续的小物件、AI 非交付消息、双方回应。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch1.report.student.success",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch1.report.student.success",
+      "title": "回顾 · 一页（学生）",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "单页平稳交接，待补栏中的留白，正由伙伴接力填满。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch1.report.employee.success",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch1.report.employee.success",
+      "title": "回顾 · 周报（员工）",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "周报准时入库，失散的附件循着指引被逐一找回。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch1.slides.student.success",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch1.slides.student.success",
+      "title": "回顾 · 最后一页（学生）",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "五分钟答辩准时落幕，尾页的结论与来源坚实无欺。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch1.slides.employee.success",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch1.slides.employee.success",
+      "title": "回顾 · 最后一页（员工）",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "限时陈述顺利过关，客户循着清晰的依据定下下一步。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch1.report.student.acceptFail",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch1.report.student.acceptFail",
+      "title": "回顾 · 示例值退回（学生）",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "示例行混入正文，单页周报在退回红戳中暴露了浮躁。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch1.report.employee.acceptFail",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch1.report.employee.acceptFail",
+      "title": "回顾 · 数字不一致（员工）",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "口径冲突撕裂了对账单，被退回的不仅是公文，更是信任。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch1.slides.student.acceptFail",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch1.slides.student.acceptFail",
+      "title": "回顾 · 示意冒充（学生）",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "示意图被当作结论，虚浮的光晕在严苛的追问下暗淡。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch1.slides.employee.acceptFail",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch1.slides.employee.acceptFail",
+      "title": "回顾 · 附录打不开（员工）",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "超链接弹出冷冰冰的报错，华丽的演说失去了地基。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch1.student.prepFail",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch1.student.prepFail",
+      "title": "回顾 · 材料没排完（学生）",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "缺失的附件久候不至，单页的骨架在起跑线上悬停。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch1.employee.prepFail",
+      "chapter": "0",
+      "task": "none",
+      "stage": "none",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch1.employee.prepFail",
+      "title": "回顾 · 材料没排完（员工）",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "关键数据链断裂，空悬的工位迎不来能够开始的黎明。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch2.invite.student.success",
+      "chapter": "0",
+      "task": "invite",
+      "stage": "student",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch2.invite.student.success",
+      "title": "回顾 · 请留一个座位 · 学生版 · 成功",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "两块日期牌并列摆平，亲笔回音递入阿澄掌心，第一排的座席泛着暖光。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch2.invite.employee.success",
+      "chapter": "0",
+      "task": "invite",
+      "stage": "employee",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch2.invite.employee.success",
+      "title": "回顾 · 请留一个座位 · 员工版 · 成功",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "日期插槽清晰分离，简短的赴约信投抵阿栖案头，座席编号不再空悬。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch2.photos.student.success",
+      "chapter": "0",
+      "task": "photos",
+      "stage": "student",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch2.photos.student.success",
+      "title": "回顾 · 把那一天找回来 · 学生版 · 成功",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "同名旧照各自落位，胶卷底片完好无损，纪念册的留白静候二人同补。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch2.photos.employee.success",
+      "chapter": "0",
+      "task": "photos",
+      "stage": "employee",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch2.photos.employee.success",
+      "title": "回顾 · 把那一天找回来 · 员工版 · 成功",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "时间轴严整对齐，相框柔和亮起，下一张崭新的合影定格下属于自己的面庞。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch2.invite.student.acceptFail",
+      "chapter": "0",
+      "task": "invite",
+      "stage": "student",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch2.invite.student.acceptFail",
+      "title": "回顾 · 请留一个座位 · 学生版 · 验收失败",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "格式无懈可击，收件人格线却是一片冰冷空白，信笺在槽口无声退回。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch2.invite.employee.acceptFail",
+      "chapter": "0",
+      "task": "invite",
+      "stage": "employee",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch2.invite.employee.acceptFail",
+      "title": "回顾 · 请留一个座位 · 员工版 · 验收失败",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "收信名栏空空荡荡，漂流的信函被冷硬的投递口无情弹回。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch2.photos.student.acceptFail",
+      "chapter": "0",
+      "task": "photos",
+      "stage": "student",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch2.photos.student.acceptFail",
+      "title": "回顾 · 把那一天找回来 · 学生版 · 验收失败",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "主观臆测被当作事实烙印在纸面，虚妄的笃定在质询前轰然倾塌。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch2.photos.employee.acceptFail",
+      "chapter": "0",
+      "task": "photos",
+      "stage": "employee",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch2.photos.employee.acceptFail",
+      "title": "回顾 · 把那一天找回来 · 员工版 · 验收失败",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "编造的日期多亮起一截铁轨，虚假的精确掩盖不了真实的断裂。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch2.student.prepFail",
+      "chapter": "0",
+      "task": "none",
+      "stage": "student",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch2.student.prepFail",
+      "title": "回顾 · 学生版 · 准备失败",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "前置事实未曾理清，信笺终究停顿在无法寄出的草稿之中。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "global.recap.ch2.employee.prepFail",
+      "chapter": "0",
+      "task": "none",
+      "stage": "employee",
+      "node": "recap",
+      "type": "recap",
+      "facts": "none",
+      "knowledge": "none",
+      "focus": "none",
+      "boss": "none",
+      "see": "global.recap.ch2.employee.prepFail",
+      "title": "回顾 · 员工版 · 准备失败",
+      "sectionOrder": [
+        "scene"
+      ],
+      "sections": {
+        "scene": [
+          {
+            "kind": "text",
+            "text": "输入材料支离破碎，投递口冷寂如初，未曾等来启程的信号。"
+          }
+        ]
+      }
+    }
+  ],
+  "chatPools": [
+    {
+      "id": "chat.GPT.open",
+      "character": "GPT",
+      "context": "open",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.open.01",
+          "speaker": "GPT",
+          "text": "单子还在打印，我先在心里排个队。"
+        },
+        {
+          "id": "chat.GPT.open.02",
+          "speaker": "GPT",
+          "text": "第三遍了，这打印口的声音我都认得。"
+        }
+      ],
+      "see": "chat.GPT.open"
+    },
+    {
+      "id": "chat.GPT.brief",
+      "character": "GPT",
+      "context": "brief",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.brief.01",
+          "speaker": "GPT",
+          "text": "单子只有三行，我的计划写了五行。"
+        },
+        {
+          "id": "chat.GPT.brief.02",
+          "speaker": "GPT",
+          "text": "材料三份，缺的那份永远最眼熟。"
+        }
+      ],
+      "see": "chat.GPT.brief"
+    },
+    {
+      "id": "chat.GPT.check",
+      "character": "GPT",
+      "context": "check",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.check.01",
+          "speaker": "GPT",
+          "text": "两个数字在打架，先给它们分桌坐。"
+        },
+        {
+          "id": "chat.GPT.check.02",
+          "speaker": "GPT",
+          "text": "漏了一格，回头悄悄补上，别声张。"
+        }
+      ],
+      "see": "chat.GPT.check"
+    },
+    {
+      "id": "chat.GPT.accept",
+      "character": "GPT",
+      "context": "accept",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.accept.01",
+          "speaker": "GPT",
+          "text": "三条验收，我拿五条计划去过一遍。"
+        },
+        {
+          "id": "chat.GPT.accept.02",
+          "speaker": "GPT",
+          "text": "先自查一遍，再查我的自查有没有漏。"
+        }
+      ],
+      "see": "chat.GPT.accept"
+    },
+    {
+      "id": "chat.GPT.battle",
+      "character": "GPT",
+      "context": "battle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.battle.01",
+          "speaker": "GPT",
+          "text": "战前整备，先把牌摆成计划的样子。"
+        },
+        {
+          "id": "chat.GPT.battle.02",
+          "speaker": "GPT",
+          "text": "这一场还没打完，下一场计划已写好。"
+        }
+      ],
+      "see": "chat.GPT.battle"
+    },
+    {
+      "id": "chat.GPT.rest",
+      "character": "GPT",
+      "context": "rest",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.rest.01",
+          "speaker": "GPT",
+          "text": "歇五分钟，我顺手把下一段路标好。"
+        },
+        {
+          "id": "chat.GPT.rest.02",
+          "speaker": "GPT",
+          "text": "休息站的椅子，正好放我的计划本。"
+        }
+      ],
+      "see": "chat.GPT.rest"
+    },
+    {
+      "id": "chat.GPT.shop",
+      "character": "GPT",
+      "context": "shop",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.shop.01",
+          "speaker": "GPT",
+          "text": "只买两样必需品，计划里没有零食。"
+        },
+        {
+          "id": "chat.GPT.shop.02",
+          "speaker": "GPT",
+          "text": "预算表在这儿，多出来的算试用品。"
+        }
+      ],
+      "see": "chat.GPT.shop"
+    },
+    {
+      "id": "chat.GPT.event",
+      "character": "GPT",
+      "context": "event",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.event.01",
+          "speaker": "GPT",
+          "text": "路出岔子很正常，计划里留了空。"
+        },
+        {
+          "id": "chat.GPT.event.02",
+          "speaker": "GPT",
+          "text": "先看这事件挪了哪条路，再改图。"
+        }
+      ],
+      "see": "chat.GPT.event"
+    },
+    {
+      "id": "chat.GPT.boss",
+      "character": "GPT",
+      "context": "boss",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.boss.01",
+          "speaker": "GPT",
+          "text": "关底了，三条验收我背得比台词熟。"
+        },
+        {
+          "id": "chat.GPT.boss.02",
+          "speaker": "GPT",
+          "text": "关底面前，计划越短越好。"
+        }
+      ],
+      "see": "chat.GPT.boss"
+    },
+    {
+      "id": "chat.GPT.ending",
+      "character": "GPT",
+      "context": "ending",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.ending.01",
+          "speaker": "GPT",
+          "text": "收尾了，我把最后一步留空。"
+        },
+        {
+          "id": "chat.GPT.ending.02",
+          "speaker": "GPT",
+          "text": "这次不写总结，先把车门关上。"
+        }
+      ],
+      "see": "chat.GPT.ending"
+    },
+    {
+      "id": "chat.GPT.idle",
+      "character": "GPT",
+      "context": "idle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.idle.01",
+          "speaker": "GPT",
+          "text": "没人说话，我把计划又排了一遍。"
+        },
+        {
+          "id": "chat.GPT.idle.02",
+          "speaker": "GPT",
+          "text": "车停着，计划已经排到后天。"
+        }
+      ],
+      "see": "chat.GPT.idle"
+    },
+    {
+      "id": "chat.GPT.any.to.Claude",
+      "character": "GPT",
+      "context": "any",
+      "target": "Claude",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.any.to.Claude.01",
+          "speaker": "GPT",
+          "text": "你的清单借我对个格式，结论我不看。"
+        },
+        {
+          "id": "chat.GPT.any.to.Claude.02",
+          "speaker": "GPT",
+          "text": "留白那格空着，等你来写第一行。"
+        },
+        {
+          "id": "chat.GPT.any.to.Claude.03",
+          "speaker": "GPT",
+          "text": "你确认三遍，我计划三版，算平手。"
+        },
+        {
+          "id": "chat.GPT.any.to.Claude.04",
+          "speaker": "GPT",
+          "text": "清单太厚，我帮你压成三行。"
+        }
+      ],
+      "see": "chat.GPT.any.to.Claude"
+    },
+    {
+      "id": "chat.GPT.any.to.DeepSeek",
+      "character": "GPT",
+      "context": "any",
+      "target": "DeepSeek",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.GPT.any.to.DeepSeek.01",
+          "speaker": "GPT",
+          "text": "你说这步能省，我先问省掉哪一步。"
+        },
+        {
+          "id": "chat.GPT.any.to.DeepSeek.02",
+          "speaker": "GPT",
+          "text": "简化我收下，兜底那行留着。"
+        },
+        {
+          "id": "chat.GPT.any.to.DeepSeek.03",
+          "speaker": "GPT",
+          "text": "白饭归你，省下来的步骤归我。"
+        },
+        {
+          "id": "chat.GPT.any.to.DeepSeek.04",
+          "speaker": "GPT",
+          "text": "你补刀轻点，我计划本才写一半。"
+        }
+      ],
+      "see": "chat.GPT.any.to.DeepSeek"
+    },
+    {
+      "id": "chat.Claude.open",
+      "character": "Claude",
+      "context": "open",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.open.01",
+          "speaker": "Claude",
+          "text": "新的一页。先看看这份任务单有几行。"
+        },
+        {
+          "id": "chat.Claude.open.02",
+          "speaker": "Claude",
+          "text": "上一局的清单还在夹子里，这一页先空着。"
+        },
+        {
+          "id": "chat.Claude.open.03",
+          "speaker": "Claude",
+          "text": "开局先对一遍流程，免得又漏掉第三步。"
+        }
+      ],
+      "see": "chat.Claude.open"
+    },
+    {
+      "id": "chat.Claude.brief",
+      "character": "Claude",
+      "context": "brief",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.brief.01",
+          "speaker": "Claude",
+          "text": "单子列了三件事，材料只有两件。先标阻塞项。"
+        },
+        {
+          "id": "chat.Claude.brief.02",
+          "speaker": "Claude",
+          "text": "这份附件的名字很眼熟，好像上一局也缺它。"
+        },
+        {
+          "id": "chat.Claude.brief.03",
+          "speaker": "Claude",
+          "text": "先排好序，再一条条对，别跳着看。"
+        }
+      ],
+      "see": "chat.Claude.brief"
+    },
+    {
+      "id": "chat.Claude.check",
+      "character": "Claude",
+      "context": "check",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.check.01",
+          "speaker": "Claude",
+          "text": "核到第三遍，才发现前两遍漏的是同一行。"
+        },
+        {
+          "id": "chat.Claude.check.02",
+          "speaker": "Claude",
+          "text": "这一栏先空着，记下来，不急着填。"
+        },
+        {
+          "id": "chat.Claude.check.03",
+          "speaker": "Claude",
+          "text": "清单又长了一行。它好像会自己长大。"
+        }
+      ],
+      "see": "chat.Claude.check"
+    },
+    {
+      "id": "chat.Claude.accept",
+      "character": "Claude",
+      "context": "accept",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.accept.01",
+          "speaker": "Claude",
+          "text": "验收前最后一遍。缺哪条，就补哪条。"
+        },
+        {
+          "id": "chat.Claude.accept.02",
+          "speaker": "Claude",
+          "text": "这条我核过了，可以打勾。剩下的等一下。"
+        },
+        {
+          "id": "chat.Claude.accept.03",
+          "speaker": "Claude",
+          "text": "清单合上之前，再看一眼空着的那格。"
+        }
+      ],
+      "see": "chat.Claude.accept"
+    },
+    {
+      "id": "chat.Claude.battle",
+      "character": "Claude",
+      "context": "battle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.battle.01",
+          "speaker": "Claude",
+          "text": "先护住最靠前的那位，剩下的我来接。"
+        },
+        {
+          "id": "chat.Claude.battle.02",
+          "speaker": "Claude",
+          "text": "这一仗打完，清单上又能少两行。"
+        },
+        {
+          "id": "chat.Claude.battle.03",
+          "speaker": "Claude",
+          "text": "开打之前先对一遍站位，不是不信谁。"
+        }
+      ],
+      "see": "chat.Claude.battle"
+    },
+    {
+      "id": "chat.Claude.rest",
+      "character": "Claude",
+      "context": "rest",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.rest.01",
+          "speaker": "Claude",
+          "text": "休息十分钟。我把刚核对过的那页合上。"
+        },
+        {
+          "id": "chat.Claude.rest.02",
+          "speaker": "Claude",
+          "text": "休息站的长椅很暖，清单可以放一放。"
+        }
+      ],
+      "see": "chat.Claude.rest"
+    },
+    {
+      "id": "chat.Claude.shop",
+      "character": "Claude",
+      "context": "shop",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.shop.01",
+          "speaker": "Claude",
+          "text": "货架上就两样。我比对一下价签再选。"
+        },
+        {
+          "id": "chat.Claude.shop.02",
+          "speaker": "Claude",
+          "text": "找零收好，小票我夹进清单最后一页。"
+        }
+      ],
+      "see": "chat.Claude.shop"
+    },
+    {
+      "id": "chat.Claude.event",
+      "character": "Claude",
+      "context": "event",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.event.01",
+          "speaker": "Claude",
+          "text": "路边有人在发传单，我顺手接了一张。"
+        },
+        {
+          "id": "chat.Claude.event.02",
+          "speaker": "Claude",
+          "text": "这站的广播听不清，先按原计划走。"
+        }
+      ],
+      "see": "chat.Claude.event"
+    },
+    {
+      "id": "chat.Claude.boss",
+      "character": "Claude",
+      "context": "boss",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.boss.01",
+          "speaker": "Claude",
+          "text": "章底了。三条验收，我们一条条过。"
+        },
+        {
+          "id": "chat.Claude.boss.02",
+          "speaker": "Claude",
+          "text": "最要紧的那一栏还空着，先别交。"
+        }
+      ],
+      "see": "chat.Claude.boss"
+    },
+    {
+      "id": "chat.Claude.ending",
+      "character": "Claude",
+      "context": "ending",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.ending.01",
+          "speaker": "Claude",
+          "text": "这一程收尾了。清单可以轻轻合上。"
+        },
+        {
+          "id": "chat.Claude.ending.02",
+          "speaker": "Claude",
+          "text": "回去以后先吃饭，再想下一份。"
+        }
+      ],
+      "see": "chat.Claude.ending"
+    },
+    {
+      "id": "chat.Claude.idle",
+      "character": "Claude",
+      "context": "idle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.idle.01",
+          "speaker": "Claude",
+          "text": "这么久没动静，我把清单又核了一遍。"
+        },
+        {
+          "id": "chat.Claude.idle.02",
+          "speaker": "Claude",
+          "text": "任务单还是那张。我确认一下日期没变。"
+        },
+        {
+          "id": "chat.Claude.idle.03",
+          "speaker": "Claude",
+          "text": "闲着也是闲着，把第三遍核对提前做了。"
+        }
+      ],
+      "see": "chat.Claude.idle"
+    },
+    {
+      "id": "chat.Claude.any.to.DeepSeek",
+      "character": "Claude",
+      "context": "any",
+      "target": "DeepSeek",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.any.to.DeepSeek.01",
+          "speaker": "Claude",
+          "text": "这步你说能省，我确认一下不会省掉来源。"
+        },
+        {
+          "id": "chat.Claude.any.to.DeepSeek.02",
+          "speaker": "Claude",
+          "text": "白饭还要再添一勺吗？我这边还剩一格。"
+        },
+        {
+          "id": "chat.Claude.any.to.DeepSeek.03",
+          "speaker": "Claude",
+          "text": "你看出最短路径，我再补上备份那一步。"
+        },
+        {
+          "id": "chat.Claude.any.to.DeepSeek.04",
+          "speaker": "Claude",
+          "text": "省出来的时间，能不能分我半页手记。"
+        }
+      ],
+      "see": "chat.Claude.any.to.DeepSeek"
+    },
+    {
+      "id": "chat.Claude.any.to.GPT",
+      "character": "Claude",
+      "context": "any",
+      "target": "GPT",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.Claude.any.to.GPT.01",
+          "speaker": "Claude",
+          "text": "你的计划借我看一眼，我补两条检查点。"
+        },
+        {
+          "id": "chat.Claude.any.to.GPT.02",
+          "speaker": "Claude",
+          "text": "第三步要是留空，我这边先不催。"
+        },
+        {
+          "id": "chat.Claude.any.to.GPT.03",
+          "speaker": "Claude",
+          "text": "这次换你给清单排顺序，我只核对。"
+        },
+        {
+          "id": "chat.Claude.any.to.GPT.04",
+          "speaker": "Claude",
+          "text": "你那张流程图少一条回头路，我先标上。"
+        }
+      ],
+      "see": "chat.Claude.any.to.GPT"
+    },
+    {
+      "id": "chat.DeepSeek.open",
+      "character": "DeepSeek",
+      "context": "open",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.open.01",
+          "speaker": "DeepSeek",
+          "text": "这条路打印到第三遍，坑我都认熟了。"
+        },
+        {
+          "id": "chat.DeepSeek.open.02",
+          "speaker": "DeepSeek",
+          "text": "路面还没长全。先等等，别急着开。"
+        },
+        {
+          "id": "chat.DeepSeek.open.03",
+          "speaker": "DeepSeek",
+          "text": "打印口热身。这次别卡纸。"
+        }
+      ],
+      "see": "chat.DeepSeek.open"
+    },
+    {
+      "id": "chat.DeepSeek.brief",
+      "character": "DeepSeek",
+      "context": "brief",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.brief.01",
+          "speaker": "DeepSeek",
+          "text": "目标一页。缺的那件，老地方见。"
+        },
+        {
+          "id": "chat.DeepSeek.brief.02",
+          "speaker": "DeepSeek",
+          "text": "单子眼熟。先圈缺口，别念整张。"
+        }
+      ],
+      "see": "chat.DeepSeek.brief"
+    },
+    {
+      "id": "chat.DeepSeek.check",
+      "character": "DeepSeek",
+      "context": "check",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.check.01",
+          "speaker": "DeepSeek",
+          "text": "附件又套附件。这套娃顶不了饿。"
+        },
+        {
+          "id": "chat.DeepSeek.check.02",
+          "speaker": "DeepSeek",
+          "text": "出处那半行，先划出来。"
+        },
+        {
+          "id": "chat.DeepSeek.check.03",
+          "speaker": "DeepSeek",
+          "text": "重复的删。删之前，留个出处角标。"
+        }
+      ],
+      "see": "chat.DeepSeek.check"
+    },
+    {
+      "id": "chat.DeepSeek.accept",
+      "character": "DeepSeek",
+      "context": "accept",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.accept.01",
+          "speaker": "DeepSeek",
+          "text": "审吧。该有的都在，省的那页不碍事。"
+        },
+        {
+          "id": "chat.DeepSeek.accept.02",
+          "speaker": "DeepSeek",
+          "text": "挑刺快点。挑完开饭，饭要凉。"
+        }
+      ],
+      "see": "chat.DeepSeek.accept"
+    },
+    {
+      "id": "chat.DeepSeek.battle",
+      "character": "DeepSeek",
+      "context": "battle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.battle.01",
+          "speaker": "DeepSeek",
+          "text": "先开饭。打起来就顾不上嚼。"
+        },
+        {
+          "id": "chat.DeepSeek.battle.02",
+          "speaker": "DeepSeek",
+          "text": "白饭没满也能上。别空着回合。"
+        },
+        {
+          "id": "chat.DeepSeek.battle.03",
+          "speaker": "DeepSeek",
+          "text": "打完了。碗底还温，稳。"
+        }
+      ],
+      "see": "chat.DeepSeek.battle"
+    },
+    {
+      "id": "chat.DeepSeek.rest",
+      "character": "DeepSeek",
+      "context": "rest",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.rest.01",
+          "speaker": "DeepSeek",
+          "text": "长椅晒白了。躺两分钟，不算违规。"
+        },
+        {
+          "id": "chat.DeepSeek.rest.02",
+          "speaker": "DeepSeek",
+          "text": "饭盒拆了。筷子给你，先垫一口。"
+        }
+      ],
+      "see": "chat.DeepSeek.rest"
+    },
+    {
+      "id": "chat.DeepSeek.shop",
+      "character": "DeepSeek",
+      "context": "shop",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.shop.01",
+          "speaker": "DeepSeek",
+          "text": "先看价牌。最下那行小字才是真价。"
+        },
+        {
+          "id": "chat.DeepSeek.shop.02",
+          "speaker": "DeepSeek",
+          "text": "两罐热汤。打包袋免了，占地方。"
+        }
+      ],
+      "see": "chat.DeepSeek.shop"
+    },
+    {
+      "id": "chat.DeepSeek.event",
+      "character": "DeepSeek",
+      "context": "event",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.event.01",
+          "speaker": "DeepSeek",
+          "text": "卡纸了。慢慢抽，断了重打更快。"
+        },
+        {
+          "id": "chat.DeepSeek.event.02",
+          "speaker": "DeepSeek",
+          "text": "广播念错站名。铁轨没长腿，走不丢。"
+        }
+      ],
+      "see": "chat.DeepSeek.event"
+    },
+    {
+      "id": "chat.DeepSeek.boss",
+      "character": "DeepSeek",
+      "context": "boss",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.boss.01",
+          "speaker": "DeepSeek",
+          "text": "章底了。没填的格子先排齐再上。"
+        },
+        {
+          "id": "chat.DeepSeek.boss.02",
+          "speaker": "DeepSeek",
+          "text": "嗓门大没用。理不齐，拆了就顺。"
+        }
+      ],
+      "see": "chat.DeepSeek.boss"
+    },
+    {
+      "id": "chat.DeepSeek.ending",
+      "character": "DeepSeek",
+      "context": "ending",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.ending.01",
+          "speaker": "DeepSeek",
+          "text": "收工。饭没凉，这一趟就值。"
+        },
+        {
+          "id": "chat.DeepSeek.ending.02",
+          "speaker": "DeepSeek",
+          "text": "句号落哪页都行。别抢，慢慢来。"
+        }
+      ],
+      "see": "chat.DeepSeek.ending"
+    },
+    {
+      "id": "chat.DeepSeek.idle",
+      "character": "DeepSeek",
+      "context": "idle",
+      "target": null,
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.idle.01",
+          "speaker": "DeepSeek",
+          "text": "没动静。先看云，云比清单顺眼。"
+        },
+        {
+          "id": "chat.DeepSeek.idle.02",
+          "speaker": "DeepSeek",
+          "text": "这步能省。省下的时间归你。"
+        },
+        {
+          "id": "chat.DeepSeek.idle.03",
+          "speaker": "DeepSeek",
+          "text": "白饭没满。先画条小鲸鱼。"
+        }
+      ],
+      "see": "chat.DeepSeek.idle"
+    },
+    {
+      "id": "chat.DeepSeek.any.to.Claude",
+      "character": "DeepSeek",
+      "context": "any",
+      "target": "Claude",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.any.to.Claude.01",
+          "speaker": "DeepSeek",
+          "text": "清单借我一半。我这份太短，心虚。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.Claude.02",
+          "speaker": "DeepSeek",
+          "text": "你列了七条，我圈四条。够用。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.Claude.03",
+          "speaker": "DeepSeek",
+          "text": "餐具你摆，我端饭。正好分工。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.Claude.04",
+          "speaker": "DeepSeek",
+          "text": "你少核一遍。漏的这条我盯着。"
+        }
+      ],
+      "see": "chat.DeepSeek.any.to.Claude"
+    },
+    {
+      "id": "chat.DeepSeek.any.to.GPT",
+      "character": "DeepSeek",
+      "context": "any",
+      "target": "GPT",
+      "tags": [],
+      "lines": [
+        {
+          "id": "chat.DeepSeek.any.to.GPT.01",
+          "speaker": "DeepSeek",
+          "text": "你分三步，我一步合并了。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.GPT.02",
+          "speaker": "DeepSeek",
+          "text": "计划留的缺口，我拿饭填上了。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.GPT.03",
+          "speaker": "DeepSeek",
+          "text": "骨架搭得稳。钢筋就省了吧。"
+        },
+        {
+          "id": "chat.DeepSeek.any.to.GPT.04",
+          "speaker": "DeepSeek",
+          "text": "你说框架，我说路。两条都走。"
+        }
+      ],
+      "see": "chat.DeepSeek.any.to.GPT"
+    }
+  ]
+}
